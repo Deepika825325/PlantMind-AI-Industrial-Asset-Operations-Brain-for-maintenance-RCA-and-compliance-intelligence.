@@ -1,0 +1,1308 @@
+{
+  "project": "PlantMind AI",
+  "artifact": "knowledge_graph_seed",
+  "generated_at": "2026-07-01T12:42:10",
+  "node_count": 49,
+  "edge_count": 78,
+  "nodes": [
+    {
+      "id": "PlantMind_AI",
+      "label": "PlantMind AI",
+      "type": "Project",
+      "properties": {
+        "description": "Industrial Asset and Operations Brain for maintenance, RCA, compliance, and knowledge intelligence."
+      }
+    },
+    {
+      "id": "High_Risk_Assets",
+      "label": "High Risk Assets",
+      "type": "RiskClass",
+      "properties": {}
+    },
+    {
+      "id": "Medium_Risk_Assets",
+      "label": "Medium Risk Assets",
+      "type": "RiskClass",
+      "properties": {}
+    },
+    {
+      "id": "P-101",
+      "label": "P-101 - Cooling Water Circulation Pump",
+      "type": "Asset",
+      "properties": {
+        "asset_name": "Cooling Water Circulation Pump",
+        "asset_type": "Pump",
+        "risk_score": 97,
+        "risk_level": "High",
+        "sensor_status": "Critical",
+        "compliance_status": "High Risk Non-Compliant",
+        "total_compliance_gaps": 2,
+        "critical_story": "High vibration, bearing temperature warning, abnormal noise, and missing lubrication evidence."
+      }
+    },
+    {
+      "id": "C-201",
+      "label": "C-201 - Process Air Compressor",
+      "type": "Asset",
+      "properties": {
+        "asset_name": "Process Air Compressor",
+        "asset_type": "Compressor",
+        "risk_score": 56,
+        "risk_level": "Medium",
+        "sensor_status": "Warning",
+        "compliance_status": "Medium Risk Non-Compliant",
+        "total_compliance_gaps": 1,
+        "critical_story": "Decreasing RUL, outlet temperature warning, pressure ratio instability, and delayed filter verification."
+      }
+    },
+    {
+      "id": "HX-301",
+      "label": "HX-301 - Feed Preheater Heat Exchanger",
+      "type": "Asset",
+      "properties": {
+        "asset_name": "Feed Preheater Heat Exchanger",
+        "asset_type": "Heat Exchanger",
+        "risk_score": 56,
+        "risk_level": "Medium",
+        "sensor_status": "Warning",
+        "compliance_status": "Medium Risk Non-Compliant",
+        "total_compliance_gaps": 2,
+        "critical_story": "Low outlet temperature, high pressure drop, reduced efficiency, suspected fouling, and overdue cleaning evidence."
+      }
+    },
+    {
+      "id": "COMP-001_Compliance_Checklist",
+      "label": "COMP-001: PlantMind Demo Compliance Checklist",
+      "type": "Document",
+      "properties": {
+        "document_type": "Compliance Checklist",
+        "source_group": "compliance",
+        "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+        "summary": "COMP-001: PlantMind Demo Compliance Checklist Document ID: COMP-001 Document Type: Compliance Checklist Assets Covered: P-101, C-201, HX-301 Review Date: 2026-03-10 Reviewer: Demo Compliance Officer Checklist Status: Open Gaps Found --- 1. Compliance Context This checklist evalua..."
+      }
+    },
+    {
+      "id": "PID-001",
+      "label": "PID-001 Demo Process Line",
+      "type": "Document",
+      "properties": {
+        "document_type": "P&ID Drawing",
+        "source_group": "drawings",
+        "relative_path": "documents/drawings/PID-001_Demo_Process_Line.metadata.json",
+        "summary": "PID-001 is a simplified P&ID-style demo drawing showing a process line from Feed Line through V-101, P-101 Pump, C-201 Compressor, HX-301 Heat Exchanger, V-201, and Outlet Line. It includes FT-101 flow transmitter, PT-201 pressure transmitter, and TT-301 temperature transmitter."
+      }
+    },
+    {
+      "id": "PID-001_Demo_Process_Line",
+      "label": "PID-001_Demo_Process_Line",
+      "type": "Document",
+      "properties": {
+        "document_type": "P&ID Drawing Image",
+        "source_group": "drawings",
+        "relative_path": "documents/drawings/PID-001_Demo_Process_Line.png",
+        "summary": "P&ID-style drawing image used for PlantMind AI demo process line."
+      }
+    },
+    {
+      "id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "label": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "type": "Document",
+      "properties": {
+        "document_type": "Incident Report",
+        "source_group": "incident_reports",
+        "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+        "summary": "INC-HX301-001: Low Heat Transfer Efficiency Document ID: INC-HX301-001 Asset ID: HX-301 Asset Name: Feed Preheater Heat Exchanger Asset Type: Heat Exchanger Document Type: Incident Report Incident Date: 2026-03-07 Reported By: Operations Team Incident Status: Open for Maintenance..."
+      }
+    },
+    {
+      "id": "INC-P101-001_High_Vibration_Event",
+      "label": "INC-P101-001: High Vibration Event",
+      "type": "Document",
+      "properties": {
+        "document_type": "Incident Report",
+        "source_group": "incident_reports",
+        "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+        "summary": "INC-P101-001: High Vibration Event Document ID: INC-P101-001 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: Incident Report Incident Date: 2026-01-22 Reported By: Operations Team Incident Status: Open for RCA --- 1. Incident Summary P-1..."
+      }
+    },
+    {
+      "id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "label": "IR-C201-001: Compressor Monthly Inspection",
+      "type": "Document",
+      "properties": {
+        "document_type": "Inspection Report",
+        "source_group": "inspection_reports",
+        "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+        "summary": "IR-C201-001: Compressor Monthly Inspection Document ID: IR-C201-001 Asset ID: C-201 Asset Name: Process Air Compressor Asset Type: Compressor Document Type: Inspection Report Inspection Date: 2026-02-15 Inspector: Demo Inspector Inspection Status: Completed --- 1. Inspection Purp..."
+      }
+    },
+    {
+      "id": "IR-GEN-001_Safety_Evidence_Audit",
+      "label": "IR-GEN-001: Safety Evidence Audit",
+      "type": "Document",
+      "properties": {
+        "document_type": "Inspection Report",
+        "source_group": "inspection_reports",
+        "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+        "summary": "IR-GEN-001: Safety Evidence Audit Document ID: IR-GEN-001 Asset ID: GENERAL Asset Name: PlantMind Demo Assets Asset Type: General Audit Document Type: Inspection Report Inspection Date: 2026-03-10 Inspector: Demo Safety Auditor Inspection Status: Completed --- 1. Audit Purpose Th..."
+      }
+    },
+    {
+      "id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "label": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "type": "Document",
+      "properties": {
+        "document_type": "Inspection Report",
+        "source_group": "inspection_reports",
+        "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+        "summary": "IR-HX301-001: Heat Exchanger Performance Inspection Document ID: IR-HX301-001 Asset ID: HX-301 Asset Name: Feed Preheater Heat Exchanger Asset Type: Heat Exchanger Document Type: Inspection Report Inspection Date: 2026-03-05 Inspector: Demo Inspector Inspection Status: Completed..."
+      }
+    },
+    {
+      "id": "IR-P101-001_Pump_Vibration_Inspection",
+      "label": "IR-P101-001: Pump Vibration Inspection",
+      "type": "Document",
+      "properties": {
+        "document_type": "Inspection Report",
+        "source_group": "inspection_reports",
+        "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+        "summary": "IR-P101-001: Pump Vibration Inspection Document ID: IR-P101-001 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: Inspection Report Inspection Date: 2026-01-21 Inspector: Demo Inspector Inspection Status: Completed --- 1. Inspection Purpos..."
+      }
+    },
+    {
+      "id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "label": "IR-P101-002: Pump Bearing Temperature Check",
+      "type": "Document",
+      "properties": {
+        "document_type": "Inspection Report",
+        "source_group": "inspection_reports",
+        "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+        "summary": "IR-P101-002: Pump Bearing Temperature Check Document ID: IR-P101-002 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: Inspection Report Inspection Date: 2026-01-22 Inspector: Demo Inspector Inspection Status: Completed --- 1. Inspection P..."
+      }
+    },
+    {
+      "id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "label": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "type": "Document",
+      "properties": {
+        "document_type": "SOP / Manual",
+        "source_group": "manuals_sops",
+        "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+        "summary": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation Document ID: SOP-C201-001 Asset ID: C-201 Asset Name: Process Air Compressor Asset Type: Compressor Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose This..."
+      }
+    },
+    {
+      "id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "label": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "type": "Document",
+      "properties": {
+        "document_type": "SOP / Manual",
+        "source_group": "manuals_sops",
+        "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+        "summary": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements Document ID: SOP-GEN-001 Asset ID: GENERAL Asset Name: Plant Maintenance Safety Procedure Asset Type: General Safety Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Safety and Maintenance Department -..."
+      }
+    },
+    {
+      "id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "label": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "type": "Document",
+      "properties": {
+        "document_type": "SOP / Manual",
+        "source_group": "manuals_sops",
+        "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+        "summary": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check Document ID: SOP-HX301-001 Asset ID: HX-301 Asset Name: Feed Preheater Heat Exchanger Asset Type: Heat Exchanger Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose T..."
+      }
+    },
+    {
+      "id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "label": "SOP-P101-001: Pump Lubrication and Bearing Check",
+      "type": "Document",
+      "properties": {
+        "document_type": "SOP / Manual",
+        "source_group": "manuals_sops",
+        "relative_path": "documents/manuals_sops/SOP-P101-001_Pump_Lubrication_and_Bearing_Check.md",
+        "summary": "SOP-P101-001: Pump Lubrication and Bearing Check Document ID: SOP-P101-001 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose This procedure defin..."
+      }
+    },
+    {
+      "id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "label": "SOP-P101-002: Pump Vibration Inspection",
+      "type": "Document",
+      "properties": {
+        "document_type": "SOP / Manual",
+        "source_group": "manuals_sops",
+        "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+        "summary": "SOP-P101-002: Pump Vibration Inspection Document ID: SOP-P101-002 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose This SOP defines the vibratio..."
+      }
+    },
+    {
+      "id": "README_PlantMind_Mapping",
+      "label": "AI4I Mapping for PlantMind AI",
+      "type": "Document",
+      "properties": {
+        "document_type": "Public Source Reference",
+        "source_group": "ai4i",
+        "relative_path": "public_sources/ai4i/README_PlantMind_Mapping.md",
+        "summary": "AI4I Mapping for PlantMind AI Purpose This folder contains the AI4I 2020 Predictive Maintenance dataset used as a public reference for machine failure and predictive maintenance behavior. PlantMind AI maps this dataset to the P-101 Pump demo use case. PlantMind Asset Mapping | AI..."
+      }
+    },
+    {
+      "id": "readme",
+      "label": "readme",
+      "type": "Document",
+      "properties": {
+        "document_type": "Public Source Reference",
+        "source_group": "nasa_cmapss",
+        "relative_path": "public_sources/nasa_cmapss/readme.txt",
+        "summary": "Data Set: FD001 Train trjectories: 100 Test trajectories: 100 Conditions: ONE (Sea Level) Fault Modes: ONE (HPC Degradation) Data Set: FD002 Train trjectories: 260 Test trajectories: 259 Conditions: SIX Fault Modes: ONE (HPC Degradation) Data Set: FD003 Train trjectories: 100 Tes..."
+      }
+    },
+    {
+      "id": "README_sources",
+      "label": "Public Dataset and Standards References",
+      "type": "Document",
+      "properties": {
+        "document_type": "Public Source Reference",
+        "source_group": "README_sources.md",
+        "relative_path": "public_sources/README_sources.md",
+        "summary": "Public Dataset and Standards References This folder records public references used for PlantMind AI demo dataset design. 1. AI4I 2020 Predictive Maintenance Dataset AI4I is used as a public predictive maintenance reference. PlantMind Mapping AI4I-style predictive maintenance beha..."
+      }
+    },
+    {
+      "id": "C-201_estimated_rul",
+      "label": "C-201 estimated_rul",
+      "type": "SensorSignal",
+      "properties": {
+        "asset_id": "C-201",
+        "sensor_name": "estimated_rul",
+        "unit": "cycles",
+        "latest_value": 36.0,
+        "latest_status": "Warning",
+        "trend_direction": "Decreasing",
+        "source_dataset": "NASA_CMAPSS_Mapped"
+      }
+    },
+    {
+      "id": "C-201_outlet_temperature",
+      "label": "C-201 outlet_temperature",
+      "type": "SensorSignal",
+      "properties": {
+        "asset_id": "C-201",
+        "sensor_name": "outlet_temperature",
+        "unit": "C",
+        "latest_value": 91.0,
+        "latest_status": "Warning",
+        "trend_direction": "Increasing",
+        "source_dataset": "NASA_CMAPSS_Mapped"
+      }
+    },
+    {
+      "id": "C-201_pressure_ratio",
+      "label": "C-201 pressure_ratio",
+      "type": "SensorSignal",
+      "properties": {
+        "asset_id": "C-201",
+        "sensor_name": "pressure_ratio",
+        "unit": "ratio",
+        "latest_value": 3.95,
+        "latest_status": "Warning",
+        "trend_direction": "Stable",
+        "source_dataset": "NASA_CMAPSS_Mapped"
+      }
+    },
+    {
+      "id": "HX-301_efficiency_index",
+      "label": "HX-301 efficiency_index",
+      "type": "SensorSignal",
+      "properties": {
+        "asset_id": "HX-301",
+        "sensor_name": "efficiency_index",
+        "unit": "index",
+        "latest_value": 0.71,
+        "latest_status": "Warning",
+        "trend_direction": "Stable",
+        "source_dataset": "Synthetic_Process_Mapped"
+      }
+    },
+    {
+      "id": "HX-301_outlet_temperature",
+      "label": "HX-301 outlet_temperature",
+      "type": "SensorSignal",
+      "properties": {
+        "asset_id": "HX-301",
+        "sensor_name": "outlet_temperature",
+        "unit": "C",
+        "latest_value": 88.0,
+        "latest_status": "Warning",
+        "trend_direction": "Decreasing",
+        "source_dataset": "Synthetic_Process_Mapped"
+      }
+    },
+    {
+      "id": "HX-301_pressure_drop",
+      "label": "HX-301 pressure_drop",
+      "type": "SensorSignal",
+      "properties": {
+        "asset_id": "HX-301",
+        "sensor_name": "pressure_drop",
+        "unit": "bar",
+        "latest_value": 1.9,
+        "latest_status": "Warning",
+        "trend_direction": "Stable",
+        "source_dataset": "Synthetic_Process_Mapped"
+      }
+    },
+    {
+      "id": "P-101_vibration",
+      "label": "P-101 vibration",
+      "type": "SensorSignal",
+      "properties": {
+        "asset_id": "P-101",
+        "sensor_name": "vibration",
+        "unit": "mm/s",
+        "latest_value": 7.8,
+        "latest_status": "Critical",
+        "trend_direction": "Increasing",
+        "source_dataset": "UCI_AI4I_Mapped"
+      }
+    },
+    {
+      "id": "GAP-001",
+      "label": "GAP-001 - Weekly lubrication check",
+      "type": "ComplianceGap",
+      "properties": {
+        "asset_id": "P-101",
+        "requirement": "Weekly lubrication check",
+        "expected_evidence": "Lubrication record",
+        "current_status": "Missing",
+        "gap_severity": "High",
+        "recommended_action": "Perform lubrication check and upload evidence",
+        "source_document": "COMP-001"
+      }
+    },
+    {
+      "id": "GAP-002",
+      "label": "GAP-002 - Work permit before bearing inspection",
+      "type": "ComplianceGap",
+      "properties": {
+        "asset_id": "P-101",
+        "requirement": "Work permit before bearing inspection",
+        "expected_evidence": "Work permit record",
+        "current_status": "Missing",
+        "gap_severity": "High",
+        "recommended_action": "Create or attach work permit before bearing inspection",
+        "source_document": "COMP-001"
+      }
+    },
+    {
+      "id": "GAP-003",
+      "label": "GAP-003 - Filter replacement verification",
+      "type": "ComplianceGap",
+      "properties": {
+        "asset_id": "C-201",
+        "requirement": "Filter replacement verification",
+        "expected_evidence": "Maintenance log or work order",
+        "current_status": "Delayed",
+        "gap_severity": "Medium",
+        "recommended_action": "Verify filter replacement completion",
+        "source_document": "COMP-001"
+      }
+    },
+    {
+      "id": "GAP-004",
+      "label": "GAP-004 - Cleaning and fouling inspection",
+      "type": "ComplianceGap",
+      "properties": {
+        "asset_id": "HX-301",
+        "requirement": "Cleaning and fouling inspection",
+        "expected_evidence": "Cleaning record",
+        "current_status": "Overdue",
+        "gap_severity": "Medium",
+        "recommended_action": "Schedule cleaning inspection and upload cleaning evidence",
+        "source_document": "COMP-001"
+      }
+    },
+    {
+      "id": "GAP-005",
+      "label": "GAP-005 - Work permit before cleaning",
+      "type": "ComplianceGap",
+      "properties": {
+        "asset_id": "HX-301",
+        "requirement": "Work permit before cleaning",
+        "expected_evidence": "Work permit record",
+        "current_status": "Missing",
+        "gap_severity": "Medium",
+        "recommended_action": "Attach work permit before cleaning activity",
+        "source_document": "COMP-001"
+      }
+    },
+    {
+      "id": "WO-1001",
+      "label": "WO-1001 - Bearing Inspection",
+      "type": "WorkOrder",
+      "properties": {
+        "asset_id": "P-101",
+        "asset_name": "Cooling Water Circulation Pump",
+        "work_order_type": "Bearing Inspection",
+        "priority": "High",
+        "status": "Open",
+        "created_date": "2026-01-22",
+        "due_date": "2026-01-24",
+        "description": "Inspect bearing housing due to high vibration and abnormal noise",
+        "compliance_related": "Yes"
+      }
+    },
+    {
+      "id": "WO-1002",
+      "label": "WO-1002 - Lubrication Verification",
+      "type": "WorkOrder",
+      "properties": {
+        "asset_id": "P-101",
+        "asset_name": "Cooling Water Circulation Pump",
+        "work_order_type": "Lubrication Verification",
+        "priority": "High",
+        "status": "Open",
+        "created_date": "2026-01-22",
+        "due_date": "2026-01-23",
+        "description": "Verify lubrication level and upload missing lubrication evidence",
+        "compliance_related": "Yes"
+      }
+    },
+    {
+      "id": "WO-1003",
+      "label": "WO-1003 - Filter Replacement Verification",
+      "type": "WorkOrder",
+      "properties": {
+        "asset_id": "C-201",
+        "asset_name": "Process Air Compressor",
+        "work_order_type": "Filter Replacement Verification",
+        "priority": "Medium",
+        "status": "Delayed",
+        "created_date": "2026-02-15",
+        "due_date": "2026-02-20",
+        "description": "Verify whether compressor filter replacement was completed",
+        "compliance_related": "Yes"
+      }
+    },
+    {
+      "id": "WO-1004",
+      "label": "WO-1004 - Compressor Inspection",
+      "type": "WorkOrder",
+      "properties": {
+        "asset_id": "C-201",
+        "asset_name": "Process Air Compressor",
+        "work_order_type": "Compressor Inspection",
+        "priority": "Medium",
+        "status": "Planned",
+        "created_date": "2026-02-15",
+        "due_date": "2026-02-28",
+        "description": "Inspect compressor due to decreasing RUL trend",
+        "compliance_related": "No"
+      }
+    },
+    {
+      "id": "WO-1005",
+      "label": "WO-1005 - Cleaning Inspection",
+      "type": "WorkOrder",
+      "properties": {
+        "asset_id": "HX-301",
+        "asset_name": "Feed Preheater Heat Exchanger",
+        "work_order_type": "Cleaning Inspection",
+        "priority": "Medium",
+        "status": "Open",
+        "created_date": "2026-03-05",
+        "due_date": "2026-03-12",
+        "description": "Schedule cleaning inspection due to fouling suspicion",
+        "compliance_related": "Yes"
+      }
+    },
+    {
+      "id": "WO-1006",
+      "label": "WO-1006 - Work Permit Review",
+      "type": "WorkOrder",
+      "properties": {
+        "asset_id": "HX-301",
+        "asset_name": "Feed Preheater Heat Exchanger",
+        "work_order_type": "Work Permit Review",
+        "priority": "Medium",
+        "status": "Open",
+        "created_date": "2026-03-07",
+        "due_date": "2026-03-10",
+        "description": "Verify work permit evidence before cleaning activity",
+        "compliance_related": "Yes"
+      }
+    },
+    {
+      "id": "FT-101",
+      "label": "FT-101 Flow Transmitter",
+      "type": "Instrument",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "PT-201",
+      "label": "PT-201 Pressure Transmitter",
+      "type": "Instrument",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "TT-301",
+      "label": "TT-301 Temperature Transmitter",
+      "type": "Instrument",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "V-101",
+      "label": "V-101 Isolation Valve",
+      "type": "Valve",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "V-201",
+      "label": "V-201 Isolation Valve",
+      "type": "Valve",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "Feed Line",
+      "label": "Feed Line",
+      "type": "ProcessNode",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "Outlet Line",
+      "label": "Outlet Line",
+      "type": "ProcessNode",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    }
+  ],
+  "edges": [
+    {
+      "id": "C-201__MENTIONED_IN__COMP-001_Compliance_Checklist",
+      "source": "C-201",
+      "target": "COMP-001_Compliance_Checklist",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "HX-301__MENTIONED_IN__COMP-001_Compliance_Checklist",
+      "source": "HX-301",
+      "target": "COMP-001_Compliance_Checklist",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__COMP-001_Compliance_Checklist",
+      "source": "P-101",
+      "target": "COMP-001_Compliance_Checklist",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "C-201__MENTIONED_IN__PID-001",
+      "source": "C-201",
+      "target": "PID-001",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "HX-301__MENTIONED_IN__PID-001",
+      "source": "HX-301",
+      "target": "PID-001",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__PID-001",
+      "source": "P-101",
+      "target": "PID-001",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "HX-301__MENTIONED_IN__INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "source": "HX-301",
+      "target": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__INC-P101-001_High_Vibration_Event",
+      "source": "P-101",
+      "target": "INC-P101-001_High_Vibration_Event",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "C-201__MENTIONED_IN__IR-C201-001_Compressor_Monthly_Inspection",
+      "source": "C-201",
+      "target": "IR-C201-001_Compressor_Monthly_Inspection",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "C-201__MENTIONED_IN__IR-GEN-001_Safety_Evidence_Audit",
+      "source": "C-201",
+      "target": "IR-GEN-001_Safety_Evidence_Audit",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "HX-301__MENTIONED_IN__IR-GEN-001_Safety_Evidence_Audit",
+      "source": "HX-301",
+      "target": "IR-GEN-001_Safety_Evidence_Audit",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__IR-GEN-001_Safety_Evidence_Audit",
+      "source": "P-101",
+      "target": "IR-GEN-001_Safety_Evidence_Audit",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "HX-301__MENTIONED_IN__IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "source": "HX-301",
+      "target": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__IR-P101-001_Pump_Vibration_Inspection",
+      "source": "P-101",
+      "target": "IR-P101-001_Pump_Vibration_Inspection",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__IR-P101-002_Pump_Bearing_Temperature_Check",
+      "source": "P-101",
+      "target": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "C-201__MENTIONED_IN__SOP-C201-001_Compressor_Safe_Shutdown",
+      "source": "C-201",
+      "target": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "HX-301__MENTIONED_IN__SOP-C201-001_Compressor_Safe_Shutdown",
+      "source": "HX-301",
+      "target": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__SOP-C201-001_Compressor_Safe_Shutdown",
+      "source": "P-101",
+      "target": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "C-201__MENTIONED_IN__SOP-GEN-001_Work_Permit_and_LOTO",
+      "source": "C-201",
+      "target": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "HX-301__MENTIONED_IN__SOP-GEN-001_Work_Permit_and_LOTO",
+      "source": "HX-301",
+      "target": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__SOP-GEN-001_Work_Permit_and_LOTO",
+      "source": "P-101",
+      "target": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "C-201__MENTIONED_IN__SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "source": "C-201",
+      "target": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "HX-301__MENTIONED_IN__SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "source": "HX-301",
+      "target": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "source": "P-101",
+      "target": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "source": "P-101",
+      "target": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "C-201__MENTIONED_IN__SOP-P101-002_Pump_Vibration_Inspection",
+      "source": "C-201",
+      "target": "SOP-P101-002_Pump_Vibration_Inspection",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "HX-301__MENTIONED_IN__SOP-P101-002_Pump_Vibration_Inspection",
+      "source": "HX-301",
+      "target": "SOP-P101-002_Pump_Vibration_Inspection",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__SOP-P101-002_Pump_Vibration_Inspection",
+      "source": "P-101",
+      "target": "SOP-P101-002_Pump_Vibration_Inspection",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__README_PlantMind_Mapping",
+      "source": "P-101",
+      "target": "README_PlantMind_Mapping",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "C-201__MENTIONED_IN__README_PlantMind_Mapping",
+      "source": "C-201",
+      "target": "README_PlantMind_Mapping",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "P-101__MENTIONED_IN__README_sources",
+      "source": "P-101",
+      "target": "README_sources",
+      "relationship": "MENTIONED_IN",
+      "properties": {
+        "source": "documents_index.csv"
+      }
+    },
+    {
+      "id": "C-201__HAS_SENSOR_SIGNAL__C-201_estimated_rul",
+      "source": "C-201",
+      "target": "C-201_estimated_rul",
+      "relationship": "HAS_SENSOR_SIGNAL",
+      "properties": {
+        "latest_status": "Warning",
+        "trend_direction": "Decreasing"
+      }
+    },
+    {
+      "id": "C-201__HAS_SENSOR_SIGNAL__C-201_outlet_temperature",
+      "source": "C-201",
+      "target": "C-201_outlet_temperature",
+      "relationship": "HAS_SENSOR_SIGNAL",
+      "properties": {
+        "latest_status": "Warning",
+        "trend_direction": "Increasing"
+      }
+    },
+    {
+      "id": "C-201__HAS_SENSOR_SIGNAL__C-201_pressure_ratio",
+      "source": "C-201",
+      "target": "C-201_pressure_ratio",
+      "relationship": "HAS_SENSOR_SIGNAL",
+      "properties": {
+        "latest_status": "Warning",
+        "trend_direction": "Stable"
+      }
+    },
+    {
+      "id": "HX-301__HAS_SENSOR_SIGNAL__HX-301_efficiency_index",
+      "source": "HX-301",
+      "target": "HX-301_efficiency_index",
+      "relationship": "HAS_SENSOR_SIGNAL",
+      "properties": {
+        "latest_status": "Warning",
+        "trend_direction": "Stable"
+      }
+    },
+    {
+      "id": "HX-301__HAS_SENSOR_SIGNAL__HX-301_outlet_temperature",
+      "source": "HX-301",
+      "target": "HX-301_outlet_temperature",
+      "relationship": "HAS_SENSOR_SIGNAL",
+      "properties": {
+        "latest_status": "Warning",
+        "trend_direction": "Decreasing"
+      }
+    },
+    {
+      "id": "HX-301__HAS_SENSOR_SIGNAL__HX-301_pressure_drop",
+      "source": "HX-301",
+      "target": "HX-301_pressure_drop",
+      "relationship": "HAS_SENSOR_SIGNAL",
+      "properties": {
+        "latest_status": "Warning",
+        "trend_direction": "Stable"
+      }
+    },
+    {
+      "id": "P-101__HAS_SENSOR_SIGNAL__P-101_vibration",
+      "source": "P-101",
+      "target": "P-101_vibration",
+      "relationship": "HAS_SENSOR_SIGNAL",
+      "properties": {
+        "latest_status": "Critical",
+        "trend_direction": "Increasing"
+      }
+    },
+    {
+      "id": "P-101__HAS_COMPLIANCE_GAP__GAP-001",
+      "source": "P-101",
+      "target": "GAP-001",
+      "relationship": "HAS_COMPLIANCE_GAP",
+      "properties": {
+        "severity": "High",
+        "status": "Missing"
+      }
+    },
+    {
+      "id": "GAP-001__SUPPORTED_BY__COMP-001",
+      "source": "GAP-001",
+      "target": "COMP-001",
+      "relationship": "SUPPORTED_BY",
+      "properties": {
+        "source": "compliance_matrix.json"
+      }
+    },
+    {
+      "id": "P-101__HAS_COMPLIANCE_GAP__GAP-002",
+      "source": "P-101",
+      "target": "GAP-002",
+      "relationship": "HAS_COMPLIANCE_GAP",
+      "properties": {
+        "severity": "High",
+        "status": "Missing"
+      }
+    },
+    {
+      "id": "GAP-002__SUPPORTED_BY__COMP-001",
+      "source": "GAP-002",
+      "target": "COMP-001",
+      "relationship": "SUPPORTED_BY",
+      "properties": {
+        "source": "compliance_matrix.json"
+      }
+    },
+    {
+      "id": "C-201__HAS_COMPLIANCE_GAP__GAP-003",
+      "source": "C-201",
+      "target": "GAP-003",
+      "relationship": "HAS_COMPLIANCE_GAP",
+      "properties": {
+        "severity": "Medium",
+        "status": "Delayed"
+      }
+    },
+    {
+      "id": "GAP-003__SUPPORTED_BY__COMP-001",
+      "source": "GAP-003",
+      "target": "COMP-001",
+      "relationship": "SUPPORTED_BY",
+      "properties": {
+        "source": "compliance_matrix.json"
+      }
+    },
+    {
+      "id": "HX-301__HAS_COMPLIANCE_GAP__GAP-004",
+      "source": "HX-301",
+      "target": "GAP-004",
+      "relationship": "HAS_COMPLIANCE_GAP",
+      "properties": {
+        "severity": "Medium",
+        "status": "Overdue"
+      }
+    },
+    {
+      "id": "GAP-004__SUPPORTED_BY__COMP-001",
+      "source": "GAP-004",
+      "target": "COMP-001",
+      "relationship": "SUPPORTED_BY",
+      "properties": {
+        "source": "compliance_matrix.json"
+      }
+    },
+    {
+      "id": "HX-301__HAS_COMPLIANCE_GAP__GAP-005",
+      "source": "HX-301",
+      "target": "GAP-005",
+      "relationship": "HAS_COMPLIANCE_GAP",
+      "properties": {
+        "severity": "Medium",
+        "status": "Missing"
+      }
+    },
+    {
+      "id": "GAP-005__SUPPORTED_BY__COMP-001",
+      "source": "GAP-005",
+      "target": "COMP-001",
+      "relationship": "SUPPORTED_BY",
+      "properties": {
+        "source": "compliance_matrix.json"
+      }
+    },
+    {
+      "id": "P-101__HAS_WORK_ORDER__WO-1001",
+      "source": "P-101",
+      "target": "WO-1001",
+      "relationship": "HAS_WORK_ORDER",
+      "properties": {
+        "priority": "High",
+        "status": "Open"
+      }
+    },
+    {
+      "id": "WO-1001__LINKED_TO_DOCUMENT__INC-P101-001",
+      "source": "WO-1001",
+      "target": "INC-P101-001",
+      "relationship": "LINKED_TO_DOCUMENT",
+      "properties": {
+        "source": "work_orders_processed.json"
+      }
+    },
+    {
+      "id": "P-101__HAS_WORK_ORDER__WO-1002",
+      "source": "P-101",
+      "target": "WO-1002",
+      "relationship": "HAS_WORK_ORDER",
+      "properties": {
+        "priority": "High",
+        "status": "Open"
+      }
+    },
+    {
+      "id": "WO-1002__LINKED_TO_DOCUMENT__SOP-P101-001",
+      "source": "WO-1002",
+      "target": "SOP-P101-001",
+      "relationship": "LINKED_TO_DOCUMENT",
+      "properties": {
+        "source": "work_orders_processed.json"
+      }
+    },
+    {
+      "id": "C-201__HAS_WORK_ORDER__WO-1003",
+      "source": "C-201",
+      "target": "WO-1003",
+      "relationship": "HAS_WORK_ORDER",
+      "properties": {
+        "priority": "Medium",
+        "status": "Delayed"
+      }
+    },
+    {
+      "id": "WO-1003__LINKED_TO_DOCUMENT__IR-C201-001",
+      "source": "WO-1003",
+      "target": "IR-C201-001",
+      "relationship": "LINKED_TO_DOCUMENT",
+      "properties": {
+        "source": "work_orders_processed.json"
+      }
+    },
+    {
+      "id": "C-201__HAS_WORK_ORDER__WO-1004",
+      "source": "C-201",
+      "target": "WO-1004",
+      "relationship": "HAS_WORK_ORDER",
+      "properties": {
+        "priority": "Medium",
+        "status": "Planned"
+      }
+    },
+    {
+      "id": "WO-1004__LINKED_TO_DOCUMENT__IR-C201-001",
+      "source": "WO-1004",
+      "target": "IR-C201-001",
+      "relationship": "LINKED_TO_DOCUMENT",
+      "properties": {
+        "source": "work_orders_processed.json"
+      }
+    },
+    {
+      "id": "HX-301__HAS_WORK_ORDER__WO-1005",
+      "source": "HX-301",
+      "target": "WO-1005",
+      "relationship": "HAS_WORK_ORDER",
+      "properties": {
+        "priority": "Medium",
+        "status": "Open"
+      }
+    },
+    {
+      "id": "WO-1005__LINKED_TO_DOCUMENT__IR-HX301-001",
+      "source": "WO-1005",
+      "target": "IR-HX301-001",
+      "relationship": "LINKED_TO_DOCUMENT",
+      "properties": {
+        "source": "work_orders_processed.json"
+      }
+    },
+    {
+      "id": "HX-301__HAS_WORK_ORDER__WO-1006",
+      "source": "HX-301",
+      "target": "WO-1006",
+      "relationship": "HAS_WORK_ORDER",
+      "properties": {
+        "priority": "Medium",
+        "status": "Open"
+      }
+    },
+    {
+      "id": "WO-1006__LINKED_TO_DOCUMENT__COMP-001",
+      "source": "WO-1006",
+      "target": "COMP-001",
+      "relationship": "LINKED_TO_DOCUMENT",
+      "properties": {
+        "source": "work_orders_processed.json"
+      }
+    },
+    {
+      "id": "PID-001__HAS_ASSET__P-101",
+      "source": "PID-001",
+      "target": "P-101",
+      "relationship": "HAS_ASSET",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "PID-001__HAS_ASSET__C-201",
+      "source": "PID-001",
+      "target": "C-201",
+      "relationship": "HAS_ASSET",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "PID-001__HAS_ASSET__HX-301",
+      "source": "PID-001",
+      "target": "HX-301",
+      "relationship": "HAS_ASSET",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "Feed Line__FLOWS_THROUGH__V-101",
+      "source": "Feed Line",
+      "target": "V-101",
+      "relationship": "FLOWS_THROUGH",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "V-101__FEEDS__P-101",
+      "source": "V-101",
+      "target": "P-101",
+      "relationship": "FEEDS",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "P-101__CONNECTED_TO__C-201",
+      "source": "P-101",
+      "target": "C-201",
+      "relationship": "CONNECTED_TO",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "C-201__CONNECTED_TO__HX-301",
+      "source": "C-201",
+      "target": "HX-301",
+      "relationship": "CONNECTED_TO",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "HX-301__DISCHARGES_TO__V-201",
+      "source": "HX-301",
+      "target": "V-201",
+      "relationship": "DISCHARGES_TO",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "V-201__FLOWS_TO__Outlet Line",
+      "source": "V-201",
+      "target": "Outlet Line",
+      "relationship": "FLOWS_TO",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "FT-101__MEASURES_FLOW__Feed Line",
+      "source": "FT-101",
+      "target": "Feed Line",
+      "relationship": "MEASURES_FLOW",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "PT-201__MEASURES_PRESSURE__C-201",
+      "source": "PT-201",
+      "target": "C-201",
+      "relationship": "MEASURES_PRESSURE",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "TT-301__MEASURES_TEMPERATURE__HX-301",
+      "source": "TT-301",
+      "target": "HX-301",
+      "relationship": "MEASURES_TEMPERATURE",
+      "properties": {
+        "source": "PID-001 metadata"
+      }
+    },
+    {
+      "id": "P-101__CLASSIFIED_AS__High_Risk_Assets",
+      "source": "P-101",
+      "target": "High_Risk_Assets",
+      "relationship": "CLASSIFIED_AS",
+      "properties": {
+        "risk_score": 97
+      }
+    },
+    {
+      "id": "C-201__CLASSIFIED_AS__Medium_Risk_Assets",
+      "source": "C-201",
+      "target": "Medium_Risk_Assets",
+      "relationship": "CLASSIFIED_AS",
+      "properties": {
+        "risk_score": 56
+      }
+    },
+    {
+      "id": "HX-301__CLASSIFIED_AS__Medium_Risk_Assets",
+      "source": "HX-301",
+      "target": "Medium_Risk_Assets",
+      "relationship": "CLASSIFIED_AS",
+      "properties": {
+        "risk_score": 56
+      }
+    },
+    {
+      "id": "PlantMind_AI__TRACKS_ASSET__P-101",
+      "source": "PlantMind_AI",
+      "target": "P-101",
+      "relationship": "TRACKS_ASSET",
+      "properties": {}
+    },
+    {
+      "id": "PlantMind_AI__TRACKS_ASSET__C-201",
+      "source": "PlantMind_AI",
+      "target": "C-201",
+      "relationship": "TRACKS_ASSET",
+      "properties": {}
+    },
+    {
+      "id": "PlantMind_AI__TRACKS_ASSET__HX-301",
+      "source": "PlantMind_AI",
+      "target": "HX-301",
+      "relationship": "TRACKS_ASSET",
+      "properties": {}
+    }
+  ]
+}

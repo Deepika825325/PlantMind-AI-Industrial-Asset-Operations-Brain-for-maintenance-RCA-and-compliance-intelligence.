@@ -1,0 +1,95 @@
+{
+  "artifact": "compliance_matrix",
+  "generated_at": "2026-07-01T12:40:09",
+  "asset_compliance_summary": [
+    {
+      "asset_id": "C-201",
+      "total_gaps": 1,
+      "high_severity_gaps": 0,
+      "medium_severity_gaps": 1,
+      "compliance_status": "Medium Risk Non-Compliant",
+      "gap_ids": [
+        "GAP-003"
+      ]
+    },
+    {
+      "asset_id": "HX-301",
+      "total_gaps": 2,
+      "high_severity_gaps": 0,
+      "medium_severity_gaps": 2,
+      "compliance_status": "Medium Risk Non-Compliant",
+      "gap_ids": [
+        "GAP-004",
+        "GAP-005"
+      ]
+    },
+    {
+      "asset_id": "P-101",
+      "total_gaps": 2,
+      "high_severity_gaps": 2,
+      "medium_severity_gaps": 0,
+      "compliance_status": "High Risk Non-Compliant",
+      "gap_ids": [
+        "GAP-001",
+        "GAP-002"
+      ]
+    }
+  ],
+  "gaps": [
+    {
+      "gap_id": "GAP-001",
+      "asset_id": "P-101",
+      "requirement": "Weekly lubrication check",
+      "expected_evidence": "Lubrication record",
+      "current_status": "Missing",
+      "evidence_file": "",
+      "gap_severity": "High",
+      "recommended_action": "Perform lubrication check and upload evidence",
+      "source_document": "COMP-001"
+    },
+    {
+      "gap_id": "GAP-002",
+      "asset_id": "P-101",
+      "requirement": "Work permit before bearing inspection",
+      "expected_evidence": "Work permit record",
+      "current_status": "Missing",
+      "evidence_file": "",
+      "gap_severity": "High",
+      "recommended_action": "Create or attach work permit before bearing inspection",
+      "source_document": "COMP-001"
+    },
+    {
+      "gap_id": "GAP-003",
+      "asset_id": "C-201",
+      "requirement": "Filter replacement verification",
+      "expected_evidence": "Maintenance log or work order",
+      "current_status": "Delayed",
+      "evidence_file": "WO-1003",
+      "gap_severity": "Medium",
+      "recommended_action": "Verify filter replacement completion",
+      "source_document": "COMP-001"
+    },
+    {
+      "gap_id": "GAP-004",
+      "asset_id": "HX-301",
+      "requirement": "Cleaning and fouling inspection",
+      "expected_evidence": "Cleaning record",
+      "current_status": "Overdue",
+      "evidence_file": "",
+      "gap_severity": "Medium",
+      "recommended_action": "Schedule cleaning inspection and upload cleaning evidence",
+      "source_document": "COMP-001"
+    },
+    {
+      "gap_id": "GAP-005",
+      "asset_id": "HX-301",
+      "requirement": "Work permit before cleaning",
+      "expected_evidence": "Work permit record",
+      "current_status": "Missing",
+      "evidence_file": "",
+      "gap_severity": "Medium",
+      "recommended_action": "Attach work permit before cleaning activity",
+      "source_document": "COMP-001"
+    }
+  ]
+}

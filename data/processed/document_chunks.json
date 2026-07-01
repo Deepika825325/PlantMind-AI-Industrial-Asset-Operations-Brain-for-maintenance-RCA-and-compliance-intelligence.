@@ -1,0 +1,3446 @@
+{
+  "project": "PlantMind AI",
+  "artifact": "document_chunks",
+  "total_documents": 19,
+  "total_chunks": 163,
+  "chunk_size": 900,
+  "chunk_overlap": 150,
+  "generated_at": "2026-07-01T12:38:31",
+  "chunks": [
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_001",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "# COMP-001: PlantMind Demo Compliance Checklist\n\nDocument ID: COMP-001\nDocument Type: Compliance Checklist\nAssets Covered: P-101, C-201, HX-301\nReview Date: 2026-03-10\nReviewer: Demo Compliance Officer\nChecklist Status: Open Gaps Found\n\n---",
+      "chunk_word_count": 31,
+      "chunk_character_count": 240,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_002",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "1. Compliance Context",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 1. Compliance Context\n\nThis checklist evaluates whether required maintenance, inspection, safety, and evidence records are available for PlantMind demo assets.\n\nThe compliance logic is inspired by industrial maintenance safety practices, including:\n\n* Work permit discipline\n* Lockout tagout evidence\n* Inspection evidence\n* Maintenance verification\n* Cleaning records\n* Safe shutdown procedure availability\n* Asset-specific evidence tracking\n\nThis checklist is synthetic demo data and is not a replacement for any official safety standard.\n\n---",
+      "chunk_word_count": 75,
+      "chunk_character_count": 548,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_003",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "2. Assets Covered",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 2. Assets Covered\n\n| Asset ID | Asset Name | Asset Type | Criticality |\n| -------- | ------------------------------ | -------------- | ----------- |\n| P-101 | Cooling Water Circulation Pump | Pump | High |\n| C-201 | Process Air Compressor | Compressor | Medium-High |\n| HX-301 | Feed Preheater Heat Exchanger | Heat Exchanger | Medium |\n\n---",
+      "chunk_word_count": 62,
+      "chunk_character_count": 344,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_004",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "3. Compliance Matrix",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 3. Compliance Matrix\n\n| Asset ID | Requirement | Expected Evidence | Status | Evidence File | Gap |\n| -------- | ------------------------------------- | ----------------------------- | --------- | ------------- | --- |\n| P-101 | Weekly vibration inspection | Inspection report | Available | IR-P101-001 | No |\n| P-101 | Weekly lubrication check | Lubrication record | Missing | Not available | Yes |\n| P-101 | Work permit before bearing inspection | Work permit record | Missing | Not available | Yes |\n| C-201 | Monthly compressor inspection | Inspection report | Available | IR-C201-001 | No |\n| C-201 | Filter replacement verification | Maintenance log or work order | Delayed | WO-1003 | Yes |\n| C-201 | Safe shutdown procedure confirmation | SOP reference | Available | SOP-C201-001 | No |\n| HX-301 | Pressure test evidence | Test record or SOP reference | Available | SOP-HX301-001 | No |\n|",
+      "chunk_word_count": 158,
+      "chunk_character_count": 899,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_005",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "3. Compliance Matrix",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "SOP reference | Available | SOP-C201-001 | No |\n| HX-301 | Pressure test evidence | Test record or SOP reference | Available | SOP-HX301-001 | No |\n| HX-301 | Cleaning and fouling inspection | Cleaning record | Overdue | Not available | Yes |\n| HX-301 | Work permit before cleaning | Work permit record | Missing | Not available | Yes |\n\n---",
+      "chunk_word_count": 66,
+      "chunk_character_count": 341,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_006",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "4. Ground Truth Compliance Gaps",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 4. Ground Truth Compliance Gaps\n\nThe following compliance gaps are intentionally defined for the demo:\n\n1. P-101 lubrication evidence is missing.\n2. P-101 work permit evidence is missing before bearing inspection.\n3. C-201 filter replacement verification is delayed.\n4. HX-301 cleaning and fouling inspection evidence is overdue.\n5. HX-301 work permit evidence is missing before cleaning activity.\n\n---",
+      "chunk_word_count": 59,
+      "chunk_character_count": 405,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_007",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "5. Asset-Level Compliance Summary",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 5. Asset-Level Compliance Summary",
+      "chunk_word_count": 5,
+      "chunk_character_count": 36,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_008",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "P-101 Pump",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "### P-101 Pump\n\nP-101 has two compliance gaps:\n\n* Weekly lubrication evidence is missing.\n* Work permit evidence is missing before bearing inspection.\n\nP-101 also has technical risk because vibration exceeded the critical threshold.",
+      "chunk_word_count": 34,
+      "chunk_character_count": 232,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_009",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "C-201 Compressor",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "### C-201 Compressor\n\nC-201 has one compliance gap:\n\n* Filter replacement verification is delayed.\n\nMonthly compressor inspection evidence is available.",
+      "chunk_word_count": 20,
+      "chunk_character_count": 152,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_010",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "HX-301 Heat Exchanger",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "### HX-301 Heat Exchanger\n\nHX-301 has two compliance gaps:\n\n* Cleaning and fouling inspection evidence is overdue.\n* Work permit evidence is missing before cleaning activity.\n\nHX-301 also has technical risk because outlet temperature is below target and pressure drop is above warning threshold.\n\n---",
+      "chunk_word_count": 45,
+      "chunk_character_count": 300,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_011",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "6. Recommended Compliance Actions",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 6. Recommended Compliance Actions\n\n| Gap | Recommended Action |\n| ---------------------------------- | ---------------------------------------------------------- |\n| P-101 lubrication evidence missing | Perform lubrication check and upload lubrication record |\n| P-101 work permit missing | Create or attach work permit before bearing inspection |\n| C-201 filter verification delayed | Verify filter replacement completion and update work order |\n| HX-301 cleaning evidence overdue | Schedule cleaning inspection and upload cleaning record |\n| HX-301 work permit missing | Create or attach work permit before cleaning activity |\n\n---",
+      "chunk_word_count": 90,
+      "chunk_character_count": 636,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_012",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "7. Related Documents",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 7. Related Documents\n\n* SOP-GEN-001: Work Permit and Lockout Tagout Requirements\n* SOP-P101-001: Pump Lubrication and Bearing Check\n* SOP-P101-002: Pump Vibration Inspection\n* SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation\n* SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check\n* IR-P101-001: Pump Vibration Inspection\n* IR-C201-001: Compressor Monthly Inspection\n* IR-HX301-001: Heat Exchanger Performance Inspection\n* IR-GEN-001: Safety Evidence Audit\n* work_orders.csv\n* ground_truth_compliance_gaps.csv\n\n---",
+      "chunk_word_count": 66,
+      "chunk_character_count": 537,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "COMP-001_Compliance_Checklist_CHUNK_013",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "section_title": "8. Keywords",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 8. Keywords\n\ncompliance, compliance checklist, missing evidence, overdue evidence, delayed verification, work permit, LOTO, lubrication evidence, cleaning evidence, filter replacement, P-101, C-201, HX-301",
+      "chunk_word_count": 24,
+      "chunk_character_count": 208,
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "PID-001_CHUNK_001",
+      "document_id": "PID-001",
+      "document_title": "PID-001 Demo Process Line",
+      "document_type": "P&ID Drawing",
+      "source_group": "drawings",
+      "section_title": "Document Body",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "FT-101",
+        "HX-301",
+        "P-101",
+        "PID-001",
+        "PT-201",
+        "TT-301",
+        "V-101",
+        "V-201"
+      ],
+      "chunk_text": "{\n \"document_id\": \"PID-001\",\n \"file_name\": \"PID-001_Demo_Process_Line.png\",\n \"document_type\": \"P&ID Drawing\",\n \"title\": \"PID-001 Demo Process Line\",\n \"source_context\": \"DEXPI-style P&ID reference\",\n \"data_type\": \"Synthetic demo drawing metadata\",\n \"created_for_project\": \"PlantMind AI\",\n \"description\": \"Simplified P&ID-style process line showing feed flow through P-101 Pump, C-201 Compressor, and HX-301 Heat Exchanger before outlet discharge.\",\n \"assets\": [\n {\n \"asset_id\": \"P-101\",\n \"asset_name\": \"Cooling Water Circulation Pump\",\n \"asset_type\": \"Pump\",\n \"symbol_label\": \"Pump\",\n \"position_in_process\": \"After V-101 isolation valve and before C-201 compressor\"\n },\n {\n \"asset_id\": \"C-201\",\n \"asset_name\": \"Process Air Compressor\",\n \"asset_type\": \"Compressor\",\n \"symbol_label\": \"Compressor\",\n \"position_in_process\": \"After P-101 pump and before HX-301 heat exchanger\"\n },\n {\n \"asset_id\":",
+      "chunk_word_count": 92,
+      "chunk_character_count": 890,
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.metadata.json",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "PID-001_CHUNK_002",
+      "document_id": "PID-001",
+      "document_title": "PID-001 Demo Process Line",
+      "document_type": "P&ID Drawing",
+      "source_group": "drawings",
+      "section_title": "Document Body",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "FT-101",
+        "HX-301",
+        "P-101",
+        "PID-001",
+        "PT-201",
+        "TT-301",
+        "V-101",
+        "V-201"
+      ],
+      "chunk_text": "et_type\": \"Compressor\",\n \"symbol_label\": \"Compressor\",\n \"position_in_process\": \"After P-101 pump and before HX-301 heat exchanger\"\n },\n {\n \"asset_id\": \"HX-301\",\n \"asset_name\": \"Feed Preheater Heat Exchanger\",\n \"asset_type\": \"Heat Exchanger\",\n \"symbol_label\": \"Heat Exchanger\",\n \"position_in_process\": \"After C-201 compressor and before V-201 isolation valve\"\n }\n ],\n \"instruments\": [\n {\n \"tag\": \"FT-101\",\n \"name\": \"Flow Transmitter\",\n \"measured_variable\": \"Flow\",\n \"associated_section\": \"Feed line before P-101\"\n },\n {\n \"tag\": \"PT-201\",\n \"name\": \"Pressure Transmitter\",\n \"measured_variable\": \"Pressure\",\n \"associated_section\": \"Compressor discharge / C-201 section\"\n },\n {\n \"tag\": \"TT-301\",\n \"name\": \"Temperature Transmitter\",\n \"measured_variable\": \"Temperature\",\n \"associated_section\": \"HX-301 heat exchanger outlet section\"\n }\n ],\n \"valves\": [\n {\n \"tag\": \"V-101\",\n \"name\": \"Isolation Valve\",",
+      "chunk_word_count": 94,
+      "chunk_character_count": 893,
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.metadata.json",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "PID-001_CHUNK_003",
+      "document_id": "PID-001",
+      "document_title": "PID-001 Demo Process Line",
+      "document_type": "P&ID Drawing",
+      "source_group": "drawings",
+      "section_title": "Document Body",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "FT-101",
+        "HX-301",
+        "P-101",
+        "PID-001",
+        "PT-201",
+        "TT-301",
+        "V-101",
+        "V-201"
+      ],
+      "chunk_text": "le\": \"Temperature\",\n \"associated_section\": \"HX-301 heat exchanger outlet section\"\n }\n ],\n \"valves\": [\n {\n \"tag\": \"V-101\",\n \"name\": \"Isolation Valve\",\n \"valve_type\": \"Manual isolation valve\",\n \"associated_section\": \"Before P-101 pump\"\n },\n {\n \"tag\": \"V-201\",\n \"name\": \"Isolation Valve\",\n \"valve_type\": \"Manual isolation valve\",\n \"associated_section\": \"After HX-301 heat exchanger\"\n }\n ],\n \"process_flow\": [\n {\n \"sequence\": 1,\n \"from\": \"Feed Line\",\n \"to\": \"FT-101\",\n \"relationship\": \"MEASURED_BY\"\n },\n {\n \"sequence\": 2,\n \"from\": \"Feed Line\",\n \"to\": \"V-101\",\n \"relationship\": \"FLOWS_THROUGH\"\n },\n {\n \"sequence\": 3,\n \"from\": \"V-101\",\n \"to\": \"P-101\",\n \"relationship\": \"FEEDS\"\n },\n {\n \"sequence\": 4,\n \"from\": \"P-101\",\n \"to\": \"C-201\",\n \"relationship\": \"CONNECTED_TO\"\n },\n {\n \"sequence\": 5,\n \"from\": \"C-201\",\n \"to\": \"PT-201\",\n \"relationship\": \"MONITORED_BY\"\n },\n {\n \"sequence\": 6,\n \"from\": \"C-201\",\n \"to\":",
+      "chunk_word_count": 104,
+      "chunk_character_count": 897,
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.metadata.json",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "PID-001_CHUNK_004",
+      "document_id": "PID-001",
+      "document_title": "PID-001 Demo Process Line",
+      "document_type": "P&ID Drawing",
+      "source_group": "drawings",
+      "section_title": "Document Body",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "FT-101",
+        "HX-301",
+        "P-101",
+        "PID-001",
+        "PT-201",
+        "TT-301",
+        "V-101",
+        "V-201"
+      ],
+      "chunk_text": "ONNECTED_TO\"\n },\n {\n \"sequence\": 5,\n \"from\": \"C-201\",\n \"to\": \"PT-201\",\n \"relationship\": \"MONITORED_BY\"\n },\n {\n \"sequence\": 6,\n \"from\": \"C-201\",\n \"to\": \"HX-301\",\n \"relationship\": \"CONNECTED_TO\"\n },\n {\n \"sequence\": 7,\n \"from\": \"HX-301\",\n \"to\": \"TT-301\",\n \"relationship\": \"MONITORED_BY\"\n },\n {\n \"sequence\": 8,\n \"from\": \"HX-301\",\n \"to\": \"V-201\",\n \"relationship\": \"DISCHARGES_TO\"\n },\n {\n \"sequence\": 9,\n \"from\": \"V-201\",\n \"to\": \"Outlet Line\",\n \"relationship\": \"FLOWS_TO\"\n }\n ],\n \"extracted_tags\": [\n \"PID-001\",\n \"P-101\",\n \"C-201\",\n \"HX-301\",\n \"FT-101\",\n \"PT-201\",\n \"TT-301\",\n \"V-101\",\n \"V-201\"\n ],\n \"graph_nodes\": [\n {\n \"id\": \"PID-001\",\n \"label\": \"PID-001 Demo Process Line\",\n \"type\": \"Document\"\n },\n {\n \"id\": \"P-101\",\n \"label\": \"P-101 Pump\",\n \"type\": \"Asset\"\n },\n {\n \"id\": \"C-201\",\n \"label\": \"C-201 Compressor\",\n \"type\": \"Asset\"\n },\n {\n \"id\": \"HX-301\",\n \"label\": \"HX-301 Heat Exchanger\",\n \"type\":",
+      "chunk_word_count": 105,
+      "chunk_character_count": 892,
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.metadata.json",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "PID-001_CHUNK_005",
+      "document_id": "PID-001",
+      "document_title": "PID-001 Demo Process Line",
+      "document_type": "P&ID Drawing",
+      "source_group": "drawings",
+      "section_title": "Document Body",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "FT-101",
+        "HX-301",
+        "P-101",
+        "PID-001",
+        "PT-201",
+        "TT-301",
+        "V-101",
+        "V-201"
+      ],
+      "chunk_text": "pe\": \"Asset\"\n },\n {\n \"id\": \"C-201\",\n \"label\": \"C-201 Compressor\",\n \"type\": \"Asset\"\n },\n {\n \"id\": \"HX-301\",\n \"label\": \"HX-301 Heat Exchanger\",\n \"type\": \"Asset\"\n },\n {\n \"id\": \"FT-101\",\n \"label\": \"FT-101 Flow Transmitter\",\n \"type\": \"Instrument\"\n },\n {\n \"id\": \"PT-201\",\n \"label\": \"PT-201 Pressure Transmitter\",\n \"type\": \"Instrument\"\n },\n {\n \"id\": \"TT-301\",\n \"label\": \"TT-301 Temperature Transmitter\",\n \"type\": \"Instrument\"\n },\n {\n \"id\": \"V-101\",\n \"label\": \"V-101 Isolation Valve\",\n \"type\": \"Valve\"\n },\n {\n \"id\": \"V-201\",\n \"label\": \"V-201 Isolation Valve\",\n \"type\": \"Valve\"\n }\n ],\n \"graph_edges\": [\n {\n \"source\": \"PID-001\",\n \"target\": \"P-101\",\n \"relationship\": \"HAS_ASSET\"\n },\n {\n \"source\": \"PID-001\",\n \"target\": \"C-201\",\n \"relationship\": \"HAS_ASSET\"\n },\n {\n \"source\": \"PID-001\",\n \"target\": \"HX-301\",\n \"relationship\": \"HAS_ASSET\"\n },\n {\n \"source\": \"Feed Line\",\n \"target\": \"V-101\",\n \"relationship\":",
+      "chunk_word_count": 106,
+      "chunk_character_count": 892,
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.metadata.json",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "PID-001_CHUNK_006",
+      "document_id": "PID-001",
+      "document_title": "PID-001 Demo Process Line",
+      "document_type": "P&ID Drawing",
+      "source_group": "drawings",
+      "section_title": "Document Body",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "FT-101",
+        "HX-301",
+        "P-101",
+        "PID-001",
+        "PT-201",
+        "TT-301",
+        "V-101",
+        "V-201"
+      ],
+      "chunk_text": "ET\"\n },\n {\n \"source\": \"PID-001\",\n \"target\": \"HX-301\",\n \"relationship\": \"HAS_ASSET\"\n },\n {\n \"source\": \"Feed Line\",\n \"target\": \"V-101\",\n \"relationship\": \"FLOWS_THROUGH\"\n },\n {\n \"source\": \"V-101\",\n \"target\": \"P-101\",\n \"relationship\": \"FEEDS\"\n },\n {\n \"source\": \"P-101\",\n \"target\": \"C-201\",\n \"relationship\": \"CONNECTED_TO\"\n },\n {\n \"source\": \"C-201\",\n \"target\": \"HX-301\",\n \"relationship\": \"CONNECTED_TO\"\n },\n {\n \"source\": \"HX-301\",\n \"target\": \"V-201\",\n \"relationship\": \"DISCHARGES_TO\"\n },\n {\n \"source\": \"V-201\",\n \"target\": \"Outlet Line\",\n \"relationship\": \"FLOWS_TO\"\n },\n {\n \"source\": \"FT-101\",\n \"target\": \"Feed Line\",\n \"relationship\": \"MEASURES_FLOW\"\n },\n {\n \"source\": \"PT-201\",\n \"target\": \"C-201\",\n \"relationship\": \"MEASURES_PRESSURE\"\n },\n {\n \"source\": \"TT-301\",\n \"target\": \"HX-301\",\n \"relationship\": \"MEASURES_TEMPERATURE\"\n }\n ],\n \"rag_summary\": \"PID-001 is a simplified P&ID-style demo drawing showing",
+      "chunk_word_count": 95,
+      "chunk_character_count": 898,
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.metadata.json",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "PID-001_CHUNK_007",
+      "document_id": "PID-001",
+      "document_title": "PID-001 Demo Process Line",
+      "document_type": "P&ID Drawing",
+      "source_group": "drawings",
+      "section_title": "Document Body",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "FT-101",
+        "HX-301",
+        "P-101",
+        "PID-001",
+        "PT-201",
+        "TT-301",
+        "V-101",
+        "V-201"
+      ],
+      "chunk_text": "\"TT-301\",\n \"target\": \"HX-301\",\n \"relationship\": \"MEASURES_TEMPERATURE\"\n }\n ],\n \"rag_summary\": \"PID-001 is a simplified P&ID-style demo drawing showing a process line from Feed Line through V-101, P-101 Pump, C-201 Compressor, HX-301 Heat Exchanger, V-201, and Outlet Line. It includes FT-101 flow transmitter, PT-201 pressure transmitter, and TT-301 temperature transmitter.\",\n \"keywords\": [\n \"P&ID\",\n \"DEXPI-style\",\n \"process line\",\n \"P-101\",\n \"C-201\",\n \"HX-301\",\n \"FT-101\",\n \"PT-201\",\n \"TT-301\",\n \"V-101\",\n \"V-201\",\n \"pump\",\n \"compressor\",\n \"heat exchanger\",\n \"flow transmitter\",\n \"pressure transmitter\",\n \"temperature transmitter\",\n \"isolation valve\"\n ]\n}",
+      "chunk_word_count": 75,
+      "chunk_character_count": 658,
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.metadata.json",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "PID-001_Demo_Process_Line_CHUNK_001",
+      "document_id": "PID-001_Demo_Process_Line",
+      "document_title": "PID-001_Demo_Process_Line",
+      "document_type": "P&ID Drawing Image",
+      "source_group": "drawings",
+      "section_title": "Document Body",
+      "asset_ids": [],
+      "tags": [],
+      "chunk_text": "P&ID-style drawing image used for PlantMind AI demo process line.",
+      "chunk_word_count": 10,
+      "chunk_character_count": 65,
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.png",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_001",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "# INC-HX301-001: Low Heat Transfer Efficiency\n\nDocument ID: INC-HX301-001\nAsset ID: HX-301\nAsset Name: Feed Preheater Heat Exchanger\nAsset Type: Heat Exchanger\nDocument Type: Incident Report\nIncident Date: 2026-03-07\nReported By: Operations Team\nIncident Status: Open for Maintenance Review\n\n---",
+      "chunk_word_count": 40,
+      "chunk_character_count": 295,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_002",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "1. Incident Summary",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 1. Incident Summary\n\nHX-301 Feed Preheater Heat Exchanger showed reduced heat transfer efficiency during process operation.\n\nThe incident was reported after outlet temperature dropped below the acceptable target and pressure drop increased above the warning threshold.\n\n---",
+      "chunk_word_count": 38,
+      "chunk_character_count": 276,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_003",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "2. Asset Involved",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 2. Asset Involved\n\nAsset ID: HX-301\nAsset Name: Feed Preheater Heat Exchanger\nAsset Type: Shell and Tube Heat Exchanger\nLocation: Process Area - Unit C\nCriticality: Medium\n\n---",
+      "chunk_word_count": 29,
+      "chunk_character_count": 179,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_004",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "3. Observed Symptoms",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 3. Observed Symptoms\n\nThe following symptoms were observed:\n\n* Outlet temperature was below acceptable target.\n* Pressure drop was above warning threshold.\n* Heat transfer efficiency index was below normal range.\n* Cleaning evidence was overdue.\n* Fouling or restricted flow was suspected.\n\n---",
+      "chunk_word_count": 45,
+      "chunk_character_count": 297,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_005",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "4. Evidence Available",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 4. Evidence Available\n\nThe incident is supported by the following evidence:\n\n| Evidence | Source |\n| --------------------------------------- | ------------ |\n| Outlet temperature recorded at 88°C | IR-HX301-001 |\n| Pressure drop recorded at 1.9 bar | IR-HX301-001 |\n| Efficiency index recorded at 0.71 | IR-HX301-001 |\n| Cleaning evidence overdue | COMP-001 |\n| Cleaning inspection work order required | WO-1005 |\n\n---",
+      "chunk_word_count": 67,
+      "chunk_character_count": 421,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_006",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "5. Suspected Causes",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 5. Suspected Causes\n\nPossible causes include:\n\n1. Tube-side fouling\n2. Shell-side fouling\n3. Flow restriction\n4. Delayed cleaning\n5. Process-side operating variation\n\n---",
+      "chunk_word_count": 24,
+      "chunk_character_count": 173,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_007",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "6. Temporary Action Taken",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 6. Temporary Action Taken\n\nThe operations team continued monitoring HX-301 under controlled operating conditions.\n\nNo permanent corrective action was completed at the time of this incident report.\n\n---",
+      "chunk_word_count": 29,
+      "chunk_character_count": 204,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_008",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "7. Required Follow-Up",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 7. Required Follow-Up\n\nThe following follow-up actions are required:\n\n1. Schedule cleaning inspection.\n2. Review last cleaning record.\n3. Verify outlet temperature trend.\n4. Verify pressure drop trend.\n5. Inspect tube-side condition if accessible.\n6. Attach cleaning evidence after maintenance.\n7. Attach work permit evidence before cleaning activity.\n\n---",
+      "chunk_word_count": 50,
+      "chunk_character_count": 359,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_009",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "8. Recommended Corrective Action",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 8. Recommended Corrective Action\n\nThe maintenance team should schedule cleaning inspection for HX-301 and review fouling indicators.\n\nIf fouling is confirmed, cleaning should be completed and cleaning evidence must be attached to the asset record.\n\n---",
+      "chunk_word_count": 37,
+      "chunk_character_count": 255,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_010",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "9. RCA Requirement",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 9. RCA Requirement\n\nRoot Cause Analysis is recommended because:\n\n* Outlet temperature is below acceptable target.\n* Pressure drop is above warning threshold.\n* Cleaning evidence is overdue.\n* Fouling or restricted flow is suspected.\n\n---",
+      "chunk_word_count": 37,
+      "chunk_character_count": 240,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_011",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "10. Related Documents",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 10. Related Documents\n\n* SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check\n* SOP-GEN-001: Work Permit and Lockout Tagout Requirements\n* IR-HX301-001: Heat Exchanger Performance Inspection\n* COMP-001: PlantMind Demo Compliance Checklist\n* work_orders.csv\n* ground_truth_compliance_gaps.csv\n\n---",
+      "chunk_word_count": 37,
+      "chunk_character_count": 303,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency_CHUNK_012",
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "document_title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "11. Keywords",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 11. Keywords\n\nHX-301, heat exchanger, low heat transfer efficiency, fouling, pressure drop, outlet temperature, cleaning overdue, incident report, RCA, compliance gap",
+      "chunk_word_count": 22,
+      "chunk_character_count": 169,
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_001",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "INC-P101-001: High Vibration Event",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "# INC-P101-001: High Vibration Event\n\nDocument ID: INC-P101-001\nAsset ID: P-101\nAsset Name: Cooling Water Circulation Pump\nAsset Type: Pump\nDocument Type: Incident Report\nIncident Date: 2026-01-22\nReported By: Operations Team\nIncident Status: Open for RCA\n\n---",
+      "chunk_word_count": 37,
+      "chunk_character_count": 260,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_002",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "1. Incident Summary",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 1. Incident Summary\n\nP-101 Cooling Water Circulation Pump showed repeated high vibration during normal operation.\n\nThe incident was reported after vibration readings exceeded the critical threshold and abnormal bearing noise was observed near the bearing housing.\n\n---",
+      "chunk_word_count": 38,
+      "chunk_character_count": 271,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_003",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "2. Asset Involved",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 2. Asset Involved\n\nAsset ID: P-101\nAsset Name: Cooling Water Circulation Pump\nAsset Type: Centrifugal Pump\nLocation: Utility Area - Line A\nCriticality: High\n\n---",
+      "chunk_word_count": 26,
+      "chunk_character_count": 164,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_004",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "3. Observed Symptoms",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 3. Observed Symptoms\n\nThe following symptoms were observed:\n\n* Vibration exceeded the critical threshold.\n* Abnormal bearing noise was observed.\n* Bearing temperature was slightly elevated.\n* Lubrication evidence was missing for the current week.\n* Operator reported intermittent vibration during normal load.\n\n---",
+      "chunk_word_count": 45,
+      "chunk_character_count": 317,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_005",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "4. Evidence Available",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 4. Evidence Available\n\nThe incident is supported by the following evidence:\n\n| Evidence | Source |\n| ----------------------------- | ----------------------- |\n| Vibration reading of 7.8 mm/s | IR-P101-001 |\n| Bearing temperature of 78°C | IR-P101-002 |\n| Missing lubrication evidence | COMP-001 |\n| Abnormal bearing noise | Maintenance observation |\n| Work order required | WO-1001 |\n\n---",
+      "chunk_word_count": 62,
+      "chunk_character_count": 391,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_006",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "5. Suspected Causes",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 5. Suspected Causes\n\nPossible causes include:\n\n1. Bearing wear\n2. Lubrication degradation\n3. Shaft misalignment\n4. Loose mounting\n5. Mechanical imbalance\n\n---",
+      "chunk_word_count": 23,
+      "chunk_character_count": 161,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_007",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "6. Temporary Action Taken",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 6. Temporary Action Taken\n\nThe operations team reduced pump load and informed the maintenance team.\n\nNo permanent corrective action was completed at the time of this incident report.\n\n---",
+      "chunk_word_count": 30,
+      "chunk_character_count": 190,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_008",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "7. Required Follow-Up",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 7. Required Follow-Up\n\nThe following follow-up actions are required:\n\n1. Generate RCA for P-101 high vibration.\n2. Inspect bearing housing.\n3. Verify lubrication level and lubricant quality.\n4. Check shaft alignment.\n5. Inspect mounting bolts.\n6. Attach missing lubrication evidence.\n7. Attach work permit evidence before physical bearing inspection.\n\n---",
+      "chunk_word_count": 51,
+      "chunk_character_count": 358,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_009",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "8. Recommended Corrective Action",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 8. Recommended Corrective Action\n\nThe maintenance team should create an urgent maintenance work order for P-101 bearing inspection and lubrication verification.\n\nIf bearing damage is confirmed, bearing replacement should be planned during the next safe maintenance window.\n\n---",
+      "chunk_word_count": 39,
+      "chunk_character_count": 280,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_010",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "9. RCA Requirement",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 9. RCA Requirement\n\nRoot Cause Analysis is required because:\n\n* Vibration exceeded the critical threshold.\n* The issue is related to a high-criticality rotating asset.\n* Multiple symptoms indicate possible bearing wear.\n* Compliance evidence is missing.\n\n---",
+      "chunk_word_count": 39,
+      "chunk_character_count": 261,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_011",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "10. Related Documents",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 10. Related Documents\n\n* SOP-P101-001: Pump Lubrication and Bearing Check\n* SOP-P101-002: Pump Vibration Inspection\n* IR-P101-001: Pump Vibration Inspection\n* IR-P101-002: Pump Bearing Temperature Check\n* COMP-001: PlantMind Demo Compliance Checklist\n* work_orders.csv\n* ground_truth_compliance_gaps.csv\n\n---",
+      "chunk_word_count": 38,
+      "chunk_character_count": 311,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "INC-P101-001_High_Vibration_Event_CHUNK_012",
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "document_title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "section_title": "11. Keywords",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 11. Keywords\n\nP-101, pump, high vibration, incident report, bearing wear, lubrication degradation, bearing noise, RCA, compliance gap, work order",
+      "chunk_word_count": 20,
+      "chunk_character_count": 148,
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-C201-001_Compressor_Monthly_Inspection_CHUNK_001",
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "document_title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "IR-C201-001: Compressor Monthly Inspection",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "# IR-C201-001: Compressor Monthly Inspection\n\nDocument ID: IR-C201-001\nAsset ID: C-201\nAsset Name: Process Air Compressor\nAsset Type: Compressor\nDocument Type: Inspection Report\nInspection Date: 2026-02-15\nInspector: Demo Inspector\nInspection Status: Completed\n\n---",
+      "chunk_word_count": 33,
+      "chunk_character_count": 265,
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-C201-001_Compressor_Monthly_Inspection_CHUNK_002",
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "document_title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "1. Inspection Purpose",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## 1. Inspection Purpose\n\nThis inspection was performed as part of the monthly condition review for C-201 Process Air Compressor.\n\nThe inspection focused on compressor operating behavior, outlet temperature, pressure ratio stability, filter replacement verification, and maintenance planning.\n\n---",
+      "chunk_word_count": 39,
+      "chunk_character_count": 297,
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-C201-001_Compressor_Monthly_Inspection_CHUNK_003",
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "document_title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "2. Inspection Scope",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## 2. Inspection Scope\n\nThe inspection covered:\n\n* Outlet temperature trend\n* Pressure ratio stability\n* Estimated Remaining Useful Life trend\n* Filter replacement verification\n* Maintenance planning requirement\n* Safe shutdown procedure reference\n\n---",
+      "chunk_word_count": 35,
+      "chunk_character_count": 252,
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-C201-001_Compressor_Monthly_Inspection_CHUNK_004",
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "document_title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "3. Measurement Summary",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## 3. Measurement Summary\n\n| Parameter | Measured Value | Normal Range | Warning Limit | Critical Limit | Status |\n| ------------------ | -------------: | --------------: | --------------: | --------------: | ------- |\n| Outlet temperature | 91°C | 70°C to 85°C | Above 90°C | Above 95°C | Warning |\n| Pressure ratio | 3.95 | 3.2 to 3.8 | Above 3.9 | Above 4.1 | Warning |\n| Estimated RUL | 36 cycles | Above 50 cycles | Below 40 cycles | Below 25 cycles | Warning |\n\n---",
+      "chunk_word_count": 92,
+      "chunk_character_count": 471,
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-C201-001_Compressor_Monthly_Inspection_CHUNK_005",
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "document_title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "4. Findings",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## 4. Findings\n\n* Outlet temperature increased to 91°C.\n* Normal outlet temperature range is 70°C to 85°C.\n* Pressure ratio instability was observed during loaded operation.\n* Estimated Remaining Useful Life trend is decreasing.\n* Filter replacement was planned, but verification evidence is delayed.\n* Compressor inspection should be planned during the next maintenance window.\n\n---",
+      "chunk_word_count": 57,
+      "chunk_character_count": 383,
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-C201-001_Compressor_Monthly_Inspection_CHUNK_006",
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "document_title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "5. Risk Interpretation",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## 5. Risk Interpretation\n\nC-201 is considered medium risk because multiple warning-level indicators are present.\n\nThe current condition may indicate:\n\n* Compressor degradation\n* Filter restriction\n* Increased operating load\n* Pressure instability\n* Need for planned maintenance\n\nThere is no immediate critical failure evidence, but maintenance planning is required.\n\n---",
+      "chunk_word_count": 51,
+      "chunk_character_count": 371,
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-C201-001_Compressor_Monthly_Inspection_CHUNK_007",
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "document_title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "6. Recommended Action",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## 6. Recommended Action\n\nThe maintenance team should:\n\n1. Verify filter replacement completion.\n2. Review RUL trend report.\n3. Check outlet temperature trend.\n4. Check pressure ratio stability.\n5. Schedule compressor inspection during the next maintenance window.\n6. Follow safe shutdown procedure before physical inspection.\n\n---",
+      "chunk_word_count": 46,
+      "chunk_character_count": 331,
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-C201-001_Compressor_Monthly_Inspection_CHUNK_008",
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "document_title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "7. Related Documents",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## 7. Related Documents\n\n* SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation\n* SOP-GEN-001: Work Permit and Lockout Tagout Requirements\n* COMP-001: PlantMind Demo Compliance Checklist\n* work_orders.csv\n* sensor_readings.csv\n\n---",
+      "chunk_word_count": 31,
+      "chunk_character_count": 244,
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-C201-001_Compressor_Monthly_Inspection_CHUNK_009",
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "document_title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "8. Keywords",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## 8. Keywords\n\nC-201, compressor, monthly inspection, RUL, remaining useful life, outlet temperature, pressure ratio, filter replacement, delayed verification, maintenance planning",
+      "chunk_word_count": 21,
+      "chunk_character_count": 181,
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_001",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "IR-GEN-001: Safety Evidence Audit",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "# IR-GEN-001: Safety Evidence Audit\n\nDocument ID: IR-GEN-001\nAsset ID: GENERAL\nAsset Name: PlantMind Demo Assets\nAsset Type: General Audit\nDocument Type: Inspection Report\nInspection Date: 2026-03-10\nInspector: Demo Safety Auditor\nInspection Status: Completed\n\n---",
+      "chunk_word_count": 35,
+      "chunk_character_count": 264,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_002",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "1. Audit Purpose",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 1. Audit Purpose\n\nThis audit was performed to review maintenance and compliance evidence availability for the PlantMind demo assets.\n\nThe audit covers:\n\n* P-101 Cooling Water Circulation Pump\n* C-201 Process Air Compressor\n* HX-301 Feed Preheater Heat Exchanger\n\nThe purpose is to identify missing, delayed, or overdue evidence before compliance review.\n\n---",
+      "chunk_word_count": 54,
+      "chunk_character_count": 361,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_003",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "2. Audit Scope",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 2. Audit Scope\n\nThe audit reviewed the following evidence categories:\n\n* Vibration inspection evidence\n* Lubrication evidence\n* Work permit evidence\n* Monthly compressor inspection evidence\n* Filter replacement verification\n* Pressure test evidence\n* Cleaning and fouling inspection evidence\n* LOTO evidence\n\n---",
+      "chunk_word_count": 45,
+      "chunk_character_count": 315,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_004",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "3. Evidence Review Summary",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 3. Evidence Review Summary\n\n| Asset ID | Evidence Requirement | Evidence Status | Notes |\n| -------- | ------------------------------------- | --------------- | ------------------------------------------------- |\n| P-101 | Weekly vibration inspection | Available | IR-P101-001 is available |\n| P-101 | Weekly lubrication check | Missing | No lubrication record found for current week |\n| P-101 | Work permit before bearing inspection | Missing | No work permit record attached |\n| C-201 | Monthly compressor inspection | Available | IR-C201-001 is available |\n| C-201 | Filter replacement verification | Delayed | WO-1003 indicates delayed verification |\n| C-201 | Safe shutdown procedure | Available | SOP-C201-001 is available |\n| HX-301 | Pressure test evidence | Available | Pressure test SOP reference is available |\n| HX-301 | Cleaning and fouling inspection | Overdue | Cleaning evidence",
+      "chunk_word_count": 141,
+      "chunk_character_count": 897,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_005",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "3. Evidence Review Summary",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "essure test evidence | Available | Pressure test SOP reference is available |\n| HX-301 | Cleaning and fouling inspection | Overdue | Cleaning evidence not available for current cycle |\n| HX-301 | Work permit before cleaning | Missing | No work permit record attached |\n\n---",
+      "chunk_word_count": 48,
+      "chunk_character_count": 273,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_006",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "4. Audit Findings",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 4. Audit Findings\n\nThe audit found five compliance evidence gaps:\n\n1. P-101 weekly lubrication evidence is missing.\n2. P-101 work permit evidence is missing before bearing inspection.\n3. C-201 filter replacement verification is delayed.\n4. HX-301 cleaning and fouling inspection evidence is overdue.\n5. HX-301 work permit evidence is missing before cleaning activity.\n\n---",
+      "chunk_word_count": 55,
+      "chunk_character_count": 375,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_007",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "5. Risk Interpretation",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 5. Risk Interpretation\n\nMissing maintenance evidence can increase operational and compliance risk.\n\nP-101 has both technical risk and compliance risk because high vibration has been detected, but lubrication and work permit evidence are missing.\n\nC-201 has medium compliance risk because filter replacement verification is delayed.\n\nHX-301 has compliance risk because cleaning evidence is overdue and work permit evidence is missing.\n\n---",
+      "chunk_word_count": 62,
+      "chunk_character_count": 441,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_008",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "6. Recommended Action",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 6. Recommended Action\n\nThe maintenance and compliance teams should:\n\n1. Upload or complete P-101 lubrication record.\n2. Attach work permit evidence for P-101 bearing inspection.\n3. Verify C-201 filter replacement completion.\n4. Schedule HX-301 cleaning and fouling inspection.\n5. Attach work permit evidence before HX-301 cleaning activity.\n6. Review all open work orders before final compliance review.\n\n---",
+      "chunk_word_count": 59,
+      "chunk_character_count": 411,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_009",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "7. Related Documents",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 7. Related Documents\n\n* SOP-GEN-001: Work Permit and Lockout Tagout Requirements\n* SOP-P101-001: Pump Lubrication and Bearing Check\n* SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation\n* SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check\n* COMP-001: PlantMind Demo Compliance Checklist\n* work_orders.csv\n* ground_truth_compliance_gaps.csv\n\n---",
+      "chunk_word_count": 46,
+      "chunk_character_count": 367,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-GEN-001_Safety_Evidence_Audit_CHUNK_010",
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "document_title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "8. Keywords",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 8. Keywords\n\nsafety audit, compliance evidence, missing evidence, delayed verification, overdue cleaning, work permit, LOTO, P-101, C-201, HX-301",
+      "chunk_word_count": 19,
+      "chunk_character_count": 148,
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection_CHUNK_001",
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "document_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "# IR-HX301-001: Heat Exchanger Performance Inspection\n\nDocument ID: IR-HX301-001\nAsset ID: HX-301\nAsset Name: Feed Preheater Heat Exchanger\nAsset Type: Heat Exchanger\nDocument Type: Inspection Report\nInspection Date: 2026-03-05\nInspector: Demo Inspector\nInspection Status: Completed\n\n---",
+      "chunk_word_count": 36,
+      "chunk_character_count": 287,
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection_CHUNK_002",
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "document_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "1. Inspection Purpose",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 1. Inspection Purpose\n\nThis inspection was performed to evaluate the performance condition of HX-301 Feed Preheater Heat Exchanger after reduced outlet temperature was observed during process operation.\n\nThe inspection focused on outlet temperature, pressure drop, heat transfer efficiency, fouling symptoms, and cleaning evidence availability.\n\n---",
+      "chunk_word_count": 46,
+      "chunk_character_count": 352,
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection_CHUNK_003",
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "document_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "2. Inspection Scope",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 2. Inspection Scope\n\nThe inspection covered:\n\n* Outlet temperature performance\n* Pressure drop across heat exchanger\n* Heat transfer efficiency indication\n* Cleaning record availability\n* Fouling suspicion\n* Need for cleaning inspection\n\n---",
+      "chunk_word_count": 35,
+      "chunk_character_count": 244,
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection_CHUNK_004",
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "document_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "3. Measurement Summary",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 3. Measurement Summary\n\n| Parameter | Measured Value | Normal Limit | Warning Limit | Critical Limit | Status |\n| ------------------ | -------------: | ------------: | ------------: | -------------: | ------- |\n| Outlet temperature | 88°C | 90°C or above | Below 90°C | Below 85°C | Warning |\n| Pressure drop | 1.9 bar | Below 1.2 bar | Above 1.8 bar | Above 2.2 bar | Warning |\n| Efficiency index | 0.71 | Above 0.85 | Below 0.80 | Below 0.70 | Warning |\n\n---",
+      "chunk_word_count": 91,
+      "chunk_character_count": 463,
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection_CHUNK_005",
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "document_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "4. Findings",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 4. Findings\n\n* Outlet temperature was recorded at 88°C, which is below the acceptable target.\n* Pressure drop was recorded at 1.9 bar, which is above the warning threshold.\n* Heat transfer efficiency index is below the normal range.\n* Fouling or restricted flow is suspected.\n* Cleaning evidence is overdue for the current inspection cycle.\n* Cleaning inspection should be scheduled.\n\n---",
+      "chunk_word_count": 64,
+      "chunk_character_count": 391,
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection_CHUNK_006",
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "document_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "5. Risk Interpretation",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 5. Risk Interpretation\n\nHX-301 is considered medium risk because performance indicators suggest reduced heat transfer efficiency.\n\nThe current condition may indicate:\n\n* Tube-side fouling\n* Shell-side fouling\n* Flow restriction\n* Delayed cleaning\n* Process-side operating variation\n\nCleaning evidence must be reviewed because the cleaning record is overdue.\n\n---",
+      "chunk_word_count": 50,
+      "chunk_character_count": 365,
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection_CHUNK_007",
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "document_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "6. Recommended Action",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 6. Recommended Action\n\nThe maintenance team should:\n\n1. Schedule cleaning inspection.\n2. Review last cleaning record.\n3. Check outlet temperature trend.\n4. Check pressure drop trend.\n5. Inspect tube-side condition if accessible.\n6. Attach cleaning evidence after maintenance.\n7. Review work permit before cleaning activity.\n\n---",
+      "chunk_word_count": 47,
+      "chunk_character_count": 331,
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection_CHUNK_008",
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "document_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "7. Related Documents",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 7. Related Documents\n\n* SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check\n* SOP-GEN-001: Work Permit and Lockout Tagout Requirements\n* INC-HX301-001: Low Heat Transfer Efficiency\n* COMP-001: PlantMind Demo Compliance Checklist\n* work_orders.csv\n* sensor_readings.csv\n\n---",
+      "chunk_word_count": 37,
+      "chunk_character_count": 281,
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection_CHUNK_009",
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "document_title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "8. Keywords",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "chunk_text": "## 8. Keywords\n\nHX-301, heat exchanger, performance inspection, outlet temperature, pressure drop, efficiency index, fouling, cleaning overdue, cleaning evidence, maintenance",
+      "chunk_word_count": 20,
+      "chunk_character_count": 174,
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-001_Pump_Vibration_Inspection_CHUNK_001",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "IR-P101-001: Pump Vibration Inspection",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "# IR-P101-001: Pump Vibration Inspection\n\nDocument ID: IR-P101-001\nAsset ID: P-101\nAsset Name: Cooling Water Circulation Pump\nAsset Type: Pump\nDocument Type: Inspection Report\nInspection Date: 2026-01-21\nInspector: Demo Inspector\nInspection Status: Completed\n\n---",
+      "chunk_word_count": 34,
+      "chunk_character_count": 263,
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-001_Pump_Vibration_Inspection_CHUNK_002",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "1. Inspection Purpose",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 1. Inspection Purpose\n\nThis inspection was performed to evaluate the vibration condition of P-101 Cooling Water Circulation Pump after abnormal vibration was reported during normal operation.\n\n---",
+      "chunk_word_count": 28,
+      "chunk_character_count": 199,
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-001_Pump_Vibration_Inspection_CHUNK_003",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "2. Inspection Scope",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 2. Inspection Scope\n\nThe inspection covered:\n\n* Pump bearing housing vibration\n* Visible mounting condition\n* Operator-reported vibration behavior\n* Need for follow-up bearing inspection\n* Need for lubrication verification\n\n---",
+      "chunk_word_count": 32,
+      "chunk_character_count": 230,
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-001_Pump_Vibration_Inspection_CHUNK_004",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "3. Measurement Summary",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 3. Measurement Summary\n\n| Parameter | Measured Value | Normal Limit | Warning Limit | Critical Limit | Status |\n| --------- | -------------: | -------------: | ------------: | -------------: | -------- |\n| Vibration | 7.8 mm/s | Below 4.5 mm/s | 6.0 mm/s | 7.5 mm/s | Critical |\n\nThe measured vibration exceeded the critical threshold.\n\n---",
+      "chunk_word_count": 60,
+      "chunk_character_count": 343,
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-001_Pump_Vibration_Inspection_CHUNK_005",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "4. Findings",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 4. Findings\n\n* Vibration reading was recorded at 7.8 mm/s.\n* Critical vibration threshold for P-101 is 7.5 mm/s.\n* Abnormal vibration was observed near the bearing housing.\n* Operator reported intermittent vibration during normal load.\n* Bearing inspection is recommended.\n* Shaft alignment check is recommended.\n* Lubrication verification is required.\n\n---",
+      "chunk_word_count": 54,
+      "chunk_character_count": 360,
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-001_Pump_Vibration_Inspection_CHUNK_006",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "5. Risk Interpretation",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 5. Risk Interpretation\n\nP-101 should be treated as high risk because the vibration value exceeded the critical threshold.\n\nHigh vibration may indicate:\n\n* Bearing wear\n* Lubrication degradation\n* Shaft misalignment\n* Loose mounting\n* Mechanical imbalance\n\n---",
+      "chunk_word_count": 39,
+      "chunk_character_count": 262,
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-001_Pump_Vibration_Inspection_CHUNK_007",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "6. Recommended Action",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 6. Recommended Action\n\nCreate an urgent maintenance work order for:\n\n1. Bearing housing inspection.\n2. Lubrication verification.\n3. Shaft alignment check.\n4. Mounting bolt inspection.\n5. Follow-up vibration measurement after corrective action.\n\n---",
+      "chunk_word_count": 34,
+      "chunk_character_count": 251,
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-001_Pump_Vibration_Inspection_CHUNK_008",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "7. Related Documents",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 7. Related Documents\n\n* SOP-P101-001: Pump Lubrication and Bearing Check\n* SOP-P101-002: Pump Vibration Inspection\n* INC-P101-001: High Vibration Event\n* COMP-001: PlantMind Demo Compliance Checklist\n\n---",
+      "chunk_word_count": 28,
+      "chunk_character_count": 207,
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-001_Pump_Vibration_Inspection_CHUNK_009",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "8. Keywords",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 8. Keywords\n\nP-101, pump, high vibration, critical vibration, bearing housing, bearing wear, lubrication verification, shaft alignment, inspection report",
+      "chunk_word_count": 19,
+      "chunk_character_count": 156,
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-002_Pump_Bearing_Temperature_Check_CHUNK_001",
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "document_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "# IR-P101-002: Pump Bearing Temperature Check\n\nDocument ID: IR-P101-002\nAsset ID: P-101\nAsset Name: Cooling Water Circulation Pump\nAsset Type: Pump\nDocument Type: Inspection Report\nInspection Date: 2026-01-22\nInspector: Demo Inspector\nInspection Status: Completed\n\n---",
+      "chunk_word_count": 35,
+      "chunk_character_count": 268,
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-002_Pump_Bearing_Temperature_Check_CHUNK_002",
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "document_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "1. Inspection Purpose",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 1. Inspection Purpose\n\nThis inspection was performed to evaluate the bearing temperature condition of P-101 after high vibration and abnormal bearing noise were reported.\n\n---",
+      "chunk_word_count": 26,
+      "chunk_character_count": 178,
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-002_Pump_Bearing_Temperature_Check_CHUNK_003",
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "document_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "2. Inspection Scope",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 2. Inspection Scope\n\nThe inspection covered:\n\n* Bearing housing temperature\n* Bearing noise observation\n* Lubrication evidence availability\n* Need for corrective maintenance\n* Risk of bearing wear\n\n---",
+      "chunk_word_count": 30,
+      "chunk_character_count": 204,
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-002_Pump_Bearing_Temperature_Check_CHUNK_004",
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "document_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "3. Measurement Summary",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 3. Measurement Summary\n\n| Parameter | Measured Value | Normal Limit | Warning Limit | Critical Limit | Status |\n| ------------------- | -------------: | -----------: | ------------: | -------------: | ------- |\n| Bearing temperature | 78°C | Below 65°C | 75°C | 80°C | Warning |\n\nThe bearing temperature is below the critical limit but close to the maximum allowed value.\n\n---",
+      "chunk_word_count": 65,
+      "chunk_character_count": 379,
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-002_Pump_Bearing_Temperature_Check_CHUNK_005",
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "document_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "4. Findings",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 4. Findings\n\n* Bearing temperature was recorded at 78°C.\n* Critical bearing temperature limit for P-101 is 80°C.\n* Abnormal bearing noise was reported in the previous maintenance observation.\n* Lubrication evidence for the current week was not available.\n* High vibration was already reported in IR-P101-001.\n* Bearing wear or lubrication degradation is suspected.\n\n---",
+      "chunk_word_count": 57,
+      "chunk_character_count": 372,
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-002_Pump_Bearing_Temperature_Check_CHUNK_006",
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "document_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "5. Risk Interpretation",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 5. Risk Interpretation\n\nP-101 requires maintenance attention because elevated bearing temperature, high vibration, abnormal bearing noise, and missing lubrication evidence are present together.\n\nThis combination may indicate:\n\n* Lubrication degradation\n* Bearing wear\n* Shaft misalignment\n* Excess friction in bearing housing\n* Delayed lubrication inspection\n\n---",
+      "chunk_word_count": 48,
+      "chunk_character_count": 366,
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-002_Pump_Bearing_Temperature_Check_CHUNK_007",
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "document_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "6. Recommended Action",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 6. Recommended Action\n\nThe maintenance team should:\n\n1. Verify lubrication level.\n2. Check lubricant quality.\n3. Inspect bearing housing.\n4. Review vibration inspection report IR-P101-001.\n5. Check shaft alignment.\n6. Create or update urgent maintenance work order.\n7. Upload lubrication evidence after inspection.\n\n---",
+      "chunk_word_count": 45,
+      "chunk_character_count": 322,
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-002_Pump_Bearing_Temperature_Check_CHUNK_008",
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "document_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "7. Related Documents",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 7. Related Documents\n\n* SOP-P101-001: Pump Lubrication and Bearing Check\n* SOP-P101-002: Pump Vibration Inspection\n* IR-P101-001: Pump Vibration Inspection\n* INC-P101-001: High Vibration Event\n* COMP-001: PlantMind Demo Compliance Checklist\n\n---",
+      "chunk_word_count": 33,
+      "chunk_character_count": 248,
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "IR-P101-002_Pump_Bearing_Temperature_Check_CHUNK_009",
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "document_title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "section_title": "8. Keywords",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 8. Keywords\n\nP-101, pump, bearing temperature, elevated temperature, bearing noise, lubrication evidence, bearing wear, vibration, inspection report",
+      "chunk_word_count": 18,
+      "chunk_character_count": 151,
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_001",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "# SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation\n\nDocument ID: SOP-C201-001\nAsset ID: C-201\nAsset Name: Process Air Compressor\nAsset Type: Compressor\nDocument Type: SOP\nRevision: Rev 1.0\nEffective Date: 2026-01-01\nOwner: Maintenance Department\n\n---",
+      "chunk_word_count": 35,
+      "chunk_character_count": 267,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_002",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "1. Purpose",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 1. Purpose\n\nThis SOP defines the safe shutdown and inspection preparation procedure for C-201 Process Air Compressor.\n\nThe purpose of this procedure is to ensure safe compressor isolation before maintenance, inspection, filter verification, or internal checks.\n\n---",
+      "chunk_word_count": 38,
+      "chunk_character_count": 268,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_003",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "2. Scope",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 2. Scope\n\nThis SOP applies only to:\n\nAsset ID: C-201\nAsset Name: Process Air Compressor\nAsset Type: Compressor\nLocation: Compression Area - Train B\n\nThis SOP does not apply to P-101 Pump or HX-301 Heat Exchanger.\n\n---",
+      "chunk_word_count": 38,
+      "chunk_character_count": 220,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_004",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "3. Maintenance Triggers",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 3. Maintenance Triggers\n\nC-201 must be reviewed for maintenance if any of the following conditions are observed:\n\n* Remaining Useful Life trend is decreasing.\n* Outlet temperature exceeds 90°C.\n* Pressure ratio becomes unstable.\n* Filter replacement verification is delayed.\n* Abnormal compressor noise is reported.\n* Monthly inspection identifies abnormal operating behavior.\n\n---",
+      "chunk_word_count": 55,
+      "chunk_character_count": 384,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_005",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "4. Safety Requirements",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 4. Safety Requirements\n\nBefore compressor inspection or maintenance:\n\n1. Notify operations team.\n2. Obtain maintenance work permit.\n3. Reduce compressor load gradually.\n4. Isolate compressor from process line.\n5. Depressurize compressor section.\n6. Verify temperature and pressure stabilization.\n7. Apply lockout/tagout.\n8. Confirm zero-energy state before maintenance.\n\n---",
+      "chunk_word_count": 49,
+      "chunk_character_count": 377,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_006",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "5. Normal Operating Criteria",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 5. Normal Operating Criteria\n\n| Parameter | Normal Range | Warning Limit | Critical Limit |\n| ------------------ | --------------: | -------------------: | ------------------------: |\n| Outlet temperature | 70°C to 85°C | Above 90°C | Above 95°C |\n| Pressure ratio | 3.2 to 3.8 | Above 3.9 | Above 4.1 |\n| Estimated RUL | Above 50 cycles | Below 40 cycles | Below 25 cycles |\n| Filter condition | Verified | Verification delayed | Filter blockage suspected |\n\n---",
+      "chunk_word_count": 84,
+      "chunk_character_count": 466,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_007",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "6. Shutdown Procedure",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 6. Shutdown Procedure\n\n1. Inform control room before shutdown.\n2. Reduce compressor load gradually.\n3. Stop compressor according to operating procedure.\n4. Isolate inlet and outlet lines.\n5. Depressurize compressor section.\n6. Confirm pressure is within safe range.\n7. Allow equipment temperature to stabilize.\n8. Apply LOTO.\n9. Record shutdown confirmation.\n\n---",
+      "chunk_word_count": 53,
+      "chunk_character_count": 366,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_008",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "7. Inspection Preparation",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 7. Inspection Preparation\n\nAfter safe shutdown:\n\n1. Review latest RUL trend.\n2. Review outlet temperature trend.\n3. Check pressure ratio history.\n4. Verify filter replacement record.\n5. Inspect compressor stage if degradation trend is present.\n6. Create or update maintenance work order.\n7. Attach inspection evidence.\n\n---",
+      "chunk_word_count": 48,
+      "chunk_character_count": 326,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_009",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "8. Required Evidence",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 8. Required Evidence\n\nThe following evidence must be maintained:\n\n| Requirement | Evidence Required | Frequency |\n| ------------------------------- | ----------------------------- | --------------------------- |\n| Monthly compressor inspection | Inspection report | Monthly |\n| Filter replacement verification | Maintenance log or work order | As scheduled |\n| RUL trend review | RUL report | During maintenance planning |\n| Safe shutdown confirmation | Shutdown checklist | Before inspection |\n| Work permit | Work permit record | Before maintenance |\n| LOTO confirmation | LOTO record | Before equipment opening |\n\n---",
+      "chunk_word_count": 95,
+      "chunk_character_count": 623,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_010",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "9. Recommended Action for Abnormal Condition",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 9. Recommended Action for Abnormal Condition\n\nIf C-201 shows decreasing RUL, high outlet temperature, or pressure instability:\n\n1. Schedule compressor inspection during the next maintenance window.\n2. Verify filter replacement completion.\n3. Review compressor operating conditions.\n4. Check outlet temperature trend.\n5. Check pressure ratio trend.\n6. Review RUL report before maintenance planning.\n\n---",
+      "chunk_word_count": 55,
+      "chunk_character_count": 405,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_011",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "10. Related Documents",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 10. Related Documents\n\n* IR-C201-001: Compressor Monthly Inspection\n* COMP-001: PlantMind Demo Compliance Checklist\n* SOP-GEN-001: Work Permit and Lockout Tagout Requirements\n* work_orders.csv\n* sensor_readings.csv\n\n---",
+      "chunk_word_count": 28,
+      "chunk_character_count": 222,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-C201-001_Compressor_Safe_Shutdown_CHUNK_012",
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "document_title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "11. Keywords",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 11. Keywords\n\nC-201, compressor, safe shutdown, RUL, remaining useful life, outlet temperature, pressure ratio, filter replacement, inspection, maintenance, work permit, LOTO",
+      "chunk_word_count": 22,
+      "chunk_character_count": 177,
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_001",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "# SOP-GEN-001: Work Permit and Lockout Tagout Requirements\n\nDocument ID: SOP-GEN-001\nAsset ID: GENERAL\nAsset Name: Plant Maintenance Safety Procedure\nAsset Type: General Safety\nDocument Type: SOP\nRevision: Rev 1.0\nEffective Date: 2026-01-01\nOwner: Safety and Maintenance Department\n\n---",
+      "chunk_word_count": 39,
+      "chunk_character_count": 286,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_002",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "1. Purpose",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 1. Purpose\n\nThis SOP defines the general work permit and lockout tagout requirements for maintenance activities performed on PlantMind demo assets.\n\nThe purpose of this procedure is to ensure that maintenance work is controlled, documented, and performed only after required safety evidence is available.\n\n---",
+      "chunk_word_count": 46,
+      "chunk_character_count": 312,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_003",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "2. Scope",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 2. Scope\n\nThis SOP applies to maintenance work involving:\n\n* P-101 Cooling Water Circulation Pump\n* C-201 Process Air Compressor\n* HX-301 Feed Preheater Heat Exchanger\n\nThis SOP applies to inspection, cleaning, equipment opening, bearing inspection, compressor inspection, pressure-related maintenance, and isolation activities.\n\n---",
+      "chunk_word_count": 45,
+      "chunk_character_count": 336,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_004",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "3. Work Permit Requirement",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 3. Work Permit Requirement\n\nA maintenance work permit is required before:\n\n1. Opening pump bearing housing.\n2. Performing compressor shutdown and inspection.\n3. Cleaning or opening heat exchanger sections.\n4. Performing pressure-related inspection.\n5. Performing maintenance that requires equipment isolation.\n6. Performing work that may expose personnel to mechanical, electrical, pressure, or thermal hazards.\n\n---",
+      "chunk_word_count": 56,
+      "chunk_character_count": 419,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_005",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "4. Lockout Tagout Requirement",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 4. Lockout Tagout Requirement\n\nLockout tagout is required before:\n\n1. Physical inspection of P-101 bearing housing.\n2. Maintenance on C-201 compressor.\n3. Cleaning or opening HX-301 heat exchanger.\n4. Electrical isolation.\n5. Mechanical isolation.\n6. Depressurization and equipment opening.\n\n---",
+      "chunk_word_count": 41,
+      "chunk_character_count": 298,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_006",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "5. Required Evidence",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 5. Required Evidence\n\nThe following evidence must be recorded before maintenance work begins:\n\n| Requirement | Evidence Required |\n| --------------------- | --------------------------------------------------- |\n| Work permit | Work permit number and approval |\n| LOTO confirmation | Lockout tagout checklist |\n| Asset identification | Asset ID and asset name |\n| Maintenance reason | Inspection, cleaning, fault, or planned maintenance |\n| Supervisor approval | Name and timestamp |\n| Technician assignment | Technician name |\n| Safety confirmation | Isolation and zero-energy confirmation |\n\n---",
+      "chunk_word_count": 89,
+      "chunk_character_count": 599,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_007",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "6. Minimum Evidence Fields",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 6. Minimum Evidence Fields\n\nEvery work permit or LOTO evidence record must include:\n\n* Asset ID\n* Work order ID\n* Permit number\n* Date\n* Technician name\n* Supervisor name\n* Isolation confirmation\n* LOTO confirmation\n* Work description\n* Approval status\n\n---",
+      "chunk_word_count": 45,
+      "chunk_character_count": 260,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_008",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "7. Asset-Specific Safety Notes",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 7. Asset-Specific Safety Notes",
+      "chunk_word_count": 5,
+      "chunk_character_count": 33,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_009",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "P-101 Pump",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "### P-101 Pump\n\nFor P-101 bearing inspection:\n\n* Work permit is required before opening bearing housing.\n* LOTO is required before physical inspection.\n* Lubrication evidence must be reviewed before maintenance.\n* Vibration inspection evidence should be reviewed before corrective action.",
+      "chunk_word_count": 41,
+      "chunk_character_count": 288,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_010",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "C-201 Compressor",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "### C-201 Compressor\n\nFor C-201 compressor inspection:\n\n* Compressor must be safely shut down.\n* System must be depressurized.\n* Outlet temperature and pressure must stabilize.\n* Filter replacement verification should be reviewed.",
+      "chunk_word_count": 33,
+      "chunk_character_count": 230,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_011",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "HX-301 Heat Exchanger",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "### HX-301 Heat Exchanger\n\nFor HX-301 cleaning inspection:\n\n* Equipment must be isolated.\n* Equipment must be depressurized.\n* Cleaning work requires work permit evidence.\n* Cleaning evidence must be recorded after maintenance.\n\n---",
+      "chunk_word_count": 34,
+      "chunk_character_count": 232,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_012",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "8. Compliance Review",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 8. Compliance Review\n\nA maintenance activity is considered non-compliant if:\n\n* Work permit evidence is missing.\n* LOTO evidence is missing.\n* Required inspection evidence is missing.\n* Required cleaning evidence is overdue.\n* Filter replacement verification is delayed.\n* Lubrication evidence is missing.\n\n---",
+      "chunk_word_count": 46,
+      "chunk_character_count": 313,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_013",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "9. Related Documents",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 9. Related Documents\n\n* SOP-P101-001: Pump Lubrication and Bearing Check\n* SOP-P101-002: Pump Vibration Inspection\n* SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation\n* SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check\n* COMP-001: PlantMind Demo Compliance Checklist\n* work_orders.csv\n\n---",
+      "chunk_word_count": 41,
+      "chunk_character_count": 315,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-GEN-001_Work_Permit_and_LOTO_CHUNK_014",
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "document_title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "10. Keywords",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 10. Keywords\n\nwork permit, LOTO, lockout tagout, safety, maintenance evidence, compliance, P-101, C-201, HX-301, inspection, cleaning, shutdown, bearing inspection",
+      "chunk_word_count": 20,
+      "chunk_character_count": 166,
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_001",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "# SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check\n\nDocument ID: SOP-HX301-001\nAsset ID: HX-301\nAsset Name: Feed Preheater Heat Exchanger\nAsset Type: Heat Exchanger\nDocument Type: SOP\nRevision: Rev 1.0\nEffective Date: 2026-01-01\nOwner: Maintenance Department\n\n---",
+      "chunk_word_count": 37,
+      "chunk_character_count": 271,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_002",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "1. Purpose",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 1. Purpose\n\nThis SOP defines the cleaning and fouling inspection procedure for HX-301 Feed Preheater Heat Exchanger.\n\nThe purpose of this procedure is to detect reduced heat transfer efficiency, identify fouling symptoms, and ensure cleaning evidence is recorded on schedule.\n\n---",
+      "chunk_word_count": 42,
+      "chunk_character_count": 283,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_003",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "2. Scope",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 2. Scope\n\nThis SOP applies only to:\n\nAsset ID: HX-301\nAsset Name: Feed Preheater Heat Exchanger\nAsset Type: Shell and Tube Heat Exchanger\nLocation: Process Area - Unit C\n\nThis SOP does not apply to P-101 Pump or C-201 Compressor.\n\n---",
+      "chunk_word_count": 42,
+      "chunk_character_count": 237,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_004",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "3. Fouling Indicators",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 3. Fouling Indicators\n\nHX-301 must be reviewed for fouling if any of the following conditions are observed:\n\n* Outlet temperature falls below 90°C.\n* Pressure drop exceeds 1.8 bar.\n* Heat transfer efficiency decreases.\n* Cleaning evidence is overdue.\n* Flow restriction is suspected.\n* Previous inspection indicates tube-side fouling.\n\n---",
+      "chunk_word_count": 52,
+      "chunk_character_count": 342,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_005",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "4. Inspection Frequency",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 4. Inspection Frequency\n\nCleaning and fouling inspection must be performed:\n\nFrequency: Every 30 days\nEvidence Required: Yes\nEvidence Type: Cleaning record or fouling inspection report\n\nEvery cleaning or fouling inspection must have recorded evidence.\n\n---",
+      "chunk_word_count": 36,
+      "chunk_character_count": 259,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_006",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "5. Normal Operating Criteria",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 5. Normal Operating Criteria\n\n| Parameter | Normal Limit | Warning Limit | Critical Limit |\n| ------------------ | -------------: | -------------: | -------------: |\n| Outlet temperature | 90°C or above | Below 90°C | Below 85°C |\n| Pressure drop | Below 1.2 bar | Above 1.8 bar | Above 2.2 bar |\n| Efficiency index | Above 0.85 | Below 0.80 | Below 0.70 |\n| Cleaning interval | Within 30 days | Beyond 30 days | Beyond 45 days |\n\n---",
+      "chunk_word_count": 86,
+      "chunk_character_count": 437,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_007",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "6. Safety Requirements",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 6. Safety Requirements\n\nBefore heat exchanger cleaning or inspection:\n\n1. Obtain maintenance work permit.\n2. Isolate heat exchanger from process line.\n3. Depressurize equipment before opening.\n4. Confirm equipment is drained and cooled.\n5. Follow lockout/tagout procedure.\n6. Wear required PPE.\n7. Confirm safe access before inspection.\n\n---",
+      "chunk_word_count": 49,
+      "chunk_character_count": 344,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_008",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "7. Inspection Procedure",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 7. Inspection Procedure\n\n1. Review latest outlet temperature trend.\n2. Review latest pressure drop trend.\n3. Check last cleaning record.\n4. Inspect for fouling symptoms.\n5. Verify tube-side and shell-side condition if accessible.\n6. Record cleaning evidence after completion.\n7. Escalate if outlet temperature is below 90°C and pressure drop is above 1.8 bar.\n\n---",
+      "chunk_word_count": 56,
+      "chunk_character_count": 367,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_009",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "8. Required Evidence",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 8. Required Evidence\n\nThe following evidence must be maintained:\n\n| Requirement | Evidence Required | Frequency |\n| ------------------------------- | ------------------ | ----------------------------- |\n| Cleaning and fouling inspection | Cleaning record | Every 30 days |\n| Pressure drop review | Inspection report | During performance inspection |\n| Outlet temperature review | Inspection report | During performance inspection |\n| Work permit | Work permit record | Before cleaning |\n| LOTO confirmation | LOTO record | Before equipment opening |\n\n---",
+      "chunk_word_count": 85,
+      "chunk_character_count": 557,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_010",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "9. Recommended Action for Abnormal Condition",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 9. Recommended Action for Abnormal Condition\n\nIf HX-301 shows low outlet temperature, high pressure drop, or suspected fouling:\n\n1. Schedule cleaning inspection.\n2. Review latest heat exchanger performance inspection.\n3. Check pressure drop trend.\n4. Check outlet temperature trend.\n5. Verify last cleaning record.\n6. Attach cleaning evidence after maintenance.\n7. Review work permit evidence before cleaning.\n\n---",
+      "chunk_word_count": 59,
+      "chunk_character_count": 417,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_011",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "10. Related Documents",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 10. Related Documents\n\n* IR-HX301-001: Heat Exchanger Performance Inspection\n* INC-HX301-001: Low Heat Transfer Efficiency\n* COMP-001: PlantMind Demo Compliance Checklist\n* SOP-GEN-001: Work Permit and Lockout Tagout Requirements\n* work_orders.csv\n* sensor_readings.csv\n\n---",
+      "chunk_word_count": 35,
+      "chunk_character_count": 277,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check_CHUNK_012",
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "document_title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "11. Keywords",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 11. Keywords\n\nHX-301, heat exchanger, fouling, cleaning, outlet temperature, pressure drop, efficiency index, cleaning evidence, inspection, compliance, work permit, LOTO",
+      "chunk_word_count": 21,
+      "chunk_character_count": 173,
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check_CHUNK_001",
+      "document_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "document_title": "SOP-P101-001: Pump Lubrication and Bearing Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "SOP-P101-001: Pump Lubrication and Bearing Check",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "# SOP-P101-001: Pump Lubrication and Bearing Check\n\nDocument ID: SOP-P101-001 \nAsset ID: P-101 \nAsset Name: Cooling Water Circulation Pump \nAsset Type: Pump \nDocument Type: SOP \nRevision: Rev 1.0 \nEffective Date: 2026-01-01 \nOwner: Maintenance Department \n\n---",
+      "chunk_word_count": 35,
+      "chunk_character_count": 260,
+      "relative_path": "documents/manuals_sops/SOP-P101-001_Pump_Lubrication_and_Bearing_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check_CHUNK_002",
+      "document_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "document_title": "SOP-P101-001: Pump Lubrication and Bearing Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "1. Purpose",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 1. Purpose\n\nThis procedure defines the weekly lubrication and bearing inspection requirements for P-101 Cooling Water Circulation Pump.\n\nThe purpose of this SOP is to ensure that the pump bearing system remains properly lubricated, abnormal bearing noise is detected early, and vibration-related failures are prevented.\n\n---",
+      "chunk_word_count": 47,
+      "chunk_character_count": 327,
+      "relative_path": "documents/manuals_sops/SOP-P101-001_Pump_Lubrication_and_Bearing_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check_CHUNK_003",
+      "document_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "document_title": "SOP-P101-001: Pump Lubrication and Bearing Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "2. Scope",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 2. Scope\n\nThis SOP applies only to:\n\n```text\nAsset ID: P-101\nAsset Name: Cooling Water Circulation Pump\nAsset Type: Centrifugal Pump\nLocation: Utility Area - Line A",
+      "chunk_word_count": 28,
+      "chunk_character_count": 167,
+      "relative_path": "documents/manuals_sops/SOP-P101-001_Pump_Lubrication_and_Bearing_Check.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_001",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "SOP-P101-002: Pump Vibration Inspection",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "# SOP-P101-002: Pump Vibration Inspection\n\nDocument ID: SOP-P101-002\nAsset ID: P-101\nAsset Name: Cooling Water Circulation Pump\nAsset Type: Pump\nDocument Type: SOP\nRevision: Rev 1.0\nEffective Date: 2026-01-01\nOwner: Maintenance Department\n\n---",
+      "chunk_word_count": 33,
+      "chunk_character_count": 243,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_002",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "1. Purpose",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 1. Purpose\n\nThis SOP defines the vibration inspection procedure for P-101 Cooling Water Circulation Pump.\n\nThe purpose of this procedure is to detect abnormal vibration early, identify possible bearing or alignment issues, and prevent unplanned pump failure.\n\n---",
+      "chunk_word_count": 39,
+      "chunk_character_count": 266,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_003",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "2. Scope",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 2. Scope\n\nThis SOP applies only to:\n\nAsset ID: P-101\nAsset Name: Cooling Water Circulation Pump\nAsset Type: Centrifugal Pump\nLocation: Utility Area - Line A\n\nThis SOP does not apply to C-201 Compressor or HX-301 Heat Exchanger.\n\n---",
+      "chunk_word_count": 40,
+      "chunk_character_count": 235,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_004",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "3. Vibration Thresholds",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 3. Vibration Thresholds\n\n| Condition | Vibration Reading |\n| --------- | -------------------: |\n| Normal | Below 4.5 mm/s |\n| Warning | 4.5 mm/s to 7.5 mm/s |\n| Critical | Above 7.5 mm/s |\n\nIf vibration exceeds 7.5 mm/s, the issue must be escalated immediately.\n\n---",
+      "chunk_word_count": 50,
+      "chunk_character_count": 269,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_005",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "4. Inspection Frequency",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 4. Inspection Frequency\n\nP-101 vibration inspection must be performed as part of routine condition monitoring.\n\nMinimum inspection frequency:\n\nWeekly vibration check.\n\nAdditional inspection is required when abnormal bearing noise, high bearing temperature, or unusual pump behavior is reported.\n\n---",
+      "chunk_word_count": 40,
+      "chunk_character_count": 302,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_006",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "5. Inspection Procedure",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 5. Inspection Procedure\n\n1. Verify that the pump is operating under normal load.\n2. Collect vibration reading near the bearing housing.\n3. Compare the reading against vibration thresholds.\n4. Record vibration value in the inspection report.\n5. Check for abnormal bearing noise.\n6. Check for visible looseness or mounting issues.\n7. Review lubrication evidence.\n8. Escalate if vibration exceeds warning or critical limit.\n\n---",
+      "chunk_word_count": 65,
+      "chunk_character_count": 428,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_007",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "6. Required Evidence",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 6. Required Evidence\n\nEvery vibration inspection must record:\n\n* Asset ID\n* Inspection date\n* Technician name\n* Vibration reading\n* Operating condition\n* Bearing noise observation\n* Recommended action\n* Linked work order if abnormal\n\n---",
+      "chunk_word_count": 38,
+      "chunk_character_count": 240,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_008",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "7. Abnormal Condition Criteria",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 7. Abnormal Condition Criteria\n\nP-101 should be treated as abnormal if any of the following are found:\n\n* Vibration reading is above 6.0 mm/s.\n* Vibration reading is above 7.5 mm/s.\n* Abnormal bearing noise is observed.\n* Bearing temperature is close to 80°C.\n* Lubrication evidence is missing.\n* Shaft misalignment is suspected.\n\n---",
+      "chunk_word_count": 56,
+      "chunk_character_count": 337,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_009",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "8. Recommended Action",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 8. Recommended Action\n\nIf vibration is above warning threshold:\n\n1. Continue monitoring.\n2. Check bearing noise.\n3. Verify lubrication evidence.\n4. Check alignment during next maintenance window.\n\nIf vibration is above critical threshold:\n\n1. Create urgent maintenance work order.\n2. Inspect bearing housing.\n3. Verify lubrication level and lubricant quality.\n4. Check shaft alignment.\n5. Inspect mounting bolts.\n6. Review incident history.\n\n---",
+      "chunk_word_count": 64,
+      "chunk_character_count": 448,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_010",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "9. Related Documents",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 9. Related Documents\n\n* SOP-P101-001: Pump Lubrication and Bearing Check\n* IR-P101-001: Pump Vibration Inspection Report\n* IR-P101-002: Pump Bearing Temperature Check\n* INC-P101-001: High Vibration Event\n* COMP-001: PlantMind Demo Compliance Checklist\n\n---",
+      "chunk_word_count": 35,
+      "chunk_character_count": 259,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "SOP-P101-002_Pump_Vibration_Inspection_CHUNK_011",
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "document_title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "section_title": "10. Keywords",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "chunk_text": "## 10. Keywords\n\nP-101, pump, vibration, bearing housing, vibration threshold, high vibration, bearing noise, inspection, maintenance, compliance evidence",
+      "chunk_word_count": 18,
+      "chunk_character_count": 154,
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_001",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "AI4I Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "ai4i",
+      "section_title": "AI4I Mapping for PlantMind AI",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "# AI4I Mapping for PlantMind AI",
+      "chunk_word_count": 6,
+      "chunk_character_count": 31,
+      "relative_path": "public_sources/ai4i/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_002",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "AI4I Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "ai4i",
+      "section_title": "Purpose",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## Purpose\n\nThis folder contains the AI4I 2020 Predictive Maintenance dataset used as a public reference for machine failure and predictive maintenance behavior.\n\nPlantMind AI maps this dataset to the P-101 Pump demo use case.",
+      "chunk_word_count": 35,
+      "chunk_character_count": 226,
+      "relative_path": "public_sources/ai4i/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_003",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "AI4I Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "ai4i",
+      "section_title": "PlantMind Asset Mapping",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## PlantMind Asset Mapping\n\n| AI4I Concept | PlantMind AI Mapping |\n|---|---|\n| Machine condition | P-101 Pump condition |\n| Machine failure | Pump failure risk |\n| Rotational speed / torque / temperature | Pump operating condition signals |\n| Failure label | Maintenance risk indicator |",
+      "chunk_word_count": 50,
+      "chunk_character_count": 288,
+      "relative_path": "public_sources/ai4i/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_004",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "AI4I Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "ai4i",
+      "section_title": "PlantMind Demo Use",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## PlantMind Demo Use\n\nThe dataset supports this PlantMind AI story:\n\nP-101 Pump is high risk because vibration increases above threshold, abnormal bearing noise is reported, and lubrication evidence is missing.",
+      "chunk_word_count": 31,
+      "chunk_character_count": 211,
+      "relative_path": "public_sources/ai4i/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_005",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "AI4I Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "ai4i",
+      "section_title": "Important Note",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## Important Note\n\nThe PlantMind AI Day 2 demo already contains simplified sensor values in:\n\n```text\ndata/raw/structured/sensor_readings.csv",
+      "chunk_word_count": 17,
+      "chunk_character_count": 141,
+      "relative_path": "public_sources/ai4i/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "readme_CHUNK_001",
+      "document_id": "readme",
+      "document_title": "readme",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "Document Body",
+      "asset_ids": [],
+      "tags": [],
+      "chunk_text": "Data Set: FD001\nTrain trjectories: 100\nTest trajectories: 100\nConditions: ONE (Sea Level)\nFault Modes: ONE (HPC Degradation)\n\nData Set: FD002\nTrain trjectories: 260\nTest trajectories: 259\nConditions: SIX \nFault Modes: ONE (HPC Degradation)\n\nData Set: FD003\nTrain trjectories: 100\nTest trajectories: 100\nConditions: ONE (Sea Level)\nFault Modes: TWO (HPC Degradation, Fan Degradation)\n\nData Set: FD004\nTrain trjectories: 248\nTest trajectories: 249\nConditions: SIX \nFault Modes: TWO (HPC Degradation, Fan Degradation)\n\nExperimental Scenario\n\nData sets consists of multiple multivariate time series. Each data set is further divided into training and test subsets. Each time series is from a different engine � i.e., the data can be considered to be from a fleet of engines of the same type. Each engine starts with different degrees of initial wear and manufacturing variation which is unknown to the",
+      "chunk_word_count": 136,
+      "chunk_character_count": 897,
+      "relative_path": "public_sources/nasa_cmapss/readme.txt",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "readme_CHUNK_002",
+      "document_id": "readme",
+      "document_title": "readme",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "Document Body",
+      "asset_ids": [],
+      "tags": [],
+      "chunk_text": "rom a fleet of engines of the same type. Each engine starts with different degrees of initial wear and manufacturing variation which is unknown to the user. This wear and variation is considered normal, i.e., it is not considered a fault condition. There are three operational settings that have a substantial effect on engine performance. These settings are also included in the data. The data is contaminated with sensor noise.\n\nThe engine is operating normally at the start of each time series, and develops a fault at some point during the series. In the training set, the fault grows in magnitude until system failure. In the test set, the time series ends some time prior to system failure. The objective of the competition is to predict the number of remaining operational cycles before failure in the test set, i.e., the number of operational cycles after the last cycle that the engine will",
+      "chunk_word_count": 152,
+      "chunk_character_count": 899,
+      "relative_path": "public_sources/nasa_cmapss/readme.txt",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "readme_CHUNK_003",
+      "document_id": "readme",
+      "document_title": "readme",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "Document Body",
+      "asset_ids": [],
+      "tags": [],
+      "chunk_text": "umber of remaining operational cycles before failure in the test set, i.e., the number of operational cycles after the last cycle that the engine will continue to operate. Also provided a vector of true Remaining Useful Life (RUL) values for the test data.\n\nThe data are provided as a zip-compressed text file with 26 columns of numbers, separated by spaces. Each row is a snapshot of data taken during a single operational cycle, each column is a different variable. The columns correspond to:\n1) unit number\n2) time, in cycles\n3) operational setting 1\n4) operational setting 2\n5) operational setting 3\n6) sensor measurement 1\n7) sensor measurement 2\n...\n26) sensor measurement 26\n\nReference: A. Saxena, K. Goebel, D. Simon, and N. Eklund, �Damage Propagation Modeling for Aircraft Engine Run-to-Failure Simulation�, in the Proceedings of the Ist International Conference on Prognostics and Health",
+      "chunk_word_count": 145,
+      "chunk_character_count": 898,
+      "relative_path": "public_sources/nasa_cmapss/readme.txt",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "readme_CHUNK_004",
+      "document_id": "readme",
+      "document_title": "readme",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "Document Body",
+      "asset_ids": [],
+      "tags": [],
+      "chunk_text": "Propagation Modeling for Aircraft Engine Run-to-Failure Simulation�, in the Proceedings of the Ist International Conference on Prognostics and Health Management (PHM08), Denver CO, Oct 2008.",
+      "chunk_word_count": 25,
+      "chunk_character_count": 190,
+      "relative_path": "public_sources/nasa_cmapss/readme.txt",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_001",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "NASA C-MAPSS Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "NASA C-MAPSS Mapping for PlantMind AI",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "# NASA C-MAPSS Mapping for PlantMind AI",
+      "chunk_word_count": 7,
+      "chunk_character_count": 39,
+      "relative_path": "public_sources/nasa_cmapss/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_002",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "NASA C-MAPSS Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "Purpose",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## Purpose\n\nThis folder contains NASA C-MAPSS public dataset files used as a reference for turbomachinery degradation and Remaining Useful Life behavior.\n\nPlantMind AI maps this dataset to the C-201 Process Air Compressor demo use case.",
+      "chunk_word_count": 36,
+      "chunk_character_count": 236,
+      "relative_path": "public_sources/nasa_cmapss/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_003",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "NASA C-MAPSS Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "Selected Dataset for MVP",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## Selected Dataset for MVP\n\nFor the PlantMind AI MVP, only FD001 will be used.",
+      "chunk_word_count": 15,
+      "chunk_character_count": 79,
+      "relative_path": "public_sources/nasa_cmapss/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_004",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "NASA C-MAPSS Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "Why FD001",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## Why FD001\n\nFD001 is selected because it is the simplest subset:\n\n- 100 training trajectories\n- 100 test trajectories\n- One operating condition\n- One fault mode\n- Fault mode: HPC degradation\n\nThis makes it suitable for a hackathon MVP and avoids unnecessary complexity.",
+      "chunk_word_count": 45,
+      "chunk_character_count": 271,
+      "relative_path": "public_sources/nasa_cmapss/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_005",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "NASA C-MAPSS Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "PlantMind Asset Mapping",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## PlantMind Asset Mapping\n\nNASA C-MAPSS FD001 is mapped as follows:\n\n| NASA C-MAPSS Concept | PlantMind AI Mapping |\n|---|---|\n| Engine unit | C-201 Compressor |\n| Operational cycle | Compressor operating cycle |\n| Sensor measurements | Compressor condition signals |\n| RUL value | Estimated remaining useful life |\n| Degradation trend | Compressor maintenance risk |",
+      "chunk_word_count": 61,
+      "chunk_character_count": 368,
+      "relative_path": "public_sources/nasa_cmapss/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_006",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "NASA C-MAPSS Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "PlantMind Demo Use",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## PlantMind Demo Use\n\nThe dataset supports this PlantMind AI story:\n\nC-201 Compressor has a decreasing Remaining Useful Life trend. The system recommends compressor inspection and filter replacement verification during the next maintenance window.",
+      "chunk_word_count": 34,
+      "chunk_character_count": 248,
+      "relative_path": "public_sources/nasa_cmapss/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_PlantMind_Mapping_CHUNK_007",
+      "document_id": "README_PlantMind_Mapping",
+      "document_title": "NASA C-MAPSS Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "section_title": "Files Used",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "chunk_text": "## Files Used\n\nThe MVP will use:\n\n```text\ntrain_FD001.txt\ntest_FD001.txt\nRUL_FD001.txt",
+      "chunk_word_count": 11,
+      "chunk_character_count": 86,
+      "relative_path": "public_sources/nasa_cmapss/README_PlantMind_Mapping.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_sources_CHUNK_001",
+      "document_id": "README_sources",
+      "document_title": "Public Dataset and Standards References",
+      "document_type": "Public Source Reference",
+      "source_group": "README_sources.md",
+      "section_title": "Public Dataset and Standards References",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "# Public Dataset and Standards References\n\nThis folder records public references used for PlantMind AI demo dataset design.",
+      "chunk_word_count": 18,
+      "chunk_character_count": 123,
+      "relative_path": "public_sources/README_sources.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_sources_CHUNK_002",
+      "document_id": "README_sources",
+      "document_title": "Public Dataset and Standards References",
+      "document_type": "Public Source Reference",
+      "source_group": "README_sources.md",
+      "section_title": "1. AI4I 2020 Predictive Maintenance Dataset",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "## 1. AI4I 2020 Predictive Maintenance Dataset\n\nAI4I is used as a public predictive maintenance reference.",
+      "chunk_word_count": 16,
+      "chunk_character_count": 106,
+      "relative_path": "public_sources/README_sources.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_sources_CHUNK_003",
+      "document_id": "README_sources",
+      "document_title": "Public Dataset and Standards References",
+      "document_type": "Public Source Reference",
+      "source_group": "README_sources.md",
+      "section_title": "PlantMind Mapping",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "### PlantMind Mapping\n\nAI4I-style predictive maintenance behavior is mapped to:\n\n- Asset: P-101 Pump\n- Demo signal: vibration increase\n- Failure context: bearing risk / machine failure risk\n- PlantMind feature: maintenance intelligence and sensor-risk explanation",
+      "chunk_word_count": 36,
+      "chunk_character_count": 263,
+      "relative_path": "public_sources/README_sources.md",
+      "created_at": "2026-07-01T12:38:31"
+    },
+    {
+      "chunk_id": "README_sources_CHUNK_004",
+      "document_id": "README_sources",
+      "document_title": "Public Dataset and Standards References",
+      "document_type": "Public Source Reference",
+      "source_group": "README_sources.md",
+      "section_title": "Current Use",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "chunk_text": "### Current Use\n\nPlantMind AI already contains simplified synthetic sensor values in:\n\n```text\ndata/raw/structured/sensor_readings.csv",
+      "chunk_word_count": 14,
+      "chunk_character_count": 134,
+      "relative_path": "public_sources/README_sources.md",
+      "created_at": "2026-07-01T12:38:31"
+    }
+  ]
+}

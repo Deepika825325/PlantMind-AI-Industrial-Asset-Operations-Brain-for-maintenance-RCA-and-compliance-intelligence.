@@ -1,0 +1,160 @@
+{
+  "artifact": "sensor_summary",
+  "generated_at": "2026-07-01T12:40:09",
+  "asset_level_summary": [
+    {
+      "asset_id": "C-201",
+      "overall_sensor_status": "Warning",
+      "total_readings": 6,
+      "status_counts": {
+        "Warning": 6
+      },
+      "sensors": [
+        "estimated_rul",
+        "outlet_temperature",
+        "pressure_ratio"
+      ]
+    },
+    {
+      "asset_id": "HX-301",
+      "overall_sensor_status": "Warning",
+      "total_readings": 6,
+      "status_counts": {
+        "Warning": 4,
+        "Normal": 2
+      },
+      "sensors": [
+        "efficiency_index",
+        "outlet_temperature",
+        "pressure_drop"
+      ]
+    },
+    {
+      "asset_id": "P-101",
+      "overall_sensor_status": "Critical",
+      "total_readings": 6,
+      "status_counts": {
+        "Warning": 4,
+        "Normal": 1,
+        "Critical": 1
+      },
+      "sensors": [
+        "vibration"
+      ]
+    }
+  ],
+  "sensor_level_summary": [
+    {
+      "asset_id": "C-201",
+      "sensor_name": "estimated_rul",
+      "unit": "cycles",
+      "first_value": 42.0,
+      "latest_value": 36.0,
+      "min_value": 36.0,
+      "max_value": 42.0,
+      "average_value": 39.0,
+      "latest_status": "Warning",
+      "trend_direction": "Decreasing",
+      "reading_count": 3,
+      "first_timestamp": "2026-02-10T08:00:00",
+      "latest_timestamp": "2026-02-12T08:00:00",
+      "source_dataset": "NASA_CMAPSS_Mapped"
+    },
+    {
+      "asset_id": "C-201",
+      "sensor_name": "outlet_temperature",
+      "unit": "C",
+      "first_value": 88.0,
+      "latest_value": 91.0,
+      "min_value": 88.0,
+      "max_value": 91.0,
+      "average_value": 89.5,
+      "latest_status": "Warning",
+      "trend_direction": "Increasing",
+      "reading_count": 2,
+      "first_timestamp": "2026-02-13T08:00:00",
+      "latest_timestamp": "2026-02-14T08:00:00",
+      "source_dataset": "NASA_CMAPSS_Mapped"
+    },
+    {
+      "asset_id": "C-201",
+      "sensor_name": "pressure_ratio",
+      "unit": "ratio",
+      "first_value": 3.95,
+      "latest_value": 3.95,
+      "min_value": 3.95,
+      "max_value": 3.95,
+      "average_value": 3.95,
+      "latest_status": "Warning",
+      "trend_direction": "Stable",
+      "reading_count": 1,
+      "first_timestamp": "2026-02-15T08:00:00",
+      "latest_timestamp": "2026-02-15T08:00:00",
+      "source_dataset": "NASA_CMAPSS_Mapped"
+    },
+    {
+      "asset_id": "HX-301",
+      "sensor_name": "efficiency_index",
+      "unit": "index",
+      "first_value": 0.71,
+      "latest_value": 0.71,
+      "min_value": 0.71,
+      "max_value": 0.71,
+      "average_value": 0.71,
+      "latest_status": "Warning",
+      "trend_direction": "Stable",
+      "reading_count": 1,
+      "first_timestamp": "2026-03-06T08:00:00",
+      "latest_timestamp": "2026-03-06T08:00:00",
+      "source_dataset": "Synthetic_Process_Mapped"
+    },
+    {
+      "asset_id": "HX-301",
+      "sensor_name": "outlet_temperature",
+      "unit": "C",
+      "first_value": 92.0,
+      "latest_value": 88.0,
+      "min_value": 88.0,
+      "max_value": 92.0,
+      "average_value": 89.75,
+      "latest_status": "Warning",
+      "trend_direction": "Decreasing",
+      "reading_count": 4,
+      "first_timestamp": "2026-03-01T08:00:00",
+      "latest_timestamp": "2026-03-04T08:00:00",
+      "source_dataset": "Synthetic_Process_Mapped"
+    },
+    {
+      "asset_id": "HX-301",
+      "sensor_name": "pressure_drop",
+      "unit": "bar",
+      "first_value": 1.9,
+      "latest_value": 1.9,
+      "min_value": 1.9,
+      "max_value": 1.9,
+      "average_value": 1.9,
+      "latest_status": "Warning",
+      "trend_direction": "Stable",
+      "reading_count": 1,
+      "first_timestamp": "2026-03-05T08:00:00",
+      "latest_timestamp": "2026-03-05T08:00:00",
+      "source_dataset": "Synthetic_Process_Mapped"
+    },
+    {
+      "asset_id": "P-101",
+      "sensor_name": "vibration",
+      "unit": "mm/s",
+      "first_value": 4.1,
+      "latest_value": 7.8,
+      "min_value": 4.1,
+      "max_value": 7.8,
+      "average_value": 6.0,
+      "latest_status": "Critical",
+      "trend_direction": "Increasing",
+      "reading_count": 6,
+      "first_timestamp": "2026-01-16T08:00:00",
+      "latest_timestamp": "2026-01-21T08:00:00",
+      "source_dataset": "UCI_AI4I_Mapped"
+    }
+  ]
+}

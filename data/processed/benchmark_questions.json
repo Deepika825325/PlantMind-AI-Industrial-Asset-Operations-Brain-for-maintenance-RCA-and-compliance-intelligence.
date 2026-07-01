@@ -1,0 +1,278 @@
+{
+  "artifact": "benchmark_questions",
+  "generated_at": "2026-07-01T12:40:09",
+  "total_questions": 20,
+  "questions": [
+    {
+      "question_id": "Q001",
+      "question": "Why is P-101 high risk?",
+      "expected_answer_type": "risk_explanation",
+      "expected_assets": [
+        "P-101"
+      ],
+      "expected_sources": [
+        "IR-P101-001",
+        "IR-P101-002",
+        "INC-P101-001",
+        "COMP-001"
+      ]
+    },
+    {
+      "question_id": "Q002",
+      "question": "What evidence shows P-101 vibration is abnormal?",
+      "expected_answer_type": "evidence_retrieval",
+      "expected_assets": [
+        "P-101"
+      ],
+      "expected_sources": [
+        "IR-P101-001",
+        "SOP-P101-002",
+        "sensor_readings.csv"
+      ]
+    },
+    {
+      "question_id": "Q003",
+      "question": "What maintenance action is recommended for P-101?",
+      "expected_answer_type": "maintenance_recommendation",
+      "expected_assets": [
+        "P-101"
+      ],
+      "expected_sources": [
+        "IR-P101-001",
+        "SOP-P101-001",
+        "INC-P101-001",
+        "work_orders.csv"
+      ]
+    },
+    {
+      "question_id": "Q004",
+      "question": "Generate RCA for P-101 high vibration.",
+      "expected_answer_type": "rca",
+      "expected_assets": [
+        "P-101"
+      ],
+      "expected_sources": [
+        "IR-P101-001",
+        "IR-P101-002",
+        "INC-P101-001",
+        "SOP-P101-001"
+      ]
+    },
+    {
+      "question_id": "Q005",
+      "question": "Which compliance evidence is missing for P-101?",
+      "expected_answer_type": "compliance_gap",
+      "expected_assets": [
+        "P-101"
+      ],
+      "expected_sources": [
+        "COMP-001",
+        "IR-GEN-001",
+        "ground_truth_compliance_gaps.csv"
+      ]
+    },
+    {
+      "question_id": "Q006",
+      "question": "What is the likely root cause of P-101 vibration?",
+      "expected_answer_type": "root_cause",
+      "expected_assets": [
+        "P-101"
+      ],
+      "expected_sources": [
+        "INC-P101-001",
+        "IR-P101-001",
+        "IR-P101-002"
+      ]
+    },
+    {
+      "question_id": "Q007",
+      "question": "What safety procedure applies before P-101 bearing inspection?",
+      "expected_answer_type": "safety_procedure",
+      "expected_assets": [
+        "P-101"
+      ],
+      "expected_sources": [
+        "SOP-GEN-001",
+        "SOP-P101-001",
+        "COMP-001"
+      ]
+    },
+    {
+      "question_id": "Q008",
+      "question": "What is the current status of C-201?",
+      "expected_answer_type": "asset_status",
+      "expected_assets": [
+        "C-201"
+      ],
+      "expected_sources": [
+        "IR-C201-001",
+        "sensor_readings.csv",
+        "work_orders.csv"
+      ]
+    },
+    {
+      "question_id": "Q009",
+      "question": "What maintenance should be planned for C-201?",
+      "expected_answer_type": "maintenance_recommendation",
+      "expected_assets": [
+        "C-201"
+      ],
+      "expected_sources": [
+        "IR-C201-001",
+        "SOP-C201-001",
+        "work_orders.csv"
+      ]
+    },
+    {
+      "question_id": "Q010",
+      "question": "Which C-201 evidence is delayed?",
+      "expected_answer_type": "compliance_gap",
+      "expected_assets": [
+        "C-201"
+      ],
+      "expected_sources": [
+        "COMP-001",
+        "IR-GEN-001",
+        "ground_truth_compliance_gaps.csv",
+        "work_orders.csv"
+      ]
+    },
+    {
+      "question_id": "Q011",
+      "question": "Why is C-201 medium risk?",
+      "expected_answer_type": "risk_explanation",
+      "expected_assets": [
+        "C-201"
+      ],
+      "expected_sources": [
+        "IR-C201-001",
+        "sensor_readings.csv",
+        "SOP-C201-001"
+      ]
+    },
+    {
+      "question_id": "Q012",
+      "question": "What SOP should be followed before C-201 inspection?",
+      "expected_answer_type": "safety_procedure",
+      "expected_assets": [
+        "C-201"
+      ],
+      "expected_sources": [
+        "SOP-C201-001",
+        "SOP-GEN-001"
+      ]
+    },
+    {
+      "question_id": "Q013",
+      "question": "What evidence is missing for HX-301?",
+      "expected_answer_type": "compliance_gap",
+      "expected_assets": [
+        "HX-301"
+      ],
+      "expected_sources": [
+        "COMP-001",
+        "IR-GEN-001",
+        "ground_truth_compliance_gaps.csv"
+      ]
+    },
+    {
+      "question_id": "Q014",
+      "question": "Why is HX-301 suspected to be fouled?",
+      "expected_answer_type": "risk_explanation",
+      "expected_assets": [
+        "HX-301"
+      ],
+      "expected_sources": [
+        "IR-HX301-001",
+        "INC-HX301-001",
+        "SOP-HX301-001",
+        "sensor_readings.csv"
+      ]
+    },
+    {
+      "question_id": "Q015",
+      "question": "What maintenance action is recommended for HX-301?",
+      "expected_answer_type": "maintenance_recommendation",
+      "expected_assets": [
+        "HX-301"
+      ],
+      "expected_sources": [
+        "IR-HX301-001",
+        "SOP-HX301-001",
+        "INC-HX301-001",
+        "work_orders.csv"
+      ]
+    },
+    {
+      "question_id": "Q016",
+      "question": "Generate RCA for HX-301 low heat transfer efficiency.",
+      "expected_answer_type": "rca",
+      "expected_assets": [
+        "HX-301"
+      ],
+      "expected_sources": [
+        "IR-HX301-001",
+        "INC-HX301-001",
+        "SOP-HX301-001",
+        "COMP-001"
+      ]
+    },
+    {
+      "question_id": "Q017",
+      "question": "Which assets are non-compliant?",
+      "expected_answer_type": "compliance_summary",
+      "expected_assets": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "expected_sources": [
+        "COMP-001",
+        "IR-GEN-001",
+        "ground_truth_compliance_gaps.csv"
+      ]
+    },
+    {
+      "question_id": "Q018",
+      "question": "List all open work orders.",
+      "expected_answer_type": "work_order_summary",
+      "expected_assets": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "expected_sources": [
+        "work_orders.csv"
+      ]
+    },
+    {
+      "question_id": "Q019",
+      "question": "Which documents mention work permit requirements?",
+      "expected_answer_type": "document_retrieval",
+      "expected_assets": [
+        "GENERAL"
+      ],
+      "expected_sources": [
+        "SOP-GEN-001",
+        "COMP-001",
+        "IR-GEN-001"
+      ]
+    },
+    {
+      "question_id": "Q020",
+      "question": "What sensor readings support the current asset risks?",
+      "expected_answer_type": "sensor_evidence",
+      "expected_assets": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "expected_sources": [
+        "sensor_readings.csv",
+        "IR-P101-001",
+        "IR-C201-001",
+        "IR-HX301-001"
+      ]
+    }
+  ]
+}
