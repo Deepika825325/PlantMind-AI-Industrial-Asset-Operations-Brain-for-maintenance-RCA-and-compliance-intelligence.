@@ -1,0 +1,264 @@
+{
+  "document_id": "PID-001",
+  "file_name": "PID-001_Demo_Process_Line.png",
+  "document_type": "P&ID Drawing",
+  "title": "PID-001 Demo Process Line",
+  "source_context": "DEXPI-style P&ID reference",
+  "data_type": "Synthetic demo drawing metadata",
+  "created_for_project": "PlantMind AI",
+  "description": "Simplified P&ID-style process line showing feed flow through P-101 Pump, C-201 Compressor, and HX-301 Heat Exchanger before outlet discharge.",
+  "assets": [
+    {
+      "asset_id": "P-101",
+      "asset_name": "Cooling Water Circulation Pump",
+      "asset_type": "Pump",
+      "symbol_label": "Pump",
+      "position_in_process": "After V-101 isolation valve and before C-201 compressor"
+    },
+    {
+      "asset_id": "C-201",
+      "asset_name": "Process Air Compressor",
+      "asset_type": "Compressor",
+      "symbol_label": "Compressor",
+      "position_in_process": "After P-101 pump and before HX-301 heat exchanger"
+    },
+    {
+      "asset_id": "HX-301",
+      "asset_name": "Feed Preheater Heat Exchanger",
+      "asset_type": "Heat Exchanger",
+      "symbol_label": "Heat Exchanger",
+      "position_in_process": "After C-201 compressor and before V-201 isolation valve"
+    }
+  ],
+  "instruments": [
+    {
+      "tag": "FT-101",
+      "name": "Flow Transmitter",
+      "measured_variable": "Flow",
+      "associated_section": "Feed line before P-101"
+    },
+    {
+      "tag": "PT-201",
+      "name": "Pressure Transmitter",
+      "measured_variable": "Pressure",
+      "associated_section": "Compressor discharge / C-201 section"
+    },
+    {
+      "tag": "TT-301",
+      "name": "Temperature Transmitter",
+      "measured_variable": "Temperature",
+      "associated_section": "HX-301 heat exchanger outlet section"
+    }
+  ],
+  "valves": [
+    {
+      "tag": "V-101",
+      "name": "Isolation Valve",
+      "valve_type": "Manual isolation valve",
+      "associated_section": "Before P-101 pump"
+    },
+    {
+      "tag": "V-201",
+      "name": "Isolation Valve",
+      "valve_type": "Manual isolation valve",
+      "associated_section": "After HX-301 heat exchanger"
+    }
+  ],
+  "process_flow": [
+    {
+      "sequence": 1,
+      "from": "Feed Line",
+      "to": "FT-101",
+      "relationship": "MEASURED_BY"
+    },
+    {
+      "sequence": 2,
+      "from": "Feed Line",
+      "to": "V-101",
+      "relationship": "FLOWS_THROUGH"
+    },
+    {
+      "sequence": 3,
+      "from": "V-101",
+      "to": "P-101",
+      "relationship": "FEEDS"
+    },
+    {
+      "sequence": 4,
+      "from": "P-101",
+      "to": "C-201",
+      "relationship": "CONNECTED_TO"
+    },
+    {
+      "sequence": 5,
+      "from": "C-201",
+      "to": "PT-201",
+      "relationship": "MONITORED_BY"
+    },
+    {
+      "sequence": 6,
+      "from": "C-201",
+      "to": "HX-301",
+      "relationship": "CONNECTED_TO"
+    },
+    {
+      "sequence": 7,
+      "from": "HX-301",
+      "to": "TT-301",
+      "relationship": "MONITORED_BY"
+    },
+    {
+      "sequence": 8,
+      "from": "HX-301",
+      "to": "V-201",
+      "relationship": "DISCHARGES_TO"
+    },
+    {
+      "sequence": 9,
+      "from": "V-201",
+      "to": "Outlet Line",
+      "relationship": "FLOWS_TO"
+    }
+  ],
+  "extracted_tags": [
+    "PID-001",
+    "P-101",
+    "C-201",
+    "HX-301",
+    "FT-101",
+    "PT-201",
+    "TT-301",
+    "V-101",
+    "V-201"
+  ],
+  "graph_nodes": [
+    {
+      "id": "PID-001",
+      "label": "PID-001 Demo Process Line",
+      "type": "Document"
+    },
+    {
+      "id": "P-101",
+      "label": "P-101 Pump",
+      "type": "Asset"
+    },
+    {
+      "id": "C-201",
+      "label": "C-201 Compressor",
+      "type": "Asset"
+    },
+    {
+      "id": "HX-301",
+      "label": "HX-301 Heat Exchanger",
+      "type": "Asset"
+    },
+    {
+      "id": "FT-101",
+      "label": "FT-101 Flow Transmitter",
+      "type": "Instrument"
+    },
+    {
+      "id": "PT-201",
+      "label": "PT-201 Pressure Transmitter",
+      "type": "Instrument"
+    },
+    {
+      "id": "TT-301",
+      "label": "TT-301 Temperature Transmitter",
+      "type": "Instrument"
+    },
+    {
+      "id": "V-101",
+      "label": "V-101 Isolation Valve",
+      "type": "Valve"
+    },
+    {
+      "id": "V-201",
+      "label": "V-201 Isolation Valve",
+      "type": "Valve"
+    }
+  ],
+  "graph_edges": [
+    {
+      "source": "PID-001",
+      "target": "P-101",
+      "relationship": "HAS_ASSET"
+    },
+    {
+      "source": "PID-001",
+      "target": "C-201",
+      "relationship": "HAS_ASSET"
+    },
+    {
+      "source": "PID-001",
+      "target": "HX-301",
+      "relationship": "HAS_ASSET"
+    },
+    {
+      "source": "Feed Line",
+      "target": "V-101",
+      "relationship": "FLOWS_THROUGH"
+    },
+    {
+      "source": "V-101",
+      "target": "P-101",
+      "relationship": "FEEDS"
+    },
+    {
+      "source": "P-101",
+      "target": "C-201",
+      "relationship": "CONNECTED_TO"
+    },
+    {
+      "source": "C-201",
+      "target": "HX-301",
+      "relationship": "CONNECTED_TO"
+    },
+    {
+      "source": "HX-301",
+      "target": "V-201",
+      "relationship": "DISCHARGES_TO"
+    },
+    {
+      "source": "V-201",
+      "target": "Outlet Line",
+      "relationship": "FLOWS_TO"
+    },
+    {
+      "source": "FT-101",
+      "target": "Feed Line",
+      "relationship": "MEASURES_FLOW"
+    },
+    {
+      "source": "PT-201",
+      "target": "C-201",
+      "relationship": "MEASURES_PRESSURE"
+    },
+    {
+      "source": "TT-301",
+      "target": "HX-301",
+      "relationship": "MEASURES_TEMPERATURE"
+    }
+  ],
+  "rag_summary": "PID-001 is a simplified P&ID-style demo drawing showing a process line from Feed Line through V-101, P-101 Pump, C-201 Compressor, HX-301 Heat Exchanger, V-201, and Outlet Line. It includes FT-101 flow transmitter, PT-201 pressure transmitter, and TT-301 temperature transmitter.",
+  "keywords": [
+    "P&ID",
+    "DEXPI-style",
+    "process line",
+    "P-101",
+    "C-201",
+    "HX-301",
+    "FT-101",
+    "PT-201",
+    "TT-301",
+    "V-101",
+    "V-201",
+    "pump",
+    "compressor",
+    "heat exchanger",
+    "flow transmitter",
+    "pressure transmitter",
+    "temperature transmitter",
+    "isolation valve"
+  ]
+}

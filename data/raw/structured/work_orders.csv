@@ -1,0 +1,7 @@
+work_order_id,asset_id,asset_name,work_order_type,priority,status,created_date,due_date,description,linked_document,compliance_related
+WO-1001,P-101,Cooling Water Circulation Pump,Bearing Inspection,High,Open,2026-01-22,2026-01-24,Inspect bearing housing due to high vibration and abnormal noise,INC-P101-001,Yes
+WO-1002,P-101,Cooling Water Circulation Pump,Lubrication Verification,High,Open,2026-01-22,2026-01-23,Verify lubrication level and upload missing lubrication evidence,SOP-P101-001,Yes
+WO-1003,C-201,Process Air Compressor,Filter Replacement Verification,Medium,Delayed,2026-02-15,2026-02-20,Verify whether compressor filter replacement was completed,IR-C201-001,Yes
+WO-1004,C-201,Process Air Compressor,Compressor Inspection,Medium,Planned,2026-02-15,2026-02-28,Inspect compressor due to decreasing RUL trend,IR-C201-001,No
+WO-1005,HX-301,Feed Preheater Heat Exchanger,Cleaning Inspection,Medium,Open,2026-03-05,2026-03-12,Schedule cleaning inspection due to fouling suspicion,IR-HX301-001,Yes
+WO-1006,HX-301,Feed Preheater Heat Exchanger,Work Permit Review,Medium,Open,2026-03-07,2026-03-10,Verify work permit evidence before cleaning activity,COMP-001,Yes

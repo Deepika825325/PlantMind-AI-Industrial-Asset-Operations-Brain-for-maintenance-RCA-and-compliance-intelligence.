@@ -1,0 +1,6 @@
+gap_id,asset_id,requirement,expected_evidence,current_status,evidence_file,gap_severity,recommended_action,source_document
+GAP-001,P-101,Weekly lubrication check,Lubrication record,Missing,,High,Perform lubrication check and upload evidence,COMP-001
+GAP-002,P-101,Work permit before bearing inspection,Work permit record,Missing,,High,Create or attach work permit before bearing inspection,COMP-001
+GAP-003,C-201,Filter replacement verification,Maintenance log or work order,Delayed,WO-1003,Medium,Verify filter replacement completion,COMP-001
+GAP-004,HX-301,Cleaning and fouling inspection,Cleaning record,Overdue,,Medium,Schedule cleaning inspection and upload cleaning evidence,COMP-001
+GAP-005,HX-301,Work permit before cleaning,Work permit record,Missing,,Medium,Attach work permit before cleaning activity,COMP-001
