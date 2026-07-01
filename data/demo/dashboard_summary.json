@@ -1,0 +1,29 @@
+{
+  "artifact": "demo_dashboard_summary",
+  "generated_at": "2026-07-01T12:45:56",
+  "total_assets": 3,
+  "high_risk_assets": [
+    "P-101"
+  ],
+  "medium_risk_assets": [
+    "C-201",
+    "HX-301"
+  ],
+  "total_documents": 19,
+  "total_compliance_gaps": 5,
+  "high_severity_gaps": [
+    "GAP-001",
+    "GAP-002"
+  ],
+  "total_work_orders": 6,
+  "open_or_delayed_work_orders": [
+    "WO-1001",
+    "WO-1002",
+    "WO-1003",
+    "WO-1005",
+    "WO-1006"
+  ],
+  "knowledge_graph_nodes": 49,
+  "knowledge_graph_edges": 78,
+  "demo_story": "P-101 is the highest-priority risk asset; C-201 needs compressor maintenance planning; HX-301 needs fouling inspection and cleaning evidence."
+}

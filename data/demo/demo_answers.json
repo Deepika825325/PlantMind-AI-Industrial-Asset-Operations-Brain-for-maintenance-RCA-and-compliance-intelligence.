@@ -1,0 +1,61 @@
+{
+  "artifact": "demo_answers",
+  "generated_at": "2026-07-01T12:45:56",
+  "answers": [
+    {
+      "question": "Why is P-101 high risk?",
+      "asset_id": "P-101",
+      "answer": "P-101 is high risk because vibration reached a critical level, bearing temperature is in warning range, abnormal bearing noise was reported, and lubrication evidence is missing.",
+      "supporting_sources": [
+        "IR-P101-001",
+        "IR-P101-002",
+        "INC-P101-001",
+        "COMP-001"
+      ]
+    },
+    {
+      "question": "What is the likely root cause of P-101 vibration?",
+      "asset_id": "P-101",
+      "answer": "The likely root causes are bearing wear, lubrication degradation, shaft misalignment, loose mounting, or mechanical imbalance. Missing lubrication evidence increases confidence in lubrication-related bearing risk.",
+      "supporting_sources": [
+        "INC-P101-001",
+        "IR-P101-001",
+        "IR-P101-002",
+        "SOP-P101-001"
+      ]
+    },
+    {
+      "question": "Why is C-201 medium risk?",
+      "asset_id": "C-201",
+      "answer": "C-201 is medium risk because estimated RUL is decreasing, outlet temperature is above normal range, pressure ratio is unstable, and filter replacement verification is delayed.",
+      "supporting_sources": [
+        "IR-C201-001",
+        "SOP-C201-001",
+        "sensor_summary.json",
+        "work_orders_processed.json"
+      ]
+    },
+    {
+      "question": "Why is HX-301 suspected to be fouled?",
+      "asset_id": "HX-301",
+      "answer": "HX-301 is suspected to be fouled because outlet temperature dropped below normal, pressure drop increased, efficiency index decreased, and cleaning/fouling inspection evidence is overdue.",
+      "supporting_sources": [
+        "IR-HX301-001",
+        "INC-HX301-001",
+        "SOP-HX301-001",
+        "sensor_summary.json"
+      ]
+    },
+    {
+      "question": "Which assets are non-compliant?",
+      "asset_id": "ALL",
+      "answer": "P-101, C-201, and HX-301 all have compliance gaps. P-101 has missing lubrication and work permit evidence, C-201 has delayed filter replacement verification, and HX-301 has overdue cleaning evidence and missing work permit evidence.",
+      "supporting_sources": [
+        "COMP-001",
+        "IR-GEN-001",
+        "ground_truth_compliance_gaps.csv",
+        "compliance_matrix.json"
+      ]
+    }
+  ]
+}

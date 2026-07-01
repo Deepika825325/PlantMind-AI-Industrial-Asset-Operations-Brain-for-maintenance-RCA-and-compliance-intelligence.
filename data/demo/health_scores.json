@@ -1,0 +1,94 @@
+{
+  "artifact": "demo_health_scores",
+  "generated_at": "2026-07-01T12:45:56",
+  "health_scores": [
+    {
+      "asset_id": "P-101",
+      "asset_name": "Cooling Water Circulation Pump",
+      "asset_type": "Pump",
+      "risk_score": 97,
+      "health_score": 3,
+      "health_label": "Critical Attention Needed",
+      "risk_level": "High",
+      "sensor_status": "Critical",
+      "sensor_signals": [
+        {
+          "sensor_name": "vibration",
+          "latest_value": 7.8,
+          "unit": "mm/s",
+          "latest_status": "Critical",
+          "trend_direction": "Increasing"
+        }
+      ],
+      "summary": "High vibration, bearing temperature warning, abnormal noise, and missing lubrication evidence."
+    },
+    {
+      "asset_id": "C-201",
+      "asset_name": "Process Air Compressor",
+      "asset_type": "Compressor",
+      "risk_score": 56,
+      "health_score": 44,
+      "health_label": "Needs Attention",
+      "risk_level": "Medium",
+      "sensor_status": "Warning",
+      "sensor_signals": [
+        {
+          "sensor_name": "estimated_rul",
+          "latest_value": 36.0,
+          "unit": "cycles",
+          "latest_status": "Warning",
+          "trend_direction": "Decreasing"
+        },
+        {
+          "sensor_name": "outlet_temperature",
+          "latest_value": 91.0,
+          "unit": "C",
+          "latest_status": "Warning",
+          "trend_direction": "Increasing"
+        },
+        {
+          "sensor_name": "pressure_ratio",
+          "latest_value": 3.95,
+          "unit": "ratio",
+          "latest_status": "Warning",
+          "trend_direction": "Stable"
+        }
+      ],
+      "summary": "Decreasing RUL, outlet temperature warning, pressure ratio instability, and delayed filter verification."
+    },
+    {
+      "asset_id": "HX-301",
+      "asset_name": "Feed Preheater Heat Exchanger",
+      "asset_type": "Heat Exchanger",
+      "risk_score": 56,
+      "health_score": 44,
+      "health_label": "Needs Attention",
+      "risk_level": "Medium",
+      "sensor_status": "Warning",
+      "sensor_signals": [
+        {
+          "sensor_name": "efficiency_index",
+          "latest_value": 0.71,
+          "unit": "index",
+          "latest_status": "Warning",
+          "trend_direction": "Stable"
+        },
+        {
+          "sensor_name": "outlet_temperature",
+          "latest_value": 88.0,
+          "unit": "C",
+          "latest_status": "Warning",
+          "trend_direction": "Decreasing"
+        },
+        {
+          "sensor_name": "pressure_drop",
+          "latest_value": 1.9,
+          "unit": "bar",
+          "latest_status": "Warning",
+          "trend_direction": "Stable"
+        }
+      ],
+      "summary": "Low outlet temperature, high pressure drop, reduced efficiency, suspected fouling, and overdue cleaning evidence."
+    }
+  ]
+}
