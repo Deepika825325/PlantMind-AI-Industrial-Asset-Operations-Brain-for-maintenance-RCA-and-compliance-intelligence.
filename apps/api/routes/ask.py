@@ -1,7 +1,11 @@
-from fastapi import APIRouter
+from fastapi import APIRouter, Query
 from pydantic import BaseModel, Field
 
-from apps.api.services.simple_retriever import ask_plantmind, get_suggested_questions
+from apps.api.services.simple_retriever import (
+    ask_plantmind,
+    get_suggested_questions,
+    search_evidence,
+)
 
 
 router = APIRouter(prefix="/ask", tags=["Ask PlantMind"])
@@ -19,6 +23,19 @@ def ask(request: AskRequest):
         question=request.question,
         asset_id=request.asset_id,
         top_k=request.top_k
+    )
+
+
+@router.get("/search")
+def search(
+    query: str = Query(..., min_length=3),
+    asset_id: str | None = Query(default=None),
+    top_k: int = Query(default=10, ge=1, le=20)
+):
+    return search_evidence(
+        query=query,
+        asset_id=asset_id,
+        top_k=top_k
     )
 
 

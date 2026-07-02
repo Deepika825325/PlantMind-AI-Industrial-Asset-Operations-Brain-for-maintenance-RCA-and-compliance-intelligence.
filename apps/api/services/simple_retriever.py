@@ -1,9 +1,12 @@
 import re
-from typing import Any, Dict, List, Optional
+from typing import Any, Dict, List, Optional, Tuple
 
 from apps.api.services.data_loader import (
+    get_compliance_matrix,
     get_demo_answers,
     get_document_chunks,
+    get_documents,
+    get_maintenance_events,
     get_rag_seed_questions,
 )
 
@@ -12,11 +15,20 @@ STOPWORDS = {
     "a", "an", "the", "is", "are", "was", "were", "why", "what", "which",
     "who", "where", "when", "how", "to", "for", "of", "in", "on", "and",
     "or", "with", "by", "as", "it", "this", "that", "be", "been", "from",
-    "current", "generate", "list", "all"
+    "current", "generate", "list", "all", "show", "tell", "me", "does",
+    "do", "did", "should", "can", "could", "would", "about"
 }
 
-
 ASSET_IDS = ["P-101", "C-201", "HX-301"]
+
+ANSWER_TYPE_KEYWORDS = {
+    "risk_explanation": ["risk", "high risk", "medium risk", "why"],
+    "rca": ["rca", "root cause", "cause", "failure reason"],
+    "compliance_gap": ["compliance", "gap", "missing", "delayed", "overdue", "non-compliant"],
+    "maintenance_recommendation": ["maintenance", "action", "recommend", "work order", "planned"],
+    "sensor_evidence": ["sensor", "reading", "vibration", "temperature", "pressure", "rul", "efficiency"],
+    "document_retrieval": ["document", "sop", "inspection", "report", "evidence"],
+}
 
 
 def normalize_text(text: str) -> str:
@@ -41,6 +53,112 @@ def detect_assets(question: str) -> List[str]:
     ]
 
 
+def detect_answer_type(question: str) -> str:
+    question_lower = question.lower()
+
+    best_type = "general"
+    best_score = 0
+
+    for answer_type, keywords in ANSWER_TYPE_KEYWORDS.items():
+        score = 0
+
+        for keyword in keywords:
+          if keyword in question_lower:
+              score += 1
+
+        if score > best_score:
+            best_score = score
+            best_type = answer_type
+
+    return best_type
+
+
+def get_document_lookup() -> Dict[str, Dict[str, Any]]:
+    documents = get_documents()
+
+    lookup = {}
+
+    for document in documents:
+        lookup[document["document_id"]] = document
+
+        clean_id = document["document_id"].replace("_Pump_Vibration_Inspection", "")
+        lookup[clean_id] = document
+
+    return lookup
+
+
+def phrase_bonus(question: str, chunk_text: str) -> int:
+    question_lower = question.lower()
+    chunk_lower = chunk_text.lower()
+
+    bonus = 0
+
+    important_phrases = [
+        "high vibration",
+        "bearing temperature",
+        "abnormal noise",
+        "lubrication evidence",
+        "work permit",
+        "filter replacement",
+        "outlet temperature",
+        "pressure drop",
+        "efficiency index",
+        "cleaning evidence",
+        "root cause",
+        "fouling",
+        "remaining useful life",
+        "rul",
+        "non-compliant",
+    ]
+
+    for phrase in important_phrases:
+        if phrase in question_lower and phrase in chunk_lower:
+            bonus += 4
+
+    return bonus
+
+
+def answer_type_bonus(answer_type: str, chunk: Dict[str, Any]) -> int:
+    document_type = chunk.get("document_type", "").lower()
+    section_title = chunk.get("section_title", "").lower()
+    text = chunk.get("chunk_text", "").lower()
+
+    bonus = 0
+
+    if answer_type == "risk_explanation":
+        if "risk" in section_title or "risk" in text:
+            bonus += 4
+        if "inspection" in document_type or "incident" in document_type:
+            bonus += 3
+
+    elif answer_type == "rca":
+        if "root cause" in text or "cause" in text or "rca" in text:
+            bonus += 5
+        if "incident" in document_type:
+            bonus += 4
+
+    elif answer_type == "compliance_gap":
+        if "compliance" in document_type or "gap" in text or "missing" in text:
+            bonus += 5
+
+    elif answer_type == "maintenance_recommendation":
+        if "recommended action" in section_title or "recommended" in text:
+            bonus += 5
+        if "work order" in text:
+            bonus += 3
+
+    elif answer_type == "sensor_evidence":
+        sensor_terms = ["vibration", "temperature", "pressure", "rul", "efficiency", "reading"]
+        if any(term in text for term in sensor_terms):
+            bonus += 4
+
+    elif answer_type == "document_retrieval":
+        if "sop" in document_type or "inspection" in document_type or "document" in text:
+            bonus += 3
+
+    return bonus
+
+
 def keyword_score(query_tokens: List[str], text: str) -> int:
     text_lower = text.lower()
     score = 0
@@ -52,6 +170,39 @@ def keyword_score(query_tokens: List[str], text: str) -> int:
     return score
 
 
+def score_chunk(
+    question: str,
+    query_tokens: List[str],
+    detected_assets: List[str],
+    answer_type: str,
+    chunk: Dict[str, Any]
+) -> int:
+    chunk_text = chunk.get("chunk_text", "")
+    chunk_assets = chunk.get("asset_ids", [])
+    chunk_tags = chunk.get("tags", [])
+    document_title = chunk.get("document_title", "")
+    document_type = chunk.get("document_type", "")
+
+    score = 0
+
+    score += keyword_score(query_tokens, chunk_text)
+    score += keyword_score(query_tokens, document_title)
+    score += keyword_score(query_tokens, document_type)
+
+    for detected_asset in detected_assets:
+        if detected_asset in chunk_assets:
+            score += 8
+        if detected_asset in chunk_tags:
+            score += 5
+        if detected_asset in chunk_text:
+            score += 4
+
+    score += phrase_bonus(question, chunk_text)
+    score += answer_type_bonus(answer_type, chunk)
+
+    return score
+
+
 def retrieve_chunks(
     question: str,
     asset_id: Optional[str] = None,
@@ -59,8 +210,8 @@ def retrieve_chunks(
 ) -> List[Dict[str, Any]]:
     chunks = get_document_chunks()
     query_tokens = tokenize(question)
-
     detected_assets = detect_assets(question)
+    answer_type = detect_answer_type(question)
 
     if asset_id:
         detected_assets = [asset_id.upper()]
@@ -68,15 +219,13 @@ def retrieve_chunks(
     scored_chunks = []
 
     for chunk in chunks:
-        chunk_text = chunk.get("chunk_text", "")
-        chunk_assets = chunk.get("asset_ids", [])
-        chunk_tags = chunk.get("tags", [])
-
-        score = keyword_score(query_tokens, chunk_text)
-
-        for detected_asset in detected_assets:
-            if detected_asset in chunk_assets or detected_asset in chunk_tags:
-                score += 5
+        score = score_chunk(
+            question=question,
+            query_tokens=query_tokens,
+            detected_assets=detected_assets,
+            answer_type=answer_type,
+            chunk=chunk
+        )
 
         if score > 0:
             scored_chunks.append({
@@ -86,10 +235,10 @@ def retrieve_chunks(
                 "document_title": chunk.get("document_title"),
                 "document_type": chunk.get("document_type"),
                 "section_title": chunk.get("section_title"),
-                "asset_ids": chunk_assets,
-                "tags": chunk_tags,
+                "asset_ids": chunk.get("asset_ids", []),
+                "tags": chunk.get("tags", []),
                 "relative_path": chunk.get("relative_path"),
-                "chunk_text": chunk_text,
+                "chunk_text": chunk.get("chunk_text", ""),
             })
 
     scored_chunks = sorted(
@@ -101,7 +250,7 @@ def retrieve_chunks(
     return scored_chunks[:top_k]
 
 
-def find_demo_answer(question: str) -> Dict[str, Any] | None:
+def find_demo_answer(question: str) -> Tuple[Dict[str, Any] | None, int]:
     demo_answers = get_demo_answers()
     query_tokens = tokenize(question)
 
@@ -114,16 +263,82 @@ def find_demo_answer(question: str) -> Dict[str, Any] | None:
 
         for asset_id in detect_assets(question):
             if answer.get("asset_id") == asset_id:
-                score += 5
+                score += 6
 
         if score > best_score:
             best_score = score
             best_answer = answer
 
     if best_answer and best_score >= 2:
-        return best_answer
+        return best_answer, best_score
 
-    return None
+    return None, best_score
+
+
+def make_citations(retrieved_chunks: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
+    citations = []
+    seen = set()
+
+    for index, chunk in enumerate(retrieved_chunks, start=1):
+        document_id = chunk.get("document_id")
+
+        if not document_id or document_id in seen:
+            continue
+
+        seen.add(document_id)
+
+        chunk_text = chunk.get("chunk_text", "")
+        evidence_excerpt = chunk_text[:350].strip()
+
+        if len(chunk_text) > 350:
+            evidence_excerpt += "..."
+
+        citations.append({
+            "citation_id": f"CIT-{index:03d}",
+            "document_id": document_id,
+            "document_title": chunk.get("document_title"),
+            "document_type": chunk.get("document_type"),
+            "section_title": chunk.get("section_title"),
+            "relative_path": chunk.get("relative_path"),
+            "evidence_excerpt": evidence_excerpt,
+        })
+
+    return citations
+
+
+def calculate_confidence(
+    answer_mode: str,
+    retrieved_chunks: List[Dict[str, Any]],
+    supporting_sources: List[str]
+) -> float:
+    if not retrieved_chunks and not supporting_sources:
+        return 0.25
+
+    top_score = retrieved_chunks[0]["score"] if retrieved_chunks else 0
+    source_count = len(set(supporting_sources))
+    chunk_count = len(retrieved_chunks)
+
+    confidence = 0.35
+
+    if answer_mode == "demo_answer_match":
+        confidence += 0.25
+
+    confidence += min(top_score / 25, 0.2)
+    confidence += min(source_count * 0.04, 0.12)
+    confidence += min(chunk_count * 0.02, 0.08)
+
+    return round(min(confidence, 0.95), 2)
+
+
+def source_ids_from_chunks(retrieved_chunks: List[Dict[str, Any]]) -> List[str]:
+    sources = []
+
+    for chunk in retrieved_chunks:
+        document_id = chunk.get("document_id")
+        if document_id and document_id not in sources:
+            sources.append(document_id)
+
+    return sources
 
 
 def generate_rule_based_answer(
@@ -168,7 +383,7 @@ def generate_rule_based_answer(
     if retrieved_chunks:
         top_chunk = retrieved_chunks[0]
         text = top_chunk.get("chunk_text", "")
-        short_text = text[:600].strip()
+        short_text = text[:700].strip()
 
         return (
             "Based on the retrieved project documents, the most relevant evidence says: "
@@ -187,18 +402,62 @@ def generate_rule_based_answer(
     )
 
 
+def suggested_followups_for_answer(question: str, detected_assets: List[str], answer_type: str) -> List[str]:
+    asset = detected_assets[0] if detected_assets else None
+
+    if asset == "P-101":
+        return [
+            "What is the likely root cause of P-101 vibration?",
+            "Which compliance evidence is missing for P-101?",
+            "What maintenance action is recommended for P-101?"
+        ]
+
+    if asset == "C-201":
+        return [
+            "Why is C-201 medium risk?",
+            "Which C-201 evidence is delayed?",
+            "What maintenance should be planned for C-201?"
+        ]
+
+    if asset == "HX-301":
+        return [
+            "Why is HX-301 suspected to be fouled?",
+            "Which evidence is missing for HX-301?",
+            "Generate RCA for HX-301 low heat transfer efficiency."
+        ]
+
+    if answer_type == "compliance_gap":
+        return [
+            "Which assets are non-compliant?",
+            "Which compliance evidence is missing for P-101?",
+            "Which evidence is missing for HX-301?"
+        ]
+
+    return [
+        "Why is P-101 high risk?",
+        "Why is C-201 medium risk?",
+        "Why is HX-301 suspected to be fouled?"
+    ]
+
+
 def ask_plantmind(
     question: str,
     asset_id: Optional[str] = None,
     top_k: int = 5
 ) -> Dict[str, Any]:
+    answer_type = detect_answer_type(question)
+    detected_assets = detect_assets(question)
+
+    if asset_id:
+        detected_assets = [asset_id.upper()]
+
     retrieved_chunks = retrieve_chunks(
         question=question,
         asset_id=asset_id,
         top_k=top_k
     )
 
-    demo_answer = find_demo_answer(question)
+    demo_answer, demo_score = find_demo_answer(question)
 
     if demo_answer:
         answer = demo_answer.get("answer")
@@ -206,18 +465,50 @@ def ask_plantmind(
         answer_mode = "demo_answer_match"
     else:
         answer = generate_rule_based_answer(question, retrieved_chunks)
-        supporting_sources = [
-            chunk["document_id"] for chunk in retrieved_chunks
-        ]
+        supporting_sources = source_ids_from_chunks(retrieved_chunks)
         answer_mode = "retrieval_rule_based"
+
+    citations = make_citations(retrieved_chunks)
+    confidence_score = calculate_confidence(
+        answer_mode=answer_mode,
+        retrieved_chunks=retrieved_chunks,
+        supporting_sources=supporting_sources
+    )
 
     return {
         "question": question,
-        "detected_assets": detect_assets(question),
+        "detected_assets": detected_assets,
+        "answer_type": answer_type,
         "answer": answer,
         "answer_mode": answer_mode,
+        "confidence_score": confidence_score,
         "supporting_sources": supporting_sources,
+        "citations": citations,
         "retrieved_context": retrieved_chunks,
+        "suggested_followups": suggested_followups_for_answer(
+            question=question,
+            detected_assets=detected_assets,
+            answer_type=answer_type
+        )
+    }
+
+
+def search_evidence(
+    query: str,
+    asset_id: Optional[str] = None,
+    top_k: int = 10
+) -> Dict[str, Any]:
+    chunks = retrieve_chunks(
+        question=query,
+        asset_id=asset_id,
+        top_k=top_k
+    )
+
+    return {
+        "query": query,
+        "asset_id": asset_id,
+        "total": len(chunks),
+        "results": chunks
     }
 
 

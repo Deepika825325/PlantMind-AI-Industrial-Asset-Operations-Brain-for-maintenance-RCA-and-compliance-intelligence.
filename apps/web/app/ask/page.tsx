@@ -12,6 +12,22 @@ const sampleQuestions = [
   "Which assets are non-compliant?",
 ];
 
+function getConfidenceClass(score: number) {
+  if (score >= 0.8) {
+    return "text-emerald-300 bg-emerald-950 border-emerald-800";
+  }
+
+  if (score >= 0.6) {
+    return "text-cyan-300 bg-cyan-950 border-cyan-800";
+  }
+
+  if (score >= 0.4) {
+    return "text-amber-300 bg-amber-950 border-amber-800";
+  }
+
+  return "text-red-300 bg-red-950 border-red-800";
+}
+
 export default function AskPage() {
   const [question, setQuestion] = useState("Why is P-101 high risk?");
   const [assetId, setAssetId] = useState("P-101");
@@ -19,20 +35,25 @@ export default function AskPage() {
   const [response, setResponse] = useState<AskResponse | null>(null);
   const [error, setError] = useState("");
 
-  async function handleAsk() {
+  async function handleAsk(customQuestion?: string, customAsset?: string) {
+    const finalQuestion = customQuestion || question;
+    const finalAsset = customAsset !== undefined ? customAsset : assetId;
+
     setLoading(true);
     setError("");
     setResponse(null);
 
     try {
       const payload: AskRequest = {
-        question,
-        asset_id: assetId || null,
+        question: finalQuestion,
+        asset_id: finalAsset || null,
         top_k: 5,
       };
 
       const result = await apiPost<AskRequest, AskResponse>("/ask", payload);
       setResponse(result);
+      setQuestion(finalQuestion);
+      setAssetId(finalAsset);
     } catch (err) {
       setError(err instanceof Error ? err.message : "Something went wrong");
     } finally {
@@ -41,17 +62,18 @@ export default function AskPage() {
   }
 
   function useSample(sample: string) {
-    setQuestion(sample);
+    let nextAsset = "";
 
     if (sample.includes("P-101")) {
-      setAssetId("P-101");
+      nextAsset = "P-101";
     } else if (sample.includes("C-201")) {
-      setAssetId("C-201");
+      nextAsset = "C-201";
     } else if (sample.includes("HX-301")) {
-      setAssetId("HX-301");
-    } else {
-      setAssetId("");
+      nextAsset = "HX-301";
     }
+
+    setQuestion(sample);
+    setAssetId(nextAsset);
   }
 
   return (
@@ -67,8 +89,8 @@ export default function AskPage() {
           </h1>
 
           <p className="mt-3 max-w-3xl text-slate-400">
-            Ask questions about asset risk, RCA, compliance gaps, maintenance actions,
-            and document evidence.
+            Ask about asset risk, RCA, compliance gaps, maintenance actions,
+            and document evidence. PlantMind returns citations and retrieved context.
           </p>
         </div>
 
@@ -103,11 +125,11 @@ export default function AskPage() {
             />
 
             <button
-              onClick={handleAsk}
+              onClick={() => handleAsk()}
               disabled={loading || question.trim().length < 3}
               className="mt-5 w-full rounded-xl bg-cyan-400 px-5 py-3 font-semibold text-slate-950 transition hover:bg-cyan-300 disabled:cursor-not-allowed disabled:opacity-50"
             >
-              {loading ? "Thinking..." : "Ask PlantMind"}
+              {loading ? "Retrieving evidence..." : "Ask PlantMind"}
             </button>
 
             {error && (
@@ -140,7 +162,13 @@ export default function AskPage() {
 
             {!response && !loading && (
               <div className="mt-6 rounded-2xl border border-dashed border-slate-700 bg-slate-950 p-8 text-center text-slate-500">
-                Ask a question to see answer, sources, and retrieved evidence.
+                Ask a question to see answer, citations, confidence, and retrieved evidence.
+              </div>
+            )}
+
+            {loading && (
+              <div className="mt-6 rounded-2xl border border-slate-800 bg-slate-950 p-8 text-center text-slate-400">
+                Retrieving source chunks and generating evidence-backed answer...
               </div>
             )}
 
@@ -150,6 +178,18 @@ export default function AskPage() {
                   <div className="flex flex-wrap items-center gap-2">
                     <span className="rounded-full bg-cyan-400/10 px-3 py-1 text-xs font-medium text-cyan-300">
                       {response.answer_mode}
+                    </span>
+
+                    <span className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300">
+                      {response.answer_type}
+                    </span>
+
+                    <span
+                      className={`rounded-full border px-3 py-1 text-xs font-medium ${getConfidenceClass(
+                        response.confidence_score
+                      )}`}
+                    >
+                      Confidence {Math.round(response.confidence_score * 100)}%
                     </span>
 
                     {response.detected_assets.map((asset) => (
@@ -183,7 +223,60 @@ export default function AskPage() {
                 </div>
 
                 <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6">
-                  <h3 className="font-semibold">Retrieved Evidence</h3>
+                  <h3 className="font-semibold">Citations</h3>
+
+                  <div className="mt-4 space-y-4">
+                    {response.citations.map((citation) => (
+                      <div
+                        key={citation.citation_id}
+                        className="rounded-2xl border border-slate-800 bg-slate-900 p-4"
+                      >
+                        <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                          <div>
+                            <p className="font-medium text-slate-100">
+                              [{citation.citation_id}] {citation.document_title}
+                            </p>
+
+                            <p className="mt-1 text-sm text-slate-500">
+                              {citation.section_title} · {citation.document_type}
+                            </p>
+                          </div>
+
+                          <span className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300">
+                            {citation.document_id}
+                          </span>
+                        </div>
+
+                        <p className="mt-4 text-sm leading-6 text-slate-300">
+                          {citation.evidence_excerpt}
+                        </p>
+
+                        <p className="mt-3 text-xs text-slate-500">
+                          Path: {citation.relative_path}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6">
+                  <h3 className="font-semibold">Suggested Follow-ups</h3>
+
+                  <div className="mt-4 grid gap-3 md:grid-cols-2">
+                    {response.suggested_followups.map((followup) => (
+                      <button
+                        key={followup}
+                        onClick={() => handleAsk(followup, "")}
+                        className="rounded-xl border border-slate-800 bg-slate-900 px-4 py-3 text-left text-sm text-slate-300 transition hover:border-cyan-500 hover:text-white"
+                      >
+                        {followup}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+
+                <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6">
+                  <h3 className="font-semibold">Retrieved Evidence Chunks</h3>
 
                   <div className="mt-4 space-y-4">
                     {response.retrieved_context.map((chunk) => (
@@ -196,6 +289,7 @@ export default function AskPage() {
                             <p className="font-medium text-slate-100">
                               {chunk.document_title}
                             </p>
+
                             <p className="mt-1 text-sm text-slate-500">
                               {chunk.section_title}
                             </p>
