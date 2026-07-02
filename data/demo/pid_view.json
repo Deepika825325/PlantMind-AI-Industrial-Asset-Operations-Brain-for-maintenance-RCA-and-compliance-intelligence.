@@ -1,0 +1,158 @@
+{
+  "pid_id": "PID-001",
+  "title": "PlantMind Demo Process Line",
+  "description": "Interactive P&ID showing the demo process line, monitored assets, valves, and instrumentation.",
+  "image_url": "/pid/PID-001/image",
+  "nodes": [
+    {
+      "id": "FEED-LINE",
+      "label": "Feed Line",
+      "type": "Line",
+      "x_percent": 7,
+      "y_percent": 51,
+      "status": "Normal",
+      "risk_level": "Low",
+      "description": "Process feed inlet entering the PlantMind demo process line."
+    },
+    {
+      "id": "V-101",
+      "label": "V-101 Isolation Valve",
+      "type": "Valve",
+      "x_percent": 18,
+      "y_percent": 51,
+      "status": "Open",
+      "risk_level": "Low",
+      "description": "Isolation valve upstream of the cooling-water circulation pump."
+    },
+    {
+      "id": "FT-101",
+      "label": "FT-101 Flow Transmitter",
+      "type": "Instrument",
+      "x_percent": 27,
+      "y_percent": 29,
+      "status": "Normal",
+      "risk_level": "Low",
+      "description": "Flow transmitter monitoring inlet flow toward P-101."
+    },
+    {
+      "id": "P-101",
+      "label": "P-101 Pump",
+      "type": "Asset",
+      "asset_id": "P-101",
+      "x_percent": 33,
+      "y_percent": 51,
+      "status": "Critical",
+      "risk_level": "High",
+      "description": "Cooling Water Circulation Pump. High vibration, bearing-temperature warning, abnormal noise, and missing lubrication evidence."
+    },
+    {
+      "id": "C-201",
+      "label": "C-201 Compressor",
+      "type": "Asset",
+      "asset_id": "C-201",
+      "x_percent": 51,
+      "y_percent": 51,
+      "status": "Warning",
+      "risk_level": "Medium",
+      "description": "Process Air Compressor. Decreasing RUL, outlet-temperature warning, unstable pressure ratio, and delayed filter verification."
+    },
+    {
+      "id": "PT-201",
+      "label": "PT-201 Pressure Transmitter",
+      "type": "Instrument",
+      "x_percent": 51,
+      "y_percent": 29,
+      "status": "Warning",
+      "risk_level": "Medium",
+      "description": "Pressure transmitter monitoring compressor discharge pressure."
+    },
+    {
+      "id": "HX-301",
+      "label": "HX-301 Heat Exchanger",
+      "type": "Asset",
+      "asset_id": "HX-301",
+      "x_percent": 70,
+      "y_percent": 51,
+      "status": "Warning",
+      "risk_level": "Medium",
+      "description": "Feed Preheater Heat Exchanger. High pressure drop, low outlet temperature, reduced efficiency, and overdue cleaning evidence."
+    },
+    {
+      "id": "TT-301",
+      "label": "TT-301 Temperature Transmitter",
+      "type": "Instrument",
+      "x_percent": 70,
+      "y_percent": 29,
+      "status": "Warning",
+      "risk_level": "Medium",
+      "description": "Temperature transmitter monitoring the heat exchanger outlet."
+    },
+    {
+      "id": "V-201",
+      "label": "V-201 Outlet Valve",
+      "type": "Valve",
+      "x_percent": 85,
+      "y_percent": 51,
+      "status": "Open",
+      "risk_level": "Low",
+      "description": "Outlet isolation valve downstream of HX-301."
+    },
+    {
+      "id": "OUTLET-LINE",
+      "label": "Outlet Line",
+      "type": "Line",
+      "x_percent": 95,
+      "y_percent": 51,
+      "status": "Normal",
+      "risk_level": "Low",
+      "description": "Final outlet from the PlantMind demo process line."
+    }
+  ],
+  "connections": [
+    {
+      "source": "FEED-LINE",
+      "target": "V-101",
+      "relationship": "FEEDS"
+    },
+    {
+      "source": "V-101",
+      "target": "P-101",
+      "relationship": "FEEDS"
+    },
+    {
+      "source": "FT-101",
+      "target": "P-101",
+      "relationship": "MONITORS"
+    },
+    {
+      "source": "P-101",
+      "target": "C-201",
+      "relationship": "CONNECTED_TO"
+    },
+    {
+      "source": "PT-201",
+      "target": "C-201",
+      "relationship": "MONITORS"
+    },
+    {
+      "source": "C-201",
+      "target": "HX-301",
+      "relationship": "CONNECTED_TO"
+    },
+    {
+      "source": "TT-301",
+      "target": "HX-301",
+      "relationship": "MONITORS"
+    },
+    {
+      "source": "HX-301",
+      "target": "V-201",
+      "relationship": "DISCHARGES_TO"
+    },
+    {
+      "source": "V-201",
+      "target": "OUTLET-LINE",
+      "relationship": "DISCHARGES_TO"
+    }
+  ]
+}

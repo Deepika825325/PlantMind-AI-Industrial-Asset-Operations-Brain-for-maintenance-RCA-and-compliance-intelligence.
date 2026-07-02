@@ -7,13 +7,20 @@ const navItems = [
   { label: "Dashboard", href: "/" },
   { label: "Ask PlantMind", href: "/ask" },
   { label: "Assets", href: "/assets" },
+  { label: "P&ID", href: "/pid" },
   { label: "Compliance", href: "/compliance" },
   { label: "Maintenance", href: "/maintenance" },
   { label: "Documents", href: "/documents" },
-  { label: "Knowledge Graph", href: "/knowledge-graph" },
+  {
+    label: "Knowledge Graph",
+    href: "/knowledge-graph",
+  },
 ];
 
-function isActivePath(pathname: string, href: string) {
+function isActivePath(
+  pathname: string,
+  href: string
+) {
   if (href === "/") {
     return pathname === "/";
   }
@@ -26,7 +33,7 @@ export default function Navbar() {
 
   return (
     <header className="sticky top-0 z-50 border-b border-slate-800 bg-slate-950/90 backdrop-blur">
-      <nav className="mx-auto flex max-w-7xl flex-col gap-4 px-6 py-4 lg:flex-row lg:items-center lg:justify-between">
+      <nav className="mx-auto flex max-w-[1600px] flex-col gap-4 px-6 py-4 lg:flex-row lg:items-center lg:justify-between">
         <Link
           href="/"
           className="text-sm font-semibold tracking-[0.35em] text-cyan-400"
@@ -36,7 +43,10 @@ export default function Navbar() {
 
         <div className="flex flex-wrap items-center gap-2">
           {navItems.map((item) => {
-            const active = isActivePath(pathname, item.href);
+            const active = isActivePath(
+              pathname,
+              item.href
+            );
 
             return (
               <Link

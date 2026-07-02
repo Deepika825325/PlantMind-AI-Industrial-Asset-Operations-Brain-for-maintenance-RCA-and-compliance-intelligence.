@@ -120,3 +120,60 @@ export type AskResponse = {
   retrieved_context: RetrievedContext[];
   suggested_followups: string[];
 };
+
+export type PidNodeType =
+  | "Asset"
+  | "Valve"
+  | "Instrument"
+  | "Line";
+
+export type PidNode = {
+  id: string;
+  label: string;
+  type: PidNodeType;
+  asset_id?: string;
+  x_percent: number;
+  y_percent: number;
+  status: string;
+  risk_level: string;
+  description: string;
+};
+
+export type PidConnection = {
+  source: string;
+  target: string;
+  relationship: string;
+};
+
+export type PidResponse = {
+  pid_id: string;
+  title: string;
+  description: string;
+  image_url: string;
+  nodes: PidNode[];
+  connections: PidConnection[];
+};
+
+export type GraphNode = {
+  id: string;
+  label: string;
+  type: string;
+  properties: Record<string, unknown>;
+};
+
+export type GraphEdge = {
+  id: string;
+  source: string;
+  target: string;
+  relationship: string;
+  properties: Record<string, unknown>;
+};
+
+export type KnowledgeGraphResponse = {
+  artifact: string;
+  generated_at: string;
+  node_count: number;
+  edge_count: number;
+  nodes: GraphNode[];
+  edges: GraphEdge[];
+};

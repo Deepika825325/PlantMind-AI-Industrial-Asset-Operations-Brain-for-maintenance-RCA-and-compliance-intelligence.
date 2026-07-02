@@ -1,5 +1,6 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
+from apps.api.routes import pid
 
 from apps.api.routes import (
     ask,
@@ -35,7 +36,7 @@ app.include_router(compliance.router)
 app.include_router(maintenance.router)
 app.include_router(knowledge_graph.router)
 app.include_router(ask.router)
-
+app.include_router(pid.router)
 
 @app.get("/", tags=["System"])
 def root():

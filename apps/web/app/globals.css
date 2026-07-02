@@ -10,3 +10,45 @@ body {
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
+.react-flow {
+  background: #020617;
+}
+
+.react-flow__controls {
+  overflow: hidden;
+  border: 1px solid #334155;
+  border-radius: 12px;
+}
+
+.react-flow__controls-button {
+  border-bottom: 1px solid #334155;
+  background: #0f172a;
+  color: #f8fafc;
+}
+
+.react-flow__controls-button:hover {
+  background: #1e293b;
+}
+
+.react-flow__controls-button svg {
+  fill: #f8fafc;
+}
+
+.react-flow__minimap {
+  border: 1px solid #334155;
+  border-radius: 12px;
+  background: #020617;
+}
+
+.react-flow__edge-textbg {
+  fill: #0f172a;
+}
+
+.react-flow__attribution {
+  border-radius: 6px;
+  background: rgba(15, 23, 42, 0.8);
+}
+
+.react-flow__attribution a {
+  color: #94a3b8;
+}
