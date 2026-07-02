@@ -61,9 +61,11 @@ export default async function AssetsPage() {
               <div className="flex items-start justify-between gap-4">
                 <div>
                   <h2 className="text-2xl font-semibold">{asset.asset_id}</h2>
+
                   <p className="mt-1 text-sm text-slate-400">
                     {asset.asset_name}
                   </p>
+
                   <p className="mt-1 text-sm text-slate-500">
                     {asset.asset_type}
                   </p>
@@ -83,6 +85,7 @@ export default async function AssetsPage() {
                   <p className="text-xs uppercase tracking-wider text-slate-500">
                     Risk Score
                   </p>
+
                   <p className="mt-2 text-3xl font-semibold">
                     {asset.risk_score}
                   </p>
@@ -92,6 +95,7 @@ export default async function AssetsPage() {
                   <p className="text-xs uppercase tracking-wider text-slate-500">
                     Health Score
                   </p>
+
                   <p className="mt-2 text-3xl font-semibold">
                     {asset.health_score}
                   </p>
@@ -174,12 +178,19 @@ export default async function AssetsPage() {
                 </div>
               </div>
 
-              <div className="mt-6 flex gap-3">
+              <div className="mt-6 flex flex-wrap gap-3">
                 <Link
-                  href={`/ask?asset=${asset.asset_id}`}
+                  href={`/assets/${asset.asset_id}`}
                   className="rounded-xl bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
                 >
-                  Ask about {asset.asset_id}
+                  View Asset 360
+                </Link>
+
+                <Link
+                  href={`/ask?asset=${asset.asset_id}`}
+                  className="rounded-xl border border-slate-700 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white"
+                >
+                  Ask PlantMind
                 </Link>
 
                 <Link

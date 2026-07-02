@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { useEffect, useMemo, useState } from "react";
 import { apiGet } from "@/lib/api";
 
@@ -129,11 +130,13 @@ export default function DocumentsPage() {
             <div className="mt-8 grid gap-4 md:grid-cols-4">
               <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
                 <p className="text-sm text-slate-400">Total Documents</p>
+
                 <p className="mt-3 text-3xl font-semibold">{documents.length}</p>
               </div>
 
               <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
                 <p className="text-sm text-slate-400">Filtered Results</p>
+
                 <p className="mt-3 text-3xl font-semibold text-cyan-400">
                   {filteredDocuments.length}
                 </p>
@@ -141,6 +144,7 @@ export default function DocumentsPage() {
 
               <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
                 <p className="text-sm text-slate-400">Document Types</p>
+
                 <p className="mt-3 text-3xl font-semibold text-amber-400">
                   {documentTypes.length}
                 </p>
@@ -148,6 +152,7 @@ export default function DocumentsPage() {
 
               <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
                 <p className="text-sm text-slate-400">Assets Covered</p>
+
                 <p className="mt-3 text-3xl font-semibold text-emerald-400">
                   3
                 </p>
@@ -158,6 +163,7 @@ export default function DocumentsPage() {
               <div className="grid gap-4 md:grid-cols-3">
                 <div>
                   <label className="text-sm text-slate-400">Search</label>
+
                   <input
                     value={searchText}
                     onChange={(event) => setSearchText(event.target.value)}
@@ -168,6 +174,7 @@ export default function DocumentsPage() {
 
                 <div>
                   <label className="text-sm text-slate-400">Asset</label>
+
                   <select
                     value={selectedAsset}
                     onChange={(event) => setSelectedAsset(event.target.value)}
@@ -182,12 +189,14 @@ export default function DocumentsPage() {
 
                 <div>
                   <label className="text-sm text-slate-400">Document Type</label>
+
                   <select
                     value={selectedType}
                     onChange={(event) => setSelectedType(event.target.value)}
                     className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none focus:border-cyan-400"
                   >
                     <option value="ALL">All Types</option>
+
                     {documentTypes.map((type) => (
                       <option key={type} value={type}>
                         {type}
@@ -206,7 +215,15 @@ export default function DocumentsPage() {
                 >
                   <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
                     <div>
-                      <h2 className="text-lg font-semibold">{document.title}</h2>
+                      <Link
+                        href={`/documents/${encodeURIComponent(
+                          document.document_id
+                        )}`}
+                        className="text-lg font-semibold transition hover:text-cyan-300"
+                      >
+                        {document.title}
+                      </Link>
+
                       <p className="mt-1 text-sm text-slate-500">
                         {document.document_id}
                       </p>
@@ -227,12 +244,13 @@ export default function DocumentsPage() {
 
                   <div className="mt-5 flex flex-wrap gap-2">
                     {document.asset_ids.map((asset) => (
-                      <span
+                      <Link
                         key={asset}
-                        className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300"
+                        href={`/assets/${asset}`}
+                        className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300 transition hover:bg-cyan-400 hover:text-slate-950"
                       >
                         {asset}
-                      </span>
+                      </Link>
                     ))}
 
                     {document.tags.slice(0, 5).map((tag) => (
@@ -250,15 +268,41 @@ export default function DocumentsPage() {
                       <p className="text-xs uppercase tracking-wider text-slate-500">
                         Source Group
                       </p>
-                      <p className="mt-1 text-slate-300">{document.source_group}</p>
+
+                      <p className="mt-1 text-slate-300">
+                        {document.source_group}
+                      </p>
                     </div>
 
                     <div className="rounded-xl bg-slate-950 p-3">
                       <p className="text-xs uppercase tracking-wider text-slate-500">
                         Word Count
                       </p>
-                      <p className="mt-1 text-slate-300">{document.word_count}</p>
+
+                      <p className="mt-1 text-slate-300">
+                        {document.word_count}
+                      </p>
                     </div>
+                  </div>
+
+                  <div className="mt-5 flex flex-wrap gap-3">
+                    <Link
+                      href={`/documents/${encodeURIComponent(
+                        document.document_id
+                      )}`}
+                      className="rounded-xl bg-cyan-400 px-4 py-2 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+                    >
+                      Open Document
+                    </Link>
+
+                    {document.asset_ids.length > 0 && (
+                      <Link
+                        href={`/assets/${document.asset_ids[0]}`}
+                        className="rounded-xl border border-slate-700 px-4 py-2 text-sm text-slate-300 transition hover:border-cyan-400 hover:text-white"
+                      >
+                        View Asset
+                      </Link>
+                    )}
                   </div>
 
                   <p className="mt-4 text-xs text-slate-500">
