@@ -177,3 +177,142 @@ export type KnowledgeGraphResponse = {
   nodes: GraphNode[];
   edges: GraphEdge[];
 };
+
+export type RcaTopRootCause = {
+  cause_id: string;
+  title: string;
+  category: string;
+  confidence: number;
+};
+
+export type RcaCaseSummary = {
+  case_id: string;
+  title: string;
+  asset_id: string;
+  asset_name: string;
+  asset_type: string;
+  incident_status: string;
+  severity: string;
+  detected_at: string;
+  problem_statement: string;
+  summary: string;
+  overall_confidence: number;
+  top_root_cause: RcaTopRootCause | null;
+  timeline_event_count: number;
+  causal_chain_step_count: number;
+  root_cause_count: number;
+  corrective_action_count: number;
+  evidence_count: number;
+};
+
+export type RcaCaseFilters = {
+  asset_id: string | null;
+  severity: string | null;
+  incident_status: string | null;
+};
+
+export type RcaCaseListResponse = {
+  artifact: string;
+  generated_at: string;
+  total_count: number;
+  filtered_count: number;
+  filters: RcaCaseFilters;
+  cases: RcaCaseSummary[];
+};
+
+export type RcaTimelineEvent = {
+  event_id: string;
+  timestamp: string;
+  event_type: string;
+  title: string;
+  description: string;
+  severity: string;
+  evidence_ids: string[];
+};
+
+export type RcaCausalStep = {
+  step_id: string;
+  sequence: number;
+  category: string;
+  title: string;
+  description: string;
+  confidence: number;
+  evidence_ids: string[];
+};
+
+export type RcaRootCause = {
+  rank: number;
+  cause_id: string;
+  title: string;
+  category: string;
+  confidence: number;
+  reasoning: string;
+  evidence_ids: string[];
+  counter_evidence: string[];
+};
+
+export type RcaCorrectiveAction = {
+  action_id: string;
+  priority: string;
+  title: string;
+  description: string;
+  owner_role: string;
+  status: string;
+  due_in_hours: number;
+  linked_cause_ids: string[];
+  verification_metric: string;
+};
+
+export type RcaEvidence = {
+  evidence_id: string;
+  document_id: string;
+  document_title: string;
+  document_type: string;
+  section_title: string;
+  excerpt: string;
+  relative_path: string;
+};
+
+export type RcaCase = {
+  case_id: string;
+  title: string;
+  asset_id: string;
+  asset_name: string;
+  asset_type: string;
+  incident_status: string;
+  severity: string;
+  detected_at: string;
+  problem_statement: string;
+  summary: string;
+  overall_confidence: number;
+  symptoms: string[];
+  timeline: RcaTimelineEvent[];
+  causal_chain: RcaCausalStep[];
+  root_causes: RcaRootCause[];
+  corrective_actions: RcaCorrectiveAction[];
+  evidence: RcaEvidence[];
+  recommendation_summary: string;
+};
+
+export type RcaStatistics = {
+  total_cases: number;
+  average_confidence: number;
+  total_root_causes: number;
+  total_corrective_actions: number;
+  total_evidence_items: number;
+  severity_counts: Record<string, number>;
+  status_counts: Record<string, number>;
+  asset_counts: Record<string, number>;
+};
+
+export type RcaEvidenceResponse = {
+  case_id: string;
+  asset_id: string;
+  evidence: RcaEvidence;
+};
+
+export type RcaAssetCasesResponse = {
+  asset_id: string;
+  case_count: number;
+  cases: RcaCase[];
+};

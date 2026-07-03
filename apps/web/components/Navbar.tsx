@@ -10,6 +10,7 @@ const navItems = [
   { label: "P&ID", href: "/pid" },
   { label: "Compliance", href: "/compliance" },
   { label: "Maintenance", href: "/maintenance" },
+  { label: "RCA", href: "/rca" },
   { label: "Documents", href: "/documents" },
   {
     label: "Knowledge Graph",
