@@ -1,0 +1,96 @@
+{
+  "artifact": "ground_truth_citations",
+  "questions": {
+    "AF-001": [
+      "PID-001",
+      "SOP-P101-001_Pump_Lubrication_and_Bearing_Check"
+    ],
+    "AF-002": [
+      "IR-P101-001_Pump_Vibration_Inspection"
+    ],
+    "AF-003": [
+      "IR-C201-001_Compressor_Monthly_Inspection",
+      "C-201"
+    ],
+    "AF-004": [
+      "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "IR-HX301-001_Heat_Exchanger_Performance_Inspection"
+    ],
+    "MH-001": [
+      "MWO-P101-001",
+      "MWO-P101-002",
+      "MWO-P101-003",
+      "MWO-P101-004"
+    ],
+    "MH-002": [
+      "MWO-C201-001",
+      "MWO-C201-002"
+    ],
+    "MH-003": [
+      "MWO-HX301-003"
+    ],
+    "MH-004": [
+      "MWO-P101-004"
+    ],
+    "RCA-001": [
+      "RCA-P101-001",
+      "COMP-001_Compliance_Checklist"
+    ],
+    "RCA-002": [
+      "COMP-001_Compliance_Checklist",
+      "IR-P101-001_Pump_Vibration_Inspection",
+      "IR-P101-002_Pump_Bearing_Temperature_Check"
+    ],
+    "RCA-003": [
+      "RCA-P101-001",
+      "IR-P101-001_Pump_Vibration_Inspection"
+    ],
+    "RCA-004": [
+      "RCA-P101-001"
+    ],
+    "CO-001": [
+      "GAP-P101-C002",
+      "GAP-P101-C004",
+      "GAP-P101-C005"
+    ],
+    "CO-002": [
+      "GAP-P101-C002",
+      "GAP-P101-C003",
+      "GAP-P101-C004",
+      "GAP-P101-C005",
+      "GAP-P101-C008"
+    ],
+    "CO-003": [
+      "SOP-GEN-001_Work_Permit_and_LOTO"
+    ],
+    "CO-004": [
+      "MWO-P101-004",
+      "GAP-P101-C002"
+    ],
+    "XD-001": [
+      "COMP-001_Compliance_Checklist",
+      "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "IR-P101-001_Pump_Vibration_Inspection",
+      "RCA-P101-001"
+    ],
+    "XD-002": [
+      "COMP-001_Compliance_Checklist",
+      "IR-P101-001_Pump_Vibration_Inspection",
+      "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "INC-P101-001_High_Vibration_Event"
+    ],
+    "XD-003": [
+      "MWO-HX301-001",
+      "MWO-HX301-002",
+      "MWO-HX301-003",
+      "INC-HX301-001_Low_Heat_Transfer_Efficiency"
+    ],
+    "XD-004": [
+      "RCA-P101-001",
+      "MWO-P101-001",
+      "MWO-P101-002",
+      "MWO-P101-003",
+      "MWO-P101-004"
+    ]
+  }
+}

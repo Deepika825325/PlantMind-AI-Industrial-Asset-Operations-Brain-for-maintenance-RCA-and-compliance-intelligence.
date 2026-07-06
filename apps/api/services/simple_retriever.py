@@ -10,6 +10,8 @@ from apps.api.services.data_loader import (
     get_rag_seed_questions,
 )
 
+from apps.api.services.structured_answer_service import answer_structured_question
+
 
 STOPWORDS = {
     "a", "an", "the", "is", "are", "was", "were", "why", "what", "which",
@@ -450,6 +452,56 @@ def ask_plantmind(
 
     if asset_id:
         detected_assets = [asset_id.upper()]
+
+    structured_answer = answer_structured_question(
+        question=question,
+        asset_id=asset_id
+    )
+
+    if structured_answer:
+        structured_answer_type = structured_answer.get(
+            "answer_type",
+            answer_type
+        )
+
+        return {
+            "question": question,
+            "detected_assets": detected_assets,
+            "answer_type": structured_answer_type,
+            "answer": structured_answer.get(
+                "answer",
+                ""
+            ),
+            "answer_mode": structured_answer.get(
+                "answer_mode",
+                "structured_domain_answer"
+            ),
+            "confidence_score": structured_answer.get(
+                "confidence_score",
+                0.98
+            ),
+            "supporting_sources": structured_answer.get(
+                "supporting_sources",
+                []
+            ),
+            "citations": structured_answer.get(
+                "citations",
+                []
+            ),
+            "retrieved_context": structured_answer.get(
+                "retrieved_context",
+                []
+            ),
+            "structured_context": structured_answer.get(
+                "structured_context",
+                {}
+            ),
+            "suggested_followups": suggested_followups_for_answer(
+                question=question,
+                detected_assets=detected_assets,
+                answer_type=structured_answer_type
+            )
+        }
 
     retrieved_chunks = retrieve_chunks(
         question=question,

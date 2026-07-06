@@ -1,0 +1,153 @@
+{
+  "artifact": "ground_truth_entities",
+  "samples": [
+    {
+      "sample_id": "ENT-001",
+      "text": "IR-P101-001 recorded P-101 vibration at 7.8 mm/s and classified the condition as high vibration.",
+      "expected": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "failure_modes": [
+          "high vibration"
+        ],
+        "document_ids": [
+          "IR-P101-001_Pump_Vibration_Inspection"
+        ]
+      }
+    },
+    {
+      "sample_id": "ENT-002",
+      "text": "MWO-P101-004 is the post-maintenance verification work order linked to RCA-P101-001.",
+      "expected": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "work_order_ids": [
+          "MWO-P101-004"
+        ],
+        "rca_case_ids": [
+          "RCA-P101-001"
+        ]
+      }
+    },
+    {
+      "sample_id": "ENT-003",
+      "text": "P101-RC-001 identifies lubrication degradation and is supported by P101-EV-001, P101-EV-002 and P101-EV-003.",
+      "expected": {
+        "root_cause_ids": [
+          "P101-RC-001"
+        ],
+        "evidence_ids": [
+          "P101-EV-001",
+          "P101-EV-002",
+          "P101-EV-003"
+        ],
+        "failure_modes": [
+          "lubrication degradation"
+        ]
+      }
+    },
+    {
+      "sample_id": "ENT-004",
+      "text": "P101-CA-002 recommends a shaft misalignment assessment for P-101.",
+      "expected": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "corrective_action_ids": [
+          "P101-CA-002"
+        ],
+        "failure_modes": [
+          "shaft misalignment"
+        ]
+      }
+    },
+    {
+      "sample_id": "ENT-005",
+      "text": "MWO-C201-001 and MWO-C201-002 are planned for C-201 after delayed filter replacement verification.",
+      "expected": {
+        "asset_ids": [
+          "C-201"
+        ],
+        "work_order_ids": [
+          "MWO-C201-001",
+          "MWO-C201-002"
+        ],
+        "failure_modes": [
+          "filter verification delay"
+        ]
+      }
+    },
+    {
+      "sample_id": "ENT-006",
+      "text": "HX-301 shows fouling and low heat transfer efficiency in INC-HX301-001.",
+      "expected": {
+        "asset_ids": [
+          "HX-301"
+        ],
+        "failure_modes": [
+          "fouling",
+          "low heat transfer efficiency"
+        ],
+        "document_ids": [
+          "INC-HX301-001_Low_Heat_Transfer_Efficiency"
+        ]
+      }
+    },
+    {
+      "sample_id": "ENT-007",
+      "text": "MWO-HX301-003 verifies thermal performance for HX-301.",
+      "expected": {
+        "asset_ids": [
+          "HX-301"
+        ],
+        "work_order_ids": [
+          "MWO-HX301-003"
+        ]
+      }
+    },
+    {
+      "sample_id": "ENT-008",
+      "text": "SOP-GEN-001_Work_Permit_and_LOTO requires lockout tagout for P-101 bearing inspection.",
+      "expected": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "document_ids": [
+          "SOP-GEN-001_Work_Permit_and_LOTO"
+        ]
+      }
+    },
+    {
+      "sample_id": "ENT-009",
+      "text": "Bearing wear is the second-ranked failure mode in RCA-P101-001.",
+      "expected": {
+        "rca_case_ids": [
+          "RCA-P101-001"
+        ],
+        "failure_modes": [
+          "bearing wear"
+        ]
+      }
+    },
+    {
+      "sample_id": "ENT-010",
+      "text": "MWO-P101-003 addresses shaft misalignment and is linked to P101-RC-002.",
+      "expected": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "work_order_ids": [
+          "MWO-P101-003"
+        ],
+        "root_cause_ids": [
+          "P101-RC-002"
+        ],
+        "failure_modes": [
+          "shaft misalignment"
+        ]
+      }
+    }
+  ]
+}

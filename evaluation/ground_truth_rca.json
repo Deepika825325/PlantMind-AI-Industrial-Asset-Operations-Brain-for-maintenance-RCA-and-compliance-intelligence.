@@ -1,0 +1,20 @@
+{
+  "artifact": "ground_truth_rca",
+  "cases": [
+    {
+      "case_id": "RCA-P101-001",
+      "expected_top_root_cause_id": "P101-RC-001",
+      "expected_evidence_ids": [
+        "P101-EV-001",
+        "P101-EV-002",
+        "P101-EV-003"
+      ],
+      "expected_corrective_action_ids": [
+        "P101-CA-001",
+        "P101-CA-002",
+        "P101-CA-003"
+      ],
+      "requires_counter_evidence": true
+    }
+  ]
+}

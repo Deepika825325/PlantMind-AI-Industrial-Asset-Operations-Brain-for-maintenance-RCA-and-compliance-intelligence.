@@ -1,0 +1,117 @@
+{
+  "artifact": "ground_truth_compliance",
+  "assets": [
+    {
+      "asset_id": "P-101",
+      "expected_audit_readiness_score": 35,
+      "expected_failed_rules": [
+        "C002",
+        "C003",
+        "C004",
+        "C005",
+        "C008"
+      ],
+      "expected_passed_rules": [
+        "C001",
+        "C006",
+        "C007"
+      ],
+      "expected_severity": {
+        "C002": "High",
+        "C003": "High",
+        "C004": "Critical",
+        "C005": "High",
+        "C008": "High"
+      },
+      "expected_links": {
+        "C002": [
+          "MWO-P101-004"
+        ],
+        "C004": [
+          "SOP-GEN-001_Work_Permit_and_LOTO",
+          "MWO-P101-001"
+        ],
+        "C005": [
+          "MWO-P101-001",
+          "MWO-P101-002",
+          "MWO-P101-003",
+          "MWO-P101-004"
+        ],
+        "C008": [
+          "MWO-P101-001",
+          "MWO-P101-002",
+          "MWO-P101-003",
+          "MWO-P101-004"
+        ]
+      }
+    },
+    {
+      "asset_id": "C-201",
+      "expected_audit_readiness_score": null,
+      "expected_failed_rules": [
+        "C003",
+        "C004",
+        "C005",
+        "C008"
+      ],
+      "expected_passed_rules": [
+        "C002",
+        "C006",
+        "C007"
+      ],
+      "expected_severity": {
+        "C003": "High",
+        "C004": "Critical",
+        "C005": "High",
+        "C008": "High"
+      },
+      "expected_links": {
+        "C005": [
+          "MWO-C201-001",
+          "MWO-C201-002"
+        ],
+        "C008": [
+          "MWO-C201-001",
+          "MWO-C201-002"
+        ]
+      }
+    },
+    {
+      "asset_id": "HX-301",
+      "expected_audit_readiness_score": null,
+      "expected_failed_rules": [
+        "C002",
+        "C003",
+        "C004",
+        "C005",
+        "C008"
+      ],
+      "expected_passed_rules": [
+        "C006",
+        "C007"
+      ],
+      "expected_severity": {
+        "C002": "High",
+        "C003": "High",
+        "C004": "Critical",
+        "C005": "High",
+        "C008": "High"
+      },
+      "expected_links": {
+        "C002": [
+          "MWO-HX301-003"
+        ],
+        "C005": [
+          "MWO-HX301-001",
+          "MWO-HX301-002",
+          "MWO-HX301-003"
+        ],
+        "C008": [
+          "MWO-HX301-001",
+          "MWO-HX301-002",
+          "MWO-HX301-003"
+        ]
+      }
+    }
+  ]
+}

@@ -586,6 +586,95 @@
       "properties": {
         "source": "PID-001 metadata"
       }
+    },
+    {
+      "id": "RCA-P101-001",
+      "label": "RCA-P101-001 - P-101 High Vibration and Bearing Temperature Event",
+      "type": "RootCauseAnalysis",
+      "properties": {
+        "asset_id": "P-101",
+        "severity": "Critical",
+        "incident_status": "Open",
+        "overall_confidence": 0.91,
+        "problem_statement": "P-101 developed increasing vibration, elevated bearing temperature and abnormal mechanical noise while lubrication evidence was missing.",
+        "summary": "Available evidence indicates that missed or degraded lubrication caused increased bearing friction, elevated temperature and mechanical vibration."
+      }
+    },
+    {
+      "id": "MWO-P101-001",
+      "label": "MWO-P101-001 - Inspect and relubricate drive-end bearing",
+      "type": "MaintenanceWorkOrder",
+      "properties": {
+        "asset_id": "P-101",
+        "title": "Inspect and relubricate drive-end bearing",
+        "description": "Safely isolate P-101, inspect the drive-end bearing lubricant condition and quantity, remove degraded lubricant, and restore lubrication according to the approved pump procedure.",
+        "maintenance_type": "Corrective",
+        "priority": "Critical",
+        "status": "Open",
+        "due_at": "2026-06-21T15:15:00Z",
+        "owner_role": "Mechanical Maintenance Engineer",
+        "linked_rca_case_id": "RCA-P101-001",
+        "risk_score": 94,
+        "confidence": 0.93,
+        "verification_metric": "Lubrication condition restored and timestamped completion evidence attached"
+      }
+    },
+    {
+      "id": "MWO-P101-002",
+      "label": "MWO-P101-002 - Inspect bearing condition",
+      "type": "MaintenanceWorkOrder",
+      "properties": {
+        "asset_id": "P-101",
+        "title": "Inspect bearing condition",
+        "description": "Inspect the drive-end and non-drive-end bearings for wear, overheating, abnormal clearance, surface damage, and evidence of lubrication-related degradation.",
+        "maintenance_type": "Condition-Based",
+        "priority": "High",
+        "status": "Open",
+        "due_at": "2026-06-21T19:20:00Z",
+        "owner_role": "Reliability Engineer",
+        "linked_rca_case_id": "RCA-P101-001",
+        "risk_score": 88,
+        "confidence": 0.84,
+        "verification_metric": "Bearing condition and clearances recorded within approved limits"
+      }
+    },
+    {
+      "id": "MWO-P101-003",
+      "label": "MWO-P101-003 - Verify shaft alignment",
+      "type": "MaintenanceWorkOrder",
+      "properties": {
+        "asset_id": "P-101",
+        "title": "Verify shaft alignment",
+        "description": "Measure pump and motor shaft alignment, inspect coupling condition, and correct angular or offset misalignment before returning P-101 to service.",
+        "maintenance_type": "Corrective",
+        "priority": "High",
+        "status": "Planned",
+        "due_at": "2026-06-22T03:25:00Z",
+        "owner_role": "Rotating Equipment Technician",
+        "linked_rca_case_id": "RCA-P101-001",
+        "risk_score": 82,
+        "confidence": 0.84,
+        "verification_metric": "Angular and offset alignment values remain within approved tolerances"
+      }
+    },
+    {
+      "id": "MWO-P101-004",
+      "label": "MWO-P101-004 - Conduct post-maintenance vibration test",
+      "type": "MaintenanceWorkOrder",
+      "properties": {
+        "asset_id": "P-101",
+        "title": "Conduct post-maintenance vibration test",
+        "description": "Restart P-101 under controlled operating conditions and record vibration, bearing temperature, and mechanical noise after lubrication, bearing, and alignment work is completed.",
+        "maintenance_type": "Verification",
+        "priority": "High",
+        "status": "Planned",
+        "due_at": "2026-06-22T07:30:00Z",
+        "owner_role": "Condition Monitoring Engineer",
+        "linked_rca_case_id": "RCA-P101-001",
+        "risk_score": 78,
+        "confidence": 0.91,
+        "verification_metric": "Vibration and bearing temperature remain within approved operating limits"
+      }
     }
   ],
   "edges": [
@@ -1203,6 +1292,103 @@
       "target": "HX-301",
       "relationship": "TRACKS_ASSET",
       "properties": {}
+    },
+    {
+      "id": "P-101__HAS_RCA_CASE__RCA-P101-001",
+      "source": "P-101",
+      "target": "RCA-P101-001",
+      "relationship": "HAS_RCA_CASE",
+      "properties": {
+        "source": "rca_cases.json",
+        "confidence": 0.91
+      }
+    },
+    {
+      "id": "RCA-P101-001__GENERATED_WORK_ORDER__MWO-P101-001",
+      "source": "RCA-P101-001",
+      "target": "MWO-P101-001",
+      "relationship": "GENERATED_WORK_ORDER",
+      "properties": {
+        "source": "maintenance_work_orders.json",
+        "linked_root_cause_ids": [
+          "P101-RC-001"
+        ]
+      }
+    },
+    {
+      "id": "RCA-P101-001__GENERATED_WORK_ORDER__MWO-P101-002",
+      "source": "RCA-P101-001",
+      "target": "MWO-P101-002",
+      "relationship": "GENERATED_WORK_ORDER",
+      "properties": {
+        "source": "maintenance_work_orders.json",
+        "linked_root_cause_ids": [
+          "P101-RC-001",
+          "P101-RC-002"
+        ]
+      }
+    },
+    {
+      "id": "RCA-P101-001__GENERATED_WORK_ORDER__MWO-P101-003",
+      "source": "RCA-P101-001",
+      "target": "MWO-P101-003",
+      "relationship": "GENERATED_WORK_ORDER",
+      "properties": {
+        "source": "maintenance_work_orders.json",
+        "linked_root_cause_ids": [
+          "P101-RC-002",
+          "P101-RC-003"
+        ]
+      }
+    },
+    {
+      "id": "RCA-P101-001__GENERATED_WORK_ORDER__MWO-P101-004",
+      "source": "RCA-P101-001",
+      "target": "MWO-P101-004",
+      "relationship": "GENERATED_WORK_ORDER",
+      "properties": {
+        "source": "maintenance_work_orders.json",
+        "linked_root_cause_ids": [
+          "P101-RC-002",
+          "P101-RC-003"
+        ]
+      }
+    },
+    {
+      "id": "MWO-P101-001__REQUIRES_PROCEDURE__SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "source": "MWO-P101-001",
+      "target": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "relationship": "REQUIRES_PROCEDURE",
+      "properties": {
+        "source": "maintenance_work_orders.json"
+      }
+    },
+    {
+      "id": "MWO-P101-002__REQUIRES_PROCEDURE__SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "source": "MWO-P101-002",
+      "target": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "relationship": "REQUIRES_PROCEDURE",
+      "properties": {
+        "source": "maintenance_work_orders.json"
+      }
+    },
+    {
+      "id": "MWO-P101-003__REQUIRES_PROCEDURE__SOP-P101-002_Pump_Vibration_Inspection",
+      "source": "MWO-P101-003",
+      "target": "SOP-P101-002_Pump_Vibration_Inspection",
+      "relationship": "REQUIRES_PROCEDURE",
+      "properties": {
+        "source": "maintenance_work_orders.json"
+      }
+    },
+    {
+      "id": "MWO-P101-004__REQUIRES_PROCEDURE__SOP-P101-002_Pump_Vibration_Inspection",
+      "source": "MWO-P101-004",
+      "target": "SOP-P101-002_Pump_Vibration_Inspection",
+      "relationship": "REQUIRES_PROCEDURE",
+      "properties": {
+        "source": "maintenance_work_orders.json"
+      }
     }
   ]
 }

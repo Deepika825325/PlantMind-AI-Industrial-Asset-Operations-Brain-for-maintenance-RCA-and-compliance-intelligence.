@@ -1,0 +1,470 @@
+{
+  "artifact": "plantmind_benchmark_questions",
+  "question_count": 20,
+  "questions": [
+    {
+      "question_id": "AF-001",
+      "category": "Asset facts",
+      "question": "What type of equipment is P-101 and what service does it provide?",
+      "expected_answer_keywords": [
+        "centrifugal pump",
+        "cooling water circulation"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ]
+      },
+      "expected_citation_ids": [
+        "PID-001",
+        "SOP-P101-001_Pump_Lubrication_and_Bearing_Check"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "AF-002",
+      "category": "Asset facts",
+      "question": "What vibration reading was recorded for P-101 and how was it classified?",
+      "expected_answer_keywords": [
+        "7.8 mm/s",
+        "critical"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ]
+      },
+      "expected_citation_ids": [
+        "IR-P101-001_Pump_Vibration_Inspection"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "AF-003",
+      "category": "Asset facts",
+      "question": "Which conditions indicate degradation risk for C-201?",
+      "expected_answer_keywords": [
+        "decreasing RUL",
+        "outlet temperature",
+        "pressure ratio",
+        "filter replacement verification"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "C-201"
+        ]
+      },
+      "expected_citation_ids": [
+        "IR-C201-001_Compressor_Monthly_Inspection",
+        "C-201"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "AF-004",
+      "category": "Asset facts",
+      "question": "What operating problem is associated with HX-301?",
+      "expected_answer_keywords": [
+        "low heat transfer efficiency",
+        "fouling"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "HX-301"
+        ]
+      },
+      "expected_citation_ids": [
+        "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+        "IR-HX301-001_Heat_Exchanger_Performance_Inspection"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "MH-001",
+      "category": "Maintenance history",
+      "question": "Which work orders are linked to RCA-P101-001?",
+      "expected_answer_keywords": [
+        "MWO-P101-001",
+        "MWO-P101-002",
+        "MWO-P101-003",
+        "MWO-P101-004"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "rca_case_ids": [
+          "RCA-P101-001"
+        ],
+        "work_order_ids": [
+          "MWO-P101-001",
+          "MWO-P101-002",
+          "MWO-P101-003",
+          "MWO-P101-004"
+        ]
+      },
+      "expected_citation_ids": [
+        "MWO-P101-001",
+        "MWO-P101-002",
+        "MWO-P101-003",
+        "MWO-P101-004"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "MH-002",
+      "category": "Maintenance history",
+      "question": "What maintenance actions are planned for C-201?",
+      "expected_answer_keywords": [
+        "inspect compressor lubrication system",
+        "check seals and temperature trend"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "C-201"
+        ],
+        "work_order_ids": [
+          "MWO-C201-001",
+          "MWO-C201-002"
+        ]
+      },
+      "expected_citation_ids": [
+        "MWO-C201-001",
+        "MWO-C201-002"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "MH-003",
+      "category": "Maintenance history",
+      "question": "Which HX-301 work order verifies thermal performance?",
+      "expected_answer_keywords": [
+        "MWO-HX301-003",
+        "verify thermal performance"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "HX-301"
+        ],
+        "work_order_ids": [
+          "MWO-HX301-003"
+        ]
+      },
+      "expected_citation_ids": [
+        "MWO-HX301-003"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "MH-004",
+      "category": "Maintenance history",
+      "question": "Was the P-101 post-maintenance vibration test completed?",
+      "expected_answer_keywords": [
+        "no",
+        "planned",
+        "MWO-P101-004"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "work_order_ids": [
+          "MWO-P101-004"
+        ]
+      },
+      "expected_citation_ids": [
+        "MWO-P101-004"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "RCA-001",
+      "category": "Failure/RCA",
+      "question": "What is the most likely cause of P-101 vibration?",
+      "expected_answer_keywords": [
+        "missed or degraded bearing lubrication",
+        "0.93"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "root_cause_ids": [
+          "P101-RC-001"
+        ]
+      },
+      "expected_citation_ids": [
+        "RCA-P101-001",
+        "COMP-001_Compliance_Checklist"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "RCA-002",
+      "category": "Failure/RCA",
+      "question": "Which evidence supports the bearing lubrication hypothesis for P-101?",
+      "expected_answer_keywords": [
+        "P101-EV-001",
+        "P101-EV-002",
+        "P101-EV-003"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "evidence_ids": [
+          "P101-EV-001",
+          "P101-EV-002",
+          "P101-EV-003"
+        ]
+      },
+      "expected_citation_ids": [
+        "COMP-001_Compliance_Checklist",
+        "IR-P101-001_Pump_Vibration_Inspection",
+        "IR-P101-002_Pump_Bearing_Temperature_Check"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "RCA-003",
+      "category": "Failure/RCA",
+      "question": "What is the second-ranked root cause for the P-101 event?",
+      "expected_answer_keywords": [
+        "bearing wear",
+        "shaft misalignment",
+        "0.84"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "root_cause_ids": [
+          "P101-RC-002"
+        ]
+      },
+      "expected_citation_ids": [
+        "RCA-P101-001",
+        "IR-P101-001_Pump_Vibration_Inspection"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "RCA-004",
+      "category": "Failure/RCA",
+      "question": "What corrective actions were recommended for RCA-P101-001?",
+      "expected_answer_keywords": [
+        "inspect and restore bearing lubrication",
+        "perform vibration and alignment assessment",
+        "add lubrication evidence control"
+      ],
+      "expected_entities": {
+        "rca_case_ids": [
+          "RCA-P101-001"
+        ],
+        "corrective_action_ids": [
+          "P101-CA-001",
+          "P101-CA-002",
+          "P101-CA-003"
+        ]
+      },
+      "expected_citation_ids": [
+        "RCA-P101-001"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "CO-001",
+      "category": "Compliance",
+      "question": "Is P-101 currently audit-ready?",
+      "expected_answer_keywords": [
+        "no",
+        "35",
+        "not audit ready"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ]
+      },
+      "expected_citation_ids": [
+        "GAP-P101-C002",
+        "GAP-P101-C004",
+        "GAP-P101-C005"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "CO-002",
+      "category": "Compliance",
+      "question": "What compliance gaps remain open for P-101?",
+      "expected_answer_keywords": [
+        "C002",
+        "C003",
+        "C004",
+        "C005",
+        "C008"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ]
+      },
+      "expected_citation_ids": [
+        "GAP-P101-C002",
+        "GAP-P101-C003",
+        "GAP-P101-C004",
+        "GAP-P101-C005",
+        "GAP-P101-C008"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "CO-003",
+      "category": "Compliance",
+      "question": "Which document requires work permits and LOTO for P-101 bearing inspection?",
+      "expected_answer_keywords": [
+        "SOP-GEN-001",
+        "work permit",
+        "lockout tagout"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ]
+      },
+      "expected_citation_ids": [
+        "SOP-GEN-001_Work_Permit_and_LOTO"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "CO-004",
+      "category": "Compliance",
+      "question": "Which P-101 work order must be completed to provide post-maintenance verification?",
+      "expected_answer_keywords": [
+        "MWO-P101-004",
+        "post-maintenance vibration test"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "work_order_ids": [
+          "MWO-P101-004"
+        ]
+      },
+      "expected_citation_ids": [
+        "MWO-P101-004",
+        "GAP-P101-C002"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "XD-001",
+      "category": "Cross-document reasoning",
+      "question": "Explain the evidence chain from missing P-101 lubrication evidence to vibration and noise.",
+      "expected_answer_keywords": [
+        "lubrication activity not verified",
+        "bearing friction increased",
+        "bearing temperature increased",
+        "vibration and noise increased"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ]
+      },
+      "expected_citation_ids": [
+        "COMP-001_Compliance_Checklist",
+        "IR-P101-002_Pump_Bearing_Temperature_Check",
+        "IR-P101-001_Pump_Vibration_Inspection",
+        "RCA-P101-001"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "XD-002",
+      "category": "Cross-document reasoning",
+      "question": "Which documents jointly prove the P-101 lubrication, temperature and vibration problem?",
+      "expected_answer_keywords": [
+        "COMP-001",
+        "IR-P101-001",
+        "IR-P101-002",
+        "INC-P101-001"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ]
+      },
+      "expected_citation_ids": [
+        "COMP-001_Compliance_Checklist",
+        "IR-P101-001_Pump_Vibration_Inspection",
+        "IR-P101-002_Pump_Bearing_Temperature_Check",
+        "INC-P101-001_High_Vibration_Event"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "XD-003",
+      "category": "Cross-document reasoning",
+      "question": "Which maintenance records and incident report are linked to HX-301?",
+      "expected_answer_keywords": [
+        "MWO-HX301-001",
+        "MWO-HX301-002",
+        "MWO-HX301-003",
+        "INC-HX301-001"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "HX-301"
+        ],
+        "work_order_ids": [
+          "MWO-HX301-001",
+          "MWO-HX301-002",
+          "MWO-HX301-003"
+        ]
+      },
+      "expected_citation_ids": [
+        "MWO-HX301-001",
+        "MWO-HX301-002",
+        "MWO-HX301-003",
+        "INC-HX301-001_Low_Heat_Transfer_Efficiency"
+      ],
+      "manual_retrieval_seconds": null
+    },
+    {
+      "question_id": "XD-004",
+      "category": "Cross-document reasoning",
+      "question": "How does the P-101 audit package connect compliance, maintenance and RCA?",
+      "expected_answer_keywords": [
+        "five open gaps",
+        "four work orders",
+        "RCA-P101-001",
+        "evidence documents"
+      ],
+      "expected_entities": {
+        "asset_ids": [
+          "P-101"
+        ],
+        "rca_case_ids": [
+          "RCA-P101-001"
+        ],
+        "work_order_ids": [
+          "MWO-P101-001",
+          "MWO-P101-002",
+          "MWO-P101-003",
+          "MWO-P101-004"
+        ]
+      },
+      "expected_citation_ids": [
+        "RCA-P101-001",
+        "MWO-P101-001",
+        "MWO-P101-002",
+        "MWO-P101-003",
+        "MWO-P101-004"
+      ],
+      "manual_retrieval_seconds": null
+    }
+  ]
+}
