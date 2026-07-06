@@ -1,290 +1,439 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
-import { useSearchParams } from "next/navigation";
+import {
+  useEffect,
+  useMemo,
+  useState,
+} from "react";
+
+import AssetAuditSummary from "@/components/compliance/AssetAuditSummary";
+import AuditReadinessScore from "@/components/compliance/AuditReadinessScore";
+import ComplianceFilters from "@/components/compliance/ComplianceFilters";
+import ComplianceGapList from "@/components/compliance/ComplianceGapList";
+import ComplianceKpiCards from "@/components/compliance/ComplianceKpiCards";
+import EvidencePackageView from "@/components/compliance/EvidencePackageView";
+import GapSeverityDistribution from "@/components/compliance/GapSeverityDistribution";
 import { apiGet } from "@/lib/api";
 
-type ComplianceGap = {
-  gap_id: string;
-  asset_id: string;
-  requirement: string;
-  expected_evidence: string;
-  current_status: string;
-  evidence_file: string;
-  gap_severity: string;
-  recommended_action: string;
-  source_document: string;
+import type {
+  ComplianceAuditPackage,
+  ComplianceFilterState,
+  ComplianceGapsResponse,
+  ComplianceOverview,
+  ComplianceRulesResponse,
+} from "@/lib/types";
+
+const initialFilters: ComplianceFilterState = {
+  assetId: "ALL",
+  severity: "ALL",
+  status: "ALL",
+  ruleId: "ALL",
+  evidenceAvailability: "ALL",
+  auditPackage: "ALL",
 };
 
-type AssetComplianceSummary = {
-  asset_id: string;
-  total_gaps: number;
-  high_severity_gaps: number;
-  medium_severity_gaps: number;
-  compliance_status: string;
-  gap_ids: string[];
-};
+function buildGapQuery(
+  filters: ComplianceFilterState
+) {
+  const query = new URLSearchParams();
 
-type ComplianceResponse = {
-  artifact: string;
-  generated_at: string;
-  asset_compliance_summary: AssetComplianceSummary[];
-  gaps: ComplianceGap[];
-};
-
-function getSeverityClass(severity: string) {
-  if (severity === "High") {
-    return "bg-red-100 text-red-700 border-red-200";
+  if (filters.assetId !== "ALL") {
+    query.set("asset_id", filters.assetId);
   }
 
-  if (severity === "Medium") {
-    return "bg-amber-100 text-amber-700 border-amber-200";
+  if (filters.severity !== "ALL") {
+    query.set("severity", filters.severity);
   }
 
-  return "bg-slate-100 text-slate-700 border-slate-200";
-}
-
-function getStatusClass(status: string) {
-  if (status === "Missing") {
-    return "text-red-400";
+  if (filters.status !== "ALL") {
+    query.set("status", filters.status);
   }
 
-  if (status === "Delayed" || status === "Overdue") {
-    return "text-amber-400";
+  if (filters.ruleId !== "ALL") {
+    query.set("rule_id", filters.ruleId);
   }
 
-  return "text-slate-300";
+  if (filters.evidenceAvailability !== "ALL") {
+    query.set(
+      "evidence_availability",
+      filters.evidenceAvailability
+    );
+  }
+
+  const queryString = query.toString();
+
+  return queryString
+    ? `/compliance/gaps?${queryString}`
+    : "/compliance/gaps";
 }
 
 export default function CompliancePage() {
-  const searchParams = useSearchParams();
-  const initialAsset = searchParams.get("asset") || "ALL";
+  const [overview, setOverview] =
+    useState<ComplianceOverview | null>(null);
 
-  const [data, setData] = useState<ComplianceResponse | null>(null);
-  const [selectedAsset, setSelectedAsset] = useState(initialAsset);
-  const [loading, setLoading] = useState(true);
+  const [rulesData, setRulesData] =
+    useState<ComplianceRulesResponse | null>(null);
+
+  const [gapsData, setGapsData] =
+    useState<ComplianceGapsResponse | null>(null);
+
+  const [auditPackage, setAuditPackage] =
+    useState<ComplianceAuditPackage | null>(null);
+
+  const [filters, setFilters] =
+    useState<ComplianceFilterState>(
+      initialFilters
+    );
+
+  const [selectedAssetId, setSelectedAssetId] =
+    useState("");
+
+  const [loadingOverview, setLoadingOverview] =
+    useState(true);
+
+  const [loadingGaps, setLoadingGaps] =
+    useState(true);
+
+  const [loadingPackage, setLoadingPackage] =
+    useState(false);
+
   const [error, setError] = useState("");
 
   useEffect(() => {
-    async function loadCompliance() {
+    async function loadInitialData() {
       try {
-        setLoading(true);
-        const result = await apiGet<ComplianceResponse>("/compliance");
-        setData(result);
+        setLoadingOverview(true);
+        setError("");
+
+        const [overviewResult, rulesResult] =
+          await Promise.all([
+            apiGet<ComplianceOverview>(
+              "/compliance"
+            ),
+            apiGet<ComplianceRulesResponse>(
+              "/compliance/rules"
+            ),
+          ]);
+
+        setOverview(overviewResult);
+        setRulesData(rulesResult);
+
+        const searchParams =
+          new URLSearchParams(
+            window.location.search
+          );
+
+        const requestedAsset =
+          searchParams.get("asset");
+
+        const availableAssetIds =
+          overviewResult.asset_compliance_summary.map(
+            (asset) => asset.asset_id
+          );
+
+        const initialAsset =
+          requestedAsset &&
+          availableAssetIds.includes(
+            requestedAsset.toUpperCase()
+          )
+            ? requestedAsset.toUpperCase()
+            : availableAssetIds[0] || "";
+
+        setSelectedAssetId(initialAsset);
+
+        if (requestedAsset) {
+          setFilters((currentFilters) => ({
+            ...currentFilters,
+            assetId: initialAsset,
+          }));
+        }
       } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to load compliance data");
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Failed to load compliance intelligence"
+        );
       } finally {
-        setLoading(false);
+        setLoadingOverview(false);
       }
     }
 
-    loadCompliance();
+    loadInitialData();
   }, []);
 
-  const filteredGaps = useMemo(() => {
-    if (!data) {
+  useEffect(() => {
+    async function loadGaps() {
+      try {
+        setLoadingGaps(true);
+
+        const result =
+          await apiGet<ComplianceGapsResponse>(
+            buildGapQuery(filters)
+          );
+
+        setGapsData(result);
+      } catch (err) {
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Failed to load compliance gaps"
+        );
+      } finally {
+        setLoadingGaps(false);
+      }
+    }
+
+    loadGaps();
+  }, [
+    filters.assetId,
+    filters.severity,
+    filters.status,
+    filters.ruleId,
+    filters.evidenceAvailability,
+  ]);
+
+  useEffect(() => {
+    if (!selectedAssetId) {
+      setAuditPackage(null);
+      return;
+    }
+
+    async function loadAuditPackage() {
+      try {
+        setLoadingPackage(true);
+
+        const result =
+          await apiGet<ComplianceAuditPackage>(
+            `/compliance/assets/${encodeURIComponent(
+              selectedAssetId
+            )}/audit-package`
+          );
+
+        setAuditPackage(result);
+      } catch (err) {
+        setError(
+          err instanceof Error
+            ? err.message
+            : "Failed to load audit package"
+        );
+      } finally {
+        setLoadingPackage(false);
+      }
+    }
+
+    loadAuditPackage();
+  }, [selectedAssetId]);
+
+  const assetIds = useMemo(
+    () =>
+      overview?.asset_compliance_summary.map(
+        (asset) => asset.asset_id
+      ) || [],
+    [overview]
+  );
+
+  const visibleAssets = useMemo(() => {
+    if (!overview) {
       return [];
     }
 
-    if (selectedAsset === "ALL") {
-      return data.gaps;
+    let assets =
+      overview.asset_compliance_summary;
+
+    if (filters.assetId !== "ALL") {
+      assets = assets.filter(
+        (asset) =>
+          asset.asset_id === filters.assetId
+      );
     }
 
-    return data.gaps.filter((gap) => gap.asset_id === selectedAsset);
-  }, [data, selectedAsset]);
+    if (
+      filters.auditPackage === "WITH_GAPS"
+    ) {
+      assets = assets.filter(
+        (asset) => asset.open_gaps > 0
+      );
+    }
 
-  const totalHighSeverity = data?.gaps.filter((gap) => gap.gap_severity === "High").length || 0;
-  const totalMediumSeverity = data?.gaps.filter((gap) => gap.gap_severity === "Medium").length || 0;
+    if (filters.auditPackage === "READY") {
+      assets = assets.filter(
+        (asset) =>
+          asset.audit_readiness_score >= 85 &&
+          asset.open_gaps === 0
+      );
+    }
+
+    return assets;
+  }, [
+    overview,
+    filters.assetId,
+    filters.auditPackage,
+  ]);
+
+  function handleFilterChange(
+    nextFilters: ComplianceFilterState
+  ) {
+    setFilters(nextFilters);
+
+    if (
+      nextFilters.assetId !== "ALL" &&
+      nextFilters.assetId !== selectedAssetId
+    ) {
+      handleAssetSelect(
+        nextFilters.assetId
+      );
+    }
+  }
+
+  function handleAssetSelect(assetId: string) {
+    setSelectedAssetId(assetId);
+
+    setFilters((currentFilters) => ({
+      ...currentFilters,
+      assetId,
+    }));
+
+    const url = new URL(
+      window.location.href
+    );
+
+    url.searchParams.set("asset", assetId);
+
+    window.history.replaceState(
+      {},
+      "",
+      url.toString()
+    );
+  }
+
+  function handleResetFilters() {
+    setFilters(initialFilters);
+
+    if (
+      overview?.asset_compliance_summary.length
+    ) {
+      const firstAsset =
+        overview.asset_compliance_summary[0]
+          .asset_id;
+
+      setSelectedAssetId(firstAsset);
+
+      const url = new URL(
+        window.location.href
+      );
+
+      url.searchParams.delete("asset");
+
+      window.history.replaceState(
+        {},
+        "",
+        url.toString()
+      );
+    }
+  }
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
       <section className="mx-auto max-w-7xl px-6 py-10">
-        <div>
+        <header>
           <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
-            Compliance Center
+            Compliance Intelligence
           </p>
 
           <h1 className="mt-4 text-4xl font-semibold tracking-tight">
-            Evidence Gap Detection
+            Audit Readiness and Evidence Control
           </h1>
 
           <p className="mt-3 max-w-3xl text-slate-400">
-            Track missing, delayed, and overdue maintenance evidence across assets.
-            This page converts raw compliance records into actionable evidence gaps.
+            Evaluate explicit compliance rules,
+            identify missing evidence and connect
+            every gap to assets, inspections,
+            work orders, RCA cases and remediation
+            actions.
           </p>
-        </div>
-
-        {loading && (
-          <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-8 text-slate-400">
-            Loading compliance data...
-          </div>
-        )}
+        </header>
 
         {error && (
-          <div className="mt-8 rounded-2xl border border-red-800 bg-red-950/40 p-6 text-red-300">
+          <section className="mt-8 rounded-2xl border border-red-500/30 bg-red-500/10 p-5 text-red-300">
             {error}
-          </div>
+          </section>
         )}
 
-        {data && (
+        {loadingOverview && (
+          <section className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-8 text-slate-400">
+            Loading compliance intelligence...
+          </section>
+        )}
+
+        {overview && rulesData && (
           <>
-            <div className="mt-8 grid gap-4 md:grid-cols-4">
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-                <p className="text-sm text-slate-400">Total Gaps</p>
-                <p className="mt-3 text-3xl font-semibold">{data.gaps.length}</p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-                <p className="text-sm text-slate-400">High Severity</p>
-                <p className="mt-3 text-3xl font-semibold text-red-400">
-                  {totalHighSeverity}
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-                <p className="text-sm text-slate-400">Medium Severity</p>
-                <p className="mt-3 text-3xl font-semibold text-amber-400">
-                  {totalMediumSeverity}
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-                <p className="text-sm text-slate-400">Assets Affected</p>
-                <p className="mt-3 text-3xl font-semibold text-cyan-400">
-                  {data.asset_compliance_summary.length}
-                </p>
-              </div>
+            <div className="mt-8">
+              <ComplianceKpiCards
+                overview={overview}
+              />
             </div>
 
-            <div className="mt-8 grid gap-6 lg:grid-cols-3">
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-                <h2 className="text-xl font-semibold">Asset Compliance</h2>
+            <div className="mt-8">
+              <ComplianceFilters
+                filters={filters}
+                assetIds={assetIds}
+                rules={rulesData.rules}
+                onChange={handleFilterChange}
+                onReset={handleResetFilters}
+              />
+            </div>
 
-                <div className="mt-5">
-                  <label className="text-sm text-slate-400">Filter Asset</label>
+            <div className="mt-8 grid gap-6 xl:grid-cols-[1fr_1.4fr]">
+              <AssetAuditSummary
+                assets={visibleAssets}
+                selectedAssetId={
+                  selectedAssetId
+                }
+                onSelect={handleAssetSelect}
+              />
 
-                  <select
-                    value={selectedAsset}
-                    onChange={(event) => setSelectedAsset(event.target.value)}
-                    className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none focus:border-cyan-400"
-                  >
-                    <option value="ALL">All Assets</option>
-                    <option value="P-101">P-101 Pump</option>
-                    <option value="C-201">C-201 Compressor</option>
-                    <option value="HX-301">HX-301 Heat Exchanger</option>
-                  </select>
-                </div>
+              <GapSeverityDistribution
+                distribution={
+                  overview.severity_distribution
+                }
+              />
+            </div>
 
-                <div className="mt-6 space-y-4">
-                  {data.asset_compliance_summary.map((summary) => (
-                    <button
-                      key={summary.asset_id}
-                      onClick={() => setSelectedAsset(summary.asset_id)}
-                      className="w-full rounded-2xl border border-slate-800 bg-slate-950 p-4 text-left transition hover:border-cyan-500"
-                    >
-                      <div className="flex items-center justify-between">
-                        <p className="font-semibold">{summary.asset_id}</p>
-                        <span className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300">
-                          {summary.total_gaps} gaps
-                        </span>
-                      </div>
+            {loadingPackage && (
+              <section className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-8 text-slate-400">
+                Loading asset audit package...
+              </section>
+            )}
 
-                      <p className="mt-2 text-sm text-slate-400">
-                        {summary.compliance_status}
-                      </p>
+            {!loadingPackage &&
+              auditPackage && (
+                <>
+                  <div className="mt-8">
+                    <AuditReadinessScore
+                      score={
+                        auditPackage.audit_readiness_score
+                      }
+                      breakdown={
+                        auditPackage.scoring_breakdown
+                      }
+                    />
+                  </div>
 
-                      <div className="mt-3 flex gap-2 text-xs">
-                        <span className="rounded-full bg-red-950 px-3 py-1 text-red-300">
-                          High: {summary.high_severity_gaps}
-                        </span>
+                  <div className="mt-8">
+                    <EvidencePackageView
+                      auditPackage={
+                        auditPackage
+                      }
+                    />
+                  </div>
+                </>
+              )}
 
-                        <span className="rounded-full bg-amber-950 px-3 py-1 text-amber-300">
-                          Medium: {summary.medium_severity_gaps}
-                        </span>
-                      </div>
-                    </button>
-                  ))}
-                </div>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 lg:col-span-2">
-                <div className="flex items-center justify-between">
-                  <h2 className="text-xl font-semibold">Evidence Gaps</h2>
-                  <span className="text-sm text-slate-500">
-                    Showing {filteredGaps.length} gaps
-                  </span>
-                </div>
-
-                <div className="mt-6 space-y-4">
-                  {filteredGaps.map((gap) => (
-                    <div
-                      key={gap.gap_id}
-                      className="rounded-2xl border border-slate-800 bg-slate-950 p-5"
-                    >
-                      <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                        <div>
-                          <div className="flex flex-wrap items-center gap-2">
-                            <h3 className="text-lg font-semibold">{gap.gap_id}</h3>
-
-                            <span className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300">
-                              {gap.asset_id}
-                            </span>
-
-                            <span
-                              className={`rounded-full border px-3 py-1 text-xs font-medium ${getSeverityClass(
-                                gap.gap_severity
-                              )}`}
-                            >
-                              {gap.gap_severity}
-                            </span>
-                          </div>
-
-                          <p className="mt-3 text-slate-100">
-                            {gap.requirement}
-                          </p>
-                        </div>
-
-                        <p className={`text-sm font-medium ${getStatusClass(gap.current_status)}`}>
-                          {gap.current_status}
-                        </p>
-                      </div>
-
-                      <div className="mt-5 grid gap-4 md:grid-cols-2">
-                        <div className="rounded-xl bg-slate-900 p-4">
-                          <p className="text-xs uppercase tracking-wider text-slate-500">
-                            Expected Evidence
-                          </p>
-                          <p className="mt-2 text-sm text-slate-300">
-                            {gap.expected_evidence}
-                          </p>
-                        </div>
-
-                        <div className="rounded-xl bg-slate-900 p-4">
-                          <p className="text-xs uppercase tracking-wider text-slate-500">
-                            Evidence File
-                          </p>
-                          <p className="mt-2 text-sm text-slate-300">
-                            {gap.evidence_file || "Not available"}
-                          </p>
-                        </div>
-                      </div>
-
-                      <div className="mt-5 rounded-xl border border-slate-800 bg-slate-900 p-4">
-                        <p className="text-xs uppercase tracking-wider text-slate-500">
-                          Recommended Action
-                        </p>
-                        <p className="mt-2 text-sm leading-6 text-slate-300">
-                          {gap.recommended_action}
-                        </p>
-                      </div>
-
-                      <p className="mt-4 text-xs text-slate-500">
-                        Source: {gap.source_document}
-                      </p>
-                    </div>
-                  ))}
-                </div>
-              </div>
+            <div className="mt-8">
+              <ComplianceGapList
+                gaps={gapsData?.gaps || []}
+                loading={loadingGaps}
+              />
             </div>
           </>
         )}

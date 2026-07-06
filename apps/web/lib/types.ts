@@ -424,3 +424,210 @@ export type MaintenanceFilterState = {
   rcaCaseId: string;
   dueDate: string;
 };
+export type ComplianceSeverity =
+  | "Critical"
+  | "High"
+  | "Medium"
+  | "Low";
+
+export type ComplianceRuleStatus =
+  | "Passed"
+  | "Failed";
+
+export type ComplianceGapStatus =
+  | "Open"
+  | "Resolved"
+  | "Waived";
+
+export type ComplianceRuleResult = {
+  rule_id: string;
+  rule_name: string;
+  severity: ComplianceSeverity;
+  status: ComplianceRuleStatus;
+  description: string;
+  required_evidence: string[];
+  available_evidence: string[];
+  missing_evidence: string[];
+  linked_document_ids: string[];
+  linked_work_order_ids: string[];
+  linked_rca_case_ids: string[];
+  recommendation: string;
+  confidence: number;
+};
+
+export type ComplianceGap = {
+  gap_id: string;
+  asset_id: string;
+  rule_id: string;
+  rule_name: string;
+  severity: ComplianceSeverity;
+  status: ComplianceGapStatus;
+  description: string;
+  required_evidence: string[];
+  available_evidence: string[];
+  missing_evidence: string[];
+  linked_document_ids: string[];
+  linked_work_order_ids: string[];
+  linked_rca_case_ids: string[];
+  recommendation: string;
+  confidence: number;
+};
+
+export type CompliancePenaltyValues = {
+  critical_gap: number;
+  high_gap: number;
+  medium_gap: number;
+  missing_evidence: number;
+  overdue_action: number;
+};
+
+export type ComplianceSeverityPenalties = {
+  critical: number;
+  high: number;
+  medium: number;
+};
+
+export type ComplianceScoringBreakdown = {
+  maximum_score: number;
+  gap_counts: ComplianceSeverityPenalties;
+  raw_severity_penalties: ComplianceSeverityPenalties;
+  applied_severity_penalties: ComplianceSeverityPenalties;
+  severity_penalty: number;
+  missing_evidence_gap_count: number;
+  missing_evidence_penalty: number;
+  overdue_action_count: number;
+  overdue_action_penalty: number;
+  total_penalty: number;
+  final_score: number;
+  formula: string;
+  penalty_values: CompliancePenaltyValues;
+  penalty_caps: ComplianceSeverityPenalties;
+};
+
+export type ComplianceAsset = {
+  asset_id: string;
+  asset_name?: string;
+  asset_type?: string;
+  location?: string;
+  criticality?: string;
+  [key: string]: unknown;
+};
+
+export type ComplianceEvidenceDocument = {
+  document_id: string;
+  title: string;
+  document_type: string;
+  source_group: string;
+  asset_ids: string[];
+  tags: string[];
+  summary: string;
+  relative_path: string;
+  word_count: number;
+};
+
+export type ComplianceAssetSummary = {
+  asset_id: string;
+  asset_name?: string;
+  audit_readiness_score: number;
+  total_rules: number;
+  passed_rules: number;
+  failed_rules: number;
+  open_gaps: number;
+  critical_gaps: number;
+  high_gaps: number;
+  medium_gaps: number;
+};
+
+export type ComplianceOverview = {
+  artifact: string;
+  generated_at: string;
+  audit_readiness_formula: string;
+  average_audit_readiness_score: number;
+  total_assets: number;
+  total_open_gaps: number;
+  missing_evidence_gaps: number;
+  severity_distribution: Record<ComplianceSeverity, number>;
+  asset_compliance_summary: ComplianceAssetSummary[];
+  gaps: ComplianceGap[];
+};
+
+export type ComplianceRuleDefinition = {
+  rule_id: string;
+  rule_name: string;
+  description: string;
+  default_severity: ComplianceSeverity;
+  applicable_asset_ids: string[];
+  required_evidence: string[];
+  evaluation_type: string;
+  recommendation: string;
+};
+
+export type ComplianceScoringConfiguration = {
+  maximum_score: number;
+  minimum_score: number;
+  critical_gap_penalty: number;
+  high_gap_penalty: number;
+  medium_gap_penalty: number;
+  missing_evidence_penalty: number;
+  overdue_action_penalty: number;
+  formula: string;
+  severity_penalty_caps: ComplianceSeverityPenalties;
+};
+
+export type ComplianceRulesResponse = {
+  artifact: string;
+  generated_at: string;
+  scoring: ComplianceScoringConfiguration;
+  rules: ComplianceRuleDefinition[];
+};
+
+export type ComplianceGapFilters = {
+  asset_id: string | null;
+  severity: string | null;
+  status: string | null;
+  rule_id: string | null;
+  evidence_availability: string | null;
+};
+
+export type ComplianceGapsResponse = {
+  total: number;
+  gaps: ComplianceGap[];
+  filters: ComplianceGapFilters;
+};
+
+export type ComplianceAuditPackage = {
+  asset: ComplianceAsset;
+  audit_readiness_score: number;
+  scoring_breakdown: ComplianceScoringBreakdown;
+  applicable_rules: ComplianceRuleResult[];
+  passed_rules: ComplianceRuleResult[];
+  failed_rules: ComplianceRuleResult[];
+  open_gaps: ComplianceGap[];
+  evidence_documents: ComplianceEvidenceDocument[];
+  related_inspections: ComplianceEvidenceDocument[];
+  related_work_orders: MaintenanceWorkOrder[];
+  related_rca_cases: RcaCase[];
+  recommended_actions: string[];
+  generated_at: string;
+};
+
+export type ComplianceAssetResponse = {
+  asset: ComplianceAsset;
+  audit_readiness_score: number;
+  scoring_breakdown: ComplianceScoringBreakdown;
+  total_rules: number;
+  passed_rules: number;
+  failed_rules: number;
+  open_gaps: ComplianceGap[];
+  recommended_actions: string[];
+  generated_at: string;
+};
+
+export type ComplianceFilterState = {
+  assetId: string;
+  severity: string;
+  status: string;
+  ruleId: string;
+  evidenceAvailability: string;
+  auditPackage: string;
+};
