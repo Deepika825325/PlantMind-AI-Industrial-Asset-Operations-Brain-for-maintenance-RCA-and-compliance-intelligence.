@@ -1,315 +1,337 @@
 "use client";
 
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
+import MaintenanceFilters from "@/components/maintenance/MaintenanceFilters";
+import MaintenanceKpiCards from "@/components/maintenance/MaintenanceKpiCards";
+import WorkOrderDetail from "@/components/maintenance/WorkOrderDetail";
+import WorkOrderList from "@/components/maintenance/WorkOrderList";
 import { apiGet } from "@/lib/api";
+import type {
+  MaintenanceFilterState,
+  MaintenanceStatistics,
+  MaintenanceWorkOrder,
+  MaintenanceWorkOrdersResponse
+} from "@/lib/types";
 
-type MaintenanceEvent = {
-  event_id: string;
-  asset_id: string;
-  asset_name: string;
-  event_type: string;
-  priority: string;
-  status: string;
-  created_date: string;
-  due_date: string;
-  description: string;
-  linked_document: string;
-  compliance_related: string;
+const defaultFilters: MaintenanceFilterState = {
+  assetId: "ALL",
+  priority: "ALL",
+  status: "ALL",
+  maintenanceType: "ALL",
+  rcaCaseId: "ALL",
+  dueDate: ""
 };
 
-type MaintenanceResponse = {
-  total: number;
-  events: MaintenanceEvent[];
-};
+function buildWorkOrdersEndpoint(
+  filters: MaintenanceFilterState
+) {
+  const parameters = new URLSearchParams();
 
-function getPriorityClass(priority: string) {
-  if (priority === "High") {
-    return "bg-red-100 text-red-700 border-red-200";
+  if (filters.assetId !== "ALL") {
+    parameters.set("asset_id", filters.assetId);
   }
 
-  if (priority === "Medium") {
-    return "bg-amber-100 text-amber-700 border-amber-200";
+  if (filters.priority !== "ALL") {
+    parameters.set("priority", filters.priority);
   }
 
-  return "bg-emerald-100 text-emerald-700 border-emerald-200";
+  if (filters.status !== "ALL") {
+    parameters.set("status", filters.status);
+  }
+
+  if (filters.maintenanceType !== "ALL") {
+    parameters.set(
+      "maintenance_type",
+      filters.maintenanceType
+    );
+  }
+
+  if (filters.rcaCaseId !== "ALL") {
+    parameters.set(
+      "rca_case_id",
+      filters.rcaCaseId
+    );
+  }
+
+  if (filters.dueDate) {
+    parameters.set("due_date", filters.dueDate);
+  }
+
+  const queryString = parameters.toString();
+
+  return queryString
+    ? `/maintenance/work-orders?${queryString}`
+    : "/maintenance/work-orders";
 }
 
-function getStatusClass(status: string) {
-  if (status === "Open") {
-    return "text-red-400";
+function updateRcaQueryParameter(rcaCaseId: string) {
+  const url = new URL(window.location.href);
+
+  if (rcaCaseId === "ALL") {
+    url.searchParams.delete("rca");
+  } else {
+    url.searchParams.set("rca", rcaCaseId);
   }
 
-  if (status === "Delayed") {
-    return "text-amber-400";
-  }
-
-  if (status === "Planned") {
-    return "text-cyan-400";
-  }
-
-  return "text-slate-300";
+  window.history.replaceState(
+    {},
+    "",
+    `${url.pathname}${url.search}${url.hash}`
+  );
 }
 
 export default function MaintenancePage() {
-  const [events, setEvents] = useState<MaintenanceEvent[]>([]);
-  const [selectedAsset, setSelectedAsset] = useState("ALL");
-  const [selectedStatus, setSelectedStatus] = useState("ALL");
-  const [selectedPriority, setSelectedPriority] = useState("ALL");
-  const [searchText, setSearchText] = useState("");
+  const [filters, setFilters] =
+    useState<MaintenanceFilterState>(defaultFilters);
+
+  const [workOrders, setWorkOrders] = useState<
+    MaintenanceWorkOrder[]
+  >([]);
+
+  const [statistics, setStatistics] =
+    useState<MaintenanceStatistics | null>(null);
+
+  const [selectedWorkOrder, setSelectedWorkOrder] =
+    useState<MaintenanceWorkOrder | null>(null);
+
+  const [initialized, setInitialized] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [statisticsLoading, setStatisticsLoading] =
+    useState(true);
+
   const [error, setError] = useState("");
 
   useEffect(() => {
-    async function loadMaintenanceEvents() {
+    const parameters = new URLSearchParams(
+      window.location.search
+    );
+
+    const rcaCaseId = parameters.get("rca");
+
+    if (rcaCaseId) {
+      setFilters((currentFilters) => ({
+        ...currentFilters,
+        rcaCaseId
+      }));
+    }
+
+    setInitialized(true);
+  }, []);
+
+  useEffect(() => {
+    let active = true;
+
+    async function loadStatistics() {
       try {
-        setLoading(true);
-        const result = await apiGet<MaintenanceResponse>("/maintenance/events");
-        setEvents(result.events);
-      } catch (err) {
-        setError(err instanceof Error ? err.message : "Failed to load maintenance events");
+        setStatisticsLoading(true);
+
+        const result =
+          await apiGet<MaintenanceStatistics>(
+            "/maintenance/work-orders/statistics"
+          );
+
+        if (active) {
+          setStatistics(result);
+        }
+      } catch (requestError) {
+        if (active) {
+          setError(
+            requestError instanceof Error
+              ? requestError.message
+              : "Failed to load maintenance statistics"
+          );
+        }
       } finally {
-        setLoading(false);
+        if (active) {
+          setStatisticsLoading(false);
+        }
       }
     }
 
-    loadMaintenanceEvents();
+    loadStatistics();
+
+    return () => {
+      active = false;
+    };
   }, []);
 
-  const filteredEvents = useMemo(() => {
-    return events.filter((event) => {
-      const matchesAsset =
-        selectedAsset === "ALL" || event.asset_id === selectedAsset;
+  useEffect(() => {
+    if (!initialized) {
+      return;
+    }
 
-      const matchesStatus =
-        selectedStatus === "ALL" || event.status === selectedStatus;
+    let active = true;
 
-      const matchesPriority =
-        selectedPriority === "ALL" || event.priority === selectedPriority;
+    async function loadWorkOrders() {
+      try {
+        setLoading(true);
+        setError("");
 
-      const query = searchText.toLowerCase().trim();
+        const endpoint =
+          buildWorkOrdersEndpoint(filters);
 
-      const matchesSearch =
-        !query ||
-        event.event_id.toLowerCase().includes(query) ||
-        event.asset_id.toLowerCase().includes(query) ||
-        event.asset_name.toLowerCase().includes(query) ||
-        event.event_type.toLowerCase().includes(query) ||
-        event.description.toLowerCase().includes(query) ||
-        event.linked_document.toLowerCase().includes(query);
+        const result =
+          await apiGet<MaintenanceWorkOrdersResponse>(
+            endpoint
+          );
 
-      return matchesAsset && matchesStatus && matchesPriority && matchesSearch;
-    });
-  }, [events, selectedAsset, selectedStatus, selectedPriority, searchText]);
+        if (!active) {
+          return;
+        }
 
-  const openCount = events.filter((event) => event.status === "Open").length;
-  const delayedCount = events.filter((event) => event.status === "Delayed").length;
-  const highPriorityCount = events.filter((event) => event.priority === "High").length;
-  const complianceRelatedCount = events.filter(
-    (event) => event.compliance_related === "Yes"
-  ).length;
+        setWorkOrders(result.work_orders);
+
+        setSelectedWorkOrder((currentWorkOrder) => {
+          if (currentWorkOrder) {
+            const matchingWorkOrder =
+              result.work_orders.find(
+                (workOrder) =>
+                  workOrder.work_order_id ===
+                  currentWorkOrder.work_order_id
+              );
+
+            if (matchingWorkOrder) {
+              return matchingWorkOrder;
+            }
+          }
+
+          return result.work_orders[0] ?? null;
+        });
+      } catch (requestError) {
+        if (active) {
+          setWorkOrders([]);
+          setSelectedWorkOrder(null);
+
+          setError(
+            requestError instanceof Error
+              ? requestError.message
+              : "Failed to load maintenance work orders"
+          );
+        }
+      } finally {
+        if (active) {
+          setLoading(false);
+        }
+      }
+    }
+
+    loadWorkOrders();
+
+    return () => {
+      active = false;
+    };
+  }, [filters, initialized]);
+
+  function handleFilterChange(
+    field: keyof MaintenanceFilterState,
+    value: string
+  ) {
+    setFilters((currentFilters) => ({
+      ...currentFilters,
+      [field]: value
+    }));
+
+    if (field === "rcaCaseId") {
+      updateRcaQueryParameter(value);
+    }
+  }
+
+  function handleResetFilters() {
+    setFilters(defaultFilters);
+    updateRcaQueryParameter("ALL");
+  }
 
   return (
     <main className="min-h-screen bg-slate-950 text-slate-100">
-      <section className="mx-auto max-w-7xl px-6 py-10">
-        <div>
-          <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
-            Maintenance Events
-          </p>
+      <section className="mx-auto max-w-[1600px] px-6 py-10">
+        <header className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+          <div>
+            <p className="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-400">
+              Maintenance Command Center
+            </p>
 
-          <h1 className="mt-4 text-4xl font-semibold tracking-tight">
-            Work Orders and Maintenance Actions
-          </h1>
+            <h1 className="mt-4 text-4xl font-semibold tracking-tight text-slate-100">
+              Prioritized Maintenance Work Orders
+            </h1>
 
-          <p className="mt-3 max-w-3xl text-slate-400">
-            Track open, delayed, planned, and compliance-related work orders
-            connected to asset risk, RCA findings, and evidence gaps.
-          </p>
+            <p className="mt-3 max-w-3xl text-sm leading-7 text-slate-400">
+              Convert root-cause findings, inspection evidence
+              and asset risks into controlled maintenance actions
+              with procedures, ownership and verification criteria.
+            </p>
+          </div>
+
+          <div className="rounded-2xl border border-slate-800 bg-slate-900 px-5 py-4">
+            <p className="text-xs uppercase tracking-wider text-slate-500">
+              Active Portfolio
+            </p>
+
+            <p className="mt-2 text-lg font-semibold text-slate-200">
+              P-101 · C-201 · HX-301
+            </p>
+          </div>
+        </header>
+
+        <div className="mt-8">
+          <MaintenanceKpiCards
+            statistics={statistics}
+            loading={statisticsLoading}
+          />
         </div>
 
-        {loading && (
-          <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-8 text-slate-400">
-            Loading maintenance events...
+        <div className="mt-8">
+          <MaintenanceFilters
+            filters={filters}
+            onChange={handleFilterChange}
+            onReset={handleResetFilters}
+            rcaCaseOptions={["RCA-P101-001"]}
+            resultCount={workOrders.length}
+          />
+        </div>
+
+        {filters.rcaCaseId !== "ALL" && (
+          <div className="mt-6 rounded-2xl border border-violet-500/20 bg-violet-500/5 px-5 py-4">
+            <p className="text-sm text-violet-200">
+              Showing maintenance work orders linked to{" "}
+              <span className="font-semibold">
+                {filters.rcaCaseId}
+              </span>
+              .
+            </p>
           </div>
         )}
 
         {error && (
-          <div className="mt-8 rounded-2xl border border-red-800 bg-red-950/40 p-6 text-red-300">
-            {error}
+          <div className="mt-6 rounded-2xl border border-red-500/30 bg-red-500/10 p-5">
+            <p className="font-medium text-red-300">
+              Maintenance data could not be loaded
+            </p>
+
+            <p className="mt-2 text-sm text-red-200/80">
+              {error}
+            </p>
           </div>
         )}
 
-        {!loading && !error && (
-          <>
-            <div className="mt-8 grid gap-4 md:grid-cols-4">
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-                <p className="text-sm text-slate-400">Total Work Orders</p>
-                <p className="mt-3 text-3xl font-semibold">{events.length}</p>
-              </div>
+        <div className="mt-8 grid gap-6 xl:grid-cols-[minmax(0,1.35fr)_minmax(420px,0.65fr)]">
+          <WorkOrderList
+            workOrders={workOrders}
+            selectedWorkOrderId={
+              selectedWorkOrder?.work_order_id
+            }
+            onSelect={setSelectedWorkOrder}
+            loading={!initialized || loading}
+          />
 
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-                <p className="text-sm text-slate-400">Open</p>
-                <p className="mt-3 text-3xl font-semibold text-red-400">
-                  {openCount}
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-                <p className="text-sm text-slate-400">Delayed</p>
-                <p className="mt-3 text-3xl font-semibold text-amber-400">
-                  {delayedCount}
-                </p>
-              </div>
-
-              <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-                <p className="text-sm text-slate-400">Compliance Related</p>
-                <p className="mt-3 text-3xl font-semibold text-cyan-400">
-                  {complianceRelatedCount}
-                </p>
-              </div>
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
-              <div className="grid gap-4 md:grid-cols-4">
-                <div>
-                  <label className="text-sm text-slate-400">Search</label>
-                  <input
-                    value={searchText}
-                    onChange={(event) => setSearchText(event.target.value)}
-                    placeholder="Search work order, asset, description..."
-                    className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none focus:border-cyan-400"
-                  />
-                </div>
-
-                <div>
-                  <label className="text-sm text-slate-400">Asset</label>
-                  <select
-                    value={selectedAsset}
-                    onChange={(event) => setSelectedAsset(event.target.value)}
-                    className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none focus:border-cyan-400"
-                  >
-                    <option value="ALL">All Assets</option>
-                    <option value="P-101">P-101</option>
-                    <option value="C-201">C-201</option>
-                    <option value="HX-301">HX-301</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-sm text-slate-400">Status</label>
-                  <select
-                    value={selectedStatus}
-                    onChange={(event) => setSelectedStatus(event.target.value)}
-                    className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none focus:border-cyan-400"
-                  >
-                    <option value="ALL">All Statuses</option>
-                    <option value="Open">Open</option>
-                    <option value="Delayed">Delayed</option>
-                    <option value="Planned">Planned</option>
-                  </select>
-                </div>
-
-                <div>
-                  <label className="text-sm text-slate-400">Priority</label>
-                  <select
-                    value={selectedPriority}
-                    onChange={(event) => setSelectedPriority(event.target.value)}
-                    className="mt-2 w-full rounded-xl border border-slate-700 bg-slate-950 px-4 py-3 text-slate-100 outline-none focus:border-cyan-400"
-                  >
-                    <option value="ALL">All Priorities</option>
-                    <option value="High">High</option>
-                    <option value="Medium">Medium</option>
-                  </select>
-                </div>
-              </div>
-            </div>
-
-            <div className="mt-8 rounded-2xl border border-slate-800 bg-slate-900 p-6">
-              <div className="flex items-center justify-between">
-                <h2 className="text-xl font-semibold">Maintenance Timeline</h2>
-                <span className="text-sm text-slate-500">
-                  Showing {filteredEvents.length} events
-                </span>
-              </div>
-
-              <div className="mt-6 space-y-4">
-                {filteredEvents.map((event) => (
-                  <div
-                    key={event.event_id}
-                    className="rounded-2xl border border-slate-800 bg-slate-950 p-5"
-                  >
-                    <div className="flex flex-col gap-4 md:flex-row md:items-start md:justify-between">
-                      <div>
-                        <div className="flex flex-wrap items-center gap-2">
-                          <h3 className="text-lg font-semibold">{event.event_id}</h3>
-
-                          <span className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300">
-                            {event.asset_id}
-                          </span>
-
-                          <span
-                            className={`rounded-full border px-3 py-1 text-xs font-medium ${getPriorityClass(
-                              event.priority
-                            )}`}
-                          >
-                            {event.priority}
-                          </span>
-                        </div>
-
-                        <p className="mt-3 text-slate-100">{event.event_type}</p>
-
-                        <p className="mt-2 text-sm text-slate-400">
-                          {event.asset_name}
-                        </p>
-                      </div>
-
-                      <div className="text-left md:text-right">
-                        <p className={`font-medium ${getStatusClass(event.status)}`}>
-                          {event.status}
-                        </p>
-                        <p className="mt-1 text-sm text-slate-500">
-                          Due: {event.due_date}
-                        </p>
-                      </div>
-                    </div>
-
-                    <p className="mt-5 text-sm leading-6 text-slate-300">
-                      {event.description}
-                    </p>
-
-                    <div className="mt-5 grid gap-4 md:grid-cols-3">
-                      <div className="rounded-xl bg-slate-900 p-4">
-                        <p className="text-xs uppercase tracking-wider text-slate-500">
-                          Created
-                        </p>
-                        <p className="mt-2 text-sm text-slate-300">
-                          {event.created_date}
-                        </p>
-                      </div>
-
-                      <div className="rounded-xl bg-slate-900 p-4">
-                        <p className="text-xs uppercase tracking-wider text-slate-500">
-                          Linked Document
-                        </p>
-                        <p className="mt-2 text-sm text-slate-300">
-                          {event.linked_document}
-                        </p>
-                      </div>
-
-                      <div className="rounded-xl bg-slate-900 p-4">
-                        <p className="text-xs uppercase tracking-wider text-slate-500">
-                          Compliance Related
-                        </p>
-                        <p className="mt-2 text-sm text-slate-300">
-                          {event.compliance_related}
-                        </p>
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </>
-        )}
+          <div className="xl:sticky xl:top-6 xl:self-start">
+            <WorkOrderDetail
+              workOrder={selectedWorkOrder}
+              onClose={() =>
+                setSelectedWorkOrder(null)
+              }
+            />
+          </div>
+        </div>
       </section>
     </main>
   );

@@ -316,3 +316,111 @@ export type RcaAssetCasesResponse = {
   case_count: number;
   cases: RcaCase[];
 };
+
+export type MaintenancePriority =
+  | "Critical"
+  | "High"
+  | "Medium"
+  | "Low";
+
+export type MaintenanceStatus =
+  | "Open"
+  | "Delayed"
+  | "In Progress"
+  | "Planned"
+  | "Completed"
+  | "Cancelled";
+
+export type MaintenanceType =
+  | "Corrective"
+  | "Condition-Based"
+  | "Verification"
+  | "Predictive"
+  | "Preventive";
+
+export type MaintenanceWorkOrder = {
+  work_order_id: string;
+  asset_id: string;
+  title: string;
+  description: string;
+  maintenance_type: MaintenanceType;
+  priority: MaintenancePriority;
+  status: MaintenanceStatus;
+  created_at: string;
+  due_at: string;
+  owner_role: string;
+  source_type: string;
+  source_id: string;
+  linked_rca_case_id: string | null;
+  linked_root_cause_ids: string[];
+  linked_evidence_ids: string[];
+  risk_score: number;
+  confidence: number;
+  required_procedure: string;
+  safety_requirements: string[];
+  parts_required: string[];
+  estimated_duration_hours: number;
+  verification_metric: string;
+  completion_notes: string | null;
+};
+
+export type MaintenanceWorkOrderFilters = {
+  asset_id: string | null;
+  priority: string | null;
+  status: string | null;
+  maintenance_type: string | null;
+  rca_case_id: string | null;
+  due_date: string | null;
+  due_before: string | null;
+  due_after: string | null;
+};
+
+export type MaintenanceWorkOrdersResponse = {
+  total: number;
+  work_orders: MaintenanceWorkOrder[];
+  filters: MaintenanceWorkOrderFilters;
+};
+
+export type MaintenanceStatistics = {
+  total_work_orders: number;
+  open_work_orders: number;
+  overdue_work_orders: number;
+  high_risk_work_orders: number;
+  rca_linked_work_orders: number;
+  average_risk_score: number;
+  average_confidence: number;
+  status_counts: Record<string, number>;
+  priority_counts: Record<string, number>;
+  maintenance_type_counts: Record<string, number>;
+  asset_counts: Record<string, number>;
+};
+
+export type MaintenanceRecommendation = {
+  rank: number;
+  work_order_id: string;
+  asset_id: string;
+  title: string;
+  priority: MaintenancePriority;
+  status: MaintenanceStatus;
+  risk_score: number;
+  confidence: number;
+  due_at: string;
+  owner_role: string;
+  linked_rca_case_id: string | null;
+  recommendation: string;
+};
+
+export type MaintenanceRecommendationsResponse = {
+  total: number;
+  asset_id: string | null;
+  recommendations: MaintenanceRecommendation[];
+};
+
+export type MaintenanceFilterState = {
+  assetId: string;
+  priority: string;
+  status: string;
+  maintenanceType: string;
+  rcaCaseId: string;
+  dueDate: string;
+};

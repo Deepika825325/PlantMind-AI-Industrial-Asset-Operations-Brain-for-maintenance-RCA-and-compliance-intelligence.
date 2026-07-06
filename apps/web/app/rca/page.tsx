@@ -194,7 +194,7 @@ export default function RcaWorkspacePage() {
               </p>
 
               <p className="mt-2 text-3xl font-semibold text-white">
-                {statistics?.total_cases ?? "—"}
+                {statistics?.total_cases ?? "â€”"}
               </p>
             </div>
 
@@ -208,7 +208,7 @@ export default function RcaWorkspacePage() {
                   ? formatConfidence(
                       statistics.average_confidence
                     )
-                  : "—"}
+                  : "â€”"}
               </p>
             </div>
 
@@ -218,7 +218,7 @@ export default function RcaWorkspacePage() {
               </p>
 
               <p className="mt-2 text-3xl font-semibold text-white">
-                {statistics?.total_root_causes ?? "—"}
+                {statistics?.total_root_causes ?? "â€”"}
               </p>
             </div>
 
@@ -229,7 +229,7 @@ export default function RcaWorkspacePage() {
 
               <p className="mt-2 text-3xl font-semibold text-white">
                 {statistics?.total_corrective_actions ??
-                  "—"}
+                  "â€”"}
               </p>
             </div>
 
@@ -239,7 +239,7 @@ export default function RcaWorkspacePage() {
               </p>
 
               <p className="mt-2 text-3xl font-semibold text-white">
-                {statistics?.total_evidence_items ?? "—"}
+                {statistics?.total_evidence_items ?? "â€”"}
               </p>
             </div>
           </div>
@@ -364,6 +364,7 @@ export default function RcaWorkspacePage() {
                     />
 
                     <CorrectiveActions
+                      caseId={selectedCase.case_id}
                       actions={
                         selectedCase.corrective_actions
                       }

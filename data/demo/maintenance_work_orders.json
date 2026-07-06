@@ -1,0 +1,356 @@
+{
+  "artifact": "maintenance_work_orders",
+  "generated_at": "2026-07-06T03:30:00Z",
+  "total_work_orders": 9,
+  "work_orders": [
+    {
+      "work_order_id": "MWO-P101-001",
+      "asset_id": "P-101",
+      "title": "Inspect and relubricate drive-end bearing",
+      "description": "Safely isolate P-101, inspect the drive-end bearing lubricant condition and quantity, remove degraded lubricant, and restore lubrication according to the approved pump procedure.",
+      "maintenance_type": "Corrective",
+      "priority": "Critical",
+      "status": "Open",
+      "created_at": "2026-06-21T11:15:00Z",
+      "due_at": "2026-06-21T15:15:00Z",
+      "owner_role": "Mechanical Maintenance Engineer",
+      "source_type": "Corrective Action",
+      "source_id": "P101-CA-001",
+      "linked_rca_case_id": "RCA-P101-001",
+      "linked_root_cause_ids": [
+        "P101-RC-001"
+      ],
+      "linked_evidence_ids": [
+        "P101-EV-001",
+        "P101-EV-002",
+        "P101-EV-003",
+        "P101-EV-004"
+      ],
+      "risk_score": 94,
+      "confidence": 0.93,
+      "required_procedure": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "safety_requirements": [
+        "Approved work permit",
+        "Lockout and tagout",
+        "Pump pressure isolation",
+        "Required personal protective equipment"
+      ],
+      "parts_required": [
+        "Approved bearing lubricant",
+        "Lubrication applicator",
+        "Replacement grease seal"
+      ],
+      "estimated_duration_hours": 3,
+      "verification_metric": "Lubrication condition restored and timestamped completion evidence attached",
+      "completion_notes": null
+    },
+    {
+      "work_order_id": "MWO-P101-002",
+      "asset_id": "P-101",
+      "title": "Inspect bearing condition",
+      "description": "Inspect the drive-end and non-drive-end bearings for wear, overheating, abnormal clearance, surface damage, and evidence of lubrication-related degradation.",
+      "maintenance_type": "Condition-Based",
+      "priority": "High",
+      "status": "Open",
+      "created_at": "2026-06-21T11:20:00Z",
+      "due_at": "2026-06-21T19:20:00Z",
+      "owner_role": "Reliability Engineer",
+      "source_type": "Corrective Action",
+      "source_id": "P101-CA-002",
+      "linked_rca_case_id": "RCA-P101-001",
+      "linked_root_cause_ids": [
+        "P101-RC-001",
+        "P101-RC-002"
+      ],
+      "linked_evidence_ids": [
+        "P101-EV-002",
+        "P101-EV-003",
+        "P101-EV-004"
+      ],
+      "risk_score": 88,
+      "confidence": 0.84,
+      "required_procedure": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "safety_requirements": [
+        "Approved work permit",
+        "Lockout and tagout",
+        "Confirm zero rotational energy",
+        "Required personal protective equipment"
+      ],
+      "parts_required": [
+        "Bearing inspection tools",
+        "Bearing clearance gauge",
+        "Replacement bearing set"
+      ],
+      "estimated_duration_hours": 4,
+      "verification_metric": "Bearing condition and clearances recorded within approved limits",
+      "completion_notes": null
+    },
+    {
+      "work_order_id": "MWO-P101-003",
+      "asset_id": "P-101",
+      "title": "Verify shaft alignment",
+      "description": "Measure pump and motor shaft alignment, inspect coupling condition, and correct angular or offset misalignment before returning P-101 to service.",
+      "maintenance_type": "Corrective",
+      "priority": "High",
+      "status": "Planned",
+      "created_at": "2026-06-21T11:25:00Z",
+      "due_at": "2026-06-22T03:25:00Z",
+      "owner_role": "Rotating Equipment Technician",
+      "source_type": "Corrective Action",
+      "source_id": "P101-CA-002",
+      "linked_rca_case_id": "RCA-P101-001",
+      "linked_root_cause_ids": [
+        "P101-RC-002",
+        "P101-RC-003"
+      ],
+      "linked_evidence_ids": [
+        "P101-EV-003",
+        "P101-EV-004"
+      ],
+      "risk_score": 82,
+      "confidence": 0.84,
+      "required_procedure": "SOP-P101-002_Pump_Vibration_Inspection",
+      "safety_requirements": [
+        "Approved work permit",
+        "Lockout and tagout",
+        "Coupling guard removal authorization",
+        "Confirm zero rotational energy"
+      ],
+      "parts_required": [
+        "Laser alignment tool",
+        "Alignment shims",
+        "Replacement coupling insert"
+      ],
+      "estimated_duration_hours": 4,
+      "verification_metric": "Angular and offset alignment values remain within approved tolerances",
+      "completion_notes": null
+    },
+    {
+      "work_order_id": "MWO-P101-004",
+      "asset_id": "P-101",
+      "title": "Conduct post-maintenance vibration test",
+      "description": "Restart P-101 under controlled operating conditions and record vibration, bearing temperature, and mechanical noise after lubrication, bearing, and alignment work is completed.",
+      "maintenance_type": "Verification",
+      "priority": "High",
+      "status": "Planned",
+      "created_at": "2026-06-21T11:30:00Z",
+      "due_at": "2026-06-22T07:30:00Z",
+      "owner_role": "Condition Monitoring Engineer",
+      "source_type": "Corrective Action",
+      "source_id": "P101-CA-002",
+      "linked_rca_case_id": "RCA-P101-001",
+      "linked_root_cause_ids": [
+        "P101-RC-002",
+        "P101-RC-003"
+      ],
+      "linked_evidence_ids": [
+        "P101-EV-002",
+        "P101-EV-003"
+      ],
+      "risk_score": 78,
+      "confidence": 0.91,
+      "required_procedure": "SOP-P101-002_Pump_Vibration_Inspection",
+      "safety_requirements": [
+        "Approved restart authorization",
+        "Coupling guard installed",
+        "Safe monitoring distance",
+        "Emergency shutdown readiness"
+      ],
+      "parts_required": [
+        "Portable vibration analyzer",
+        "Temperature measurement device"
+      ],
+      "estimated_duration_hours": 2,
+      "verification_metric": "Vibration and bearing temperature remain within approved operating limits",
+      "completion_notes": null
+    },
+    {
+      "work_order_id": "MWO-C201-001",
+      "asset_id": "C-201",
+      "title": "Inspect compressor lubrication system",
+      "description": "Inspect compressor lubricant level, condition, pressure, filters, lines, and evidence of leakage or contamination before continued operation.",
+      "maintenance_type": "Condition-Based",
+      "priority": "High",
+      "status": "Open",
+      "created_at": "2026-06-22T08:00:00Z",
+      "due_at": "2026-06-23T08:00:00Z",
+      "owner_role": "Mechanical Maintenance Engineer",
+      "source_type": "Inspection Report",
+      "source_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "linked_rca_case_id": null,
+      "linked_root_cause_ids": [],
+      "linked_evidence_ids": [
+        "IR-C201-001_Compressor_Monthly_Inspection"
+      ],
+      "risk_score": 76,
+      "confidence": 0.81,
+      "required_procedure": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "safety_requirements": [
+        "Approved work permit",
+        "Compressor shutdown",
+        "Lockout and tagout",
+        "Stored-pressure release",
+        "Required personal protective equipment"
+      ],
+      "parts_required": [
+        "Approved compressor lubricant",
+        "Lubricant sampling kit",
+        "Replacement oil filter"
+      ],
+      "estimated_duration_hours": 3.5,
+      "verification_metric": "Lubricant condition, level, pressure, and filter status recorded within approved limits",
+      "completion_notes": null
+    },
+    {
+      "work_order_id": "MWO-C201-002",
+      "asset_id": "C-201",
+      "title": "Check seals and temperature trend",
+      "description": "Inspect compressor shaft and casing seals for leakage or deterioration and review operating-temperature trends for abnormal thermal behaviour.",
+      "maintenance_type": "Predictive",
+      "priority": "Medium",
+      "status": "Planned",
+      "created_at": "2026-06-22T08:10:00Z",
+      "due_at": "2026-06-24T08:10:00Z",
+      "owner_role": "Reliability Engineer",
+      "source_type": "Inspection Report",
+      "source_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "linked_rca_case_id": null,
+      "linked_root_cause_ids": [],
+      "linked_evidence_ids": [
+        "IR-C201-001_Compressor_Monthly_Inspection"
+      ],
+      "risk_score": 68,
+      "confidence": 0.74,
+      "required_procedure": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "safety_requirements": [
+        "Approved work permit",
+        "Compressor isolation",
+        "Lockout and tagout",
+        "Stored-pressure release"
+      ],
+      "parts_required": [
+        "Seal inspection kit",
+        "Replacement shaft seal",
+        "Temperature measurement device"
+      ],
+      "estimated_duration_hours": 4,
+      "verification_metric": "No unacceptable seal leakage and temperature trend remains within approved limits",
+      "completion_notes": null
+    },
+    {
+      "work_order_id": "MWO-HX301-001",
+      "asset_id": "HX-301",
+      "title": "Inspect fouling",
+      "description": "Inspect HX-301 for internal and external fouling, deposits, flow restriction, abnormal pressure drop, and reduced heat-transfer performance.",
+      "maintenance_type": "Condition-Based",
+      "priority": "High",
+      "status": "Open",
+      "created_at": "2026-06-23T07:30:00Z",
+      "due_at": "2026-06-24T07:30:00Z",
+      "owner_role": "Inspection Engineer",
+      "source_type": "Incident Report",
+      "source_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "linked_rca_case_id": null,
+      "linked_root_cause_ids": [],
+      "linked_evidence_ids": [
+        "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+        "IR-HX301-001_Heat_Exchanger_Performance_Inspection"
+      ],
+      "risk_score": 84,
+      "confidence": 0.88,
+      "required_procedure": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "safety_requirements": [
+        "Approved work permit",
+        "Process isolation",
+        "Lockout and tagout",
+        "Drain and depressurize exchanger",
+        "Confirm safe surface temperature"
+      ],
+      "parts_required": [
+        "Inspection camera",
+        "Deposit sampling kit",
+        "Pressure-drop measurement equipment"
+      ],
+      "estimated_duration_hours": 4,
+      "verification_metric": "Fouling location, severity, pressure drop, and inspection evidence recorded",
+      "completion_notes": null
+    },
+    {
+      "work_order_id": "MWO-HX301-002",
+      "asset_id": "HX-301",
+      "title": "Clean heat-transfer surfaces",
+      "description": "Clean affected HX-301 heat-transfer surfaces using the approved mechanical or chemical cleaning method and inspect surfaces for damage after cleaning.",
+      "maintenance_type": "Corrective",
+      "priority": "High",
+      "status": "Planned",
+      "created_at": "2026-06-23T07:40:00Z",
+      "due_at": "2026-06-25T07:40:00Z",
+      "owner_role": "Mechanical Maintenance Supervisor",
+      "source_type": "Incident Report",
+      "source_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "linked_rca_case_id": null,
+      "linked_root_cause_ids": [],
+      "linked_evidence_ids": [
+        "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+        "IR-HX301-001_Heat_Exchanger_Performance_Inspection"
+      ],
+      "risk_score": 81,
+      "confidence": 0.86,
+      "required_procedure": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "safety_requirements": [
+        "Approved work permit",
+        "Process isolation",
+        "Lockout and tagout",
+        "Drain and depressurize exchanger",
+        "Chemical handling authorization",
+        "Required personal protective equipment"
+      ],
+      "parts_required": [
+        "Approved cleaning agent",
+        "Cleaning brushes",
+        "Replacement flange gaskets",
+        "Waste collection containers"
+      ],
+      "estimated_duration_hours": 8,
+      "verification_metric": "Heat-transfer surfaces cleaned and post-cleaning inspection evidence attached",
+      "completion_notes": null
+    },
+    {
+      "work_order_id": "MWO-HX301-003",
+      "asset_id": "HX-301",
+      "title": "Verify thermal performance",
+      "description": "Return HX-301 to controlled operation and compare inlet temperature, outlet temperature, pressure drop, and thermal efficiency against approved performance limits.",
+      "maintenance_type": "Verification",
+      "priority": "Medium",
+      "status": "Planned",
+      "created_at": "2026-06-23T07:50:00Z",
+      "due_at": "2026-06-26T07:50:00Z",
+      "owner_role": "Process Engineer",
+      "source_type": "Inspection Report",
+      "source_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "linked_rca_case_id": null,
+      "linked_root_cause_ids": [],
+      "linked_evidence_ids": [
+        "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+        "IR-HX301-001_Heat_Exchanger_Performance_Inspection"
+      ],
+      "risk_score": 64,
+      "confidence": 0.82,
+      "required_procedure": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "safety_requirements": [
+        "Approved restart authorization",
+        "Leak inspection completed",
+        "Operating pressure monitored",
+        "Emergency isolation readiness"
+      ],
+      "parts_required": [
+        "Temperature measurement device",
+        "Pressure measurement device",
+        "Thermal performance calculation sheet"
+      ],
+      "estimated_duration_hours": 2.5,
+      "verification_metric": "Temperature differential, pressure drop, and thermal efficiency return to approved limits",
+      "completion_notes": null
+    }
+  ]
+}

@@ -1,9 +1,12 @@
+import Link from "next/link";
+
 import type {
   RcaCorrectiveAction,
   RcaRootCause,
 } from "@/lib/types";
 
 type CorrectiveActionsProps = {
+  caseId: string;
   actions: RcaCorrectiveAction[];
   rootCauses: RcaRootCause[];
 };
@@ -108,6 +111,7 @@ function getActionBorderClasses(priority: string): string {
 }
 
 export default function CorrectiveActions({
+  caseId,
   actions,
   rootCauses,
 }: CorrectiveActionsProps) {
@@ -326,7 +330,7 @@ export default function CorrectiveActions({
                           </p>
 
                           <p className="mt-1 text-xs text-slate-500">
-                            {cause.cause_id} ·{" "}
+                            {cause.cause_id} Ã‚Â·{" "}
                             {Math.round(cause.confidence * 100)}%
                             confidence
                           </p>
@@ -336,6 +340,12 @@ export default function CorrectiveActions({
                   </div>
                 )}
               </div>
+              <Link
+                href={`/maintenance?rca=${encodeURIComponent(caseId)}`}
+                className="mt-5 inline-flex w-full items-center justify-center rounded-xl border border-cyan-500/30 bg-cyan-500/10 px-4 py-3 text-sm font-semibold text-cyan-300 transition hover:border-cyan-400 hover:bg-cyan-500/15 hover:text-cyan-200"
+              >
+                View linked work orders
+              </Link>
             </article>
           );
         })}
