@@ -8,6 +8,10 @@ from apps.api.services.data_loader import (
     get_maintenance_events,
 )
 
+from apps.api.services.operations_summary_service import (
+    get_operations_summary,
+)
+
 
 router = APIRouter(prefix="/dashboard", tags=["Dashboard"])
 
@@ -32,3 +36,7 @@ def get_dashboard_overview():
         "asset_compliance_summary": compliance.get("asset_compliance_summary", []),
         "top_maintenance_events": events[:5],
     }
+
+@router.get("/operations-summary")
+def get_dashboard_operations_summary():
+    return get_operations_summary()

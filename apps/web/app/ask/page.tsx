@@ -62,7 +62,7 @@ export default function AskPage() {
     }
   }
 
-  function useSample(sample: string) {
+  function applySample(sample: string) {
     let nextAsset = "";
 
     if (sample.includes("P-101")) {
@@ -148,7 +148,7 @@ export default function AskPage() {
                 {sampleQuestions.map((sample) => (
                   <button
                     key={sample}
-                    onClick={() => useSample(sample)}
+                    onClick={() => applySample(sample)}
                     className="w-full rounded-xl border border-slate-800 bg-slate-950 px-4 py-3 text-left text-sm text-slate-300 transition hover:border-cyan-500 hover:text-white"
                   >
                     {sample}

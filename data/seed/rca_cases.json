@@ -1,0 +1,249 @@
+{
+  "artifact": "PlantMind RCA Cases",
+  "generated_at": "2026-07-03T00:00:00Z",
+  "case_count": 1,
+  "cases": [
+    {
+      "case_id": "RCA-P101-001",
+      "title": "P-101 High Vibration and Bearing Temperature Event",
+      "asset_id": "P-101",
+      "asset_name": "Cooling Water Circulation Pump",
+      "asset_type": "Centrifugal Pump",
+      "incident_status": "Open",
+      "severity": "Critical",
+      "detected_at": "2026-06-21T09:20:00Z",
+      "problem_statement": "P-101 developed increasing vibration, elevated bearing temperature and abnormal mechanical noise while lubrication evidence was missing.",
+      "summary": "Available evidence indicates that missed or degraded lubrication caused increased bearing friction, elevated temperature and mechanical vibration.",
+      "overall_confidence": 0.91,
+      "symptoms": [
+        "High vibration",
+        "Elevated bearing temperature",
+        "Abnormal mechanical noise",
+        "Missing lubrication evidence",
+        "Open corrective maintenance work order"
+      ],
+      "timeline": [
+        {
+          "event_id": "P101-TL-001",
+          "timestamp": "2026-06-18T08:00:00Z",
+          "event_type": "Compliance Gap",
+          "title": "Lubrication evidence unavailable",
+          "description": "The scheduled lubrication activity could not be verified from the available maintenance records.",
+          "severity": "High",
+          "evidence_ids": [
+            "P101-EV-001"
+          ]
+        },
+        {
+          "event_id": "P101-TL-002",
+          "timestamp": "2026-06-20T14:10:00Z",
+          "event_type": "Sensor Warning",
+          "title": "Bearing temperature increased",
+          "description": "The latest bearing temperature crossed its warning threshold and showed an increasing trend.",
+          "severity": "Medium",
+          "evidence_ids": [
+            "P101-EV-002"
+          ]
+        },
+        {
+          "event_id": "P101-TL-003",
+          "timestamp": "2026-06-21T09:20:00Z",
+          "event_type": "Inspection",
+          "title": "High vibration and abnormal noise confirmed",
+          "description": "Inspection confirmed elevated vibration and abnormal mechanical noise near the bearing housing.",
+          "severity": "Critical",
+          "evidence_ids": [
+            "P101-EV-003"
+          ]
+        },
+        {
+          "event_id": "P101-TL-004",
+          "timestamp": "2026-06-21T11:00:00Z",
+          "event_type": "Maintenance",
+          "title": "Corrective work order opened",
+          "description": "A high-priority work order was created for lubrication, alignment and bearing inspection.",
+          "severity": "High",
+          "evidence_ids": [
+            "P101-EV-004"
+          ]
+        }
+      ],
+      "causal_chain": [
+        {
+          "step_id": "P101-CC-001",
+          "sequence": 1,
+          "category": "Maintenance Control",
+          "title": "Lubrication activity not verified",
+          "description": "The required lubrication task had no reliable completion evidence.",
+          "confidence": 0.93,
+          "evidence_ids": [
+            "P101-EV-001"
+          ]
+        },
+        {
+          "step_id": "P101-CC-002",
+          "sequence": 2,
+          "category": "Physical Degradation",
+          "title": "Bearing friction increased",
+          "description": "Insufficient or degraded lubrication increased friction inside the bearing assembly.",
+          "confidence": 0.89,
+          "evidence_ids": [
+            "P101-EV-001",
+            "P101-EV-002"
+          ]
+        },
+        {
+          "step_id": "P101-CC-003",
+          "sequence": 3,
+          "category": "Thermal Effect",
+          "title": "Bearing temperature increased",
+          "description": "Increasing friction produced abnormal thermal behaviour around the bearing.",
+          "confidence": 0.87,
+          "evidence_ids": [
+            "P101-EV-002"
+          ]
+        },
+        {
+          "step_id": "P101-CC-004",
+          "sequence": 4,
+          "category": "Mechanical Effect",
+          "title": "Vibration and noise increased",
+          "description": "Bearing degradation and possible misalignment caused vibration and abnormal mechanical noise.",
+          "confidence": 0.91,
+          "evidence_ids": [
+            "P101-EV-003"
+          ]
+        }
+      ],
+      "root_causes": [
+        {
+          "rank": 1,
+          "cause_id": "P101-RC-001",
+          "title": "Missed or degraded bearing lubrication",
+          "category": "Maintenance",
+          "confidence": 0.93,
+          "reasoning": "The lubrication evidence gap occurred before the temperature and vibration escalation. These symptoms are consistent with increasing bearing friction.",
+          "evidence_ids": [
+            "P101-EV-001",
+            "P101-EV-002",
+            "P101-EV-003"
+          ],
+          "counter_evidence": [
+            "No lubricant laboratory analysis is currently available."
+          ]
+        },
+        {
+          "rank": 2,
+          "cause_id": "P101-RC-002",
+          "title": "Bearing wear or shaft misalignment",
+          "category": "Mechanical",
+          "confidence": 0.84,
+          "reasoning": "High vibration and abnormal noise near the bearing housing indicate possible bearing wear or alignment deterioration.",
+          "evidence_ids": [
+            "P101-EV-002",
+            "P101-EV-003"
+          ],
+          "counter_evidence": [
+            "Alignment measurements have not yet been recorded."
+          ]
+        },
+        {
+          "rank": 3,
+          "cause_id": "P101-RC-003",
+          "title": "Hydraulic instability or cavitation",
+          "category": "Process",
+          "confidence": 0.62,
+          "reasoning": "Hydraulic instability may produce vibration and noise, but the available evidence more strongly supports a bearing-related problem.",
+          "evidence_ids": [
+            "P101-EV-003"
+          ],
+          "counter_evidence": [
+            "No confirmed suction-pressure anomaly is currently available.",
+            "The bearing-temperature increase is more consistent with mechanical friction."
+          ]
+        }
+      ],
+      "corrective_actions": [
+        {
+          "action_id": "P101-CA-001",
+          "priority": "Immediate",
+          "title": "Inspect and restore bearing lubrication",
+          "description": "Safely isolate the pump, inspect lubricant condition and quantity, and restore lubrication according to the approved procedure.",
+          "owner_role": "Mechanical Maintenance Engineer",
+          "status": "Recommended",
+          "due_in_hours": 4,
+          "linked_cause_ids": [
+            "P101-RC-001"
+          ],
+          "verification_metric": "Lubrication completed and evidence attached"
+        },
+        {
+          "action_id": "P101-CA-002",
+          "priority": "High",
+          "title": "Perform vibration and alignment assessment",
+          "description": "Measure vibration spectrum, shaft alignment and bearing clearances before returning the asset to normal service.",
+          "owner_role": "Reliability Engineer",
+          "status": "Recommended",
+          "due_in_hours": 8,
+          "linked_cause_ids": [
+            "P101-RC-002",
+            "P101-RC-003"
+          ],
+          "verification_metric": "Vibration and alignment values remain within approved limits"
+        },
+        {
+          "action_id": "P101-CA-003",
+          "priority": "Preventive",
+          "title": "Add lubrication evidence control",
+          "description": "Require timestamped lubrication records and responsible-person confirmation before closing future work orders.",
+          "owner_role": "Maintenance Planner",
+          "status": "Recommended",
+          "due_in_hours": 72,
+          "linked_cause_ids": [
+            "P101-RC-001"
+          ],
+          "verification_metric": "Future lubrication work orders contain complete evidence"
+        }
+      ],
+      "evidence": [
+        {
+          "evidence_id": "P101-EV-001",
+          "document_id": "COMP-001_Compliance_Checklist",
+          "document_title": "Maintenance Compliance Checklist",
+          "document_type": "Compliance Checklist",
+          "section_title": "Lubrication Verification",
+          "excerpt": "Lubrication completion evidence for P-101 was not available during the compliance review.",
+          "relative_path": "documents/COMP-001_Compliance_Checklist"
+        },
+        {
+          "evidence_id": "P101-EV-002",
+          "document_id": "SENSOR-P101-BEARING-TEMP",
+          "document_title": "P-101 Bearing Temperature Summary",
+          "document_type": "Sensor Summary",
+          "section_title": "Latest Condition",
+          "excerpt": "The latest bearing-temperature condition was classified as warning with an increasing trend.",
+          "relative_path": "sensor/P-101/bearing-temperature"
+        },
+        {
+          "evidence_id": "P101-EV-003",
+          "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+          "document_title": "P-101 Pump Vibration Inspection",
+          "document_type": "Inspection Report",
+          "section_title": "Inspection Findings",
+          "excerpt": "Inspection identified high vibration and abnormal mechanical noise near the bearing housing.",
+          "relative_path": "documents/IR-P101-001_Pump_Vibration_Inspection"
+        },
+        {
+          "evidence_id": "P101-EV-004",
+          "document_id": "WO-P101-001",
+          "document_title": "P-101 Corrective Maintenance Work Order",
+          "document_type": "Work Order",
+          "section_title": "Requested Work",
+          "excerpt": "Inspect lubrication condition, shaft alignment and bearing health before returning the pump to service.",
+          "relative_path": "maintenance/WO-P101-001"
+        }
+      ],
+      "recommendation_summary": "Treat lubrication degradation as the primary cause until lubricant condition, alignment measurements and vibration-spectrum analysis confirm or reject the hypothesis."
+    }
+  ]
+}

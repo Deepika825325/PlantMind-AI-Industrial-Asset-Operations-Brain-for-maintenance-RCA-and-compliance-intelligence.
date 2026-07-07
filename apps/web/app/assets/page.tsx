@@ -2,6 +2,8 @@ import Link from "next/link";
 import { apiGet } from "@/lib/api";
 import { Asset } from "@/lib/types";
 
+export const dynamic = "force-dynamic";
+
 type AssetsResponse = {
   total: number;
   assets: Asset[];

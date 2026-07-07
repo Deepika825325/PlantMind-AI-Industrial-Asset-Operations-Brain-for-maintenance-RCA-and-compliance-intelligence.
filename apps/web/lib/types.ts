@@ -1,4 +1,4 @@
-﻿export type Asset = {
+export type Asset = {
   asset_id: string;
   asset_name: string;
   asset_type: string;
@@ -696,4 +696,94 @@ export type ComplianceFilterState = {
   ruleId: string;
   evidenceAvailability: string;
   auditPackage: string;
+};
+
+export type OperationsRiskAsset = {
+  asset_id: string | null;
+  asset_name: string | null;
+  asset_type: string | null;
+  risk_level: string | null;
+  risk_score: number | null;
+  health_score: number | null;
+  sensor_status: string | null;
+  compliance_status: string | null;
+};
+
+export type OperationsRcaCase = {
+  case_id: string | null;
+  title: string | null;
+  asset_id: string | null;
+  asset_name: string | null;
+  severity: string | null;
+  incident_status: string | null;
+  detected_at: string | null;
+  overall_confidence: number | null;
+  recommendation_summary: string | null;
+};
+
+export type OperationsComplianceGap = {
+  gap_id: string | null;
+  asset_id: string | null;
+  requirement: string | null;
+  current_status: string | null;
+  gap_severity: string | null;
+  expected_evidence: string | null;
+  evidence_file: string | null;
+  evidence_available: boolean;
+  recommended_action: string | null;
+  source_document: string | null;
+};
+
+export type OperationsWorkOrder = {
+  work_order_id: string | null;
+  asset_id: string | null;
+  title: string | null;
+  maintenance_type: string | null;
+  priority: string | null;
+  status: string | null;
+  risk_score: number | null;
+  confidence: number | null;
+  due_at: string | null;
+  owner_role: string | null;
+  linked_rca_case_id: string | null;
+  verification_metric: string | null;
+};
+
+export type OperationsAuditReadiness = {
+  score: number;
+  label: string;
+  total_open_gap_count: number;
+  evidence_ready_gap_count: number;
+  missing_evidence_gap_count: number;
+  method: string;
+};
+
+export type OperationsRecommendedAction = {
+  action_id: string | null;
+  title: string | null;
+  description: string | null;
+  priority: string | null;
+  status: string | null;
+  owner_role: string | null;
+  due_in_hours: number | null;
+  verification_metric: string | null;
+  asset_id: string | null;
+  source_type: string | null;
+  source_id: string | null;
+  confidence: number | null;
+};
+
+export type OperationsCollection<T> = {
+  count: number;
+  items: T[];
+};
+
+export type OperationsSummary = {
+  generated_at: string;
+  assets_at_risk: OperationsCollection<OperationsRiskAsset>;
+  critical_rca_cases: OperationsCollection<OperationsRcaCase>;
+  open_compliance_gaps: OperationsCollection<OperationsComplianceGap>;
+  urgent_work_orders: OperationsCollection<OperationsWorkOrder>;
+  audit_readiness: OperationsAuditReadiness;
+  top_recommended_action: OperationsRecommendedAction | null;
 };

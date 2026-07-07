@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 
 import Navbar from "@/components/Navbar";
+import { DemoModeBanner } from "@/components/system";
 
 import "@xyflow/react/dist/style.css";
 import "./globals.css";
@@ -19,6 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <Navbar />
+        <DemoModeBanner />
         {children}
       </body>
     </html>

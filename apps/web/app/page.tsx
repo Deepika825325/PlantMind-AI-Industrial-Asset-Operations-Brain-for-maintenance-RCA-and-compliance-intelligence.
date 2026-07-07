@@ -1,19 +1,54 @@
-import { apiGet } from "@/lib/api";
-import { DashboardOverview } from "@/lib/types";
+import Link from "next/link";
 
-function getRiskBadgeClass(riskLevel: string) {
-  if (riskLevel === "High") {
-    return "bg-red-100 text-red-700 border-red-200";
+import OperationsSummaryPanel from "@/components/dashboard/OperationsSummaryPanel";
+import EmptyState from "@/components/system/EmptyState";
+
+import {
+  apiGet,
+} from "@/lib/api";
+
+import type {
+  DashboardOverview,
+  OperationsSummary,
+} from "@/lib/types";
+
+export const dynamic = "force-dynamic";
+
+function getRiskBadgeClass(
+  riskLevel: string
+): string {
+  const normalizedRisk =
+    riskLevel.trim().toLowerCase();
+
+  if (
+    normalizedRisk === "critical" ||
+    normalizedRisk === "high"
+  ) {
+    return (
+      "border-red-800 bg-red-950/50 " +
+      "text-red-300"
+    );
   }
 
-  if (riskLevel === "Medium") {
-    return "bg-amber-100 text-amber-700 border-amber-200";
+  if (
+    normalizedRisk === "medium"
+  ) {
+    return (
+      "border-amber-800 bg-amber-950/50 " +
+      "text-amber-300"
+    );
   }
 
-  return "bg-emerald-100 text-emerald-700 border-emerald-200";
+  return (
+    "border-emerald-800 bg-emerald-950/50 " +
+    "text-emerald-300"
+  );
 }
 
-function getHealthBarClass(healthScore: number) {
+
+function getHealthBarClass(
+  healthScore: number
+): string {
   if (healthScore < 40) {
     return "bg-red-500";
   }
@@ -25,35 +60,48 @@ function getHealthBarClass(healthScore: number) {
   return "bg-emerald-500";
 }
 
+
 export default async function HomePage() {
-  const data = await apiGet<DashboardOverview>("/dashboard/overview");
+  const [
+    data,
+    operationsSummary,
+  ] = await Promise.all([
+    apiGet<DashboardOverview>(
+      "/dashboard/overview"
+    ),
+    apiGet<OperationsSummary>(
+      "/dashboard/operations-summary"
+    ),
+  ]);
 
   return (
-    <main className="min-h-screen bg-slate-950 text-slate-100">
+    <main className="min-h-screen min-w-0 bg-slate-950 text-slate-100">
       <section className="border-b border-slate-800 bg-slate-950">
-        <div className="mx-auto max-w-7xl px-6 py-8">
+        <div className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6">
           <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-400">
             PlantMind AI
           </p>
 
-          <div className="mt-4 flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
-            <div>
-              <h1 className="text-4xl font-semibold tracking-tight">
-                Industrial Asset Intelligence Dashboard
+          <div className="mt-4 flex min-w-0 flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
+            <div className="min-w-0">
+              <h1 className="break-words text-3xl font-semibold tracking-tight sm:text-4xl">
+                Industrial Asset Intelligence
+                Dashboard
               </h1>
 
-              <p className="mt-3 max-w-3xl text-slate-400">
-                Maintenance, RCA, compliance, document intelligence, and asset
-                knowledge graph demo for industrial operations.
+              <p className="mt-3 max-w-3xl text-sm leading-6 text-slate-400 sm:text-base">
+                Maintenance, RCA, compliance,
+                document intelligence and asset
+                knowledge for industrial operations.
               </p>
             </div>
 
-            <div className="rounded-2xl border border-slate-800 bg-slate-900 px-5 py-4">
+            <div className="min-w-0 rounded-2xl border border-slate-800 bg-slate-900 px-5 py-4 lg:max-w-md">
               <p className="text-xs uppercase tracking-wider text-slate-500">
                 Demo Story
               </p>
 
-              <p className="mt-2 max-w-md text-sm text-slate-300">
+              <p className="mt-2 break-words text-sm leading-6 text-slate-300">
                 {data.summary.demo_story}
               </p>
             </div>
@@ -61,157 +109,299 @@ export default async function HomePage() {
         </div>
       </section>
 
-      <section className="mx-auto max-w-7xl px-6 py-8">
-        <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
+      <section className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6">
+        <div className="grid min-w-0 gap-4 sm:grid-cols-2 xl:grid-cols-4">
           <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-            <p className="text-sm text-slate-400">Total Assets</p>
-            <p className="mt-3 text-3xl font-semibold">
+            <p className="text-sm text-slate-400">
+              Total Assets
+            </p>
+
+            <p className="mt-3 text-3xl font-semibold text-slate-100">
               {data.summary.total_assets}
             </p>
+
+            <Link
+              href="/assets"
+              className="mt-3 inline-flex text-sm font-medium text-cyan-400 transition hover:text-cyan-300"
+            >
+              Open asset registry
+            </Link>
           </div>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-            <p className="text-sm text-slate-400">High Risk Assets</p>
+          <div className="rounded-2xl border border-red-900/70 bg-red-950/20 p-5">
+            <p className="text-sm text-slate-400">
+              High-Risk Assets
+            </p>
+
             <p className="mt-3 text-3xl font-semibold text-red-400">
-              {data.summary.high_risk_assets.length}
+              {
+                data.summary
+                  .high_risk_assets.length
+              }
             </p>
-            <p className="mt-2 text-sm text-slate-500">
-              {data.summary.high_risk_assets.join(", ")}
+
+            <p className="mt-2 break-words text-sm text-slate-500">
+              {data.summary.high_risk_assets
+                .length
+                ? data.summary.high_risk_assets.join(
+                    ", "
+                  )
+                : "No high-risk assets"}
             </p>
           </div>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-            <p className="text-sm text-slate-400">Compliance Gaps</p>
+          <div className="rounded-2xl border border-amber-900/70 bg-amber-950/20 p-5">
+            <p className="text-sm text-slate-400">
+              Compliance Gaps
+            </p>
+
             <p className="mt-3 text-3xl font-semibold text-amber-400">
-              {data.summary.total_compliance_gaps}
+              {
+                data.summary
+                  .total_compliance_gaps
+              }
             </p>
+
             <p className="mt-2 text-sm text-slate-500">
-              High severity: {data.summary.high_severity_gaps.length}
+              High severity:{" "}
+              {
+                data.summary
+                  .high_severity_gaps.length
+              }
             </p>
           </div>
 
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
-            <p className="text-sm text-slate-400">Knowledge Graph</p>
-            <p className="mt-3 text-3xl font-semibold text-cyan-400">
-              {data.summary.knowledge_graph_nodes}
+          <div className="rounded-2xl border border-cyan-900/70 bg-cyan-950/20 p-5">
+            <p className="text-sm text-slate-400">
+              Knowledge Graph
             </p>
+
+            <p className="mt-3 text-3xl font-semibold text-cyan-400">
+              {
+                data.summary
+                  .knowledge_graph_nodes
+              }
+            </p>
+
             <p className="mt-2 text-sm text-slate-500">
-              {data.summary.knowledge_graph_edges} relationships
+              {
+                data.summary
+                  .knowledge_graph_edges
+              }{" "}
+              relationships
             </p>
           </div>
         </div>
 
-        <div className="mt-8 grid gap-6 lg:grid-cols-3">
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6 lg:col-span-2">
-            <div className="flex items-center justify-between">
-              <h2 className="text-xl font-semibold">Asset Health</h2>
-              <span className="text-sm text-slate-500">
-                {data.assets.length} assets monitored
+        <OperationsSummaryPanel
+          data={operationsSummary}
+        />
+
+        <div className="mt-8 grid min-w-0 gap-6 lg:grid-cols-3">
+          <div className="min-w-0 rounded-2xl border border-slate-800 bg-slate-900 p-6 lg:col-span-2">
+            <div className="flex min-w-0 flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+              <div className="min-w-0">
+                <h2 className="text-xl font-semibold">
+                  Asset Health
+                </h2>
+
+                <p className="mt-1 text-sm text-slate-500">
+                  Current risk and condition
+                  summary
+                </p>
+              </div>
+
+              <span className="shrink-0 text-sm text-slate-500">
+                {data.assets.length} assets
+                monitored
               </span>
             </div>
 
-            <div className="mt-6 space-y-5">
-              {data.assets.map((asset) => (
-                <div
-                  key={asset.asset_id}
-                  className="rounded-2xl border border-slate-800 bg-slate-950 p-5"
-                >
-                  <div className="flex flex-col gap-3 md:flex-row md:items-start md:justify-between">
-                    <div>
-                      <div className="flex items-center gap-3">
-                        <h3 className="text-lg font-semibold">
-                          {asset.asset_id}
-                        </h3>
+            {data.assets.length ? (
+              <div className="mt-6 space-y-5">
+                {data.assets.map(
+                  (
+                    asset
+                  ) => (
+                    <Link
+                      key={asset.asset_id}
+                      href={`/assets/${encodeURIComponent(
+                        asset.asset_id
+                      )}`}
+                      className="block min-w-0 rounded-2xl border border-slate-800 bg-slate-950 p-5 transition hover:border-slate-700 hover:bg-slate-900"
+                    >
+                      <div className="flex min-w-0 flex-col gap-3 sm:flex-row sm:items-start sm:justify-between">
+                        <div className="min-w-0">
+                          <div className="flex min-w-0 flex-wrap items-center gap-3">
+                            <h3 className="break-words text-lg font-semibold">
+                              {asset.asset_id}
+                            </h3>
+
+                            <span
+                              className={`rounded-full border px-3 py-1 text-xs font-medium ${getRiskBadgeClass(
+                                asset.risk_level
+                              )}`}
+                            >
+                              {asset.risk_level} Risk
+                            </span>
+                          </div>
+
+                          <p className="mt-1 break-words text-sm text-slate-400">
+                            {asset.asset_name} •{" "}
+                            {asset.asset_type}
+                          </p>
+                        </div>
+
+                        <div className="shrink-0 text-left sm:text-right">
+                          <p className="text-sm text-slate-500">
+                            Risk Score
+                          </p>
+
+                          <p className="text-2xl font-semibold">
+                            {asset.risk_score}
+                          </p>
+                        </div>
+                      </div>
+
+                      <div className="mt-5">
+                        <div className="flex justify-between gap-4 text-sm">
+                          <span className="text-slate-400">
+                            Health Score
+                          </span>
+
+                          <span>
+                            {asset.health_score}/100
+                          </span>
+                        </div>
+
+                        <div className="mt-2 h-2 overflow-hidden rounded-full bg-slate-800">
+                          <div
+                            className={`h-2 rounded-full ${getHealthBarClass(
+                              asset.health_score
+                            )}`}
+                            style={{
+                              width: `${Math.max(
+                                0,
+                                Math.min(
+                                  asset.health_score,
+                                  100
+                                )
+                              )}%`,
+                            }}
+                          />
+                        </div>
+                      </div>
+
+                      <p className="mt-4 break-words text-sm leading-6 text-slate-300">
+                        {asset.critical_story}
+                      </p>
+
+                      <div className="mt-4 flex flex-wrap gap-2 text-xs">
+                        <span className="rounded-full border border-slate-700 bg-slate-800 px-3 py-1 text-slate-300">
+                          Sensor:{" "}
+                          {asset.sensor_status}
+                        </span>
+
+                        <span className="rounded-full border border-slate-700 bg-slate-800 px-3 py-1 text-slate-300">
+                          Compliance:{" "}
+                          {
+                            asset.compliance_status
+                          }
+                        </span>
+
+                        <span className="rounded-full border border-slate-700 bg-slate-800 px-3 py-1 text-slate-300">
+                          Gaps:{" "}
+                          {
+                            asset.total_compliance_gaps
+                          }
+                        </span>
+                      </div>
+                    </Link>
+                  )
+                )}
+              </div>
+            ) : (
+              <div className="mt-6">
+                <EmptyState
+                  title="No asset data"
+                  message="PlantMind did not receive any asset-health records from the backend."
+                  actionLabel="Open asset registry"
+                  actionHref="/assets"
+                />
+              </div>
+            )}
+          </div>
+
+          <div className="min-w-0 rounded-2xl border border-slate-800 bg-slate-900 p-6">
+            <div className="flex items-center justify-between gap-4">
+              <h2 className="text-xl font-semibold">
+                Maintenance Events
+              </h2>
+
+              <Link
+                href="/maintenance"
+                className="text-sm font-medium text-cyan-400 transition hover:text-cyan-300"
+              >
+                View all
+              </Link>
+            </div>
+
+            {data.top_maintenance_events
+              .length ? (
+              <div className="mt-6 space-y-4">
+                {data.top_maintenance_events.map(
+                  (
+                    event
+                  ) => (
+                    <div
+                      key={event.event_id}
+                      className="min-w-0 rounded-2xl border border-slate-800 bg-slate-950 p-4"
+                    >
+                      <div className="flex min-w-0 items-center justify-between gap-3">
+                        <p className="truncate font-medium">
+                          {event.event_id}
+                        </p>
 
                         <span
-                          className={`rounded-full border px-3 py-1 text-xs font-medium ${getRiskBadgeClass(
-                            asset.risk_level
+                          className={`shrink-0 rounded-full border px-3 py-1 text-xs ${getRiskBadgeClass(
+                            event.priority
                           )}`}
                         >
-                          {asset.risk_level} Risk
+                          {event.priority}
                         </span>
                       </div>
 
-                      <p className="mt-1 text-sm text-slate-400">
-                        {asset.asset_name} · {asset.asset_type}
+                      <p className="mt-2 break-words text-sm text-slate-400">
+                        {event.event_type}
                       </p>
-                    </div>
 
-                    <div className="text-right">
-                      <p className="text-sm text-slate-500">Risk Score</p>
-                      <p className="text-2xl font-semibold">
-                        {asset.risk_score}
+                      <p className="mt-2 break-words text-sm leading-5 text-slate-300">
+                        {event.description}
                       </p>
+
+                      <div className="mt-3 flex flex-col gap-1 text-xs text-slate-500 sm:flex-row sm:justify-between">
+                        <span>
+                          {event.asset_id}
+                        </span>
+
+                        <span>
+                          Due: {event.due_date}
+                        </span>
+                      </div>
                     </div>
-                  </div>
-
-                  <div className="mt-5">
-                    <div className="flex justify-between text-sm">
-                      <span className="text-slate-400">Health Score</span>
-                      <span>{asset.health_score}/100</span>
-                    </div>
-
-                    <div className="mt-2 h-2 rounded-full bg-slate-800">
-                      <div
-                        className={`h-2 rounded-full ${getHealthBarClass(
-                          asset.health_score
-                        )}`}
-                        style={{ width: `${asset.health_score}%` }}
-                      />
-                    </div>
-                  </div>
-
-                  <p className="mt-4 text-sm leading-6 text-slate-300">
-                    {asset.critical_story}
-                  </p>
-
-                  <div className="mt-4 flex flex-wrap gap-2 text-xs">
-                    <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-300">
-                      Sensor: {asset.sensor_status}
-                    </span>
-                    <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-300">
-                      Compliance: {asset.compliance_status}
-                    </span>
-                    <span className="rounded-full bg-slate-800 px-3 py-1 text-slate-300">
-                      Gaps: {asset.total_compliance_gaps}
-                    </span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-
-          <div className="rounded-2xl border border-slate-800 bg-slate-900 p-6">
-            <h2 className="text-xl font-semibold">Top Maintenance Events</h2>
-
-            <div className="mt-6 space-y-4">
-              {data.top_maintenance_events.map((event) => (
-                <div
-                  key={event.event_id}
-                  className="rounded-2xl border border-slate-800 bg-slate-950 p-4"
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <p className="font-medium">{event.event_id}</p>
-                    <span className="rounded-full bg-slate-800 px-3 py-1 text-xs text-slate-300">
-                      {event.priority}
-                    </span>
-                  </div>
-
-                  <p className="mt-2 text-sm text-slate-400">
-                    {event.event_type}
-                  </p>
-
-                  <p className="mt-2 text-sm leading-5 text-slate-300">
-                    {event.description}
-                  </p>
-
-                  <div className="mt-3 flex justify-between text-xs text-slate-500">
-                    <span>{event.asset_id}</span>
-                    <span>Due: {event.due_date}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
+                  )
+                )}
+              </div>
+            ) : (
+              <div className="mt-6">
+                <EmptyState
+                  title="No maintenance events"
+                  message="No maintenance events are currently available."
+                  actionLabel="Open maintenance"
+                  actionHref="/maintenance"
+                />
+              </div>
+            )}
           </div>
         </div>
       </section>

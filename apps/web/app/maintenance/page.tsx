@@ -1,10 +1,12 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
+import { useSearchParams } from "next/navigation";
 import MaintenanceFilters from "@/components/maintenance/MaintenanceFilters";
 import MaintenanceKpiCards from "@/components/maintenance/MaintenanceKpiCards";
 import WorkOrderDetail from "@/components/maintenance/WorkOrderDetail";
 import WorkOrderList from "@/components/maintenance/WorkOrderList";
+import LoadingState from "@/components/system/LoadingState";
 import { apiGet } from "@/lib/api";
 import type {
   MaintenanceFilterState,
@@ -80,9 +82,17 @@ function updateRcaQueryParameter(rcaCaseId: string) {
   );
 }
 
-export default function MaintenancePage() {
+function MaintenancePageContent() {
+  const searchParams = useSearchParams();
+
+  const initialRcaCaseId =
+    searchParams.get("rca")?.trim() || "ALL";
+
   const [filters, setFilters] =
-    useState<MaintenanceFilterState>(defaultFilters);
+    useState<MaintenanceFilterState>(() => ({
+      ...defaultFilters,
+      rcaCaseId: initialRcaCaseId,
+    }));
 
   const [workOrders, setWorkOrders] = useState<
     MaintenanceWorkOrder[]
@@ -99,29 +109,11 @@ export default function MaintenancePage() {
   const [selectedWorkOrder, setSelectedWorkOrder] =
     useState<MaintenanceWorkOrder | null>(null);
 
-  const [initialized, setInitialized] = useState(false);
   const [loading, setLoading] = useState(true);
   const [statisticsLoading, setStatisticsLoading] =
     useState(true);
 
   const [error, setError] = useState("");
-
-  useEffect(() => {
-    const parameters = new URLSearchParams(
-      window.location.search
-    );
-
-    const rcaCaseId = parameters.get("rca");
-
-    if (rcaCaseId) {
-      setFilters((currentFilters) => ({
-        ...currentFilters,
-        rcaCaseId
-      }));
-    }
-
-    setInitialized(true);
-  }, []);
 
   useEffect(() => {
     let active = true;
@@ -161,10 +153,6 @@ export default function MaintenancePage() {
   }, []);
 
   useEffect(() => {
-    if (!initialized) {
-      return;
-    }
-
     let active = true;
 
     async function loadWorkOrders() {
@@ -185,6 +173,10 @@ export default function MaintenancePage() {
         }
 
         setWorkOrders(result.work_orders);
+
+        if (result.work_orders.length === 0) {
+          setSelectedWorkOrder(null);
+        }
 
         setSelectedWorkOrderId(
           (currentWorkOrderId) => {
@@ -230,11 +222,10 @@ export default function MaintenancePage() {
     return () => {
       active = false;
     };
-  }, [filters, initialized]);
+  }, [filters]);
 
   useEffect(() => {
     if (!selectedWorkOrderId) {
-      setSelectedWorkOrder(null);
       return;
     }
 
@@ -380,7 +371,7 @@ export default function MaintenancePage() {
                 workOrder.work_order_id
               )
             }
-            loading={!initialized || loading}
+            loading={loading}
           />
 
           <div className="xl:sticky xl:top-6 xl:self-start">
@@ -395,5 +386,24 @@ export default function MaintenancePage() {
         </div>
       </section>
     </main>
+  );
+}
+
+export default function MaintenancePage() {
+  return (
+    <Suspense
+      fallback={
+        <main className="min-h-screen min-w-0 bg-slate-950 px-4 py-10 text-slate-100 sm:px-6">
+          <div className="mx-auto w-full max-w-[1600px]">
+            <LoadingState
+              title="Loading maintenance command center"
+              message="Retrieving work orders, operational priorities and RCA-linked maintenance actions."
+            />
+          </div>
+        </main>
+      }
+    >
+      <MaintenancePageContent />
+    </Suspense>
   );
 }

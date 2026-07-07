@@ -72,6 +72,12 @@ export default function RcaWorkspacePage() {
       setCaseSummaries(caseListResponse.cases);
       setStatistics(statisticsResponse);
 
+      if (caseListResponse.cases.length === 0) {
+        setSelectedCase(null);
+        setCaseError(null);
+        setIsCaseLoading(false);
+      }
+
       setSelectedCaseId((currentCaseId) => {
         const currentCaseStillExists =
           caseListResponse.cases.some(
@@ -93,19 +99,79 @@ export default function RcaWorkspacePage() {
       setStatistics(null);
       setSelectedCaseId("");
       setSelectedCase(null);
+      setCaseError(null);
+      setIsCaseLoading(false);
     } finally {
       setIsWorkspaceLoading(false);
     }
   }, []);
 
   useEffect(() => {
-    void loadWorkspace();
-  }, [loadWorkspace]);
+    let isCancelled = false;
+
+    void Promise.all([
+      getRcaCases(),
+      getRcaStatistics(),
+    ])
+      .then(
+        ([
+          caseListResponse,
+          statisticsResponse,
+        ]) => {
+          if (isCancelled) {
+            return;
+          }
+
+          const initialCaseId =
+            caseListResponse.cases[0]
+              ?.case_id ?? "";
+
+          setWorkspaceError("");
+          setCaseSummaries(
+            caseListResponse.cases
+          );
+          setStatistics(
+            statisticsResponse
+          );
+          setSelectedCaseId(
+            initialCaseId
+          );
+
+          if (!initialCaseId) {
+            setSelectedCase(null);
+            setCaseError(null);
+            setIsCaseLoading(false);
+          }
+        }
+      )
+      .catch((error: unknown) => {
+        if (isCancelled) {
+          return;
+        }
+
+        setWorkspaceError(
+          getErrorMessage(error)
+        );
+        setCaseSummaries([]);
+        setStatistics(null);
+        setSelectedCaseId("");
+        setSelectedCase(null);
+        setCaseError(null);
+        setIsCaseLoading(false);
+      })
+      .finally(() => {
+        if (!isCancelled) {
+          setIsWorkspaceLoading(false);
+        }
+      });
+
+    return () => {
+      isCancelled = true;
+    };
+  }, []);
 
   useEffect(() => {
     if (!selectedCaseId) {
-      setSelectedCase(null);
-      setCaseError(null);
       return;
     }
 

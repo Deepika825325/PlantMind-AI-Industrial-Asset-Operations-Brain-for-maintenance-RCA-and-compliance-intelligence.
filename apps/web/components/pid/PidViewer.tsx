@@ -1,5 +1,6 @@
 "use client";
 
+import Image, { type ImageLoader } from "next/image";
 import Link from "next/link";
 import { useMemo, useState } from "react";
 
@@ -9,6 +10,10 @@ import type { PidNode, PidResponse } from "@/lib/types";
 type PidViewerProps = {
   data: PidResponse;
 };
+
+const pidImageLoader: ImageLoader = ({
+  src,
+}) => src;
 
 function getNodeClass(node: PidNode) {
   if (node.type === "Asset" && node.risk_level === "High") {
@@ -137,10 +142,14 @@ export default function PidViewer({ data }: PidViewerProps) {
             className="relative min-w-[1000px] origin-top-left transition-transform duration-200"
             style={{ transform: `scale(${zoom})` }}
           >
-            <img
+            <Image
+              loader={pidImageLoader}
               src={apiUrl(data.image_url)}
               alt={data.title}
-              className="block w-full rounded-xl"
+              width={1600}
+              height={900}
+              unoptimized
+              className="block h-auto w-full rounded-xl"
             />
 
             <div className="absolute inset-0">

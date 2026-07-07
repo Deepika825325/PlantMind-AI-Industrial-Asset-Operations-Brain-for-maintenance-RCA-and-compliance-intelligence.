@@ -1,6 +1,8 @@
 import Link from "next/link";
 import { apiGet } from "@/lib/api";
 
+export const dynamic = "force-dynamic";
+
 type DocumentItem = {
   document_id: string;
   title: string;

@@ -185,17 +185,10 @@ export default function CompliancePage() {
     }
 
     loadGaps();
-  }, [
-    filters.assetId,
-    filters.severity,
-    filters.status,
-    filters.ruleId,
-    filters.evidenceAvailability,
-  ]);
+  }, [filters]);
 
   useEffect(() => {
     if (!selectedAssetId) {
-      setAuditPackage(null);
       return;
     }
 
@@ -287,6 +280,7 @@ export default function CompliancePage() {
   }
 
   function handleAssetSelect(assetId: string) {
+    setAuditPackage(null);
     setSelectedAssetId(assetId);
 
     setFilters((currentFilters) => ({
@@ -317,6 +311,7 @@ export default function CompliancePage() {
         overview.asset_compliance_summary[0]
           .asset_id;
 
+      setAuditPackage(null);
       setSelectedAssetId(firstAsset);
 
       const url = new URL(
