@@ -1,4 +1,4 @@
-﻿import pytest
+import pytest
 from fastapi.testclient import TestClient
 
 from apps.api.main import app
@@ -382,4 +382,3 @@ def test_dashboard_operations_summary(
     ) == (
         "plantmind-operations-test"
     )
-
