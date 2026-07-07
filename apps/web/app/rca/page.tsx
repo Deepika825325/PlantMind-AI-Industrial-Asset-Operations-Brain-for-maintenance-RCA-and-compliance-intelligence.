@@ -8,6 +8,7 @@ import EvidenceTimeline from "@/components/rca/EvidenceTimeline";
 import IncidentSelector from "@/components/rca/IncidentSelector";
 import IncidentSummary from "@/components/rca/IncidentSummary";
 import RootCauseRanking from "@/components/rca/RootCauseRanking";
+import DecisionTracePanel from "@/components/trust/DecisionTracePanel";
 import {
   getRcaCase,
   getRcaCases,
@@ -347,6 +348,15 @@ export default function RcaWorkspacePage() {
                     <IncidentSummary
                       incident={selectedCase}
                     />
+
+                    {selectedCase.decision_trace && (
+                      <DecisionTracePanel
+                        trace={
+                          selectedCase.decision_trace
+                        }
+                        title="Root Cause Decision Trace"
+                      />
+                    )}
 
                     <EvidenceTimeline
                       timeline={selectedCase.timeline}

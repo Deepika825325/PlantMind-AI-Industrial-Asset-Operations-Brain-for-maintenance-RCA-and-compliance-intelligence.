@@ -91,6 +91,11 @@ export default function MaintenancePage() {
   const [statistics, setStatistics] =
     useState<MaintenanceStatistics | null>(null);
 
+  const [
+    selectedWorkOrderId,
+    setSelectedWorkOrderId
+  ] = useState<string | null>(null);
+
   const [selectedWorkOrder, setSelectedWorkOrder] =
     useState<MaintenanceWorkOrder | null>(null);
 
@@ -181,22 +186,27 @@ export default function MaintenancePage() {
 
         setWorkOrders(result.work_orders);
 
-        setSelectedWorkOrder((currentWorkOrder) => {
-          if (currentWorkOrder) {
-            const matchingWorkOrder =
-              result.work_orders.find(
-                (workOrder) =>
-                  workOrder.work_order_id ===
-                  currentWorkOrder.work_order_id
-              );
+        setSelectedWorkOrderId(
+          (currentWorkOrderId) => {
+            if (currentWorkOrderId) {
+              const matchingWorkOrder =
+                result.work_orders.find(
+                  (workOrder) =>
+                    workOrder.work_order_id ===
+                    currentWorkOrderId
+                );
 
-            if (matchingWorkOrder) {
-              return matchingWorkOrder;
+              if (matchingWorkOrder) {
+                return currentWorkOrderId;
+              }
             }
-          }
 
-          return result.work_orders[0] ?? null;
-        });
+            return (
+              result.work_orders[0]
+                ?.work_order_id ?? null
+            );
+          }
+        );
       } catch (requestError) {
         if (active) {
           setWorkOrders([]);
@@ -221,6 +231,52 @@ export default function MaintenancePage() {
       active = false;
     };
   }, [filters, initialized]);
+
+  useEffect(() => {
+    if (!selectedWorkOrderId) {
+      setSelectedWorkOrder(null);
+      return;
+    }
+
+    const workOrderId =
+      selectedWorkOrderId;
+
+    let active = true;
+
+    async function loadWorkOrderDetail() {
+      try {
+        setError("");
+        setSelectedWorkOrder(null);
+
+        const result =
+          await apiGet<MaintenanceWorkOrder>(
+            `/maintenance/work-orders/${encodeURIComponent(
+              workOrderId
+            )}`
+          );
+
+        if (active) {
+          setSelectedWorkOrder(result);
+        }
+      } catch (requestError) {
+        if (active) {
+          setSelectedWorkOrder(null);
+
+          setError(
+            requestError instanceof Error
+              ? requestError.message
+              : "Failed to load work order details"
+          );
+        }
+      }
+    }
+
+    loadWorkOrderDetail();
+
+    return () => {
+      active = false;
+    };
+  }, [selectedWorkOrderId]);
 
   function handleFilterChange(
     field: keyof MaintenanceFilterState,
@@ -317,18 +373,23 @@ export default function MaintenancePage() {
           <WorkOrderList
             workOrders={workOrders}
             selectedWorkOrderId={
-              selectedWorkOrder?.work_order_id
+              selectedWorkOrderId ?? undefined
             }
-            onSelect={setSelectedWorkOrder}
+            onSelect={(workOrder) =>
+              setSelectedWorkOrderId(
+                workOrder.work_order_id
+              )
+            }
             loading={!initialized || loading}
           />
 
           <div className="xl:sticky xl:top-6 xl:self-start">
             <WorkOrderDetail
               workOrder={selectedWorkOrder}
-              onClose={() =>
-                setSelectedWorkOrder(null)
-              }
+              onClose={() => {
+                setSelectedWorkOrderId(null);
+                setSelectedWorkOrder(null);
+              }}
             />
           </div>
         </div>

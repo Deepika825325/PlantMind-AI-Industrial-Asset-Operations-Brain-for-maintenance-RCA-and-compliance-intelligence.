@@ -11,6 +11,7 @@ from apps.api.services.rca_service import (
     get_rca_statistics,
     list_rca_cases,
 )
+from apps.api.services.evidence_integrity_service import enrich_rca_case
 
 
 router = APIRouter(
@@ -100,10 +101,13 @@ def get_case(
         if case is None:
             raise HTTPException(
                 status_code=404,
-                detail=f"RCA case not found: {case_id}",
+                detail=(
+                    f"RCA case not found: "
+                    f"{case_id}"
+                ),
             )
 
-        return case
+        return enrich_rca_case(case)
     except HTTPException:
         raise
     except Exception as error:

@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import DecisionTracePanel from "@/components/trust/DecisionTracePanel";
 import { apiPost } from "@/lib/api";
 import { AskRequest, AskResponse } from "@/lib/types";
 
@@ -206,6 +207,13 @@ export default function AskPage() {
                     {response.answer}
                   </p>
                 </div>
+
+                {response.decision_trace && (
+                  <DecisionTracePanel
+                    trace={response.decision_trace}
+                    title="Ask PlantMind Decision Trace"
+                  />
+                )}
 
                 <div className="rounded-2xl border border-slate-800 bg-slate-950 p-6">
                   <h3 className="font-semibold">Supporting Sources</h3>

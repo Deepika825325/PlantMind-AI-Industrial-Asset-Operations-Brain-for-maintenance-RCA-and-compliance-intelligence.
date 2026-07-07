@@ -1,6 +1,7 @@
 "use client";
 
 import type { MaintenanceWorkOrder } from "@/lib/types";
+import DecisionTracePanel from "@/components/trust/DecisionTracePanel";
 import LinkedRcaPanel from "./LinkedRcaPanel";
 import MaintenanceEvidencePanel from "./MaintenanceEvidencePanel";
 
@@ -204,6 +205,13 @@ export default function WorkOrderDetail({
           </div>
         </div>
       </section>
+
+      {workOrder.decision_trace && (
+        <DecisionTracePanel
+          trace={workOrder.decision_trace}
+          title="Maintenance Decision Trace"
+        />
+      )}
 
       <section className="rounded-2xl border border-slate-800 bg-slate-900 p-5">
         <p className="text-xs font-semibold uppercase tracking-[0.2em] text-amber-400">

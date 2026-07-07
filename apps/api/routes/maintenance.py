@@ -9,6 +9,7 @@ from apps.api.services.maintenance_service import (
     get_work_order,
     get_work_order_statistics
 )
+from apps.api.services.evidence_integrity_service import enrich_maintenance_work_order
 
 
 router = APIRouter(prefix="/maintenance", tags=["Maintenance"])
@@ -117,15 +118,24 @@ def get_work_orders_statistics():
 
 
 @router.get("/work-orders/{work_order_id}")
-def get_work_order_by_id(work_order_id: str):
-    work_order = get_work_order(work_order_id)
+def get_work_order_by_id(
+    work_order_id: str,
+):
+    work_order = get_work_order(
+        work_order_id
+    )
 
     if work_order:
-        return work_order
+        return enrich_maintenance_work_order(
+            work_order
+        )
 
     raise HTTPException(
         status_code=404,
-        detail=f"Maintenance work order not found: {work_order_id.upper()}"
+        detail=(
+            "Maintenance work order not found: "
+            f"{work_order_id.upper()}"
+        ),
     )
 
 

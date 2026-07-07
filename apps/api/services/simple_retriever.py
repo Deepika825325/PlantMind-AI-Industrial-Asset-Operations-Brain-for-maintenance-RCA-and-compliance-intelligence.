@@ -1,3 +1,4 @@
+from apps.api.services.evidence_integrity_service import enrich_ask_response
 import re
 from typing import Any, Dict, List, Optional, Tuple
 
@@ -464,7 +465,7 @@ def ask_plantmind(
             answer_type
         )
 
-        return {
+        response = {
             "question": question,
             "detected_assets": detected_assets,
             "answer_type": structured_answer_type,
@@ -503,6 +504,11 @@ def ask_plantmind(
             )
         }
 
+        return enrich_ask_response(
+            response,
+            asset_id=asset_id
+        )
+
     retrieved_chunks = retrieve_chunks(
         question=question,
         asset_id=asset_id,
@@ -513,21 +519,34 @@ def ask_plantmind(
 
     if demo_answer:
         answer = demo_answer.get("answer")
-        supporting_sources = demo_answer.get("supporting_sources", [])
+        supporting_sources = demo_answer.get(
+            "supporting_sources",
+            []
+        )
         answer_mode = "demo_answer_match"
     else:
-        answer = generate_rule_based_answer(question, retrieved_chunks)
-        supporting_sources = source_ids_from_chunks(retrieved_chunks)
+        answer = generate_rule_based_answer(
+            question,
+            retrieved_chunks
+        )
+        supporting_sources = (
+            source_ids_from_chunks(
+                retrieved_chunks
+            )
+        )
         answer_mode = "retrieval_rule_based"
 
-    citations = make_citations(retrieved_chunks)
+    citations = make_citations(
+        retrieved_chunks
+    )
+
     confidence_score = calculate_confidence(
         answer_mode=answer_mode,
         retrieved_chunks=retrieved_chunks,
         supporting_sources=supporting_sources
     )
 
-    return {
+    response = {
         "question": question,
         "detected_assets": detected_assets,
         "answer_type": answer_type,
@@ -537,12 +556,18 @@ def ask_plantmind(
         "supporting_sources": supporting_sources,
         "citations": citations,
         "retrieved_context": retrieved_chunks,
+        "structured_context": {},
         "suggested_followups": suggested_followups_for_answer(
             question=question,
             detected_assets=detected_assets,
             answer_type=answer_type
         )
     }
+
+    return enrich_ask_response(
+        response,
+        asset_id=asset_id
+    )
 
 
 def search_evidence(

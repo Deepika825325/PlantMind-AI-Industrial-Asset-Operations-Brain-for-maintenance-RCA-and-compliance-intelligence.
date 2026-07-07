@@ -6,6 +6,7 @@ from apps.api.services.compliance_service import (
     get_compliance_overview,
     get_compliance_rules,
 )
+from apps.api.services.evidence_integrity_service import enrich_compliance_package
 
 
 router = APIRouter(
@@ -52,7 +53,9 @@ def list_compliance_gaps(
 def get_asset_compliance_audit_package(
     asset_id: str,
 ):
-    package = get_asset_audit_package(asset_id)
+    package = get_asset_audit_package(
+        asset_id
+    )
 
     if not package:
         raise HTTPException(
@@ -63,12 +66,16 @@ def get_asset_compliance_audit_package(
             ),
         )
 
-    return package
+    return enrich_compliance_package(
+        package
+    )
 
 
 @router.get("/assets/{asset_id}")
 def get_asset_compliance(asset_id: str):
-    package = get_asset_audit_package(asset_id)
+    package = get_asset_audit_package(
+        asset_id
+    )
 
     if not package:
         raise HTTPException(
@@ -79,26 +86,68 @@ def get_asset_compliance(asset_id: str):
             ),
         )
 
+    enriched = enrich_compliance_package(
+        package
+    )
+
     return {
-        "asset": package["asset"],
-        "audit_readiness_score": package[
+        "asset": enriched["asset"],
+        "audit_readiness_score": enriched[
             "audit_readiness_score"
         ],
-        "scoring_breakdown": package[
+        "scoring_breakdown": enriched[
             "scoring_breakdown"
         ],
         "total_rules": len(
-            package["applicable_rules"]
+            enriched["applicable_rules"]
         ),
         "passed_rules": len(
-            package["passed_rules"]
+            enriched["passed_rules"]
         ),
         "failed_rules": len(
-            package["failed_rules"]
+            enriched["failed_rules"]
         ),
-        "open_gaps": package["open_gaps"],
-        "recommended_actions": package[
+        "open_gaps": enriched[
+            "open_gaps"
+        ],
+        "recommended_actions": enriched[
             "recommended_actions"
         ],
-        "generated_at": package["generated_at"],
+        "generated_at": enriched[
+            "generated_at"
+        ],
+        "answer": enriched["answer"],
+        "confidence": enriched[
+            "confidence"
+        ],
+        "confidence_explanation": enriched[
+            "confidence_explanation"
+        ],
+        "evidence_used": enriched[
+            "evidence_used"
+        ],
+        "evidence_not_found": enriched[
+            "evidence_not_found"
+        ],
+        "reasoning_summary": enriched[
+            "reasoning_summary"
+        ],
+        "rules_applied": enriched[
+            "rules_applied"
+        ],
+        "conflicting_evidence": enriched[
+            "conflicting_evidence"
+        ],
+        "recommended_action": enriched[
+            "recommended_action"
+        ],
+        "verification_method": enriched[
+            "verification_method"
+        ],
+        "supported": enriched[
+            "supported"
+        ],
+        "decision_trace": enriched[
+            "decision_trace"
+        ],
     }

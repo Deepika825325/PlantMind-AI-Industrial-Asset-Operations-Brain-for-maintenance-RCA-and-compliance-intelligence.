@@ -13,6 +13,7 @@ import ComplianceGapList from "@/components/compliance/ComplianceGapList";
 import ComplianceKpiCards from "@/components/compliance/ComplianceKpiCards";
 import EvidencePackageView from "@/components/compliance/EvidencePackageView";
 import GapSeverityDistribution from "@/components/compliance/GapSeverityDistribution";
+import DecisionTracePanel from "@/components/trust/DecisionTracePanel";
 import { apiGet } from "@/lib/api";
 
 import type {
@@ -418,6 +419,16 @@ export default function CompliancePage() {
                       }
                     />
                   </div>
+
+                  {auditPackage.decision_trace && (
+                    <DecisionTracePanel
+                      trace={
+                        auditPackage.decision_trace
+                      }
+                      title="Compliance Decision Trace"
+                      className="mt-8"
+                    />
+                  )}
 
                   <div className="mt-8">
                     <EvidencePackageView

@@ -94,7 +94,7 @@ export type RetrievedContext = {
   section_title: string;
   asset_ids: string[];
   tags: string[];
-  relative_path: string;
+  relative_path: string | null;
   chunk_text: string;
 };
 
@@ -108,6 +108,72 @@ export type Citation = {
   evidence_excerpt: string;
 };
 
+export type EvidenceValidationStatus =
+  | "Verified"
+  | "Partially verified"
+  | "Unavailable";
+
+export type EvidenceValidationDetails = {
+  reference_exists: boolean;
+  evidence_id_exists: boolean;
+  referenced_section_exists: boolean;
+  excerpt_not_empty: boolean;
+  asset_matches: boolean;
+  physical_file_exists: boolean | null;
+};
+
+export type SourceQuality = {
+  label: string;
+  rating: string;
+};
+
+export type ValidatedCitation = Citation & {
+  validation_status: EvidenceValidationStatus;
+  validation_details: EvidenceValidationDetails;
+  source_quality: SourceQuality;
+};
+
+export type ConfidenceExplanation = {
+  score: number;
+  percentage: number;
+  label: string;
+  why: string[];
+  verified_source_count: number;
+  partial_source_count: number;
+  independent_source_count: number;
+  conflict_count: number;
+  missing_evidence_count: number;
+};
+
+export type DecisionTrace = {
+  answer: string;
+  confidence: number;
+  confidence_explanation: ConfidenceExplanation;
+  evidence_used: ValidatedCitation[];
+  evidence_not_found: string[];
+  reasoning_summary: string[];
+  rules_applied: string[];
+  conflicting_evidence: string[];
+  recommended_action: string | null;
+  verification_method: string | null;
+  supported: boolean;
+};
+
+export type TrustMetadata = {
+  decision_trace?: DecisionTrace;
+  confidence?: number;
+  confidence_explanation?: ConfidenceExplanation;
+  evidence_used?: ValidatedCitation[];
+  evidence_not_found?: string[];
+  reasoning_summary?: string[];
+  rules_applied?: string[];
+  conflicting_evidence?: string[];
+  recommended_action?: string | null;
+  verification_method?: string | null;
+  supported?: boolean;
+};
+
+
 export type AskResponse = {
   question: string;
   detected_assets: string[];
@@ -119,7 +185,7 @@ export type AskResponse = {
   citations: Citation[];
   retrieved_context: RetrievedContext[];
   suggested_followups: string[];
-};
+} & TrustMetadata;
 
 export type PidNodeType =
   | "Asset"
@@ -292,7 +358,7 @@ export type RcaCase = {
   corrective_actions: RcaCorrectiveAction[];
   evidence: RcaEvidence[];
   recommendation_summary: string;
-};
+} & TrustMetadata;
 
 export type RcaStatistics = {
   total_cases: number;
@@ -362,7 +428,7 @@ export type MaintenanceWorkOrder = {
   estimated_duration_hours: number;
   verification_metric: string;
   completion_notes: string | null;
-};
+} & TrustMetadata;
 
 export type MaintenanceWorkOrderFilters = {
   asset_id: string | null;
@@ -609,7 +675,7 @@ export type ComplianceAuditPackage = {
   related_rca_cases: RcaCase[];
   recommended_actions: string[];
   generated_at: string;
-};
+} & TrustMetadata;
 
 export type ComplianceAssetResponse = {
   asset: ComplianceAsset;
