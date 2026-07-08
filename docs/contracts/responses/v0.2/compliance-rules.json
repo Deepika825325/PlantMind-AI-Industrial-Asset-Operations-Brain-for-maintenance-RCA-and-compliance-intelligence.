@@ -1,0 +1,168 @@
+{
+  "artifact": "compliance_rules",
+  "generated_at": "2026-07-06T12:00:00Z",
+  "scoring": {
+    "maximum_score": 100,
+    "minimum_score": 0,
+    "critical_gap_penalty": 25,
+    "high_gap_penalty": 15,
+    "medium_gap_penalty": 8,
+    "missing_evidence_penalty": 5,
+    "overdue_action_penalty": 5,
+    "formula": "100 - min(critical gaps x 25, 25) - min(high gaps x 15, 30) - min(medium gaps x 8, 16) - 5 when evidence is missing - 5 when any action is overdue",
+    "severity_penalty_caps": {
+      "critical": 25,
+      "high": 30,
+      "medium": 16
+    }
+  },
+  "rules": [
+    {
+      "rule_id": "C001",
+      "rule_name": "Missing vibration reading",
+      "description": "A required vibration inspection must include a numeric vibration measurement.",
+      "default_severity": "High",
+      "applicable_asset_ids": [
+        "P-101"
+      ],
+      "required_evidence": [
+        "Asset-specific vibration inspection report",
+        "Numeric vibration reading",
+        "Inspection date",
+        "Inspector identity"
+      ],
+      "evaluation_type": "vibration_reading",
+      "recommendation": "Perform the vibration inspection and record the measured value with the inspection date and inspector."
+    },
+    {
+      "rule_id": "C002",
+      "rule_name": "Missing post-maintenance inspection",
+      "description": "Corrective maintenance must be followed by a completed post-maintenance inspection or verification test.",
+      "default_severity": "High",
+      "applicable_asset_ids": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "required_evidence": [
+        "Completed verification work order",
+        "Post-maintenance inspection result",
+        "Recorded verification metric"
+      ],
+      "evaluation_type": "post_maintenance_inspection",
+      "recommendation": "Complete the required post-maintenance inspection and attach the verification result."
+    },
+    {
+      "rule_id": "C003",
+      "rule_name": "Missing supervisor sign-off",
+      "description": "Maintenance requiring a permit or isolation must include supervisor approval with name and timestamp.",
+      "default_severity": "High",
+      "applicable_asset_ids": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "required_evidence": [
+        "Supervisor name",
+        "Approval timestamp",
+        "Approval status",
+        "Linked work order ID"
+      ],
+      "evaluation_type": "supervisor_signoff",
+      "recommendation": "Obtain supervisor approval and attach the signed approval record to the work order."
+    },
+    {
+      "rule_id": "C004",
+      "rule_name": "Missing LOTO checklist",
+      "description": "Maintenance involving physical inspection, isolation, equipment opening or hazardous energy must include a completed LOTO checklist.",
+      "default_severity": "Critical",
+      "applicable_asset_ids": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "required_evidence": [
+        "LOTO checklist",
+        "Isolation confirmation",
+        "Zero-energy confirmation",
+        "Technician identity"
+      ],
+      "evaluation_type": "loto_checklist",
+      "recommendation": "Complete and attach the LOTO checklist before physical maintenance begins."
+    },
+    {
+      "rule_id": "C005",
+      "rule_name": "Inspection overdue",
+      "description": "An inspection or verification action is overdue when its due date has passed and it is not completed or cancelled.",
+      "default_severity": "High",
+      "applicable_asset_ids": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "required_evidence": [
+        "Completed inspection work order",
+        "Inspection completion timestamp",
+        "Inspection result"
+      ],
+      "evaluation_type": "overdue_inspection",
+      "recommendation": "Complete the overdue inspection and record the inspection outcome."
+    },
+    {
+      "rule_id": "C006",
+      "rule_name": "Work order closed without verification",
+      "description": "A completed or closed work order must contain verification evidence and completion notes.",
+      "default_severity": "Critical",
+      "applicable_asset_ids": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "required_evidence": [
+        "Verification result",
+        "Completion notes",
+        "Completion timestamp",
+        "Responsible person"
+      ],
+      "evaluation_type": "closed_without_verification",
+      "recommendation": "Reopen the work order or attach the required verification evidence before final closure."
+    },
+    {
+      "rule_id": "C007",
+      "rule_name": "Required SOP not linked",
+      "description": "Every controlled maintenance work order must reference an available and applicable SOP.",
+      "default_severity": "High",
+      "applicable_asset_ids": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "required_evidence": [
+        "Required procedure ID",
+        "Available SOP document",
+        "Asset applicability"
+      ],
+      "evaluation_type": "required_sop",
+      "recommendation": "Link the applicable approved SOP before executing the work order."
+    },
+    {
+      "rule_id": "C008",
+      "rule_name": "Maintenance evidence incomplete",
+      "description": "Maintenance evidence is incomplete when required completion, inspection, permit, safety or verification records are unavailable.",
+      "default_severity": "High",
+      "applicable_asset_ids": [
+        "P-101",
+        "C-201",
+        "HX-301"
+      ],
+      "required_evidence": [
+        "Completion notes",
+        "Verification result",
+        "Required safety evidence",
+        "Linked inspection evidence"
+      ],
+      "evaluation_type": "maintenance_evidence_completeness",
+      "recommendation": "Attach all required completion, safety, inspection and verification evidence."
+    }
+  ]
+}

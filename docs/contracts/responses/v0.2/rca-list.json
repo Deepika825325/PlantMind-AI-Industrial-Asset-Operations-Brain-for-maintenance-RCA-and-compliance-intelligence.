@@ -1,0 +1,37 @@
+{
+  "artifact": "PlantMind RCA Cases",
+  "generated_at": "2026-07-03T00:00:00Z",
+  "total_count": 1,
+  "filtered_count": 1,
+  "filters": {
+    "asset_id": null,
+    "severity": null,
+    "incident_status": null
+  },
+  "cases": [
+    {
+      "case_id": "RCA-P101-001",
+      "title": "P-101 High Vibration and Bearing Temperature Event",
+      "asset_id": "P-101",
+      "asset_name": "Cooling Water Circulation Pump",
+      "asset_type": "Centrifugal Pump",
+      "incident_status": "Open",
+      "severity": "Critical",
+      "detected_at": "2026-06-21T09:20:00Z",
+      "problem_statement": "P-101 developed increasing vibration, elevated bearing temperature and abnormal mechanical noise while lubrication evidence was missing.",
+      "summary": "Available evidence indicates that missed or degraded lubrication caused increased bearing friction, elevated temperature and mechanical vibration.",
+      "overall_confidence": 0.91,
+      "top_root_cause": {
+        "cause_id": "P101-RC-001",
+        "title": "Missed or degraded bearing lubrication",
+        "category": "Maintenance",
+        "confidence": 0.93
+      },
+      "timeline_event_count": 4,
+      "causal_chain_step_count": 4,
+      "root_cause_count": 3,
+      "corrective_action_count": 3,
+      "evidence_count": 4
+    }
+  ]
+}

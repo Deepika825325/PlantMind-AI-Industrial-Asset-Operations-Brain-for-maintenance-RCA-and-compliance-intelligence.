@@ -1,0 +1,138 @@
+{
+  "status": "ready",
+  "ready": true,
+  "checked_at": "2026-07-08T04:25:44.368401+00:00",
+  "required_file_count": 21,
+  "valid_file_count": 21,
+  "missing_file_count": 0,
+  "invalid_file_count": 0,
+  "issues": [],
+  "files": [
+    {
+      "path": "data\\demo\\assets.json",
+      "status": "valid",
+      "size_bytes": 2674,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\compliance_matrix.json",
+      "status": "valid",
+      "size_bytes": 2863,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\compliance_rules.json",
+      "status": "valid",
+      "size_bytes": 10427,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\dashboard_summary.json",
+      "status": "valid",
+      "size_bytes": 708,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\demo_answers.json",
+      "status": "valid",
+      "size_bytes": 2420,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\documents.json",
+      "status": "valid",
+      "size_bytes": 14310,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\health_scores.json",
+      "status": "valid",
+      "size_bytes": 2918,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\knowledge_graph.json",
+      "status": "valid",
+      "size_bytes": 48783,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\maintenance_events.json",
+      "status": "valid",
+      "size_bytes": 2856,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\maintenance_work_orders.json",
+      "status": "valid",
+      "size_bytes": 13575,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\pid_view.json",
+      "status": "valid",
+      "size_bytes": 4375,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\rag_seed_questions.json",
+      "status": "valid",
+      "size_bytes": 7015,
+      "error": null
+    },
+    {
+      "path": "data\\demo\\rca_cases.json",
+      "status": "valid",
+      "size_bytes": 10295,
+      "error": null
+    },
+    {
+      "path": "data\\processed\\asset_metadata.json",
+      "status": "valid",
+      "size_bytes": 2597,
+      "error": null
+    },
+    {
+      "path": "data\\processed\\benchmark_questions.json",
+      "status": "valid",
+      "size_bytes": 7011,
+      "error": null
+    },
+    {
+      "path": "data\\processed\\compliance_matrix.json",
+      "status": "valid",
+      "size_bytes": 2858,
+      "error": null
+    },
+    {
+      "path": "data\\processed\\document_chunks.json",
+      "status": "valid",
+      "size_bytes": 171720,
+      "error": null
+    },
+    {
+      "path": "data\\processed\\documents_index.csv",
+      "status": "valid",
+      "size_bytes": 10222,
+      "error": null
+    },
+    {
+      "path": "data\\processed\\knowledge_graph_seed.json",
+      "status": "valid",
+      "size_bytes": 44334,
+      "error": null
+    },
+    {
+      "path": "data\\processed\\sensor_summary.json",
+      "status": "valid",
+      "size_bytes": 4449,
+      "error": null
+    },
+    {
+      "path": "data\\processed\\work_orders_processed.json",
+      "status": "valid",
+      "size_bytes": 3768,
+      "error": null
+    }
+  ]
+}

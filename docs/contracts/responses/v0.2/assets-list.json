@@ -1,0 +1,90 @@
+{
+  "total": 3,
+  "assets": [
+    {
+      "asset_id": "P-101",
+      "asset_name": "Cooling Water Circulation Pump",
+      "asset_type": "Pump",
+      "risk_score": 97,
+      "health_score": 3,
+      "risk_level": "High",
+      "sensor_status": "Critical",
+      "compliance_status": "High Risk Non-Compliant",
+      "total_compliance_gaps": 2,
+      "open_or_delayed_work_orders": [
+        "WO-1001",
+        "WO-1002"
+      ],
+      "connected_sensors": [
+        "vibration"
+      ],
+      "critical_story": "High vibration, bearing temperature warning, abnormal noise, and missing lubrication evidence.",
+      "source_documents": [
+        "SOP-P101-001",
+        "SOP-P101-002",
+        "IR-P101-001",
+        "IR-P101-002",
+        "INC-P101-001",
+        "COMP-001",
+        "PID-001"
+      ],
+      "pid_reference": "PID-001"
+    },
+    {
+      "asset_id": "C-201",
+      "asset_name": "Process Air Compressor",
+      "asset_type": "Compressor",
+      "risk_score": 56,
+      "health_score": 44,
+      "risk_level": "Medium",
+      "sensor_status": "Warning",
+      "compliance_status": "Medium Risk Non-Compliant",
+      "total_compliance_gaps": 1,
+      "open_or_delayed_work_orders": [
+        "WO-1003"
+      ],
+      "connected_sensors": [
+        "estimated_rul",
+        "outlet_temperature",
+        "pressure_ratio"
+      ],
+      "critical_story": "Decreasing RUL, outlet temperature warning, pressure ratio instability, and delayed filter verification.",
+      "source_documents": [
+        "SOP-C201-001",
+        "IR-C201-001",
+        "COMP-001",
+        "PID-001"
+      ],
+      "pid_reference": "PID-001"
+    },
+    {
+      "asset_id": "HX-301",
+      "asset_name": "Feed Preheater Heat Exchanger",
+      "asset_type": "Heat Exchanger",
+      "risk_score": 56,
+      "health_score": 44,
+      "risk_level": "Medium",
+      "sensor_status": "Warning",
+      "compliance_status": "Medium Risk Non-Compliant",
+      "total_compliance_gaps": 2,
+      "open_or_delayed_work_orders": [
+        "WO-1005",
+        "WO-1006"
+      ],
+      "connected_sensors": [
+        "efficiency_index",
+        "outlet_temperature",
+        "pressure_drop"
+      ],
+      "critical_story": "Low outlet temperature, high pressure drop, reduced efficiency, suspected fouling, and overdue cleaning evidence.",
+      "source_documents": [
+        "SOP-HX301-001",
+        "IR-HX301-001",
+        "INC-HX301-001",
+        "COMP-001",
+        "PID-001"
+      ],
+      "pid_reference": "PID-001"
+    }
+  ]
+}

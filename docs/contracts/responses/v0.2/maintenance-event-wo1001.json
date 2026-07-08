@@ -1,0 +1,13 @@
+{
+  "event_id": "WO-1001",
+  "asset_id": "P-101",
+  "asset_name": "Cooling Water Circulation Pump",
+  "event_type": "Bearing Inspection",
+  "priority": "High",
+  "status": "Open",
+  "created_date": "2026-01-22",
+  "due_date": "2026-01-24",
+  "description": "Inspect bearing housing due to high vibration and abnormal noise",
+  "linked_document": "INC-P101-001",
+  "compliance_related": "Yes"
+}

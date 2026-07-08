@@ -1,0 +1,244 @@
+{
+  "generated_at": "2026-07-08T04:25:44.392432+00:00",
+  "assets_at_risk": {
+    "count": 3,
+    "items": [
+      {
+        "asset_id": "P-101",
+        "asset_name": "Cooling Water Circulation Pump",
+        "asset_type": "Pump",
+        "risk_level": "High",
+        "risk_score": 97,
+        "health_score": 3,
+        "sensor_status": "Critical",
+        "compliance_status": "High Risk Non-Compliant"
+      },
+      {
+        "asset_id": "C-201",
+        "asset_name": "Process Air Compressor",
+        "asset_type": "Compressor",
+        "risk_level": "Medium",
+        "risk_score": 56,
+        "health_score": 44,
+        "sensor_status": "Warning",
+        "compliance_status": "Medium Risk Non-Compliant"
+      },
+      {
+        "asset_id": "HX-301",
+        "asset_name": "Feed Preheater Heat Exchanger",
+        "asset_type": "Heat Exchanger",
+        "risk_level": "Medium",
+        "risk_score": 56,
+        "health_score": 44,
+        "sensor_status": "Warning",
+        "compliance_status": "Medium Risk Non-Compliant"
+      }
+    ]
+  },
+  "critical_rca_cases": {
+    "count": 1,
+    "items": [
+      {
+        "case_id": "RCA-P101-001",
+        "title": "P-101 High Vibration and Bearing Temperature Event",
+        "asset_id": "P-101",
+        "asset_name": "Cooling Water Circulation Pump",
+        "severity": "Critical",
+        "incident_status": "Open",
+        "detected_at": "2026-06-21T09:20:00Z",
+        "overall_confidence": 0.91,
+        "recommendation_summary": "Treat lubrication degradation as the primary cause until lubricant condition, alignment measurements and vibration-spectrum analysis confirm or reject the hypothesis."
+      }
+    ]
+  },
+  "open_compliance_gaps": {
+    "count": 5,
+    "items": [
+      {
+        "gap_id": "GAP-001",
+        "asset_id": "P-101",
+        "requirement": "Weekly lubrication check",
+        "current_status": "Missing",
+        "gap_severity": "High",
+        "expected_evidence": "Lubrication record",
+        "evidence_file": null,
+        "evidence_available": false,
+        "recommended_action": "Perform lubrication check and upload evidence",
+        "source_document": "COMP-001"
+      },
+      {
+        "gap_id": "GAP-002",
+        "asset_id": "P-101",
+        "requirement": "Work permit before bearing inspection",
+        "current_status": "Missing",
+        "gap_severity": "High",
+        "expected_evidence": "Work permit record",
+        "evidence_file": null,
+        "evidence_available": false,
+        "recommended_action": "Create or attach work permit before bearing inspection",
+        "source_document": "COMP-001"
+      },
+      {
+        "gap_id": "GAP-003",
+        "asset_id": "C-201",
+        "requirement": "Filter replacement verification",
+        "current_status": "Delayed",
+        "gap_severity": "Medium",
+        "expected_evidence": "Maintenance log or work order",
+        "evidence_file": "WO-1003",
+        "evidence_available": true,
+        "recommended_action": "Verify filter replacement completion",
+        "source_document": "COMP-001"
+      },
+      {
+        "gap_id": "GAP-004",
+        "asset_id": "HX-301",
+        "requirement": "Cleaning and fouling inspection",
+        "current_status": "Overdue",
+        "gap_severity": "Medium",
+        "expected_evidence": "Cleaning record",
+        "evidence_file": null,
+        "evidence_available": false,
+        "recommended_action": "Schedule cleaning inspection and upload cleaning evidence",
+        "source_document": "COMP-001"
+      },
+      {
+        "gap_id": "GAP-005",
+        "asset_id": "HX-301",
+        "requirement": "Work permit before cleaning",
+        "current_status": "Missing",
+        "gap_severity": "Medium",
+        "expected_evidence": "Work permit record",
+        "evidence_file": null,
+        "evidence_available": false,
+        "recommended_action": "Attach work permit before cleaning activity",
+        "source_document": "COMP-001"
+      }
+    ]
+  },
+  "urgent_work_orders": {
+    "count": 7,
+    "items": [
+      {
+        "work_order_id": "MWO-P101-001",
+        "asset_id": "P-101",
+        "title": "Inspect and relubricate drive-end bearing",
+        "maintenance_type": "Corrective",
+        "priority": "Critical",
+        "status": "Open",
+        "risk_score": 94,
+        "confidence": 0.93,
+        "due_at": "2026-06-21T15:15:00Z",
+        "owner_role": "Mechanical Maintenance Engineer",
+        "linked_rca_case_id": "RCA-P101-001",
+        "verification_metric": "Lubrication condition restored and timestamped completion evidence attached"
+      },
+      {
+        "work_order_id": "MWO-P101-002",
+        "asset_id": "P-101",
+        "title": "Inspect bearing condition",
+        "maintenance_type": "Condition-Based",
+        "priority": "High",
+        "status": "Open",
+        "risk_score": 88,
+        "confidence": 0.84,
+        "due_at": "2026-06-21T19:20:00Z",
+        "owner_role": "Reliability Engineer",
+        "linked_rca_case_id": "RCA-P101-001",
+        "verification_metric": "Bearing condition and clearances recorded within approved limits"
+      },
+      {
+        "work_order_id": "MWO-HX301-001",
+        "asset_id": "HX-301",
+        "title": "Inspect fouling",
+        "maintenance_type": "Condition-Based",
+        "priority": "High",
+        "status": "Open",
+        "risk_score": 84,
+        "confidence": 0.88,
+        "due_at": "2026-06-24T07:30:00Z",
+        "owner_role": "Inspection Engineer",
+        "linked_rca_case_id": null,
+        "verification_metric": "Fouling location, severity, pressure drop, and inspection evidence recorded"
+      },
+      {
+        "work_order_id": "MWO-P101-003",
+        "asset_id": "P-101",
+        "title": "Verify shaft alignment",
+        "maintenance_type": "Corrective",
+        "priority": "High",
+        "status": "Planned",
+        "risk_score": 82,
+        "confidence": 0.84,
+        "due_at": "2026-06-22T03:25:00Z",
+        "owner_role": "Rotating Equipment Technician",
+        "linked_rca_case_id": "RCA-P101-001",
+        "verification_metric": "Angular and offset alignment values remain within approved tolerances"
+      },
+      {
+        "work_order_id": "MWO-HX301-002",
+        "asset_id": "HX-301",
+        "title": "Clean heat-transfer surfaces",
+        "maintenance_type": "Corrective",
+        "priority": "High",
+        "status": "Planned",
+        "risk_score": 81,
+        "confidence": 0.86,
+        "due_at": "2026-06-25T07:40:00Z",
+        "owner_role": "Mechanical Maintenance Supervisor",
+        "linked_rca_case_id": null,
+        "verification_metric": "Heat-transfer surfaces cleaned and post-cleaning inspection evidence attached"
+      },
+      {
+        "work_order_id": "MWO-P101-004",
+        "asset_id": "P-101",
+        "title": "Conduct post-maintenance vibration test",
+        "maintenance_type": "Verification",
+        "priority": "High",
+        "status": "Planned",
+        "risk_score": 78,
+        "confidence": 0.91,
+        "due_at": "2026-06-22T07:30:00Z",
+        "owner_role": "Condition Monitoring Engineer",
+        "linked_rca_case_id": "RCA-P101-001",
+        "verification_metric": "Vibration and bearing temperature remain within approved operating limits"
+      },
+      {
+        "work_order_id": "MWO-C201-001",
+        "asset_id": "C-201",
+        "title": "Inspect compressor lubrication system",
+        "maintenance_type": "Condition-Based",
+        "priority": "High",
+        "status": "Open",
+        "risk_score": 76,
+        "confidence": 0.81,
+        "due_at": "2026-06-23T08:00:00Z",
+        "owner_role": "Mechanical Maintenance Engineer",
+        "linked_rca_case_id": null,
+        "verification_metric": "Lubricant condition, level, pressure, and filter status recorded within approved limits"
+      }
+    ]
+  },
+  "audit_readiness": {
+    "score": 20,
+    "label": "Critical",
+    "total_open_gap_count": 5,
+    "evidence_ready_gap_count": 1,
+    "missing_evidence_gap_count": 4,
+    "method": "Percentage of open compliance gaps with linked evidence"
+  },
+  "top_recommended_action": {
+    "action_id": "P101-CA-001",
+    "title": "Inspect and restore bearing lubrication",
+    "description": "Safely isolate the pump, inspect lubricant condition and quantity, and restore lubrication according to the approved procedure.",
+    "priority": "Immediate",
+    "status": "Recommended",
+    "owner_role": "Mechanical Maintenance Engineer",
+    "due_in_hours": 4,
+    "verification_metric": "Lubrication completed and evidence attached",
+    "asset_id": "P-101",
+    "source_type": "RCA",
+    "source_id": "RCA-P101-001",
+    "confidence": 0.91
+  }
+}

@@ -1,0 +1,29 @@
+{
+  "asset_id": "P-101",
+  "asset_name": "Cooling Water Circulation Pump",
+  "asset_type": "Pump",
+  "risk_score": 97,
+  "health_score": 3,
+  "risk_level": "High",
+  "sensor_status": "Critical",
+  "compliance_status": "High Risk Non-Compliant",
+  "total_compliance_gaps": 2,
+  "open_or_delayed_work_orders": [
+    "WO-1001",
+    "WO-1002"
+  ],
+  "connected_sensors": [
+    "vibration"
+  ],
+  "critical_story": "High vibration, bearing temperature warning, abnormal noise, and missing lubrication evidence.",
+  "source_documents": [
+    "SOP-P101-001",
+    "SOP-P101-002",
+    "IR-P101-001",
+    "IR-P101-002",
+    "INC-P101-001",
+    "COMP-001",
+    "PID-001"
+  ],
+  "pid_reference": "PID-001"
+}

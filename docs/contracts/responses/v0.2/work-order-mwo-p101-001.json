@@ -1,0 +1,438 @@
+{
+  "work_order_id": "MWO-P101-001",
+  "asset_id": "P-101",
+  "title": "Inspect and relubricate drive-end bearing",
+  "description": "Safely isolate P-101, inspect the drive-end bearing lubricant condition and quantity, remove degraded lubricant, and restore lubrication according to the approved pump procedure.",
+  "maintenance_type": "Corrective",
+  "priority": "Critical",
+  "status": "Open",
+  "created_at": "2026-06-21T11:15:00Z",
+  "due_at": "2026-06-21T15:15:00Z",
+  "owner_role": "Mechanical Maintenance Engineer",
+  "source_type": "Corrective Action",
+  "source_id": "P101-CA-001",
+  "linked_rca_case_id": "RCA-P101-001",
+  "linked_root_cause_ids": [
+    "P101-RC-001"
+  ],
+  "linked_evidence_ids": [
+    "P101-EV-001",
+    "P101-EV-002",
+    "P101-EV-003",
+    "P101-EV-004"
+  ],
+  "risk_score": 94,
+  "confidence": 0.93,
+  "required_procedure": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+  "safety_requirements": [
+    "Approved work permit",
+    "Lockout and tagout",
+    "Pump pressure isolation",
+    "Required personal protective equipment"
+  ],
+  "parts_required": [
+    "Approved bearing lubricant",
+    "Lubrication applicator",
+    "Replacement grease seal"
+  ],
+  "estimated_duration_hours": 3,
+  "verification_metric": "Lubrication condition restored and timestamped completion evidence attached",
+  "completion_notes": null,
+  "answer": "MWO-P101-001 requires Inspect and relubricate drive-end bearing. It is Critical priority and currently Open.",
+  "confidence_explanation": {
+    "score": 0.93,
+    "percentage": 93.0,
+    "label": "High",
+    "why": [
+      "Strong support from three or more independent evidence sources",
+      "6 citations passed integrity validation",
+      "No material conflicting evidence was identified",
+      "2 required evidence items remain unavailable"
+    ],
+    "verified_source_count": 6,
+    "partial_source_count": 0,
+    "independent_source_count": 6,
+    "conflict_count": 0,
+    "missing_evidence_count": 2
+  },
+  "evidence_used": [
+    {
+      "citation_id": "MWO-P101-001",
+      "document_id": "MWO-P101-001",
+      "document_title": "Inspect and relubricate drive-end bearing",
+      "document_type": "Maintenance Work Order",
+      "section_title": "Inspect and relubricate drive-end bearing",
+      "relative_path": null,
+      "evidence_excerpt": "Safely isolate P-101, inspect the drive-end bearing lubricant condition and quantity, remove degraded lubricant, and restore lubrication according to the approved pump procedure. Priority: Critical Status: Open Due at: 2026-06-21T15:15:00Z",
+      "validation_status": "Verified",
+      "source_quality": {
+        "label": "Maintenance record",
+        "rating": "High"
+      },
+      "validation_details": {
+        "reference_exists": true,
+        "evidence_id_exists": true,
+        "referenced_section_exists": true,
+        "excerpt_not_empty": true,
+        "asset_matches": true,
+        "physical_file_exists": null
+      },
+      "resolved_reference_type": "work order",
+      "resolved_asset_ids": [
+        "P-101"
+      ]
+    },
+    {
+      "citation_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "document_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "document_title": "SOP-P101-001: Pump Lubrication and Bearing Check",
+      "document_type": "SOP / Manual",
+      "section_title": "SOP-P101-001: Pump Lubrication and Bearing Check",
+      "relative_path": "documents/manuals_sops/SOP-P101-001_Pump_Lubrication_and_Bearing_Check.md",
+      "evidence_excerpt": "SOP-P101-001: Pump Lubrication and Bearing Check Document ID: SOP-P101-001 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose This procedure defin...",
+      "validation_status": "Verified",
+      "source_quality": {
+        "label": "Official SOP",
+        "rating": "High"
+      },
+      "validation_details": {
+        "reference_exists": true,
+        "evidence_id_exists": true,
+        "referenced_section_exists": true,
+        "excerpt_not_empty": true,
+        "asset_matches": true,
+        "physical_file_exists": true
+      },
+      "resolved_reference_type": "document",
+      "resolved_asset_ids": [
+        "P-101"
+      ]
+    },
+    {
+      "citation_id": "P101-EV-001",
+      "document_id": "COMP-001_Compliance_Checklist",
+      "document_title": "Maintenance Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "section_title": "Lubrication Verification",
+      "relative_path": "documents/COMP-001_Compliance_Checklist",
+      "evidence_excerpt": "Lubrication completion evidence for P-101 was not available during the compliance review.",
+      "validation_status": "Verified",
+      "source_quality": {
+        "label": "Inspection report",
+        "rating": "High"
+      },
+      "validation_details": {
+        "reference_exists": true,
+        "evidence_id_exists": true,
+        "referenced_section_exists": true,
+        "excerpt_not_empty": true,
+        "asset_matches": true,
+        "physical_file_exists": true
+      },
+      "resolved_reference_type": "document",
+      "resolved_asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ]
+    },
+    {
+      "citation_id": "P101-EV-002",
+      "document_id": "SENSOR-P101-BEARING-TEMP",
+      "document_title": "P-101 Bearing Temperature Summary",
+      "document_type": "Sensor Summary",
+      "section_title": "Latest Condition",
+      "relative_path": "sensor/P-101/bearing-temperature",
+      "evidence_excerpt": "The latest bearing-temperature condition was classified as warning with an increasing trend.",
+      "validation_status": "Verified",
+      "source_quality": {
+        "label": "Sensor extract",
+        "rating": "Medium-High"
+      },
+      "validation_details": {
+        "reference_exists": true,
+        "evidence_id_exists": true,
+        "referenced_section_exists": true,
+        "excerpt_not_empty": true,
+        "asset_matches": true,
+        "physical_file_exists": null
+      },
+      "resolved_reference_type": "sensor evidence",
+      "resolved_asset_ids": [
+        "P-101"
+      ]
+    },
+    {
+      "citation_id": "P101-EV-003",
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "document_title": "P-101 Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "section_title": "Inspection Findings",
+      "relative_path": "documents/IR-P101-001_Pump_Vibration_Inspection",
+      "evidence_excerpt": "Inspection identified high vibration and abnormal mechanical noise near the bearing housing.",
+      "validation_status": "Verified",
+      "source_quality": {
+        "label": "Inspection report",
+        "rating": "High"
+      },
+      "validation_details": {
+        "reference_exists": true,
+        "evidence_id_exists": true,
+        "referenced_section_exists": true,
+        "excerpt_not_empty": true,
+        "asset_matches": true,
+        "physical_file_exists": true
+      },
+      "resolved_reference_type": "document",
+      "resolved_asset_ids": [
+        "P-101"
+      ]
+    },
+    {
+      "citation_id": "P101-EV-004",
+      "document_id": "WO-P101-001",
+      "document_title": "P-101 Corrective Maintenance Work Order",
+      "document_type": "Work Order",
+      "section_title": "Requested Work",
+      "relative_path": "maintenance/WO-P101-001",
+      "evidence_excerpt": "Inspect lubrication condition, shaft alignment and bearing health before returning the pump to service.",
+      "validation_status": "Verified",
+      "source_quality": {
+        "label": "Maintenance record",
+        "rating": "High"
+      },
+      "validation_details": {
+        "reference_exists": true,
+        "evidence_id_exists": true,
+        "referenced_section_exists": true,
+        "excerpt_not_empty": true,
+        "asset_matches": true,
+        "physical_file_exists": null
+      },
+      "resolved_reference_type": "rca evidence",
+      "resolved_asset_ids": [
+        "P-101"
+      ]
+    }
+  ],
+  "evidence_not_found": [
+    "Completion notes",
+    "Executed verification result"
+  ],
+  "reasoning_summary": [
+    "The work order is Critical priority and currently Open",
+    "The recorded maintenance risk score is 94",
+    "The work order was generated from Corrective Action P101-CA-001",
+    "The work order is linked to RCA-P101-001"
+  ],
+  "rules_applied": [
+    "The maintenance action must be linked to an asset",
+    "The required procedure must be identifiable",
+    "Linked evidence must pass integrity validation",
+    "The work order must define a verification method"
+  ],
+  "conflicting_evidence": [],
+  "recommended_action": "Safely isolate P-101, inspect the drive-end bearing lubricant condition and quantity, remove degraded lubricant, and restore lubrication according to the approved pump procedure.",
+  "verification_method": "Lubrication condition restored and timestamped completion evidence attached",
+  "supported": true,
+  "decision_trace": {
+    "answer": "MWO-P101-001 requires Inspect and relubricate drive-end bearing. It is Critical priority and currently Open.",
+    "confidence": 0.93,
+    "confidence_explanation": {
+      "score": 0.93,
+      "percentage": 93.0,
+      "label": "High",
+      "why": [
+        "Strong support from three or more independent evidence sources",
+        "6 citations passed integrity validation",
+        "No material conflicting evidence was identified",
+        "2 required evidence items remain unavailable"
+      ],
+      "verified_source_count": 6,
+      "partial_source_count": 0,
+      "independent_source_count": 6,
+      "conflict_count": 0,
+      "missing_evidence_count": 2
+    },
+    "evidence_used": [
+      {
+        "citation_id": "MWO-P101-001",
+        "document_id": "MWO-P101-001",
+        "document_title": "Inspect and relubricate drive-end bearing",
+        "document_type": "Maintenance Work Order",
+        "section_title": "Inspect and relubricate drive-end bearing",
+        "relative_path": null,
+        "evidence_excerpt": "Safely isolate P-101, inspect the drive-end bearing lubricant condition and quantity, remove degraded lubricant, and restore lubrication according to the approved pump procedure. Priority: Critical Status: Open Due at: 2026-06-21T15:15:00Z",
+        "validation_status": "Verified",
+        "source_quality": {
+          "label": "Maintenance record",
+          "rating": "High"
+        },
+        "validation_details": {
+          "reference_exists": true,
+          "evidence_id_exists": true,
+          "referenced_section_exists": true,
+          "excerpt_not_empty": true,
+          "asset_matches": true,
+          "physical_file_exists": null
+        },
+        "resolved_reference_type": "work order",
+        "resolved_asset_ids": [
+          "P-101"
+        ]
+      },
+      {
+        "citation_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+        "document_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+        "document_title": "SOP-P101-001: Pump Lubrication and Bearing Check",
+        "document_type": "SOP / Manual",
+        "section_title": "SOP-P101-001: Pump Lubrication and Bearing Check",
+        "relative_path": "documents/manuals_sops/SOP-P101-001_Pump_Lubrication_and_Bearing_Check.md",
+        "evidence_excerpt": "SOP-P101-001: Pump Lubrication and Bearing Check Document ID: SOP-P101-001 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose This procedure defin...",
+        "validation_status": "Verified",
+        "source_quality": {
+          "label": "Official SOP",
+          "rating": "High"
+        },
+        "validation_details": {
+          "reference_exists": true,
+          "evidence_id_exists": true,
+          "referenced_section_exists": true,
+          "excerpt_not_empty": true,
+          "asset_matches": true,
+          "physical_file_exists": true
+        },
+        "resolved_reference_type": "document",
+        "resolved_asset_ids": [
+          "P-101"
+        ]
+      },
+      {
+        "citation_id": "P101-EV-001",
+        "document_id": "COMP-001_Compliance_Checklist",
+        "document_title": "Maintenance Compliance Checklist",
+        "document_type": "Compliance Checklist",
+        "section_title": "Lubrication Verification",
+        "relative_path": "documents/COMP-001_Compliance_Checklist",
+        "evidence_excerpt": "Lubrication completion evidence for P-101 was not available during the compliance review.",
+        "validation_status": "Verified",
+        "source_quality": {
+          "label": "Inspection report",
+          "rating": "High"
+        },
+        "validation_details": {
+          "reference_exists": true,
+          "evidence_id_exists": true,
+          "referenced_section_exists": true,
+          "excerpt_not_empty": true,
+          "asset_matches": true,
+          "physical_file_exists": true
+        },
+        "resolved_reference_type": "document",
+        "resolved_asset_ids": [
+          "C-201",
+          "HX-301",
+          "P-101"
+        ]
+      },
+      {
+        "citation_id": "P101-EV-002",
+        "document_id": "SENSOR-P101-BEARING-TEMP",
+        "document_title": "P-101 Bearing Temperature Summary",
+        "document_type": "Sensor Summary",
+        "section_title": "Latest Condition",
+        "relative_path": "sensor/P-101/bearing-temperature",
+        "evidence_excerpt": "The latest bearing-temperature condition was classified as warning with an increasing trend.",
+        "validation_status": "Verified",
+        "source_quality": {
+          "label": "Sensor extract",
+          "rating": "Medium-High"
+        },
+        "validation_details": {
+          "reference_exists": true,
+          "evidence_id_exists": true,
+          "referenced_section_exists": true,
+          "excerpt_not_empty": true,
+          "asset_matches": true,
+          "physical_file_exists": null
+        },
+        "resolved_reference_type": "sensor evidence",
+        "resolved_asset_ids": [
+          "P-101"
+        ]
+      },
+      {
+        "citation_id": "P101-EV-003",
+        "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+        "document_title": "P-101 Pump Vibration Inspection",
+        "document_type": "Inspection Report",
+        "section_title": "Inspection Findings",
+        "relative_path": "documents/IR-P101-001_Pump_Vibration_Inspection",
+        "evidence_excerpt": "Inspection identified high vibration and abnormal mechanical noise near the bearing housing.",
+        "validation_status": "Verified",
+        "source_quality": {
+          "label": "Inspection report",
+          "rating": "High"
+        },
+        "validation_details": {
+          "reference_exists": true,
+          "evidence_id_exists": true,
+          "referenced_section_exists": true,
+          "excerpt_not_empty": true,
+          "asset_matches": true,
+          "physical_file_exists": true
+        },
+        "resolved_reference_type": "document",
+        "resolved_asset_ids": [
+          "P-101"
+        ]
+      },
+      {
+        "citation_id": "P101-EV-004",
+        "document_id": "WO-P101-001",
+        "document_title": "P-101 Corrective Maintenance Work Order",
+        "document_type": "Work Order",
+        "section_title": "Requested Work",
+        "relative_path": "maintenance/WO-P101-001",
+        "evidence_excerpt": "Inspect lubrication condition, shaft alignment and bearing health before returning the pump to service.",
+        "validation_status": "Verified",
+        "source_quality": {
+          "label": "Maintenance record",
+          "rating": "High"
+        },
+        "validation_details": {
+          "reference_exists": true,
+          "evidence_id_exists": true,
+          "referenced_section_exists": true,
+          "excerpt_not_empty": true,
+          "asset_matches": true,
+          "physical_file_exists": null
+        },
+        "resolved_reference_type": "rca evidence",
+        "resolved_asset_ids": [
+          "P-101"
+        ]
+      }
+    ],
+    "evidence_not_found": [
+      "Completion notes",
+      "Executed verification result"
+    ],
+    "reasoning_summary": [
+      "The work order is Critical priority and currently Open",
+      "The recorded maintenance risk score is 94",
+      "The work order was generated from Corrective Action P101-CA-001",
+      "The work order is linked to RCA-P101-001"
+    ],
+    "rules_applied": [
+      "The maintenance action must be linked to an asset",
+      "The required procedure must be identifiable",
+      "Linked evidence must pass integrity validation",
+      "The work order must define a verification method"
+    ],
+    "conflicting_evidence": [],
+    "recommended_action": "Safely isolate P-101, inspect the drive-end bearing lubricant condition and quantity, remove degraded lubricant, and restore lubrication according to the approved pump procedure.",
+    "verification_method": "Lubrication condition restored and timestamped completion evidence attached",
+    "supported": true
+  }
+}

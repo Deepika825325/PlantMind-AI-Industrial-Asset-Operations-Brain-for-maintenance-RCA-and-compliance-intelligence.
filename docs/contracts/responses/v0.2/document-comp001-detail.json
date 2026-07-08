@@ -1,0 +1,19 @@
+{
+  "document_id": "COMP-001_Compliance_Checklist",
+  "title": "COMP-001: PlantMind Demo Compliance Checklist",
+  "document_type": "Compliance Checklist",
+  "source_group": "compliance",
+  "asset_ids": [
+    "C-201",
+    "HX-301",
+    "P-101"
+  ],
+  "tags": [
+    "C-201",
+    "HX-301",
+    "P-101"
+  ],
+  "summary": "COMP-001: PlantMind Demo Compliance Checklist Document ID: COMP-001 Document Type: Compliance Checklist Assets Covered: P-101, C-201, HX-301 Review Date: 2026-03-10 Reviewer: Demo Compliance Officer Checklist Status: Open Gaps Found --- 1. Compliance Context This checklist evalua...",
+  "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+  "word_count": 706
+}

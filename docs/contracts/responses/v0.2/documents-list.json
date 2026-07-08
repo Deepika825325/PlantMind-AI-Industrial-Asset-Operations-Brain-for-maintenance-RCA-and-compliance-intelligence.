@@ -1,0 +1,316 @@
+{
+  "total": 19,
+  "documents": [
+    {
+      "document_id": "COMP-001_Compliance_Checklist",
+      "title": "COMP-001: PlantMind Demo Compliance Checklist",
+      "document_type": "Compliance Checklist",
+      "source_group": "compliance",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "summary": "COMP-001: PlantMind Demo Compliance Checklist Document ID: COMP-001 Document Type: Compliance Checklist Assets Covered: P-101, C-201, HX-301 Review Date: 2026-03-10 Reviewer: Demo Compliance Officer Checklist Status: Open Gaps Found --- 1. Compliance Context This checklist evalua...",
+      "relative_path": "documents/compliance/COMP-001_Compliance_Checklist.md",
+      "word_count": 706
+    },
+    {
+      "document_id": "PID-001",
+      "title": "PID-001 Demo Process Line",
+      "document_type": "P&ID Drawing",
+      "source_group": "drawings",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "FT-101",
+        "HX-301",
+        "P-101",
+        "PID-001",
+        "PT-201",
+        "TT-301",
+        "V-101",
+        "V-201"
+      ],
+      "summary": "PID-001 is a simplified P&ID-style demo drawing showing a process line from Feed Line through V-101, P-101 Pump, C-201 Compressor, HX-301 Heat Exchanger, V-201, and Outlet Line. It includes FT-101 flow transmitter, PT-201 pressure transmitter, and TT-301 temperature transmitter.",
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.metadata.json",
+      "word_count": 472
+    },
+    {
+      "document_id": "PID-001_Demo_Process_Line",
+      "title": "PID-001_Demo_Process_Line",
+      "document_type": "P&ID Drawing Image",
+      "source_group": "drawings",
+      "asset_ids": [],
+      "tags": [],
+      "summary": "P&ID-style drawing image used for PlantMind AI demo process line.",
+      "relative_path": "documents/drawings/PID-001_Demo_Process_Line.png",
+      "word_count": 0
+    },
+    {
+      "document_id": "INC-HX301-001_Low_Heat_Transfer_Efficiency",
+      "title": "INC-HX301-001: Low Heat Transfer Efficiency",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "summary": "INC-HX301-001: Low Heat Transfer Efficiency Document ID: INC-HX301-001 Asset ID: HX-301 Asset Name: Feed Preheater Heat Exchanger Asset Type: Heat Exchanger Document Type: Incident Report Incident Date: 2026-03-07 Reported By: Operations Team Incident Status: Open for Maintenance...",
+      "relative_path": "documents/incident_reports/INC-HX301-001_Low_Heat_Transfer_Efficiency.md",
+      "word_count": 455
+    },
+    {
+      "document_id": "INC-P101-001_High_Vibration_Event",
+      "title": "INC-P101-001: High Vibration Event",
+      "document_type": "Incident Report",
+      "source_group": "incident_reports",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "summary": "INC-P101-001: High Vibration Event Document ID: INC-P101-001 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: Incident Report Incident Date: 2026-01-22 Reported By: Operations Team Incident Status: Open for RCA --- 1. Incident Summary P-1...",
+      "relative_path": "documents/incident_reports/INC-P101-001_High_Vibration_Event.md",
+      "word_count": 448
+    },
+    {
+      "document_id": "IR-C201-001_Compressor_Monthly_Inspection",
+      "title": "IR-C201-001: Compressor Monthly Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "summary": "IR-C201-001: Compressor Monthly Inspection Document ID: IR-C201-001 Asset ID: C-201 Asset Name: Process Air Compressor Asset Type: Compressor Document Type: Inspection Report Inspection Date: 2026-02-15 Inspector: Demo Inspector Inspection Status: Completed --- 1. Inspection Purp...",
+      "relative_path": "documents/inspection_reports/IR-C201-001_Compressor_Monthly_Inspection.md",
+      "word_count": 405
+    },
+    {
+      "document_id": "IR-GEN-001_Safety_Evidence_Audit",
+      "title": "IR-GEN-001: Safety Evidence Audit",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "summary": "IR-GEN-001: Safety Evidence Audit Document ID: IR-GEN-001 Asset ID: GENERAL Asset Name: PlantMind Demo Assets Asset Type: General Audit Document Type: Inspection Report Inspection Date: 2026-03-10 Inspector: Demo Safety Auditor Inspection Status: Completed --- 1. Audit Purpose Th...",
+      "relative_path": "documents/inspection_reports/IR-GEN-001_Safety_Evidence_Audit.md",
+      "word_count": 539
+    },
+    {
+      "document_id": "IR-HX301-001_Heat_Exchanger_Performance_Inspection",
+      "title": "IR-HX301-001: Heat Exchanger Performance Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "asset_ids": [
+        "HX-301"
+      ],
+      "tags": [
+        "HX-301"
+      ],
+      "summary": "IR-HX301-001: Heat Exchanger Performance Inspection Document ID: IR-HX301-001 Asset ID: HX-301 Asset Name: Feed Preheater Heat Exchanger Asset Type: Heat Exchanger Document Type: Inspection Report Inspection Date: 2026-03-05 Inspector: Demo Inspector Inspection Status: Completed...",
+      "relative_path": "documents/inspection_reports/IR-HX301-001_Heat_Exchanger_Performance_Inspection.md",
+      "word_count": 426
+    },
+    {
+      "document_id": "IR-P101-001_Pump_Vibration_Inspection",
+      "title": "IR-P101-001: Pump Vibration Inspection",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "summary": "IR-P101-001: Pump Vibration Inspection Document ID: IR-P101-001 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: Inspection Report Inspection Date: 2026-01-21 Inspector: Demo Inspector Inspection Status: Completed --- 1. Inspection Purpos...",
+      "relative_path": "documents/inspection_reports/IR-P101-001_Pump_Vibration_Inspection.md",
+      "word_count": 328
+    },
+    {
+      "document_id": "IR-P101-002_Pump_Bearing_Temperature_Check",
+      "title": "IR-P101-002: Pump Bearing Temperature Check",
+      "document_type": "Inspection Report",
+      "source_group": "inspection_reports",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "summary": "IR-P101-002: Pump Bearing Temperature Check Document ID: IR-P101-002 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: Inspection Report Inspection Date: 2026-01-22 Inspector: Demo Inspector Inspection Status: Completed --- 1. Inspection P...",
+      "relative_path": "documents/inspection_reports/IR-P101-002_Pump_Bearing_Temperature_Check.md",
+      "word_count": 357
+    },
+    {
+      "document_id": "SOP-C201-001_Compressor_Safe_Shutdown",
+      "title": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "summary": "SOP-C201-001: Compressor Safe Shutdown and Inspection Preparation Document ID: SOP-C201-001 Asset ID: C-201 Asset Name: Process Air Compressor Asset Type: Compressor Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose This...",
+      "relative_path": "documents/manuals_sops/SOP-C201-001_Compressor_Safe_Shutdown.md",
+      "word_count": 600
+    },
+    {
+      "document_id": "SOP-GEN-001_Work_Permit_and_LOTO",
+      "title": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "summary": "SOP-GEN-001: Work Permit and Lockout Tagout Requirements Document ID: SOP-GEN-001 Asset ID: GENERAL Asset Name: Plant Maintenance Safety Procedure Asset Type: General Safety Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Safety and Maintenance Department -...",
+      "relative_path": "documents/manuals_sops/SOP-GEN-001_Work_Permit_and_LOTO.md",
+      "word_count": 581
+    },
+    {
+      "document_id": "SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check",
+      "title": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "summary": "SOP-HX301-001: Heat Exchanger Cleaning and Fouling Check Document ID: SOP-HX301-001 Asset ID: HX-301 Asset Name: Feed Preheater Heat Exchanger Asset Type: Heat Exchanger Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose T...",
+      "relative_path": "documents/manuals_sops/SOP-HX301-001_Heat_Exchanger_Cleaning_and_Fouling_Check.md",
+      "word_count": 600
+    },
+    {
+      "document_id": "SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+      "title": "SOP-P101-001: Pump Lubrication and Bearing Check",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "summary": "SOP-P101-001: Pump Lubrication and Bearing Check Document ID: SOP-P101-001 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose This procedure defin...",
+      "relative_path": "documents/manuals_sops/SOP-P101-001_Pump_Lubrication_and_Bearing_Check.md",
+      "word_count": 110
+    },
+    {
+      "document_id": "SOP-P101-002_Pump_Vibration_Inspection",
+      "title": "SOP-P101-002: Pump Vibration Inspection",
+      "document_type": "SOP / Manual",
+      "source_group": "manuals_sops",
+      "asset_ids": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "tags": [
+        "C-201",
+        "HX-301",
+        "P-101"
+      ],
+      "summary": "SOP-P101-002: Pump Vibration Inspection Document ID: SOP-P101-002 Asset ID: P-101 Asset Name: Cooling Water Circulation Pump Asset Type: Pump Document Type: SOP Revision: Rev 1.0 Effective Date: 2026-01-01 Owner: Maintenance Department --- 1. Purpose This SOP defines the vibratio...",
+      "relative_path": "documents/manuals_sops/SOP-P101-002_Pump_Vibration_Inspection.md",
+      "word_count": 478
+    },
+    {
+      "document_id": "README_PlantMind_Mapping",
+      "title": "AI4I Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "ai4i",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "summary": "AI4I Mapping for PlantMind AI Purpose This folder contains the AI4I 2020 Predictive Maintenance dataset used as a public reference for machine failure and predictive maintenance behavior. PlantMind AI maps this dataset to the P-101 Pump demo use case. PlantMind Asset Mapping | AI...",
+      "relative_path": "public_sources/ai4i/README_PlantMind_Mapping.md",
+      "word_count": 139
+    },
+    {
+      "document_id": "readme",
+      "title": "readme",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "asset_ids": [],
+      "tags": [],
+      "summary": "Data Set: FD001 Train trjectories: 100 Test trajectories: 100 Conditions: ONE (Sea Level) Fault Modes: ONE (HPC Degradation) Data Set: FD002 Train trjectories: 260 Test trajectories: 259 Conditions: SIX Fault Modes: ONE (HPC Degradation) Data Set: FD003 Train trjectories: 100 Tes...",
+      "relative_path": "public_sources/nasa_cmapss/readme.txt",
+      "word_count": 388
+    },
+    {
+      "document_id": "README_PlantMind_Mapping",
+      "title": "NASA C-MAPSS Mapping for PlantMind AI",
+      "document_type": "Public Source Reference",
+      "source_group": "nasa_cmapss",
+      "asset_ids": [
+        "C-201"
+      ],
+      "tags": [
+        "C-201"
+      ],
+      "summary": "NASA C-MAPSS Mapping for PlantMind AI Purpose This folder contains NASA C-MAPSS public dataset files used as a reference for turbomachinery degradation and Remaining Useful Life behavior. PlantMind AI maps this dataset to the C-201 Process Air Compressor demo use case. Selected D...",
+      "relative_path": "public_sources/nasa_cmapss/README_PlantMind_Mapping.md",
+      "word_count": 209
+    },
+    {
+      "document_id": "README_sources",
+      "title": "Public Dataset and Standards References",
+      "document_type": "Public Source Reference",
+      "source_group": "README_sources.md",
+      "asset_ids": [
+        "P-101"
+      ],
+      "tags": [
+        "P-101"
+      ],
+      "summary": "Public Dataset and Standards References This folder records public references used for PlantMind AI demo dataset design. 1. AI4I 2020 Predictive Maintenance Dataset AI4I is used as a public predictive maintenance reference. PlantMind Mapping AI4I-style predictive maintenance beha...",
+      "relative_path": "public_sources/README_sources.md",
+      "word_count": 84
+    }
+  ]
+}
