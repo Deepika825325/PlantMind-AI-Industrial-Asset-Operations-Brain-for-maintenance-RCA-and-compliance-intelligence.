@@ -1,7 +1,7 @@
 """create foundational plant asset and identity tables
 
 Revision ID: e4063517af0f
-Revises: 
+Revises:
 Create Date: 2026-07-08 15:38:49.062987
 
 """
