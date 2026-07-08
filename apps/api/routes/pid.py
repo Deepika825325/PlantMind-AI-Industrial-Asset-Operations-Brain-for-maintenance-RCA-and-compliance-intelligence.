@@ -1,23 +1,14 @@
-import json
-from pathlib import Path
-
 from fastapi import APIRouter, HTTPException
 from fastapi.responses import FileResponse
 
+from apps.api.repositories.registry import (
+    get_repository_registry,
+)
 
-router = APIRouter(prefix="/pid", tags=["P&ID"])
 
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
-
-PID_DATA_PATH = PROJECT_ROOT / "data" / "demo" / "pid_view.json"
-
-PID_IMAGE_PATH = (
-    PROJECT_ROOT
-    / "data"
-    / "raw"
-    / "documents"
-    / "drawings"
-    / "PID-001_Demo_Process_Line.png"
+router = APIRouter(
+    prefix="/pid",
+    tags=["P&ID"],
 )
 
 
@@ -28,17 +19,24 @@ def get_pid(pid_id: str):
     if normalized_pid_id != "PID-001":
         raise HTTPException(
             status_code=404,
-            detail=f"P&ID not found: {pid_id}"
+            detail=f"P&ID not found: {pid_id}",
         )
 
-    if not PID_DATA_PATH.exists():
+    repositories = get_repository_registry()
+    pid_view = repositories.pid.get_view(
+        normalized_pid_id
+    )
+
+    if pid_view is None:
         raise HTTPException(
             status_code=404,
-            detail="P&ID visualization data file was not found"
+            detail=(
+                "P&ID visualization data file "
+                "was not found"
+            ),
         )
 
-    with PID_DATA_PATH.open("r", encoding="utf-8") as file:
-        return json.load(file)
+    return pid_view
 
 
 @router.get("/{pid_id}/image")
@@ -48,17 +46,22 @@ def get_pid_image(pid_id: str):
     if normalized_pid_id != "PID-001":
         raise HTTPException(
             status_code=404,
-            detail=f"P&ID image not found: {pid_id}"
+            detail=f"P&ID image not found: {pid_id}",
         )
 
-    if not PID_IMAGE_PATH.exists():
+    repositories = get_repository_registry()
+    image_path = repositories.pid.get_image_path(
+        normalized_pid_id
+    )
+
+    if image_path is None:
         raise HTTPException(
             status_code=404,
-            detail="P&ID image file was not found"
+            detail="P&ID image file was not found",
         )
 
     return FileResponse(
-        path=PID_IMAGE_PATH,
+        path=image_path,
         media_type="image/png",
-        filename="PID-001_Demo_Process_Line.png"
+        filename=image_path.name,
     )
