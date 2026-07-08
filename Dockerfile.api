@@ -30,6 +30,7 @@ RUN python -m pip install --upgrade pip \
         --requirement requirements.txt
 
 # Copy only the runtime application and data directories.
+COPY --chown=plantmind:plantmind alembic.ini ./alembic.ini
 COPY --chown=plantmind:plantmind apps ./apps
 COPY --chown=plantmind:plantmind data ./data
 

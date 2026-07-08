@@ -156,7 +156,7 @@ services:
       PLANTMIND_DATA_BACKEND: ${PLANTMIND_DATA_BACKEND:-json}
       CORS_ORIGINS: ${CORS_ORIGINS:-http://localhost:3000}
 
-      DATABASE_URL: ${DATABASE_URL:-postgresql://plantmind:plantmind_dev_password@postgres:5432/plantmind}
+      DATABASE_URL: ${DATABASE_URL:-postgresql+psycopg://plantmind:plantmind_dev_password@postgres:5432/plantmind}
       REDIS_URL: ${REDIS_URL:-redis://redis:6379/0}
 
       QDRANT_URL: ${QDRANT_URL:-http://qdrant:6333}
