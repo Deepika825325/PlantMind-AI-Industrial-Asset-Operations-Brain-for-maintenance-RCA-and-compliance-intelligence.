@@ -6,8 +6,18 @@
   RcaStatistics,
 } from "@/lib/types";
 
+const BROWSER_API_BASE_URL =
+  process.env.NEXT_PUBLIC_API_BASE_URL ??
+  "http://127.0.0.1:8000";
+
+const SERVER_API_BASE_URL =
+  process.env.API_INTERNAL_BASE_URL ??
+  BROWSER_API_BASE_URL;
+
 export const API_BASE_URL =
-  process.env.NEXT_PUBLIC_API_BASE_URL || "http://127.0.0.1:8000";
+  typeof window === "undefined"
+    ? SERVER_API_BASE_URL
+    : BROWSER_API_BASE_URL;
 
 const API_TIMEOUT_MS = 15000;
 
