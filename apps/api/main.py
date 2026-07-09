@@ -1,4 +1,4 @@
-﻿from contextlib import asynccontextmanager
+from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
 from fastapi import FastAPI
@@ -22,6 +22,7 @@ from apps.api.core.readiness import (
 )
 from apps.api.routes import (
     ask,
+    auth,
     assets,
     compliance,
     dashboard,
@@ -98,6 +99,10 @@ app.add_middleware(
 
 register_exception_handlers(
     app
+)
+
+app.include_router(
+    auth.router
 )
 
 app.include_router(
