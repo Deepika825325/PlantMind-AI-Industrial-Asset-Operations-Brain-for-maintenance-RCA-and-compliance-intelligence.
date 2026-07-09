@@ -9,6 +9,10 @@ from fastapi import (
     status,
 )
 
+from apps.api.audit.service import (
+    actor_from_user,
+    record_audit_event,
+)
 from apps.api.auth.rbac import (
     user_has_permission,
 )
@@ -107,9 +111,43 @@ def get_optional_current_user(
     )
 
 
+def _record_permission_audit(
+    *,
+    permission: str,
+    outcome: str,
+    current_user: dict[str, Any] | None,
+    reason: str,
+    auth_required: bool = True,
+) -> None:
+    record_audit_event(
+        action=permission,
+        entity_type="authorization",
+        outcome=outcome,
+        actor=actor_from_user(
+            current_user
+        ),
+        reason=reason,
+        metadata={
+            "permission": permission,
+            "auth_required": auth_required,
+            "role": (
+                current_user or {}
+            ).get("role"),
+        },
+    )
+
+
 def _raise_forbidden(
     permission: str,
+    current_user: dict[str, Any],
 ) -> None:
+    _record_permission_audit(
+        permission=permission,
+        outcome="denied",
+        current_user=current_user,
+        reason="User role does not have the required permission.",
+    )
+
     raise HTTPException(
         status_code=status.HTTP_403_FORBIDDEN,
         detail=(
@@ -131,7 +169,17 @@ def require_permission(
             current_user,
             permission,
         ):
-            _raise_forbidden(permission)
+            _raise_forbidden(
+                permission,
+                current_user,
+            )
+
+        _record_permission_audit(
+            permission=permission,
+            outcome="allowed",
+            current_user=current_user,
+            reason="User role has the required permission.",
+        )
 
         return current_user
 
@@ -166,6 +214,17 @@ def require_permission_if_auth_enabled(
         settings = get_settings()
 
         if not settings.auth_required:
+            _record_permission_audit(
+                permission=permission,
+                outcome="skipped_auth_not_required",
+                current_user=None,
+                reason=(
+                    "AUTH_REQUIRED is false; permission "
+                    "check was skipped."
+                ),
+                auth_required=False,
+            )
+
             return None
 
         current_user = get_current_user(
@@ -176,7 +235,18 @@ def require_permission_if_auth_enabled(
             current_user,
             permission,
         ):
-            _raise_forbidden(permission)
+            _raise_forbidden(
+                permission,
+                current_user,
+            )
+
+        _record_permission_audit(
+            permission=permission,
+            outcome="allowed",
+            current_user=current_user,
+            reason="User role has the required permission.",
+            auth_required=True,
+        )
 
         return current_user
 

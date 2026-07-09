@@ -29,6 +29,7 @@ from apps.api.core.readiness import (
 from apps.api.routes import (
     ask,
     auth,
+    audit,
     assets,
     compliance,
     dashboard,
@@ -109,6 +110,10 @@ register_exception_handlers(
 
 app.include_router(
     auth.router
+)
+
+app.include_router(
+    audit.router
 )
 
 app.include_router(
