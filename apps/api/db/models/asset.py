@@ -1,15 +1,19 @@
 from __future__ import annotations
 
+from typing import Any
 from uuid import UUID
 
 from sqlalchemy import (
     CheckConstraint,
     ForeignKey,
+    Integer,
     SmallInteger,
     String,
     Text,
     UniqueConstraint,
+    text,
 )
+from sqlalchemy.dialects.postgresql import JSONB
 from sqlalchemy.orm import (
     Mapped,
     mapped_column,
@@ -95,6 +99,20 @@ class Asset(
     health_score: Mapped[int | None] = mapped_column(
         SmallInteger,
         nullable=True,
+    )
+
+    source_order: Mapped[int] = mapped_column(
+        Integer,
+        nullable=False,
+        default=0,
+        server_default="0",
+    )
+
+    payload: Mapped[dict[str, Any]] = mapped_column(
+        JSONB,
+        nullable=False,
+        default=dict,
+        server_default=text("'{}'::jsonb"),
     )
 
     system: Mapped["System"] = relationship(

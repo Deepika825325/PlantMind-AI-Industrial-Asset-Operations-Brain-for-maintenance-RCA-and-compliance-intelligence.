@@ -3,6 +3,10 @@ from __future__ import annotations
 from dataclasses import dataclass
 from functools import lru_cache
 
+from apps.api.core.settings import (
+    DataMode,
+    get_settings,
+)
 from apps.api.repositories.base import (
     AssetRepository,
     ComplianceRepository,
@@ -29,12 +33,20 @@ from apps.api.repositories.json.rca_repository import (
 from apps.api.repositories.json.work_order_repository import (
     JsonWorkOrderRepository,
 )
+from apps.api.repositories.postgres import (
+    PostgresAssetRepository,
+    PostgresComplianceRepository,
+    PostgresDocumentRepository,
+    PostgresRcaRepository,
+    PostgresWorkOrderRepository,
+)
 
 
 @dataclass(frozen=True, slots=True)
 class RepositoryRegistry:
-    """Collection of repositories used by PlantMind services."""
+    """Repositories active for the selected data mode."""
 
+    mode: DataMode
     assets: AssetRepository
     documents: DocumentRepository
     work_orders: WorkOrderRepository
@@ -43,11 +55,9 @@ class RepositoryRegistry:
     pid: PidRepository
 
 
-@lru_cache(maxsize=1)
-def get_repository_registry() -> RepositoryRegistry:
-    """Return the repository registry for the active data mode."""
-
+def _build_demo_registry() -> RepositoryRegistry:
     return RepositoryRegistry(
+        mode="demo",
         assets=JsonAssetRepository(),
         documents=JsonDocumentRepository(),
         work_orders=JsonWorkOrderRepository(),
@@ -55,3 +65,27 @@ def get_repository_registry() -> RepositoryRegistry:
         compliance=JsonComplianceRepository(),
         pid=JsonPidRepository(),
     )
+
+
+def _build_postgres_registry() -> RepositoryRegistry:
+    return RepositoryRegistry(
+        mode="postgres",
+        assets=PostgresAssetRepository(),
+        documents=PostgresDocumentRepository(),
+        work_orders=PostgresWorkOrderRepository(),
+        rca=PostgresRcaRepository(),
+        compliance=PostgresComplianceRepository(),
+
+        # P&ID persistence is outside Day 5.
+        pid=JsonPidRepository(),
+    )
+
+
+@lru_cache(maxsize=1)
+def get_repository_registry() -> RepositoryRegistry:
+    settings = get_settings()
+
+    if settings.data_mode == "demo":
+        return _build_demo_registry()
+
+    return _build_postgres_registry()

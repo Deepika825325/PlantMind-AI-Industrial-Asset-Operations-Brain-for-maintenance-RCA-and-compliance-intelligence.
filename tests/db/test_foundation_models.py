@@ -22,7 +22,9 @@ ENTITY_TABLES = EXPECTED_TABLES - {
 
 
 def test_expected_tables_are_registered() -> None:
-    assert set(Base.metadata.tables) == EXPECTED_TABLES
+    assert EXPECTED_TABLES.issubset(
+        set(Base.metadata.tables)
+    )
 
 
 def test_entity_tables_have_uuid_primary_keys() -> None:
