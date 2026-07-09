@@ -1,10 +1,16 @@
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from apps.api.auth.dependencies import (
+    require_permission_if_auth_enabled,
+)
+from apps.api.auth.rbac import (
+    Permission,
+)
 from apps.api.core.errors import ApiError
 from apps.api.core.exception_handlers import (
     register_exception_handlers,
@@ -224,7 +230,13 @@ def file_status():
     "/admin/reload-cache",
     tags=["System"],
 )
-def reload_cache():
+def reload_cache(
+    _current_user=Depends(
+        require_permission_if_auth_enabled(
+            Permission.ADMIN_RELOAD_CACHE
+        )
+    ),
+):
     clear_data_cache()
 
     readiness = validate_data_files()
@@ -266,7 +278,13 @@ def reload_cache():
     "/admin/reset-demo",
     tags=["System"],
 )
-def reset_demo():
+def reset_demo(
+    _current_user=Depends(
+        require_permission_if_auth_enabled(
+            Permission.ADMIN_RESET_DEMO
+        )
+    ),
+):
     try:
         return reset_demo_state()
     except (

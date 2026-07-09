@@ -5,14 +5,19 @@ from typing import Annotated
 from fastapi import (
     APIRouter,
     Depends,
-    HTTPException,
     Header,
+    HTTPException,
     status,
 )
 
 from apps.api.auth.dependencies import (
     extract_bearer_token,
     get_current_user,
+    require_permission,
+)
+from apps.api.auth.rbac import (
+    Permission,
+    get_permissions_for_role,
 )
 from apps.api.auth.schemas import (
     LoginRequest,
@@ -221,5 +226,113 @@ def protected_test(
 ) -> dict:
     return {
         "status": "authenticated",
+        "user": current_user,
+    }
+
+
+@router.get(
+    "/permissions/me",
+)
+def my_permissions(
+    current_user: dict = Depends(
+        get_current_user
+    ),
+) -> dict:
+    permissions = sorted(
+        get_permissions_for_role(
+            str(current_user.get("role", ""))
+        )
+    )
+
+    return {
+        "user": current_user,
+        "role": current_user.get("role"),
+        "permissions": permissions,
+    }
+
+
+@router.post(
+    "/rbac-check/work-orders/complete",
+)
+def rbac_complete_work_order(
+    current_user: dict = Depends(
+        require_permission(
+            Permission.WORK_ORDER_COMPLETE
+        )
+    ),
+) -> dict:
+    return {
+        "status": "allowed",
+        "action": Permission.WORK_ORDER_COMPLETE,
+        "user": current_user,
+    }
+
+
+@router.post(
+    "/rbac-check/work-orders/approve-high-priority",
+)
+def rbac_approve_high_priority_work_order(
+    current_user: dict = Depends(
+        require_permission(
+            Permission.WORK_ORDER_APPROVE_HIGH_PRIORITY
+        )
+    ),
+) -> dict:
+    return {
+        "status": "allowed",
+        "action": (
+            Permission.WORK_ORDER_APPROVE_HIGH_PRIORITY
+        ),
+        "user": current_user,
+    }
+
+
+@router.post(
+    "/rbac-check/rca/approve",
+)
+def rbac_approve_rca(
+    current_user: dict = Depends(
+        require_permission(
+            Permission.RCA_APPROVE
+        )
+    ),
+) -> dict:
+    return {
+        "status": "allowed",
+        "action": Permission.RCA_APPROVE,
+        "user": current_user,
+    }
+
+
+@router.get(
+    "/rbac-check/evidence/read",
+)
+def rbac_read_evidence(
+    current_user: dict = Depends(
+        require_permission(
+            Permission.EVIDENCE_READ
+        )
+    ),
+) -> dict:
+    return {
+        "status": "allowed",
+        "action": Permission.EVIDENCE_READ,
+        "user": current_user,
+    }
+
+
+@router.post(
+    "/rbac-check/admin/reset-demo",
+)
+def rbac_reset_demo(
+    current_user: dict = Depends(
+        require_permission(
+            Permission.ADMIN_RESET_DEMO
+        )
+    ),
+) -> dict:
+    return {
+        "status": "allowed",
+        "action": Permission.ADMIN_RESET_DEMO,
         "user": current_user,
     }

@@ -1,9 +1,17 @@
 from __future__ import annotations
 
-from typing import Annotated, Any
+from typing import Annotated, Any, Callable
 
-from fastapi import Header, HTTPException, status
+from fastapi import (
+    Depends,
+    Header,
+    HTTPException,
+    status,
+)
 
+from apps.api.auth.rbac import (
+    user_has_permission,
+)
 from apps.api.auth.tokens import (
     TokenError,
     decode_token,
@@ -99,6 +107,37 @@ def get_optional_current_user(
     )
 
 
+def _raise_forbidden(
+    permission: str,
+) -> None:
+    raise HTTPException(
+        status_code=status.HTTP_403_FORBIDDEN,
+        detail=(
+            "User role is not allowed to perform "
+            f"this action: {permission}"
+        ),
+    )
+
+
+def require_permission(
+    permission: str,
+) -> Callable[[dict[str, Any]], dict[str, Any]]:
+    def dependency(
+        current_user: dict[str, Any] = Depends(
+            get_current_user
+        ),
+    ) -> dict[str, Any]:
+        if not user_has_permission(
+            current_user,
+            permission,
+        ):
+            _raise_forbidden(permission)
+
+        return current_user
+
+    return dependency
+
+
 def require_auth_if_enabled(
     authorization: Annotated[
         str | None,
@@ -113,3 +152,32 @@ def require_auth_if_enabled(
     return get_current_user(
         authorization
     )
+
+
+def require_permission_if_auth_enabled(
+    permission: str,
+) -> Callable[[str | None], dict[str, Any] | None]:
+    def dependency(
+        authorization: Annotated[
+            str | None,
+            Header(alias="Authorization"),
+        ] = None,
+    ) -> dict[str, Any] | None:
+        settings = get_settings()
+
+        if not settings.auth_required:
+            return None
+
+        current_user = get_current_user(
+            authorization
+        )
+
+        if not user_has_permission(
+            current_user,
+            permission,
+        ):
+            _raise_forbidden(permission)
+
+        return current_user
+
+    return dependency
