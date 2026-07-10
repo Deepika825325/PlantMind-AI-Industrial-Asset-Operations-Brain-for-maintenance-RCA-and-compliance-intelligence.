@@ -17,6 +17,7 @@ class AuditRecord(BaseModel):
     audit_id: str = Field(
         default_factory=lambda: str(uuid4())
     )
+    request_id: str | None = None
     action: str
     entity_type: str
     entity_id: str | None = None
@@ -26,6 +27,7 @@ class AuditRecord(BaseModel):
     metadata: dict[str, Any] = Field(
         default_factory=dict
     )
+    immutable: bool = True
     created_at: str = Field(
         default_factory=lambda: datetime.now(
             timezone.utc

@@ -1,0 +1,14 @@
+{
+  "body": {
+    "error": {
+      "code": "DEMO_TEST_ERROR",
+      "details": null,
+      "message": "Structured error handling is operational.",
+      "request_id": "contract-get-admin-test-error"
+    }
+  },
+  "method": "GET",
+  "path": "/admin/test-error",
+  "request_id": "contract-get-admin-test-error",
+  "status_code": 503
+}

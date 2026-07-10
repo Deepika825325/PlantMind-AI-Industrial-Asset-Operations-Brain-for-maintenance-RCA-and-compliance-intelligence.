@@ -1,0 +1,32 @@
+[
+  {
+    "fixture": "contracts/api/get__root.json",
+    "method": "GET",
+    "path": "/",
+    "status_code": 200
+  },
+  {
+    "fixture": "contracts/api/get__health.json",
+    "method": "GET",
+    "path": "/health",
+    "status_code": 200
+  },
+  {
+    "fixture": "contracts/api/get__ready.json",
+    "method": "GET",
+    "path": "/ready",
+    "status_code": 200
+  },
+  {
+    "fixture": "contracts/api/get__status__files.json",
+    "method": "GET",
+    "path": "/status/files",
+    "status_code": 200
+  },
+  {
+    "fixture": "contracts/api/get__admin__test-error.json",
+    "method": "GET",
+    "path": "/admin/test-error",
+    "status_code": 503
+  }
+]
