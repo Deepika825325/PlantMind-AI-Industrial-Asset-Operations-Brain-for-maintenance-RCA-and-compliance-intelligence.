@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 const navItems = [
   { label: "Dashboard", href: "/" },
   { label: "Ask PlantMind", href: "/ask" },
+  { label: "RAG Console", href: "/rag-console" },
   { label: "Assets", href: "/assets" },
   { label: "P&ID", href: "/pid" },
   { label: "Compliance", href: "/compliance" },
