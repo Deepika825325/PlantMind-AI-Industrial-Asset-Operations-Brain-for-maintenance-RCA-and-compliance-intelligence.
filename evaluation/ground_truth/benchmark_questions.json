@@ -1,0 +1,276 @@
+[
+  {
+    "question_id": "Q-ENTITY-001",
+    "category": "entity_extraction",
+    "question": "Which asset is affected by high vibration in the RCA case?",
+    "expected_entities": ["P-101"],
+    "expected_answer_terms": ["P-101", "vibration"],
+    "expected_citations": ["RCA-P101-001"],
+    "expected_recall_document": "RCA-P101-001"
+  },
+  {
+    "question_id": "Q-ENTITY-002",
+    "category": "entity_extraction",
+    "question": "Which compressor asset appears in PlantMind?",
+    "expected_entities": ["C-201"],
+    "expected_answer_terms": ["C-201", "compressor"],
+    "expected_citations": ["ASSET-C201"],
+    "expected_recall_document": "ASSET-C201"
+  },
+  {
+    "question_id": "Q-ENTITY-003",
+    "category": "entity_extraction",
+    "question": "Which heat exchanger is tracked by PlantMind?",
+    "expected_entities": ["HX-301"],
+    "expected_answer_terms": ["HX-301", "heat exchanger"],
+    "expected_citations": ["ASSET-HX301"],
+    "expected_recall_document": "ASSET-HX301"
+  },
+  {
+    "question_id": "Q-ENTITY-004",
+    "category": "entity_extraction",
+    "question": "Which evidence ID represents P-101 vibration?",
+    "expected_entities": ["P101-EV-001"],
+    "expected_answer_terms": ["P101-EV-001", "vibration"],
+    "expected_citations": ["P101-EV-001"],
+    "expected_recall_document": "P101-EV-001"
+  },
+  {
+    "question_id": "Q-ENTITY-005",
+    "category": "entity_extraction",
+    "question": "Which evidence ID represents P-101 bearing temperature?",
+    "expected_entities": ["P101-EV-002"],
+    "expected_answer_terms": ["P101-EV-002", "bearing temperature"],
+    "expected_citations": ["P101-EV-002"],
+    "expected_recall_document": "P101-EV-002"
+  },
+  {
+    "question_id": "Q-ENTITY-006",
+    "category": "entity_extraction",
+    "question": "Which evidence ID represents missing lubrication evidence?",
+    "expected_entities": ["P101-EV-004"],
+    "expected_answer_terms": ["P101-EV-004", "lubrication"],
+    "expected_citations": ["P101-EV-004"],
+    "expected_recall_document": "P101-EV-004"
+  },
+
+  {
+    "question_id": "Q-RAG-001",
+    "category": "rag",
+    "question": "Why is P-101 considered high risk?",
+    "expected_entities": ["P-101"],
+    "expected_answer_terms": ["vibration", "bearing temperature", "lubrication"],
+    "expected_citations": ["P101-EV-001", "P101-EV-002", "P101-EV-004"],
+    "expected_recall_document": "RCA-P101-001"
+  },
+  {
+    "question_id": "Q-RAG-002",
+    "category": "rag",
+    "question": "What evidence supports P-101 bearing concern?",
+    "expected_entities": ["P-101"],
+    "expected_answer_terms": ["bearing", "temperature", "vibration"],
+    "expected_citations": ["P101-EV-001", "P101-EV-002"],
+    "expected_recall_document": "RCA-P101-001"
+  },
+  {
+    "question_id": "Q-RAG-003",
+    "category": "rag",
+    "question": "What should be checked after P-101 maintenance?",
+    "expected_entities": ["P-101"],
+    "expected_answer_terms": ["post-maintenance", "verification", "vibration"],
+    "expected_citations": ["WO-P101-004"],
+    "expected_recall_document": "WO-P101-004"
+  },
+  {
+    "question_id": "Q-RAG-004",
+    "category": "rag",
+    "question": "Why is HX-301 suspected to be fouled?",
+    "expected_entities": ["HX-301"],
+    "expected_answer_terms": ["fouling", "heat transfer", "temperature"],
+    "expected_citations": ["IR-HX301-001"],
+    "expected_recall_document": "IR-HX301-001"
+  },
+  {
+    "question_id": "Q-RAG-005",
+    "category": "rag",
+    "question": "What is the recommended action for C-201 lubrication concerns?",
+    "expected_entities": ["C-201"],
+    "expected_answer_terms": ["lubrication", "inspect", "temperature"],
+    "expected_citations": ["WO-C201-001"],
+    "expected_recall_document": "WO-C201-001"
+  },
+  {
+    "question_id": "Q-RAG-006",
+    "category": "rag",
+    "question": "Which documents should be cited for P-101 vibration explanation?",
+    "expected_entities": ["P-101"],
+    "expected_answer_terms": ["document", "citation", "vibration"],
+    "expected_citations": ["P101-EV-001", "RCA-P101-001"],
+    "expected_recall_document": "P101-EV-001"
+  },
+
+  {
+    "question_id": "Q-COMP-001",
+    "category": "compliance",
+    "question": "Which compliance rule checks missing vibration reading?",
+    "expected_entities": ["C001"],
+    "expected_answer_terms": ["missing", "vibration", "reading"],
+    "expected_citations": ["C001"],
+    "expected_recall_document": "C001"
+  },
+  {
+    "question_id": "Q-COMP-002",
+    "category": "compliance",
+    "question": "Which compliance rule checks post-maintenance inspection?",
+    "expected_entities": ["C002"],
+    "expected_answer_terms": ["post-maintenance", "inspection"],
+    "expected_citations": ["C002"],
+    "expected_recall_document": "C002"
+  },
+  {
+    "question_id": "Q-COMP-003",
+    "category": "compliance",
+    "question": "Which rule checks supervisor sign-off?",
+    "expected_entities": ["C003"],
+    "expected_answer_terms": ["supervisor", "sign-off"],
+    "expected_citations": ["C003"],
+    "expected_recall_document": "C003"
+  },
+  {
+    "question_id": "Q-COMP-004",
+    "category": "compliance",
+    "question": "Which rule checks LOTO checklist completion?",
+    "expected_entities": ["C004"],
+    "expected_answer_terms": ["LOTO", "checklist"],
+    "expected_citations": ["C004"],
+    "expected_recall_document": "C004"
+  },
+  {
+    "question_id": "Q-COMP-005",
+    "category": "compliance",
+    "question": "Which rule checks overdue inspection?",
+    "expected_entities": ["C005"],
+    "expected_answer_terms": ["inspection", "overdue"],
+    "expected_citations": ["C005"],
+    "expected_recall_document": "C005"
+  },
+  {
+    "question_id": "Q-COMP-006",
+    "category": "compliance",
+    "question": "Which rule checks maintenance evidence completeness?",
+    "expected_entities": ["C008"],
+    "expected_answer_terms": ["maintenance", "evidence", "incomplete"],
+    "expected_citations": ["C008"],
+    "expected_recall_document": "C008"
+  },
+
+  {
+    "question_id": "Q-RCA-001",
+    "category": "rca",
+    "question": "What is the main RCA case for P-101?",
+    "expected_entities": ["RCA-P101-001"],
+    "expected_answer_terms": ["P-101", "high vibration", "bearing temperature"],
+    "expected_citations": ["RCA-P101-001"],
+    "expected_recall_document": "RCA-P101-001"
+  },
+  {
+    "question_id": "Q-RCA-002",
+    "category": "rca",
+    "question": "Which symptoms support the P-101 RCA?",
+    "expected_entities": ["P-101"],
+    "expected_answer_terms": ["vibration", "bearing temperature", "noise"],
+    "expected_citations": ["P101-EV-001", "P101-EV-002", "P101-EV-003"],
+    "expected_recall_document": "RCA-P101-001"
+  },
+  {
+    "question_id": "Q-RCA-003",
+    "category": "rca",
+    "question": "Which evidence says abnormal noise was observed for P-101?",
+    "expected_entities": ["P101-EV-003"],
+    "expected_answer_terms": ["abnormal noise", "P-101"],
+    "expected_citations": ["P101-EV-003"],
+    "expected_recall_document": "P101-EV-003"
+  },
+  {
+    "question_id": "Q-RCA-004",
+    "category": "rca",
+    "question": "What work order should verify P-101 after maintenance?",
+    "expected_entities": ["WO-P101-004"],
+    "expected_answer_terms": ["post-maintenance", "vibration", "test"],
+    "expected_citations": ["WO-P101-004"],
+    "expected_recall_document": "WO-P101-004"
+  },
+  {
+    "question_id": "Q-RCA-005",
+    "category": "rca",
+    "question": "Which root cause evidence is missing for P-101 lubrication?",
+    "expected_entities": ["P101-EV-004"],
+    "expected_answer_terms": ["lubrication", "missing", "evidence"],
+    "expected_citations": ["P101-EV-004"],
+    "expected_recall_document": "P101-EV-004"
+  },
+  {
+    "question_id": "Q-RCA-006",
+    "category": "rca",
+    "question": "Which action should be taken for P-101 bearing condition?",
+    "expected_entities": ["WO-P101-002"],
+    "expected_answer_terms": ["inspect", "bearing", "condition"],
+    "expected_citations": ["WO-P101-002"],
+    "expected_recall_document": "WO-P101-002"
+  },
+
+  {
+    "question_id": "Q-LAT-001",
+    "category": "latency",
+    "question": "Return a quick evidence-backed answer for P-101 vibration.",
+    "expected_entities": ["P-101"],
+    "expected_answer_terms": ["P-101", "vibration"],
+    "expected_citations": ["P101-EV-001"],
+    "expected_recall_document": "P101-EV-001"
+  },
+  {
+    "question_id": "Q-LAT-002",
+    "category": "latency",
+    "question": "Return a quick answer for C-201 lubrication.",
+    "expected_entities": ["C-201"],
+    "expected_answer_terms": ["C-201", "lubrication"],
+    "expected_citations": ["WO-C201-001"],
+    "expected_recall_document": "WO-C201-001"
+  },
+  {
+    "question_id": "Q-LAT-003",
+    "category": "latency",
+    "question": "Return a quick answer for HX-301 fouling.",
+    "expected_entities": ["HX-301"],
+    "expected_answer_terms": ["HX-301", "fouling"],
+    "expected_citations": ["IR-HX301-001"],
+    "expected_recall_document": "IR-HX301-001"
+  },
+  {
+    "question_id": "Q-LAT-004",
+    "category": "latency",
+    "question": "Return a quick compliance answer for LOTO.",
+    "expected_entities": ["C004"],
+    "expected_answer_terms": ["LOTO", "checklist"],
+    "expected_citations": ["C004"],
+    "expected_recall_document": "C004"
+  },
+  {
+    "question_id": "Q-LAT-005",
+    "category": "latency",
+    "question": "Return a quick RCA answer for P-101.",
+    "expected_entities": ["RCA-P101-001"],
+    "expected_answer_terms": ["RCA-P101-001", "P-101"],
+    "expected_citations": ["RCA-P101-001"],
+    "expected_recall_document": "RCA-P101-001"
+  },
+  {
+    "question_id": "Q-LAT-006",
+    "category": "latency",
+    "question": "Return a quick maintenance action for P-101.",
+    "expected_entities": ["WO-P101-001"],
+    "expected_answer_terms": ["P-101", "maintenance"],
+    "expected_citations": ["WO-P101-001"],
+    "expected_recall_document": "WO-P101-001"
+  }
+]

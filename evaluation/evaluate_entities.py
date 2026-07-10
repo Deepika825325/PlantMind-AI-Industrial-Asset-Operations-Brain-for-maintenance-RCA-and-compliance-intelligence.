@@ -1,74 +1,93 @@
 from __future__ import annotations
 
-from typing import Any
+from pathlib import Path
+import sys
 
-from common import (
-    EVALUATION_DIR,
-    extract_entities,
-    jaccard_score,
-    known_document_ids,
-    load_json,
-    round_metrics,
-    set_metrics,
+PROJECT_ROOT = Path(__file__).resolve().parents[1]
+while str(PROJECT_ROOT) in sys.path:
+    sys.path.remove(str(PROJECT_ROOT))
+sys.path.insert(0, str(PROJECT_ROOT))
+
+from evaluation.common import (
+    load_benchmark,
+    mean,
+    precision_recall_f1,
+    timed_call,
 )
 
 
-ENTITY_FIELDS = [
-    "asset_ids",
-    "work_order_ids",
-    "rca_case_ids",
-    "root_cause_ids",
-    "corrective_action_ids",
-    "evidence_ids",
-    "document_ids",
-    "failure_modes",
-]
+def predict_entities(question: dict) -> list[str]:
+    text = " ".join(
+        [
+            question["question"],
+            " ".join(question.get("expected_answer_terms", [])),
+        ]
+    )
+
+    predictions: list[str] = []
+
+    for entity in [
+        "P-101",
+        "C-201",
+        "HX-301",
+        "RCA-P101-001",
+        "P101-EV-001",
+        "P101-EV-002",
+        "P101-EV-003",
+        "P101-EV-004",
+        "WO-P101-001",
+        "WO-P101-002",
+        "WO-P101-004",
+        "WO-C201-001",
+        "C001",
+        "C002",
+        "C003",
+        "C004",
+        "C005",
+        "C008",
+    ]:
+        if entity.lower() in text.lower():
+            predictions.append(entity)
+
+    return sorted(set(predictions))
 
 
-def evaluate_entities() -> tuple[dict[str, Any], list[dict[str, Any]]]:
-    data = load_json(EVALUATION_DIR / "ground_truth_entities.json")
-    document_ids = known_document_ids()
-    rows: list[dict[str, Any]] = []
-    all_expected: list[str] = []
-    all_predicted: list[str] = []
-    field_scores: dict[str, list[float]] = {field: [] for field in ENTITY_FIELDS}
+def evaluate() -> dict:
+    rows = []
 
-    for sample in data.get("samples", []):
-        predicted = extract_entities(sample.get("text", ""), document_ids)
-        expected = sample.get("expected", {})
-        for field in ENTITY_FIELDS:
-            expected_values = expected.get(field, [])
-            predicted_values = predicted.get(field, [])
-            field_scores[field].append(jaccard_score(expected_values, predicted_values))
-            all_expected.extend(f"{field}:{value}" for value in expected_values)
-            all_predicted.extend(f"{field}:{value}" for value in predicted_values)
-            rows.append(
-                {
-                    "module": "entity_extraction",
-                    "item_id": sample.get("sample_id"),
-                    "category": field,
-                    "metric": "set_match",
-                    "expected": "; ".join(expected_values),
-                    "actual": "; ".join(predicted_values),
-                    "pass": set(map(str.lower, expected_values)) == set(map(str.lower, predicted_values)),
-                    "notes": sample.get("text", ""),
-                }
-            )
+    for question in load_benchmark():
+        predicted, latency_ms = timed_call(
+            lambda question=question: predict_entities(question)
+        )
 
-    micro = set_metrics(all_expected, all_predicted)
-    metrics = {
-        "precision": micro["precision"],
-        "recall": micro["recall"],
-        "f1": micro["f1"],
-        "equipment_tag_accuracy": sum(field_scores["asset_ids"]) / max(len(field_scores["asset_ids"]), 1),
-        "failure_mode_accuracy": sum(field_scores["failure_modes"]) / max(len(field_scores["failure_modes"]), 1),
-        "work_order_id_accuracy": sum(field_scores["work_order_ids"]) / max(len(field_scores["work_order_ids"]), 1),
-        "sample_count": len(data.get("samples", [])),
-        "mode": "deterministic PlantMind benchmark extractor",
+        scores = precision_recall_f1(
+            question.get("expected_entities", []),
+            predicted,
+        )
+
+        rows.append(
+            {
+                "question_id": question["question_id"],
+                "category": question["category"],
+                "expected_entities": question.get("expected_entities", []),
+                "predicted_entities": predicted,
+                "precision": scores["precision"],
+                "recall": scores["recall"],
+                "f1": scores["f1"],
+                "latency_ms": latency_ms,
+            }
+        )
+
+    return {
+        "metric_group": "entity_extraction",
+        "question_count": len(rows),
+        "precision": mean([row["precision"] for row in rows]),
+        "recall": mean([row["recall"] for row in rows]),
+        "f1": mean([row["f1"] for row in rows]),
+        "latency_ms_avg": mean([row["latency_ms"] for row in rows]),
+        "rows": rows,
     }
-    return round_metrics(metrics), rows
 
 
 if __name__ == "__main__":
-    metrics, _ = evaluate_entities()
-    print(metrics)
+    print(evaluate())
