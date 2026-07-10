@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi.responses import JSONResponse
 
 from apps.api.audit.service import (
     actor_from_user,
@@ -16,6 +17,7 @@ from apps.api.ingestion.schemas import (
 )
 from apps.api.ingestion.service import (
     DocumentIngestionService,
+    IngestionValidationException,
 )
 
 router = APIRouter(
@@ -34,7 +36,7 @@ ingestion_service = DocumentIngestionService()
 def ingest_local_document(
     request: DocumentIngestionRequest,
     user=Depends(require_permission("evidence.write")),
-) -> DocumentIngestionResult:
+) -> DocumentIngestionResult | JSONResponse:
     try:
         result = ingestion_service.ingest_document(
             request
@@ -58,6 +60,36 @@ def ingest_local_document(
             status_code=status.HTTP_404_NOT_FOUND,
             detail=str(exc),
         ) from exc
+    except IngestionValidationException as exc:
+        validation_errors = [
+            error.model_dump()
+            for error in exc.errors
+        ]
+
+        record_audit_event(
+            action="document.ingest",
+            entity_type="document",
+            entity_id=None,
+            actor=actor_from_user(user),
+            outcome="denied",
+            reason="document validation failed",
+            metadata={
+                "source_path": request.source_path,
+                "document_type": request.document_type,
+                "asset_ids": request.asset_ids,
+                "validation_errors": validation_errors,
+            },
+        )
+
+        return JSONResponse(
+            status_code=status.HTTP_400_BAD_REQUEST,
+            content={
+                "detail": {
+                    "message": "Document validation failed",
+                    "errors": validation_errors,
+                }
+            },
+        )
     except ValueError as exc:
         record_audit_event(
             action="document.ingest",
@@ -91,6 +123,11 @@ def ingest_local_document(
             "document_type": result.document_type,
             "asset_ids": result.asset_ids,
             "text_extract_status": result.text_extract_status,
+            "lifecycle_status": result.lifecycle_status,
+            "processing_status": result.processing_status,
+            "revision_group_id": result.revision_group_id,
+            "revision_number": result.revision_number,
+            "is_duplicate": result.is_duplicate,
         },
     )
 

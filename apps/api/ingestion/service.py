@@ -3,6 +3,7 @@ from __future__ import annotations
 import csv
 import hashlib
 import json
+import mimetypes
 import re
 import shutil
 from dataclasses import dataclass
@@ -16,6 +17,7 @@ from apps.api.ingestion.schemas import (
     IngestionChunk,
     IngestionChunkManifest,
     IngestionManifest,
+    IngestionValidationError,
 )
 
 
@@ -49,6 +51,22 @@ class IngestionConfig:
     max_preview_chars: int = 500
     chunk_size_chars: int = 1200
     chunk_overlap_chars: int = 150
+    max_file_size_bytes: int = 25 * 1024 * 1024
+
+
+class IngestionValidationException(ValueError):
+    def __init__(
+        self,
+        errors: list[IngestionValidationError],
+    ) -> None:
+        self.errors = errors
+
+        super().__init__(
+            "; ".join(
+                error.message
+                for error in errors
+            )
+        )
 
 
 class DocumentIngestionService:
@@ -84,6 +102,21 @@ class DocumentIngestionService:
             )
 
         extension = source_path.suffix.lower()
+        file_size_bytes = source_path.stat().st_size
+        detected_mime_type = self._detect_mime_type(source_path)
+
+        validation_errors = self._validate_file(
+            source_path=source_path,
+            extension=extension,
+            file_size_bytes=file_size_bytes,
+            detected_mime_type=detected_mime_type,
+        )
+
+        if validation_errors:
+            raise IngestionValidationException(
+                validation_errors
+            )
+
         checksum = self._sha256(source_path)
         document_id = self._document_id(checksum)
         safe_filename = self._safe_filename(source_path.name)
@@ -108,9 +141,23 @@ class DocumentIngestionService:
             / f"{document_id}.json"
         )
 
-        status = "ingested"
-        if manifest_path.exists():
-            status = "duplicate"
+        duplicate_of_document_id = (
+            document_id
+            if manifest_path.exists()
+            else None
+        )
+
+        status = "duplicate" if duplicate_of_document_id else "ingested"
+
+        revision_group_id = self._revision_group_id(
+            source_path.name
+        )
+
+        revision_number = self._next_revision_number(
+            revision_group_id=revision_group_id,
+            document_id=document_id,
+            is_duplicate=bool(duplicate_of_document_id),
+        )
 
         shutil.copy2(
             source_path,
@@ -164,23 +211,50 @@ class DocumentIngestionService:
         else:
             text_extract_status = "unsupported"
 
+        processing_status = (
+            "ready"
+            if text_extract_status == "extracted"
+            else "stored_only"
+            if text_extract_status == "stored_only"
+            else "failed"
+        )
+
+        lifecycle_status = (
+            "ready"
+            if processing_status in {"ready", "stored_only"}
+            else "failed"
+        )
+
         manifest = IngestionManifest(
             document_id=document_id,
             source_filename=source_path.name,
             source_path=str(source_path),
             stored_raw_path=str(stored_raw_path),
+            object_storage_path=str(stored_raw_path),
+            storage_backend="local_object_store",
             normalized_text_path=normalized_path_value,
             chunk_manifest_path=chunk_manifest_value,
             checksum_sha256=checksum,
-            file_size_bytes=source_path.stat().st_size,
+            detected_mime_type=detected_mime_type,
+            file_size_bytes=file_size_bytes,
+            max_file_size_bytes=self.config.max_file_size_bytes,
             extension=extension,
             document_type=request.document_type,
             asset_ids=request.asset_ids,
             source_system=request.source_system,
             uploaded_by=request.uploaded_by,
+            lifecycle_status=lifecycle_status,
+            upload_status="uploaded",
+            processing_status=processing_status,
             text_extract_status=text_extract_status,
             text_preview=text_preview,
             chunk_count=chunk_count,
+            revision_group_id=revision_group_id,
+            revision_number=revision_number,
+            is_latest_revision=True,
+            is_duplicate=bool(duplicate_of_document_id),
+            duplicate_of_document_id=duplicate_of_document_id,
+            validation_errors=[],
             created_at=datetime.now(
                 timezone.utc
             ).isoformat(),
@@ -197,19 +271,32 @@ class DocumentIngestionService:
             source_filename=source_path.name,
             source_path=str(source_path),
             stored_raw_path=str(stored_raw_path),
+            object_storage_path=str(stored_raw_path),
+            storage_backend="local_object_store",
             normalized_text_path=normalized_path_value,
             chunk_manifest_path=chunk_manifest_value,
             manifest_path=str(manifest_path),
             checksum_sha256=checksum,
-            file_size_bytes=source_path.stat().st_size,
+            detected_mime_type=detected_mime_type,
+            file_size_bytes=file_size_bytes,
+            max_file_size_bytes=self.config.max_file_size_bytes,
             extension=extension,
             document_type=request.document_type,
             asset_ids=request.asset_ids,
             source_system=request.source_system,
             uploaded_by=request.uploaded_by,
+            lifecycle_status=lifecycle_status,
+            upload_status="uploaded",
+            processing_status=processing_status,
             text_extract_status=text_extract_status,
             text_preview=text_preview,
             chunk_count=chunk_count,
+            revision_group_id=revision_group_id,
+            revision_number=revision_number,
+            is_latest_revision=True,
+            is_duplicate=bool(duplicate_of_document_id),
+            duplicate_of_document_id=duplicate_of_document_id,
+            validation_errors=[],
             message=self._message(
                 status=status,
                 text_extract_status=text_extract_status,
@@ -270,6 +357,112 @@ class DocumentIngestionService:
             chunk_manifest_path.read_text(
                 encoding="utf-8",
             )
+        )
+
+    def _detect_mime_type(
+        self,
+        source_path: Path,
+    ) -> str:
+        detected, _ = mimetypes.guess_type(
+            source_path.name
+        )
+
+        return detected or "application/octet-stream"
+
+    def _validate_file(
+        self,
+        source_path: Path,
+        extension: str,
+        file_size_bytes: int,
+        detected_mime_type: str,
+    ) -> list[IngestionValidationError]:
+        errors: list[IngestionValidationError] = []
+
+        supported_extensions = (
+            SUPPORTED_TEXT_EXTENSIONS
+            | STORED_ONLY_EXTENSIONS
+        )
+
+        if extension not in supported_extensions:
+            errors.append(
+                IngestionValidationError(
+                    code="unsupported_file_extension",
+                    field="source_path",
+                    message=(
+                        f"Unsupported file extension '{extension}' "
+                        f"for document {source_path.name}."
+                    ),
+                )
+            )
+
+        if file_size_bytes <= 0:
+            errors.append(
+                IngestionValidationError(
+                    code="empty_file",
+                    field="source_path",
+                    message="Document file is empty.",
+                )
+            )
+
+        if file_size_bytes > self.config.max_file_size_bytes:
+            errors.append(
+                IngestionValidationError(
+                    code="file_too_large",
+                    field="source_path",
+                    message=(
+                        "Document exceeds maximum allowed size "
+                        f"of {self.config.max_file_size_bytes} bytes."
+                    ),
+                )
+            )
+
+        if not detected_mime_type:
+            errors.append(
+                IngestionValidationError(
+                    code="mime_type_not_detected",
+                    field="source_path",
+                    message="Could not detect MIME type.",
+                )
+            )
+
+        return errors
+
+    def _revision_group_id(
+        self,
+        filename: str,
+    ) -> str:
+        safe = self._safe_filename(
+            Path(filename).stem
+        ).upper()
+
+        return f"DOC-REV-{safe}"
+
+    def _next_revision_number(
+        self,
+        revision_group_id: str,
+        document_id: str,
+        is_duplicate: bool,
+    ) -> int:
+        existing = [
+            manifest
+            for manifest in self.list_manifests()
+            if manifest.revision_group_id == revision_group_id
+        ]
+
+        if is_duplicate:
+            for manifest in existing:
+                if manifest.document_id == document_id:
+                    return manifest.revision_number
+
+        if not existing:
+            return 1
+
+        return (
+            max(
+                manifest.revision_number
+                for manifest in existing
+            )
+            + 1
         )
 
     def _extract_text(
