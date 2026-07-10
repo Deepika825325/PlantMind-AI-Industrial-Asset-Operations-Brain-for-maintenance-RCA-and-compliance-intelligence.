@@ -1,3 +1,4 @@
+from apps.api.routes.ingestion import router as ingestion_router
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
@@ -151,6 +152,7 @@ app.include_router(
 app.include_router(
     rca.router
 )
+app.include_router(ingestion_router)
 
 
 @app.get(
