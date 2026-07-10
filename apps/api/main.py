@@ -5,6 +5,7 @@ from apps.api.routes.rag_evaluation import router as rag_evaluation_router
 from apps.api.routes.ingestion_workers import router as ingestion_workers_router
 from apps.api.routes.hybrid_retrieval import router as hybrid_retrieval_router
 from apps.api.routes.verified_ask import router as verified_ask_router
+from apps.api.routes.telemetry import router as telemetry_router
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
@@ -165,6 +166,7 @@ app.include_router(rag_evaluation_router)
 app.include_router(ingestion_workers_router)
 app.include_router(hybrid_retrieval_router)
 app.include_router(verified_ask_router)
+app.include_router(telemetry_router)
 
 
 @app.get(
