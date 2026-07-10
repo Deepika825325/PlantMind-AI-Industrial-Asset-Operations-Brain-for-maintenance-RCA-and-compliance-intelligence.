@@ -1,5 +1,6 @@
 from apps.api.routes.ingestion import router as ingestion_router
 from apps.api.routes.rag_indexing import router as rag_indexing_router
+from apps.api.routes.rag_answering import router as rag_answering_router
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
@@ -155,6 +156,7 @@ app.include_router(
 )
 app.include_router(ingestion_router)
 app.include_router(rag_indexing_router)
+app.include_router(rag_answering_router)
 
 
 @app.get(
