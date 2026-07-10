@@ -66,6 +66,10 @@ def answer_from_ingested_documents(
             "retrieval_status": response.retrieval_status,
             "total_citations": response.total_citations,
             "confidence": response.confidence,
+            "grounded": response.quality.grounded,
+            "quality_score": response.quality.quality_score,
+            "query_coverage": response.quality.query_coverage,
+            "warnings": response.quality.warnings,
         },
     )
 

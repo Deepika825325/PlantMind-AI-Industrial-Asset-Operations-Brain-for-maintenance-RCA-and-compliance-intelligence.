@@ -23,6 +23,15 @@ class RagAnswerCitation(BaseModel):
     quoted_text: str
 
 
+class RagAnswerQuality(BaseModel):
+    grounded: bool = False
+    quality_score: float = 0.0
+    query_coverage: float = 0.0
+    matched_query_terms: list[str] = Field(default_factory=list)
+    missing_query_terms: list[str] = Field(default_factory=list)
+    warnings: list[str] = Field(default_factory=list)
+
+
 class RagAnswerResponse(BaseModel):
     answer_id: str
     question: str
@@ -31,3 +40,4 @@ class RagAnswerResponse(BaseModel):
     retrieval_status: str
     total_citations: int
     citations: list[RagAnswerCitation] = Field(default_factory=list)
+    quality: RagAnswerQuality = Field(default_factory=RagAnswerQuality)
