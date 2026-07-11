@@ -12,6 +12,7 @@ from apps.api.routes.ml_anomalies import router as ml_anomalies_router
 from apps.api.routes.failure_classification import router as failure_classification_router
 from apps.api.routes.asset_health import router as asset_health_router
 from apps.api.routes.incidents import router as incidents_router
+from apps.api.routes.rca_orchestration import router as rca_orchestration_router
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
@@ -179,6 +180,7 @@ app.include_router(ml_anomalies_router)
 app.include_router(failure_classification_router)
 app.include_router(asset_health_router)
 app.include_router(incidents_router)
+app.include_router(rca_orchestration_router)
 
 
 @app.get(
