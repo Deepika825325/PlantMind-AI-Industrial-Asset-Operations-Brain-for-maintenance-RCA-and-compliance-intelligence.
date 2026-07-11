@@ -100,7 +100,19 @@ def _transition_request(
     changed_at: str = "2026-07-10T09:00:00+00:00",
     approval_reference: str | None = None,
     approver_role: str | None = None,
+    verification_reference: str | None = None,
+    verification_outcome: str | None = None,
 ) -> WorkOrderTransitionRequest:
+    if target_status == "verified":
+        verification_reference = (
+            verification_reference
+            or "PMV-DAY26-LEGACY-SUCCESS"
+        )
+        verification_outcome = (
+            verification_outcome
+            or "successful"
+        )
+
     return WorkOrderTransitionRequest(
         target_status=target_status,
         changed_by="maintenance.engineer",
@@ -108,6 +120,8 @@ def _transition_request(
         note=f"Move to {target_status}.",
         approval_reference=approval_reference,
         approver_role=approver_role,
+        verification_reference=verification_reference,
+        verification_outcome=verification_outcome,
     )
 
 

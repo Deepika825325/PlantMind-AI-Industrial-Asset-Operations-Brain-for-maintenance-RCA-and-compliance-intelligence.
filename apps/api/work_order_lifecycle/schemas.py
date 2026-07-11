@@ -5,6 +5,14 @@ from typing import Literal
 from pydantic import BaseModel, Field
 
 
+VerificationOutcome = Literal[
+    "successful",
+    "partially_successful",
+    "failed",
+    "insufficient_evidence",
+]
+
+
 WorkOrderLifecycleStatus = Literal[
     "draft",
     "pending_approval",
@@ -32,6 +40,8 @@ class WorkOrderTransitionRequest(BaseModel):
     note: str | None = None
     approver_role: str | None = None
     approval_reference: str | None = None
+    verification_reference: str | None = None
+    verification_outcome: VerificationOutcome | None = None
 
 
 class WorkOrderLifecycleAuditEvent(BaseModel):
@@ -44,6 +54,8 @@ class WorkOrderLifecycleAuditEvent(BaseModel):
     changed_by: str
     note: str | None = None
     approval_reference: str | None = None
+    verification_reference: str | None = None
+    verification_outcome: VerificationOutcome | None = None
     approver_role: str | None = None
     explanation: str
 

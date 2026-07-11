@@ -40,6 +40,7 @@ ALLOWED_TRANSITIONS = {
     ],
     "verification_pending": [
         "verified",
+        "in_progress",
     ],
     "verified": [
         "closed",
@@ -237,6 +238,52 @@ class GovernedWorkOrderLifecycleService:
                 reason
             )
 
+        if self._requires_successful_verification(
+            current_status=current_status,
+            target_status=request.target_status,
+        ) and not (
+            request.verification_reference
+            and request.verification_outcome == "successful"
+        ):
+            reason = (
+                "Work order can enter verified only after successful "
+                "post-maintenance verification with verification_reference."
+            )
+
+            self._record_rejected_transition(
+                work_order_id=work_order_id,
+                from_status=current_status,
+                request=request,
+                reason=reason,
+            )
+
+            raise WorkOrderLifecycleConflictError(
+                reason
+            )
+
+        if self._requires_failed_recovery_for_reopen(
+            current_status=current_status,
+            target_status=request.target_status,
+        ) and not (
+            request.verification_reference
+            and request.verification_outcome == "failed"
+        ):
+            reason = (
+                "Verification-pending work order can reopen to in_progress "
+                "only after failed post-maintenance verification."
+            )
+
+            self._record_rejected_transition(
+                work_order_id=work_order_id,
+                from_status=current_status,
+                request=request,
+                reason=reason,
+            )
+
+            raise WorkOrderLifecycleConflictError(
+                reason
+            )
+
         audit_event = self._audit_event(
             work_order_id=work_order_id,
             event_type="transition",
@@ -247,6 +294,8 @@ class GovernedWorkOrderLifecycleService:
             note=request.note,
             approval_reference=request.approval_reference,
             approver_role=request.approver_role,
+            verification_reference=request.verification_reference,
+            verification_outcome=request.verification_outcome,
             explanation=(
                 f"Work order moved from {current_status} to "
                 f"{request.target_status} through governed transition "
@@ -490,6 +539,28 @@ class GovernedWorkOrderLifecycleService:
             and target_status == "approved"
         )
 
+    def _requires_successful_verification(
+        self,
+        *,
+        current_status: str,
+        target_status: str,
+    ) -> bool:
+        return (
+            current_status == "verification_pending"
+            and target_status == "verified"
+        )
+
+    def _requires_failed_recovery_for_reopen(
+        self,
+        *,
+        current_status: str,
+        target_status: str,
+    ) -> bool:
+        return (
+            current_status == "verification_pending"
+            and target_status == "in_progress"
+        )
+
     def _invalid_transition_message(
         self,
         *,
@@ -534,6 +605,8 @@ class GovernedWorkOrderLifecycleService:
             note=request.note,
             approval_reference=request.approval_reference,
             approver_role=request.approver_role,
+            verification_reference=request.verification_reference,
+            verification_outcome=request.verification_outcome,
             explanation=reason,
         )
 
@@ -556,6 +629,8 @@ class GovernedWorkOrderLifecycleService:
         note: str | None,
         approval_reference: str | None,
         approver_role: str | None,
+        verification_reference: str | None,
+        verification_outcome: str | None,
         explanation: str,
     ) -> WorkOrderLifecycleAuditEvent:
         digest = hashlib.sha256(
@@ -566,7 +641,9 @@ class GovernedWorkOrderLifecycleService:
                 f"{from_status}:"
                 f"{to_status}:"
                 f"{changed_by}:"
-                f"{approval_reference or ''}"
+                f"{approval_reference or ''}:"
+                f"{verification_reference or ''}:"
+                f"{verification_outcome or ''}"
             ).encode(
                 "utf-8"
             )
@@ -583,5 +660,7 @@ class GovernedWorkOrderLifecycleService:
             note=note,
             approval_reference=approval_reference,
             approver_role=approver_role,
+            verification_reference=verification_reference,
+            verification_outcome=verification_outcome,
             explanation=explanation,
         )

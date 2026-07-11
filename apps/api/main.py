@@ -14,6 +14,7 @@ from apps.api.routes.asset_health import router as asset_health_router
 from apps.api.routes.incidents import router as incidents_router
 from apps.api.routes.rca_orchestration import router as rca_orchestration_router
 from apps.api.routes.work_order_lifecycle import router as work_order_lifecycle_router
+from apps.api.routes.post_maintenance_verification import router as post_maintenance_verification_router
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
@@ -183,6 +184,7 @@ app.include_router(asset_health_router)
 app.include_router(incidents_router)
 app.include_router(rca_orchestration_router)
 app.include_router(work_order_lifecycle_router)
+app.include_router(post_maintenance_verification_router)
 
 
 @app.get(
