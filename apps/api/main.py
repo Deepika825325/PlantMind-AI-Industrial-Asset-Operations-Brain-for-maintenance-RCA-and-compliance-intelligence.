@@ -1,10 +1,28 @@
-﻿from contextlib import asynccontextmanager
+from apps.api.routes.ingestion import router as ingestion_router
+from apps.api.routes.rag_indexing import router as rag_indexing_router
+from apps.api.routes.rag_answering import router as rag_answering_router
+from apps.api.routes.rag_evaluation import router as rag_evaluation_router
+from apps.api.routes.ingestion_workers import router as ingestion_workers_router
+from apps.api.routes.hybrid_retrieval import router as hybrid_retrieval_router
+from apps.api.routes.verified_ask import router as verified_ask_router
+from apps.api.routes.telemetry import router as telemetry_router
+from apps.api.routes.simulations import router as simulations_router
+from apps.api.routes.anomalies import router as anomalies_router
+from apps.api.routes.ml_anomalies import router as ml_anomalies_router
+from apps.api.routes.failure_classification import router as failure_classification_router
+from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
-from fastapi import FastAPI
+from fastapi import Depends, FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.responses import JSONResponse
 
+from apps.api.auth.dependencies import (
+    require_permission_if_auth_enabled,
+)
+from apps.api.auth.rbac import (
+    Permission,
+)
 from apps.api.core.errors import ApiError
 from apps.api.core.exception_handlers import (
     register_exception_handlers,
@@ -22,6 +40,8 @@ from apps.api.core.readiness import (
 )
 from apps.api.routes import (
     ask,
+    auth,
+    audit,
     assets,
     compliance,
     dashboard,
@@ -101,6 +121,14 @@ register_exception_handlers(
 )
 
 app.include_router(
+    auth.router
+)
+
+app.include_router(
+    audit.router
+)
+
+app.include_router(
     dashboard.router
 )
 
@@ -135,6 +163,18 @@ app.include_router(
 app.include_router(
     rca.router
 )
+app.include_router(ingestion_router)
+app.include_router(rag_indexing_router)
+app.include_router(rag_answering_router)
+app.include_router(rag_evaluation_router)
+app.include_router(ingestion_workers_router)
+app.include_router(hybrid_retrieval_router)
+app.include_router(verified_ask_router)
+app.include_router(telemetry_router)
+app.include_router(simulations_router)
+app.include_router(anomalies_router)
+app.include_router(ml_anomalies_router)
+app.include_router(failure_classification_router)
 
 
 @app.get(
@@ -219,7 +259,13 @@ def file_status():
     "/admin/reload-cache",
     tags=["System"],
 )
-def reload_cache():
+def reload_cache(
+    _current_user=Depends(
+        require_permission_if_auth_enabled(
+            Permission.ADMIN_RELOAD_CACHE
+        )
+    ),
+):
     clear_data_cache()
 
     readiness = validate_data_files()
@@ -261,7 +307,13 @@ def reload_cache():
     "/admin/reset-demo",
     tags=["System"],
 )
-def reset_demo():
+def reset_demo(
+    _current_user=Depends(
+        require_permission_if_auth_enabled(
+            Permission.ADMIN_RESET_DEMO
+        )
+    ),
+):
     try:
         return reset_demo_state()
     except (

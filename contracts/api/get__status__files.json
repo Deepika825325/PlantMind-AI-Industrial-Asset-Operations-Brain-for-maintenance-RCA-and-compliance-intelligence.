@@ -1,0 +1,178 @@
+{
+  "body": {
+    "inventory": {
+      "demo_dir": "C:\\Ml project\\PlantMind-AI\\data\\demo",
+      "demo_file_count": 13,
+      "demo_files": [
+        "assets.json",
+        "compliance_matrix.json",
+        "compliance_rules.json",
+        "dashboard_summary.json",
+        "demo_answers.json",
+        "documents.json",
+        "health_scores.json",
+        "knowledge_graph.json",
+        "maintenance_events.json",
+        "maintenance_work_orders.json",
+        "pid_view.json",
+        "rag_seed_questions.json",
+        "rca_cases.json"
+      ],
+      "processed_dir": "C:\\Ml project\\PlantMind-AI\\data\\processed",
+      "processed_file_count": 8,
+      "processed_files": [
+        "asset_metadata.json",
+        "benchmark_questions.json",
+        "compliance_matrix.json",
+        "document_chunks.json",
+        "documents_index.csv",
+        "knowledge_graph_seed.json",
+        "sensor_summary.json",
+        "work_orders_processed.json"
+      ],
+      "project_root": "C:\\Ml project\\PlantMind-AI"
+    },
+    "validation": {
+      "checked_at": "2026-07-10T04:59:30.636177+00:00",
+      "files": [
+        {
+          "error": null,
+          "path": "data\\demo\\assets.json",
+          "size_bytes": 2674,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\compliance_matrix.json",
+          "size_bytes": 2863,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\compliance_rules.json",
+          "size_bytes": 10427,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\dashboard_summary.json",
+          "size_bytes": 708,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\demo_answers.json",
+          "size_bytes": 2420,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\documents.json",
+          "size_bytes": 14310,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\health_scores.json",
+          "size_bytes": 2918,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\knowledge_graph.json",
+          "size_bytes": 48783,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\maintenance_events.json",
+          "size_bytes": 2856,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\maintenance_work_orders.json",
+          "size_bytes": 13575,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\pid_view.json",
+          "size_bytes": 4375,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\rag_seed_questions.json",
+          "size_bytes": 7015,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\demo\\rca_cases.json",
+          "size_bytes": 10295,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\processed\\asset_metadata.json",
+          "size_bytes": 2597,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\processed\\benchmark_questions.json",
+          "size_bytes": 7011,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\processed\\compliance_matrix.json",
+          "size_bytes": 2858,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\processed\\document_chunks.json",
+          "size_bytes": 171720,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\processed\\documents_index.csv",
+          "size_bytes": 10222,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\processed\\knowledge_graph_seed.json",
+          "size_bytes": 44334,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\processed\\sensor_summary.json",
+          "size_bytes": 4449,
+          "status": "valid"
+        },
+        {
+          "error": null,
+          "path": "data\\processed\\work_orders_processed.json",
+          "size_bytes": 3768,
+          "status": "valid"
+        }
+      ],
+      "invalid_file_count": 0,
+      "issues": [],
+      "missing_file_count": 0,
+      "ready": true,
+      "required_file_count": 21,
+      "status": "ready",
+      "valid_file_count": 21
+    }
+  },
+  "method": "GET",
+  "path": "/status/files",
+  "request_id": "contract-get-status-files",
+  "status_code": 200
+}

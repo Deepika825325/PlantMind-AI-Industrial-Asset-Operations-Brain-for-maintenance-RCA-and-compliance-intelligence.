@@ -1,0 +1,48 @@
+FROM python:3.12-slim-bookworm
+
+LABEL org.opencontainers.image.title="PlantMind Nexus API"
+LABEL org.opencontainers.image.description="FastAPI backend for PlantMind Nexus"
+LABEL org.opencontainers.image.source="PlantMind-AI"
+
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV PIP_DISABLE_PIP_VERSION_CHECK=1
+ENV PIP_NO_CACHE_DIR=1
+ENV PYTHONPATH=/app
+
+WORKDIR /app
+
+# Create a non-root runtime user.
+RUN groupadd --system plantmind \
+    && useradd \
+        --system \
+        --gid plantmind \
+        --create-home \
+        --home-dir /home/plantmind \
+        plantmind
+
+# Install Python dependencies before copying application code.
+# This allows Docker to cache dependency installation.
+COPY requirements.txt ./requirements.txt
+
+RUN python -m pip install --upgrade pip \
+    && python -m pip install \
+        --requirement requirements.txt
+
+# Copy only the runtime application and data directories.
+COPY --chown=plantmind:plantmind alembic.ini ./alembic.ini
+COPY --chown=plantmind:plantmind apps ./apps
+COPY --chown=plantmind:plantmind data ./data
+
+USER plantmind
+
+EXPOSE 8000
+
+HEALTHCHECK \
+    --interval=30s \
+    --timeout=5s \
+    --start-period=15s \
+    --retries=3 \
+    CMD python -c "import urllib.request; urllib.request.urlopen('http://127.0.0.1:8000/health', timeout=3)"
+
+CMD ["uvicorn", "apps.api.main:app", "--host", "0.0.0.0", "--port", "8000"]

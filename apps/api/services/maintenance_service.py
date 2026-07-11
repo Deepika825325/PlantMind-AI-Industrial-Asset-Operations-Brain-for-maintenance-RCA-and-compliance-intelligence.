@@ -1,15 +1,9 @@
-import json
 from collections import Counter
 from datetime import datetime, timezone
-from pathlib import Path
 from typing import Any
 
-
-DATA_PATH = (
-    Path(__file__).resolve().parents[3]
-    / "data"
-    / "demo"
-    / "maintenance_work_orders.json"
+from apps.api.repositories.registry import (
+    get_repository_registry,
 )
 
 PRIORITY_ORDER = {
@@ -30,13 +24,14 @@ STATUS_ORDER = {
 
 
 def _load_data() -> dict[str, Any]:
-    if not DATA_PATH.exists():
-        raise FileNotFoundError(
-            f"Maintenance work-order data not found: {DATA_PATH}"
-        )
+    repositories = get_repository_registry()
 
-    with DATA_PATH.open("r", encoding="utf-8") as file:
-        return json.load(file)
+    return {
+        "work_orders": (
+            repositories.work_orders
+            .list_work_orders()
+        )
+    }
 
 
 def _parse_datetime(value: str | None) -> datetime | None:

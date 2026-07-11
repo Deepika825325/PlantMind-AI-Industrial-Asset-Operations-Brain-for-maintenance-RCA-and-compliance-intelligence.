@@ -1,0 +1,14 @@
+{
+  "body": {
+    "docs": "/docs",
+    "file_status": "/status/files",
+    "health": "/health",
+    "message": "PlantMind AI API is running",
+    "readiness": "/ready",
+    "version": "0.2.0"
+  },
+  "method": "GET",
+  "path": "/",
+  "request_id": "contract-get-root",
+  "status_code": 200
+}

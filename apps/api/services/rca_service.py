@@ -1,43 +1,15 @@
 from __future__ import annotations
 
-import json
-from pathlib import Path
 from typing import Any
 
-
-PROJECT_ROOT = Path(__file__).resolve().parents[3]
-RCA_DATA_PATH = PROJECT_ROOT / "data" / "demo" / "rca_cases.json"
+from apps.api.repositories.registry import (
+    get_repository_registry,
+)
 
 
 def load_rca_data() -> dict[str, Any]:
-    if not RCA_DATA_PATH.exists():
-        raise FileNotFoundError(
-            f"RCA dataset was not found: {RCA_DATA_PATH}"
-        )
-
-    try:
-        with RCA_DATA_PATH.open("r", encoding="utf-8-sig") as file:
-            data = json.load(file)
-    except json.JSONDecodeError as exc:
-        raise ValueError(
-            f"RCA dataset contains invalid JSON: {exc}"
-        ) from exc
-
-    cases = data.get("cases")
-
-    if not isinstance(cases, list):
-        raise ValueError(
-            "RCA dataset must contain a 'cases' array"
-        )
-
-    declared_count = data.get("case_count")
-
-    if declared_count is not None and declared_count != len(cases):
-        raise ValueError(
-            "RCA case_count does not match the number of cases"
-        )
-
-    return data
+    repositories = get_repository_registry()
+    return repositories.rca.get_dataset()
 
 
 def normalize_text(value: str | None) -> str:

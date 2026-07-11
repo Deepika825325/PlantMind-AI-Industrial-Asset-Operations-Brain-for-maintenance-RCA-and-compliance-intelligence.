@@ -1,0 +1,11 @@
+{
+  "body": {
+    "service": "PlantMind AI API",
+    "status": "healthy",
+    "version": "0.2.0"
+  },
+  "method": "GET",
+  "path": "/health",
+  "request_id": "contract-get-health",
+  "status_code": 200
+}

@@ -3,11 +3,8 @@ from functools import lru_cache
 import re
 from typing import Any
 
-from apps.api.services.data_loader import (
-    PROJECT_ROOT,
-    get_assets,
-    get_documents,
-    load_demo_json,
+from apps.api.repositories.registry import (
+    get_repository_registry,
 )
 
 
@@ -92,24 +89,35 @@ def _is_active(status: str | None) -> bool:
     )
 
 
+def _load_assets() -> list[dict[str, Any]]:
+    repositories = get_repository_registry()
+    return repositories.assets.list_assets()
+
+
+def _load_documents() -> list[dict[str, Any]]:
+    repositories = get_repository_registry()
+    return repositories.documents.list_documents()
+
+
 def _load_rule_data() -> dict[str, Any]:
-    return load_demo_json("compliance_rules.json")
+    repositories = get_repository_registry()
+    return repositories.compliance.get_rules()
 
 
 def _load_work_orders() -> list[dict[str, Any]]:
-    data = load_demo_json("maintenance_work_orders.json")
-    return data.get("work_orders", [])
+    repositories = get_repository_registry()
+    return repositories.work_orders.list_work_orders()
 
 
 def _load_rca_cases() -> list[dict[str, Any]]:
-    data = load_demo_json("rca_cases.json")
-    return data.get("cases", [])
+    repositories = get_repository_registry()
+    return repositories.rca.list_cases()
 
 
 def _get_asset(asset_id: str) -> dict[str, Any] | None:
     normalized_asset_id = asset_id.upper()
 
-    for asset in get_assets():
+    for asset in _load_assets():
         if asset.get("asset_id") == normalized_asset_id:
             return asset
 
@@ -120,7 +128,7 @@ def _get_asset_documents(asset_id: str) -> list[dict[str, Any]]:
     normalized_asset_id = asset_id.upper()
     results = []
 
-    for document in get_documents():
+    for document in _load_documents():
         asset_ids = {
             str(item).upper()
             for item in document.get("asset_ids", [])
@@ -159,36 +167,10 @@ def _get_asset_rca_cases(asset_id: str) -> list[dict[str, Any]]:
 
 @lru_cache(maxsize=128)
 def _read_document_text(document_id: str) -> str:
-    document = next(
-        (
-            item
-            for item in get_documents()
-            if item.get("document_id") == document_id
-        ),
-        None,
-    )
+    repositories = get_repository_registry()
 
-    if not document:
-        return ""
-
-    relative_path = document.get("relative_path")
-
-    if not relative_path:
-        return ""
-
-    file_path = (
-        PROJECT_ROOT
-        / "data"
-        / "raw"
-        / str(relative_path)
-    )
-
-    if not file_path.exists() or not file_path.is_file():
-        return ""
-
-    return file_path.read_text(
-        encoding="utf-8",
-        errors="replace",
+    return repositories.documents.read_document_text(
+        document_id
     )
 
 
@@ -887,7 +869,7 @@ def _evaluate_c007(
 ) -> dict[str, Any]:
     available_document_ids = {
         str(document.get("document_id"))
-        for document in get_documents()
+        for document in _load_documents()
         if document.get("document_id")
     }
 
@@ -1439,7 +1421,7 @@ def get_compliance_gaps(
         asset_id.upper()
     ] if asset_id else [
         str(asset.get("asset_id"))
-        for asset in get_assets()
+        for asset in _load_assets()
         if asset.get("asset_id")
     ]
 
@@ -1516,7 +1498,7 @@ def get_compliance_overview() -> dict[str, Any]:
     asset_summaries = []
     all_gaps = []
 
-    for asset in get_assets():
+    for asset in _load_assets():
         asset_id = asset.get("asset_id")
 
         if not asset_id:
