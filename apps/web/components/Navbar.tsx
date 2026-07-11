@@ -8,6 +8,8 @@ const navItems = [
   { label: "Ask PlantMind", href: "/ask" },
   { label: "RAG Console", href: "/rag-console" },
   { label: "Assets", href: "/assets" },
+  { label: "Telemetry", href: "/telemetry" },
+  { label: "Simulations", href: "/simulations" },
   { label: "P&ID", href: "/pid" },
   { label: "Compliance", href: "/compliance" },
   { label: "Maintenance", href: "/maintenance" },

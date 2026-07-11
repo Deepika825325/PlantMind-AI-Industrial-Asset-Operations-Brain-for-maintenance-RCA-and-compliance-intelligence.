@@ -1,6 +1,7 @@
 import Link from "next/link";
 import { apiGet } from "@/lib/api";
 import { Asset } from "@/lib/types";
+import TelemetryReplayWorkspace from "@/components/telemetry/TelemetryReplayWorkspace";
 
 export const dynamic = "force-dynamic";
 
@@ -434,6 +435,16 @@ export default async function AssetDetailPage({ params }: PageProps) {
             ))}
           </div>
         </div>
+
+        <div className="mt-10 rounded-3xl border border-slate-800 bg-slate-950 p-6">
+          <TelemetryReplayWorkspace
+            title={`Asset 360 telemetry replay for ${decodedAssetId}`}
+            description="Polling-based vibration, bearing temperature, motor current, health-score, and anomaly-score trends from deterministic historical replay."
+            defaultAssetId={decodedAssetId}
+            compact
+          />
+        </div>
+
       </section>
     </main>
   );
