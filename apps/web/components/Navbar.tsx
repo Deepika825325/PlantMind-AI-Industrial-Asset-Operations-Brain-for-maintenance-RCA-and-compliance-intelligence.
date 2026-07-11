@@ -13,6 +13,7 @@ const navItems = [
   { label: "Maintenance", href: "/maintenance" },
   { label: "RCA", href: "/rca" },
   { label: "Documents", href: "/documents" },
+  { label: "Ingestion", href: "/ingestion" },
   { label: "RBAC", href: "/rbac" },
   {
     label: "Knowledge Graph",
