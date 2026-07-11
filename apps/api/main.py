@@ -8,6 +8,7 @@ from apps.api.routes.verified_ask import router as verified_ask_router
 from apps.api.routes.telemetry import router as telemetry_router
 from apps.api.routes.simulations import router as simulations_router
 from apps.api.routes.anomalies import router as anomalies_router
+from apps.api.routes.ml_anomalies import router as ml_anomalies_router
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
@@ -171,6 +172,7 @@ app.include_router(verified_ask_router)
 app.include_router(telemetry_router)
 app.include_router(simulations_router)
 app.include_router(anomalies_router)
+app.include_router(ml_anomalies_router)
 
 
 @app.get(
