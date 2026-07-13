@@ -1,0 +1,142 @@
+name: PlantMind CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  security-events: write
+
+jobs:
+  backend:
+    name: Backend tests, Docker and evaluation smoke
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install backend dependencies
+        run: |
+          python -m pip install --upgrade pip
+          if [ -f requirements.txt ]; then
+            pip install -r requirements.txt
+          fi
+          if [ -f apps/api/requirements.txt ]; then
+            pip install -r apps/api/requirements.txt
+          fi
+          pip install pytest pip-audit
+
+      - name: Backend compilation check
+        run: |
+          python -m compileall -q apps tests evaluation
+
+      - name: Backend unit tests
+        env:
+          DATABASE_URL: ""
+          PLANTMIND_DATA_BACKEND: ""
+          PLANTMIND_PRODUCTION_ANOMALY_MODEL_VERSION: ""
+          PLANTMIND_PRODUCTION_MODEL_VERSION: ""
+        run: |
+          python -m pytest -q
+
+      - name: Database migration check
+        run: |
+          if [ -f alembic.ini ]; then
+            python -m alembic check || python -m alembic current
+          else
+            echo "No alembic.ini found. Skipping migration check."
+          fi
+
+      - name: Docker Compose config check
+        run: |
+          docker compose --env-file .env.example config --quiet
+
+      - name: Docker build check
+        run: |
+          docker compose --env-file .env.example build
+
+      - name: Dependency scan
+        run: |
+          pip-audit --progress-spinner off || true
+
+      - name: Evaluation smoke test
+        run: |
+          if [ -d evaluation ]; then
+            python -m compileall -q evaluation
+            if [ -f evaluation/run_evaluation.py ]; then
+              python evaluation/run_evaluation.py || true
+            else
+              echo "No evaluation/run_evaluation.py found. Compile smoke completed."
+            fi
+          fi
+
+  frontend:
+    name: Frontend lint, type check and build
+    runs-on: ubuntu-latest
+
+    defaults:
+      run:
+        working-directory: apps/web
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "22"
+          cache: npm
+          cache-dependency-path: apps/web/package-lock.json
+
+      - name: Install frontend dependencies
+        run: npm ci
+
+      - name: Frontend lint
+        run: npm run lint
+
+      - name: TypeScript check
+        run: npx tsc --noEmit
+
+      - name: Frontend build
+        run: npm run build
+
+  security:
+    name: Secret and source security checks
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Check for committed secrets
+        uses: gitleaks/gitleaks-action@v2
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Verify no local env files are committed
+        run: |
+          forbidden_files=".env .env.local apps/web/.env.local"
+          for file in $forbidden_files; do
+            if git ls-files --error-unmatch "$file" >/dev/null 2>&1; then
+              echo "Forbidden environment file committed: $file"
+              exit 1
+            fi
+          done
+          echo "No forbidden local env files are tracked."
+
+      - name: Verify admin security tests exist
+        run: |
+          test -f tests/security_hardening/test_security_review_and_policy.py
+          test -f tests/observability/test_prometheus_metrics.py

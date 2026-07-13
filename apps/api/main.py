@@ -17,6 +17,10 @@ from apps.api.routes.work_order_lifecycle import router as work_order_lifecycle_
 from apps.api.routes.post_maintenance_verification import router as post_maintenance_verification_router
 from apps.api.routes.compliance_evidence_package import router as compliance_evidence_package_router
 from apps.api.routes.model_registry import router as model_registry_router
+from apps.api.observability.middleware import PrometheusObservabilityMiddleware
+from apps.api.routes.observability import router as observability_router
+from apps.api.security_hardening.middleware import SecurityHardeningMiddleware
+from apps.api.routes.security_review import router as security_review_router
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
@@ -189,6 +193,10 @@ app.include_router(work_order_lifecycle_router)
 app.include_router(post_maintenance_verification_router)
 app.include_router(compliance_evidence_package_router)
 app.include_router(model_registry_router)
+app.include_router(observability_router)
+app.include_router(security_review_router)
+app.add_middleware(SecurityHardeningMiddleware)
+app.add_middleware(PrometheusObservabilityMiddleware)
 
 
 @app.get(
