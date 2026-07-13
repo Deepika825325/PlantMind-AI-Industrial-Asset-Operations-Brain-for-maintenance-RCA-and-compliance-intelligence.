@@ -16,6 +16,7 @@ from apps.api.routes.rca_orchestration import router as rca_orchestration_router
 from apps.api.routes.work_order_lifecycle import router as work_order_lifecycle_router
 from apps.api.routes.post_maintenance_verification import router as post_maintenance_verification_router
 from apps.api.routes.compliance_evidence_package import router as compliance_evidence_package_router
+from apps.api.routes.model_registry import router as model_registry_router
 from contextlib import asynccontextmanager
 from typing import AsyncIterator
 
@@ -187,6 +188,7 @@ app.include_router(rca_orchestration_router)
 app.include_router(work_order_lifecycle_router)
 app.include_router(post_maintenance_verification_router)
 app.include_router(compliance_evidence_package_router)
+app.include_router(model_registry_router)
 
 
 @app.get(
