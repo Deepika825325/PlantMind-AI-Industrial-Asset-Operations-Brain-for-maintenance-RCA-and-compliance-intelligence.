@@ -8,6 +8,8 @@ from apps.api.demo_closed_loop.schemas import (
     P101AnomalySignalContribution,
     P101FailureHypothesis,
     P101FailureHypothesisRanking,
+    P101SopEvidenceItem,
+    P101SopEvidenceResponse,
     P101ClosedLoopRunResponse,
     P101ClosedLoopState,
     P101ClosedLoopTimelineResponse,
@@ -374,6 +376,240 @@ class P101ClosedLoopDemoService:
                 "This shows the system moving beyond anomaly detection "
                 "into evidence-backed diagnostic reasoning with "
                 "contradictions, missing tests, and human approval."
+            ),
+        )
+
+
+    def sop_evidence(
+        self,
+    ) -> P101SopEvidenceResponse:
+        sop_evidence = [
+            P101SopEvidenceItem(
+                evidence_id="SOP-P101-001-CIT-001",
+                document_id="SOP-P101-001_Pump_Lubrication_and_Bearing_Check",
+                document_title=(
+                    "SOP-P101-001: Pump Lubrication and Bearing Check"
+                ),
+                document_type="SOP / Manual",
+                citation_label="[SOP-P101-001]",
+                excerpt=(
+                    "The pump lubrication and bearing check procedure "
+                    "defines inspection of lubricant condition, bearing "
+                    "health, and safe maintenance steps for P-101."
+                ),
+                relevance=(
+                    "Directly supports the lubrication degradation "
+                    "hypothesis and the work order to inspect and "
+                    "restore bearing lubrication."
+                ),
+                supports_decision=(
+                    "Inspect and restore P-101 bearing lubrication."
+                ),
+                required_action=(
+                    "Verify lubricant condition, lubricant quantity, "
+                    "bearing housing condition, and attach evidence."
+                ),
+                verification_requirement=(
+                    "Lubrication completion evidence must be attached "
+                    "before closing the maintenance action."
+                ),
+            ),
+            P101SopEvidenceItem(
+                evidence_id="SOP-P101-002-CIT-001",
+                document_id="SOP-P101-002_Pump_Vibration_Inspection",
+                document_title=(
+                    "SOP-P101-002: Pump Vibration Inspection"
+                ),
+                document_type="SOP / Manual",
+                citation_label="[SOP-P101-002]",
+                excerpt=(
+                    "The vibration inspection procedure defines "
+                    "post-maintenance vibration assessment and "
+                    "acceptable return-to-service checks."
+                ),
+                relevance=(
+                    "Supports post-maintenance verification after "
+                    "bearing or lubrication corrective action."
+                ),
+                supports_decision=(
+                    "Run vibration verification before returning P-101 "
+                    "to service."
+                ),
+                required_action=(
+                    "Perform vibration inspection and compare against "
+                    "approved operating limits."
+                ),
+                verification_requirement=(
+                    "Vibration must return to acceptable range before "
+                    "the work order can be closed."
+                ),
+            ),
+        ]
+
+        inspection_evidence = [
+            P101SopEvidenceItem(
+                evidence_id="IR-P101-001-CIT-001",
+                document_id="IR-P101-001_Pump_Vibration_Inspection",
+                document_title=(
+                    "IR-P101-001: Pump Vibration Inspection"
+                ),
+                document_type="Inspection Report",
+                citation_label="[IR-P101-001]",
+                excerpt=(
+                    "Inspection identified high vibration and abnormal "
+                    "mechanical noise near the bearing housing."
+                ),
+                relevance=(
+                    "Confirms that the anomaly is supported by physical "
+                    "inspection, not only telemetry."
+                ),
+                supports_decision=(
+                    "Prioritize bearing and lubrication inspection."
+                ),
+                required_action=(
+                    "Inspect bearing housing and perform vibration "
+                    "spectrum assessment."
+                ),
+                verification_requirement=(
+                    "Attach post-maintenance inspection readings."
+                ),
+            ),
+            P101SopEvidenceItem(
+                evidence_id="IR-P101-002-CIT-001",
+                document_id="IR-P101-002_Pump_Bearing_Temperature_Check",
+                document_title=(
+                    "IR-P101-002: Pump Bearing Temperature Check"
+                ),
+                document_type="Inspection Report",
+                citation_label="[IR-P101-002]",
+                excerpt=(
+                    "Bearing temperature was reported in warning range "
+                    "with an increasing trend."
+                ),
+                relevance=(
+                    "Supports the bearing-friction and lubrication "
+                    "degradation explanation."
+                ),
+                supports_decision=(
+                    "Check bearing temperature trend after maintenance."
+                ),
+                required_action=(
+                    "Validate bearing temperature after lubrication or "
+                    "bearing corrective action."
+                ),
+                verification_requirement=(
+                    "Bearing temperature must return to acceptable range."
+                ),
+            ),
+        ]
+
+        incident_evidence = [
+            P101SopEvidenceItem(
+                evidence_id="INC-P101-001-CIT-001",
+                document_id="INC-P101-001_High_Vibration_Event",
+                document_title="INC-P101-001: High Vibration Event",
+                document_type="Incident Report",
+                citation_label="[INC-P101-001]",
+                excerpt=(
+                    "P-101 high vibration event was opened for RCA "
+                    "after vibration, temperature, and abnormal noise "
+                    "were observed."
+                ),
+                relevance=(
+                    "Links the anomaly and RCA workflow to the original "
+                    "incident context."
+                ),
+                supports_decision=(
+                    "Keep incident open until RCA evidence and "
+                    "maintenance verification are complete."
+                ),
+                required_action=(
+                    "Link RCA, work order, and verification results to "
+                    "the incident."
+                ),
+                verification_requirement=(
+                    "Incident closure requires RCA and post-maintenance "
+                    "evidence."
+                ),
+            ),
+        ]
+
+        compliance_evidence = [
+            P101SopEvidenceItem(
+                evidence_id="COMP-001-CIT-001",
+                document_id="COMP-001_Compliance_Checklist",
+                document_title=(
+                    "COMP-001: PlantMind Demo Compliance Checklist"
+                ),
+                document_type="Compliance Checklist",
+                citation_label="[COMP-001]",
+                excerpt=(
+                    "Lubrication completion evidence for P-101 was not "
+                    "available during compliance review."
+                ),
+                relevance=(
+                    "Explains why missing lubrication evidence increases "
+                    "maintenance and audit risk."
+                ),
+                supports_decision=(
+                    "Require evidence attachment before closure."
+                ),
+                required_action=(
+                    "Attach lubrication evidence, safety checklist, and "
+                    "post-maintenance verification."
+                ),
+                verification_requirement=(
+                    "Compliance package must show completed evidence "
+                    "before final closure."
+                ),
+            ),
+        ]
+
+        return P101SopEvidenceResponse(
+            asset_id="P-101",
+            rca_case_id="RCA-P101-001",
+            question=(
+                "What SOP and evidence supports the P-101 maintenance "
+                "decision?"
+            ),
+            answer=(
+                "The P-101 maintenance decision is supported by the pump "
+                "lubrication SOP, vibration inspection SOP, inspection "
+                "reports confirming high vibration and bearing-temperature "
+                "increase, the high-vibration incident report, and the "
+                "compliance checklist showing missing lubrication evidence. "
+                "Together these sources justify inspecting lubrication, "
+                "bearing condition, alignment, and post-maintenance vibration "
+                "and temperature recovery before closure."
+            ),
+            maintenance_decision=(
+                "Inspect and restore bearing lubrication, inspect bearing "
+                "condition, verify alignment, and run post-maintenance "
+                "vibration and temperature checks."
+            ),
+            sop_evidence=sop_evidence,
+            inspection_evidence=inspection_evidence,
+            incident_evidence=incident_evidence,
+            compliance_evidence=compliance_evidence,
+            citation_trail=[
+                "[SOP-P101-001] defines lubrication and bearing check.",
+                "[SOP-P101-002] defines vibration verification.",
+                "[IR-P101-001] confirms high vibration and abnormal noise.",
+                "[IR-P101-002] confirms bearing temperature warning trend.",
+                "[INC-P101-001] links symptoms to the incident.",
+                "[COMP-001] confirms missing lubrication evidence.",
+            ],
+            confidence=0.92,
+            rag_status="grounded_with_citations",
+            governance_note=(
+                "The answer is evidence-grounded and citation-backed, "
+                "but PlantMind still requires engineer approval before "
+                "confirming RCA or closing the work order."
+            ),
+            judge_message=(
+                "This shows PlantMind acting as an industrial knowledge "
+                "assistant: it answers with SOPs, inspection evidence, "
+                "incident context, compliance gaps, and closure conditions."
             ),
         )
 

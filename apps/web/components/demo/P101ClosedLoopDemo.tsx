@@ -2,6 +2,7 @@
 
 import { P101AnomalyExplanationPanel } from "@/components/demo/P101AnomalyExplanationPanel";
 import { P101FailureHypothesisPanel } from "@/components/demo/P101FailureHypothesisPanel";
+import { P101SopEvidencePanel } from "@/components/demo/P101SopEvidencePanel";
 import {
   useMemo,
   useState,
@@ -379,6 +380,8 @@ export function P101ClosedLoopDemo() {
         <P101AnomalyExplanationPanel />
 
         <P101FailureHypothesisPanel />
+
+        <P101SopEvidencePanel />
 
         <P101AnomalyExplanationPanel />
 

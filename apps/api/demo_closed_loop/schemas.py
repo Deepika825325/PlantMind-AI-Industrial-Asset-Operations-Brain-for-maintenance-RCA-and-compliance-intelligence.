@@ -108,3 +108,33 @@ class P101FailureHypothesisRanking(BaseModel):
     linked_rca_evidence_ids: list[str]
     governance_note: str
     judge_message: str
+
+
+class P101SopEvidenceItem(BaseModel):
+    evidence_id: str
+    document_id: str
+    document_title: str
+    document_type: str
+    citation_label: str
+    excerpt: str
+    relevance: str
+    supports_decision: str
+    required_action: str
+    verification_requirement: str
+
+
+class P101SopEvidenceResponse(BaseModel):
+    asset_id: str
+    rca_case_id: str
+    question: str
+    answer: str
+    maintenance_decision: str
+    sop_evidence: list[P101SopEvidenceItem]
+    inspection_evidence: list[P101SopEvidenceItem]
+    incident_evidence: list[P101SopEvidenceItem]
+    compliance_evidence: list[P101SopEvidenceItem]
+    citation_trail: list[str]
+    confidence: float
+    rag_status: str
+    governance_note: str
+    judge_message: str
