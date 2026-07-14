@@ -1,3 +1,4 @@
+from apps.api.routes import demo_closed_loop
 from apps.api.routes.ingestion import router as ingestion_router
 from apps.api.routes.rag_indexing import router as rag_indexing_router
 from apps.api.routes.rag_answering import router as rag_answering_router
@@ -370,4 +371,16 @@ def test_structured_error():
             "Structured error handling "
             "is operational."
         ),
+    )
+
+if not any(
+    getattr(
+        route,
+        "path",
+        "",
+    ).startswith("/demo/p101")
+    for route in app.routes
+):
+    app.include_router(
+        demo_closed_loop.router
     )
