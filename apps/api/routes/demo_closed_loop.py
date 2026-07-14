@@ -4,6 +4,7 @@ from fastapi import APIRouter
 
 from apps.api.demo_closed_loop.schemas import (
     P101AnomalyExplanation,
+    P101FailureHypothesisRanking,
     P101ClosedLoopRunResponse,
     P101ClosedLoopState,
     P101ClosedLoopTimelineResponse,
@@ -59,3 +60,11 @@ def get_p101_closed_loop_timeline() -> P101ClosedLoopTimelineResponse:
 )
 def get_p101_anomaly_explanation() -> P101AnomalyExplanation:
     return demo_service.anomaly_explanation()
+
+
+@router.get(
+    "/failure-hypotheses",
+    response_model=P101FailureHypothesisRanking,
+)
+def get_p101_failure_hypotheses() -> P101FailureHypothesisRanking:
+    return demo_service.failure_hypotheses()

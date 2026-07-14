@@ -83,3 +83,28 @@ class P101AnomalyExplanation(BaseModel):
     human_review_required: bool
     human_review_reason: str
     judge_message: str
+
+
+class P101FailureHypothesis(BaseModel):
+    rank: int
+    failure_mode: str
+    display_name: str
+    probability: float
+    confidence_label: str
+    supporting_signals: list[str]
+    supporting_evidence_ids: list[str]
+    contradictory_evidence: list[str]
+    missing_tests: list[str]
+    recommended_next_action: str
+    human_approval_required: bool
+    decision_reason: str
+
+
+class P101FailureHypothesisRanking(BaseModel):
+    asset_id: str
+    rca_case_id: str
+    primary_hypothesis: str
+    hypotheses: list[P101FailureHypothesis]
+    linked_rca_evidence_ids: list[str]
+    governance_note: str
+    judge_message: str

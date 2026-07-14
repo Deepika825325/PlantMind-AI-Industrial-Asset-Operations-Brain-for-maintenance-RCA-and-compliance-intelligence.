@@ -6,6 +6,8 @@ from datetime import datetime, timezone
 from apps.api.demo_closed_loop.schemas import (
     P101AnomalyExplanation,
     P101AnomalySignalContribution,
+    P101FailureHypothesis,
+    P101FailureHypothesisRanking,
     P101ClosedLoopRunResponse,
     P101ClosedLoopState,
     P101ClosedLoopTimelineResponse,
@@ -176,6 +178,205 @@ class P101ClosedLoopDemoService:
                 "governance."
             ),
         )
+
+    def failure_hypotheses(
+        self,
+    ) -> P101FailureHypothesisRanking:
+        hypotheses = [
+            P101FailureHypothesis(
+                rank=1,
+                failure_mode="lubrication_degradation",
+                display_name="Lubrication degradation",
+                probability=0.37,
+                confidence_label="High",
+                supporting_signals=[
+                    "Missing lubrication evidence",
+                    "Bearing temperature rise",
+                    "Vibration escalation",
+                    "Abnormal mechanical noise",
+                ],
+                supporting_evidence_ids=[
+                    "P101-EV-001",
+                    "P101-EV-002",
+                    "P101-EV-003",
+                ],
+                contradictory_evidence=[
+                    "No lubricant laboratory analysis is currently available.",
+                ],
+                missing_tests=[
+                    "Lubricant condition inspection",
+                    "Lubricant quantity verification",
+                    "Bearing housing inspection",
+                ],
+                recommended_next_action=(
+                    "Inspect and restore bearing lubrication before "
+                    "confirming the RCA."
+                ),
+                human_approval_required=True,
+                decision_reason=(
+                    "Lubrication evidence is missing before the "
+                    "temperature and vibration escalation. This makes "
+                    "lubrication degradation the strongest explainable "
+                    "maintenance hypothesis."
+                ),
+            ),
+            P101FailureHypothesis(
+                rank=2,
+                failure_mode="bearing_damage",
+                display_name="Bearing wear or damage",
+                probability=0.29,
+                confidence_label="High",
+                supporting_signals=[
+                    "High vibration",
+                    "Bearing temperature rise",
+                    "Abnormal mechanical noise near bearing housing",
+                ],
+                supporting_evidence_ids=[
+                    "P101-EV-002",
+                    "P101-EV-003",
+                    "P101-EV-004",
+                ],
+                contradictory_evidence=[
+                    "Direct bearing inspection result is not yet attached.",
+                ],
+                missing_tests=[
+                    "Bearing clearance check",
+                    "Bearing visual inspection",
+                    "Vibration spectrum analysis",
+                ],
+                recommended_next_action=(
+                    "Inspect bearing condition and attach inspection "
+                    "evidence to the RCA case."
+                ),
+                human_approval_required=True,
+                decision_reason=(
+                    "The signal pattern is consistent with bearing "
+                    "wear, but confirmation requires physical inspection."
+                ),
+            ),
+            P101FailureHypothesis(
+                rank=3,
+                failure_mode="shaft_misalignment",
+                display_name="Shaft misalignment",
+                probability=0.18,
+                confidence_label="Medium",
+                supporting_signals=[
+                    "High vibration",
+                    "Slight RPM drop",
+                    "Motor current increase",
+                ],
+                supporting_evidence_ids=[
+                    "P101-EV-003",
+                    "P101-EV-004",
+                ],
+                contradictory_evidence=[
+                    "Alignment measurements have not yet been recorded.",
+                    "Temperature rise points more strongly to bearing friction.",
+                ],
+                missing_tests=[
+                    "Shaft alignment measurement",
+                    "Coupling inspection",
+                ],
+                recommended_next_action=(
+                    "Perform shaft alignment assessment before "
+                    "returning P-101 to service."
+                ),
+                human_approval_required=True,
+                decision_reason=(
+                    "Misalignment can explain vibration and current rise, "
+                    "but current evidence supports lubrication and bearing "
+                    "issues more strongly."
+                ),
+            ),
+            P101FailureHypothesis(
+                rank=4,
+                failure_mode="cavitation_or_hydraulic_instability",
+                display_name="Cavitation or hydraulic instability",
+                probability=0.11,
+                confidence_label="Low-Medium",
+                supporting_signals=[
+                    "Vibration",
+                    "Mechanical noise",
+                ],
+                supporting_evidence_ids=[
+                    "P101-EV-003",
+                ],
+                contradictory_evidence=[
+                    "No confirmed suction-pressure anomaly is available.",
+                    "Bearing temperature increase is more consistent with mechanical friction.",
+                ],
+                missing_tests=[
+                    "Suction pressure trend review",
+                    "Flow instability check",
+                    "Pump operating point verification",
+                ],
+                recommended_next_action=(
+                    "Check suction pressure and operating point only "
+                    "after bearing and lubrication checks are initiated."
+                ),
+                human_approval_required=True,
+                decision_reason=(
+                    "Hydraulic instability remains possible, but evidence "
+                    "is weaker than lubrication and bearing hypotheses."
+                ),
+            ),
+            P101FailureHypothesis(
+                rank=5,
+                failure_mode="sensor_fault",
+                display_name="Sensor fault or data-quality issue",
+                probability=0.05,
+                confidence_label="Low",
+                supporting_signals=[
+                    "Telemetry-driven anomaly score",
+                ],
+                supporting_evidence_ids=[
+                    "P101-EV-002",
+                ],
+                contradictory_evidence=[
+                    "Independent inspection confirmed abnormal vibration and noise.",
+                    "Multiple signals changed together instead of one isolated sensor.",
+                ],
+                missing_tests=[
+                    "Sensor calibration check",
+                    "Cross-check with handheld vibration reading",
+                ],
+                recommended_next_action=(
+                    "Perform calibration check, but do not treat this as "
+                    "the primary cause unless physical checks contradict "
+                    "the mechanical evidence."
+                ),
+                human_approval_required=True,
+                decision_reason=(
+                    "A pure sensor fault is unlikely because inspection "
+                    "evidence confirms physical symptoms."
+                ),
+            ),
+        ]
+
+        return P101FailureHypothesisRanking(
+            asset_id="P-101",
+            rca_case_id="RCA-P101-001",
+            primary_hypothesis="lubrication_degradation",
+            hypotheses=hypotheses,
+            linked_rca_evidence_ids=[
+                "P101-EV-001",
+                "P101-EV-002",
+                "P101-EV-003",
+                "P101-EV-004",
+                "RCA-P101-001",
+            ],
+            governance_note=(
+                "PlantMind ranks failure hypotheses and recommends "
+                "next tests, but it does not automatically confirm the "
+                "root cause or close the safety-critical work order."
+            ),
+            judge_message=(
+                "This shows the system moving beyond anomaly detection "
+                "into evidence-backed diagnostic reasoning with "
+                "contradictions, missing tests, and human approval."
+            ),
+        )
+
 
     def _build_state(
         self,
