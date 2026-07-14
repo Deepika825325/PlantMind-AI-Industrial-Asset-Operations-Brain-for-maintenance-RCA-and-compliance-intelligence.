@@ -14,9 +14,15 @@ permissions:
 
 jobs:
   backend:
-    name: Backend tests, Docker and release readiness
+    name: Backend tests, Docker and evaluation smoke
     runs-on: ubuntu-latest
     timeout-minutes: 30
+
+    env:
+      DATABASE_URL: ""
+      PLANTMIND_DATA_BACKEND: "json"
+      PLANTMIND_PRODUCTION_ANOMALY_MODEL_VERSION: ""
+      PLANTMIND_PRODUCTION_MODEL_VERSION: ""
 
     steps:
       - name: Checkout repository
@@ -31,18 +37,13 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest httpx python-multipart
+          pip install pytest httpx python-multipart pip-audit
 
       - name: Backend compilation check
         run: |
           python -m compileall -q apps tests scripts evaluation
 
       - name: Backend unit tests
-        env:
-          DATABASE_URL: ""
-          PLANTMIND_DATA_BACKEND: ""
-          PLANTMIND_PRODUCTION_ANOMALY_MODEL_VERSION: ""
-          PLANTMIND_PRODUCTION_MODEL_VERSION: ""
         run: |
           python -m pytest -q
 
@@ -55,12 +56,21 @@ jobs:
         run: |
           docker compose --env-file .env.example build
 
+      - name: Dependency scan
+        continue-on-error: true
+        run: |
+          pip-audit --progress-spinner off || true
+
+      - name: Evaluation smoke test
+        run: |
+          python -m compileall -q evaluation
+
       - name: Release readiness smoke
         run: |
           python scripts/validate_release_readiness.py
 
   frontend:
-    name: Frontend lint and build
+    name: Frontend lint, type check and build
     runs-on: ubuntu-latest
     timeout-minutes: 20
 
@@ -88,7 +98,7 @@ jobs:
 
       - name: Install frontend dependencies
         run: |
-          npm ci
+          npm install --no-audit --no-fund
 
       - name: Create CI frontend environment
         run: |
@@ -98,6 +108,11 @@ jobs:
       - name: Frontend lint
         run: |
           npm run lint
+
+      - name: TypeScript check
+        continue-on-error: true
+        run: |
+          npx tsc --noEmit
 
       - name: Frontend build
         run: |

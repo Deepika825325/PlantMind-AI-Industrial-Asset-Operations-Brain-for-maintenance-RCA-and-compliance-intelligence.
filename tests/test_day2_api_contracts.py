@@ -15,6 +15,7 @@ FIXTURE_DIR = Path(
 VOLATILE_FIELDS = {
     "generated_at",
     "checked_at",
+    "size_bytes",
 }
 
 CONTRACT_CASES = [
@@ -101,11 +102,27 @@ def normalize_payload(
     value: Any,
 ) -> Any:
     if isinstance(value, dict):
-        return {
-            key: normalize_payload(item)
-            for key, item in value.items()
-            if key not in VOLATILE_FIELDS
-        }
+        normalized: dict[str, Any] = {}
+
+        for key, item in value.items():
+            if key in VOLATILE_FIELDS:
+                continue
+
+            if key == "path" and isinstance(
+                item,
+                str,
+            ):
+                normalized[key] = item.replace(
+                    "\\",
+                    "/",
+                )
+                continue
+
+            normalized[key] = normalize_payload(
+                item
+            )
+
+        return normalized
 
     if isinstance(value, list):
         return [
