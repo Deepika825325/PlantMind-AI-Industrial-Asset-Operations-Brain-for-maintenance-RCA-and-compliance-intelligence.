@@ -1,4 +1,4 @@
-﻿name: PlantMind CI
+name: PlantMind CI
 
 on:
   push:
@@ -14,7 +14,7 @@ permissions:
 
 jobs:
   backend:
-    name: Backend tests and Docker config
+    name: Backend tests, Docker and release readiness
     runs-on: ubuntu-latest
 
     steps:
@@ -30,7 +30,7 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
-          pip install pytest
+          pip install pytest httpx
 
       - name: Backend compilation check
         run: |
@@ -45,13 +45,17 @@ jobs:
         run: |
           python -m pytest -q
 
-      - name: Release readiness smoke
-        run: |
-          python scripts/validate_release_readiness.py
-
       - name: Docker Compose config check
         run: |
           docker compose --env-file .env.example config --quiet
+
+      - name: Docker build check
+        run: |
+          docker compose --env-file .env.example build
+
+      - name: Release readiness smoke
+        run: |
+          python scripts/validate_release_readiness.py
 
   frontend:
     name: Frontend lint and build
@@ -73,12 +77,20 @@ jobs:
           cache-dependency-path: apps/web/package-lock.json
 
       - name: Install frontend dependencies
-        run: npm ci
+        run: |
+          npm ci --no-audit --no-fund
+
+      - name: Create CI frontend environment
+        run: |
+          echo "NEXT_PUBLIC_API_BASE_URL=http://127.0.0.1:8000" > .env.local
+          echo "NEXT_TELEMETRY_DISABLED=1" >> .env.local
 
       - name: Frontend lint
         run: npm run lint
 
       - name: Frontend build
+        env:
+          NEXT_TELEMETRY_DISABLED: "1"
         run: npm run build
 
   security:
@@ -88,6 +100,12 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
+
+      - name: Check for committed secrets
+        uses: gitleaks/gitleaks-action@v2
+        continue-on-error: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
       - name: Verify no local env files are committed
         run: |
