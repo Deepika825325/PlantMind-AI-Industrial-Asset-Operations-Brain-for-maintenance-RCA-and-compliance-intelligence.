@@ -6,6 +6,7 @@ from apps.api.demo_closed_loop.schemas import (
     P101AnomalyExplanation,
     P101FailureHypothesisRanking,
     P101SopEvidenceResponse,
+    P101EvaluationSummaryResponse,
     P101ClosedLoopRunResponse,
     P101ClosedLoopState,
     P101ClosedLoopTimelineResponse,
@@ -77,3 +78,11 @@ def get_p101_failure_hypotheses() -> P101FailureHypothesisRanking:
 )
 def get_p101_sop_evidence() -> P101SopEvidenceResponse:
     return demo_service.sop_evidence()
+
+
+@router.get(
+    "/evaluation-summary",
+    response_model=P101EvaluationSummaryResponse,
+)
+def get_p101_evaluation_summary() -> P101EvaluationSummaryResponse:
+    return demo_service.evaluation_summary()

@@ -138,3 +138,35 @@ class P101SopEvidenceResponse(BaseModel):
     rag_status: str
     governance_note: str
     judge_message: str
+
+
+class P101EvaluationMetric(BaseModel):
+    metric_name: str
+    display_name: str
+    score: float
+    status: str
+    evidence: list[str]
+    judge_readout: str
+
+
+class P101EvaluationGap(BaseModel):
+    gap_id: str
+    title: str
+    severity: str
+    explanation: str
+    mitigation: str
+
+
+class P101EvaluationSummaryResponse(BaseModel):
+    asset_id: str
+    demo_name: str
+    evaluation_version: str
+    overall_score: float
+    readiness_level: str
+    metrics: list[P101EvaluationMetric]
+    passed_checks: list[str]
+    open_gaps: list[P101EvaluationGap]
+    recommended_demo_order: list[str]
+    endpoints_validated: list[str]
+    governance_note: str
+    judge_message: str
