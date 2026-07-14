@@ -1,8 +1,9 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from fastapi import APIRouter
 
 from apps.api.demo_closed_loop.schemas import (
+    P101AnomalyExplanation,
     P101ClosedLoopRunResponse,
     P101ClosedLoopState,
     P101ClosedLoopTimelineResponse,
@@ -50,3 +51,11 @@ def get_p101_closed_loop_status() -> P101ClosedLoopState:
 )
 def get_p101_closed_loop_timeline() -> P101ClosedLoopTimelineResponse:
     return demo_service.timeline()
+
+
+@router.get(
+    "/anomaly-explanation",
+    response_model=P101AnomalyExplanation,
+)
+def get_p101_anomaly_explanation() -> P101AnomalyExplanation:
+    return demo_service.anomaly_explanation()

@@ -1,9 +1,11 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from copy import deepcopy
 from datetime import datetime, timezone
 
 from apps.api.demo_closed_loop.schemas import (
+    P101AnomalyExplanation,
+    P101AnomalySignalContribution,
     P101ClosedLoopRunResponse,
     P101ClosedLoopState,
     P101ClosedLoopTimelineResponse,
@@ -61,6 +63,117 @@ class P101ClosedLoopDemoService:
             asset_id=self._state.asset_id,
             timeline=deepcopy(
                 self._state.steps
+            ),
+        )
+
+    def anomaly_explanation(
+        self,
+    ) -> P101AnomalyExplanation:
+        return P101AnomalyExplanation(
+            asset_id="P-101",
+            model_name="plantmind-p101-anomaly-detector",
+            model_version="v0.3.11",
+            dataset_version="telemetry-demo-v1",
+            feature_version="p101-multivariate-features-v1",
+            anomaly_label="critical",
+            anomaly_score=0.87,
+            confidence=0.91,
+            explanation_summary=(
+                "P-101 was flagged because vibration and "
+                "bearing temperature increased together over "
+                "the degradation replay window. The combined "
+                "multivariate residual exceeded the production "
+                "threshold and matched the known high-vibration "
+                "bearing-temperature RCA pattern."
+            ),
+            primary_driver="vibration_mm_s",
+            baseline_window=(
+                "Healthy P-101 operating window before degradation"
+            ),
+            observation_window=(
+                "Latest degradation replay window"
+            ),
+            signal_contributions=[
+                P101AnomalySignalContribution(
+                    signal_name="vibration_mm_s",
+                    display_name="Vibration",
+                    baseline_value=2.4,
+                    observed_value=8.4,
+                    unit="mm/s",
+                    deviation_percent=250.0,
+                    contribution_weight=0.42,
+                    explanation=(
+                        "Vibration moved from normal range to "
+                        "a severe mechanical-degradation range, "
+                        "making it the strongest anomaly driver."
+                    ),
+                ),
+                P101AnomalySignalContribution(
+                    signal_name="bearing_temperature_deg_c",
+                    display_name="Bearing temperature",
+                    baseline_value=64.0,
+                    observed_value=91.0,
+                    unit="deg C",
+                    deviation_percent=42.2,
+                    contribution_weight=0.31,
+                    explanation=(
+                        "Bearing temperature rose together with "
+                        "vibration, strengthening the bearing "
+                        "wear or lubrication-degradation hypothesis."
+                    ),
+                ),
+                P101AnomalySignalContribution(
+                    signal_name="motor_current_a",
+                    display_name="Motor current",
+                    baseline_value=18.7,
+                    observed_value=24.0,
+                    unit="A",
+                    deviation_percent=28.3,
+                    contribution_weight=0.17,
+                    explanation=(
+                        "Motor current increased moderately, "
+                        "suggesting higher mechanical load rather "
+                        "than an isolated sensor spike."
+                    ),
+                ),
+                P101AnomalySignalContribution(
+                    signal_name="rpm",
+                    display_name="RPM",
+                    baseline_value=1480.0,
+                    observed_value=1455.0,
+                    unit="rpm",
+                    deviation_percent=-1.7,
+                    contribution_weight=0.10,
+                    explanation=(
+                        "RPM dipped slightly while vibration and "
+                        "current increased, supporting a "
+                        "mechanical-load interpretation."
+                    ),
+                ),
+            ],
+            supporting_evidence_ids=[
+                "P101-EV-001",
+                "P101-EV-002",
+                "P101-EV-003",
+                "RCA-P101-001",
+            ],
+            model_registry_endpoint=(
+                "/mlops/model-registry/production/"
+                "plantmind-p101-anomaly-detector"
+            ),
+            telemetry_endpoint="/telemetry/assets/P-101/summary",
+            human_review_required=True,
+            human_review_reason=(
+                "The model can flag degradation and explain "
+                "dominant signals, but maintenance approval "
+                "still requires engineer review of RCA evidence, "
+                "safety procedure, and post-maintenance checks."
+            ),
+            judge_message=(
+                "This converts anomaly detection from a black-box "
+                "score into a maintenance explanation connected "
+                "to evidence, RCA, model versioning, and human "
+                "governance."
             ),
         )
 

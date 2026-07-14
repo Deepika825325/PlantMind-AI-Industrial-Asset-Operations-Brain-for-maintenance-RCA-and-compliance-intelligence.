@@ -1,5 +1,6 @@
 "use client";
 
+import { P101AnomalyExplanationPanel } from "@/components/demo/P101AnomalyExplanationPanel";
 import {
   useMemo,
   useState,
@@ -373,6 +374,8 @@ export function P101ClosedLoopDemo() {
             </p>
           </div>
         </div>
+
+        <P101AnomalyExplanationPanel />
 
         <div className="mt-8 grid gap-4">
           {state.steps.map((step, index) => (

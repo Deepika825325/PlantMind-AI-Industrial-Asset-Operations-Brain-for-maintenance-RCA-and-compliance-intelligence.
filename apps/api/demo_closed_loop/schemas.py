@@ -1,4 +1,4 @@
-﻿from __future__ import annotations
+from __future__ import annotations
 
 from typing import Literal
 
@@ -51,3 +51,35 @@ class P101ClosedLoopTimelineResponse(BaseModel):
 
 class P101ClosedLoopRunResponse(BaseModel):
     state: P101ClosedLoopState
+
+class P101AnomalySignalContribution(BaseModel):
+    signal_name: str
+    display_name: str
+    baseline_value: float
+    observed_value: float
+    unit: str
+    deviation_percent: float
+    contribution_weight: float
+    explanation: str
+
+
+class P101AnomalyExplanation(BaseModel):
+    asset_id: str
+    model_name: str
+    model_version: str
+    dataset_version: str
+    feature_version: str
+    anomaly_label: str
+    anomaly_score: float
+    confidence: float
+    explanation_summary: str
+    primary_driver: str
+    baseline_window: str
+    observation_window: str
+    signal_contributions: list[P101AnomalySignalContribution]
+    supporting_evidence_ids: list[str]
+    model_registry_endpoint: str
+    telemetry_endpoint: str
+    human_review_required: bool
+    human_review_reason: str
+    judge_message: str
