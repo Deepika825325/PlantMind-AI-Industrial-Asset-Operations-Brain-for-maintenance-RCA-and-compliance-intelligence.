@@ -405,6 +405,65 @@ export default async function HomePage() {
           </div>
         </div>
       </section>
-    </main>
+
+      {/* PlantMind Nexus final demo CTA */}
+      <section className="mx-auto mt-10 max-w-7xl px-6 pb-12">
+        <div className="rounded-3xl border border-cyan-900/70 bg-cyan-950/20 p-6 shadow-2xl shadow-cyan-950/20 md:p-8">
+          <div className="grid gap-6 lg:grid-cols-[1.4fr_0.6fr] lg:items-center">
+            <div>
+              <p className="text-sm font-medium uppercase tracking-[0.3em] text-cyan-300">
+                Final Judge Demo
+              </p>
+
+              <h2 className="mt-4 text-3xl font-semibold tracking-tight text-slate-100">
+                P-101 Closed-Loop Industrial Maintenance Intelligence
+              </h2>
+
+              <p className="mt-4 max-w-3xl text-sm leading-6 text-slate-300">
+                Walk through telemetry degradation, anomaly explanation,
+                failure hypothesis ranking, SOP/RAG evidence, governed work
+                orders, recovery verification, and audit-ready compliance in
+                one guided demo.
+              </p>
+
+              <div className="mt-5 flex flex-wrap gap-2 text-xs text-slate-300">
+                <span className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1">
+                  Anomaly explanation
+                </span>
+                <span className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1">
+                  RCA hypothesis ranking
+                </span>
+                <span className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1">
+                  SOP evidence trail
+                </span>
+                <span className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1">
+                  Judge metrics
+                </span>
+              </div>
+            </div>
+
+            <div className="rounded-2xl border border-slate-800 bg-slate-950 p-5">
+              <p className="text-sm text-slate-500">
+                Recommended first page during demo
+              </p>
+
+              <Link
+                href="/demo/p101-closed-loop"
+                className="mt-4 inline-flex w-full justify-center rounded-full bg-cyan-400 px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+              >
+                Open P-101 Demo
+              </Link>
+
+              <p className="mt-4 text-xs leading-5 text-slate-500">
+                Use this page as the main hackathon walkthrough before showing
+                detailed modules like RCA, work orders, compliance, and model
+                registry.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+</main>
   );
 }

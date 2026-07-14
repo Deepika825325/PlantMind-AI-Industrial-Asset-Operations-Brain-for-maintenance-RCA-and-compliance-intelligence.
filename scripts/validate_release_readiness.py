@@ -14,6 +14,7 @@ REQUIRED_DOCS = [
 ]
 
 REQUIRED_FRONTEND_ROUTES = [
+    Path("apps/web/app/demo/p101-closed-loop"),
     Path("apps/web/app/asset-health"),
     Path("apps/web/app/incidents"),
     Path("apps/web/app/rca-orchestration"),

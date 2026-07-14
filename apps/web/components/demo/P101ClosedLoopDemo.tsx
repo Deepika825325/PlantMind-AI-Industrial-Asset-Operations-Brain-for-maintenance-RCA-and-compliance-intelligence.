@@ -359,7 +359,7 @@ export function P101ClosedLoopDemo() {
             </p>
 
             <h2 className="mt-3 text-2xl font-semibold">
-              {state.asset_id} ? {state.asset_name}
+              {state.asset_id} - {state.asset_name}
             </h2>
 
             <p className="mt-4 text-sm leading-6 text-slate-400">
@@ -385,8 +385,6 @@ export function P101ClosedLoopDemo() {
         <P101SopEvidencePanel />
 
         <P101EvaluationSummaryPanel />
-
-        <P101AnomalyExplanationPanel />
 
         <div className="mt-8 grid gap-4">
           {state.steps.map((step, index) => (
